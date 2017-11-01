@@ -10,6 +10,10 @@ public:
   MultilayerNetwork();
   ~MultilayerNetwork();
 
+  void addLayer(int);
+
+  std::vector<Layer*> getLayers(void);
+
 private:
   std::vector<Layer*> mLayers;
 };

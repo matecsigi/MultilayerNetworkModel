@@ -8,9 +8,14 @@ Node::Node(void)
   cout<<"New node created"<<endl;
 }
 
+Node::Node(int id)
+{
+  mId = id;
+  cout<<"New node with id="<<mId<<endl;
+}
+
 Node::~Node(void)
 {
-  cout<<"Node destroyed"<<endl;
 }
 
 void Node::step(void)

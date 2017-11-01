@@ -8,7 +8,10 @@ class Layer
 {
 public:
   Layer();
+  Layer(int);
   ~Layer();
+
+  void addNode(int);
 
 private:
   int mLayerId;

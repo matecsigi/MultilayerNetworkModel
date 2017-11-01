@@ -7,6 +7,7 @@ class Node
 {
 public:
   Node();
+  Node(int);
   ~Node();
   void step(); //set return type if necessary
 

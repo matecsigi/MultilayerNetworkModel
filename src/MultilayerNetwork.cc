@@ -10,5 +10,18 @@ MultilayerNetwork::MultilayerNetwork(void)
 
 MultilayerNetwork::~MultilayerNetwork(void)
 {
-  cout<<"Destroying network"<<endl;
+  for(std::vector<Layer*>::iterator it=mLayers.begin(); it != mLayers.end(); ++it)
+  {
+    delete (*it);
+  }
+}
+
+void MultilayerNetwork::addLayer(int id)
+{
+  mLayers.push_back(new Layer(id));
+}
+
+std::vector<Layer*> MultilayerNetwork::getLayers(void)
+{
+  return mLayers;
 }
