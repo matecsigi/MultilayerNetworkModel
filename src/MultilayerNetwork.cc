@@ -16,9 +16,9 @@ MultilayerNetwork::~MultilayerNetwork(void)
   }
 }
 
-void MultilayerNetwork::addLayer(int id)
+void MultilayerNetwork::addLayer(int layerId)
 {
-  mLayers.push_back(new Layer(id));
+  mLayers.push_back(new Layer(layerId));
 }
 
 std::vector<Layer*> MultilayerNetwork::getLayers(void)

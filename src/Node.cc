@@ -10,8 +10,8 @@ Node::Node(void)
 
 Node::Node(int id)
 {
-  mId = id;
-  cout<<"New node with id="<<mId<<endl;
+  mNodeId = id;
+  cout<<"New node with id="<<mNodeId<<endl;
 }
 
 Node::~Node(void)

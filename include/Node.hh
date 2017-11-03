@@ -12,7 +12,7 @@ public:
   void step(); //set return type if necessary
 
 private:
-  int mId;
+  int mNodeId;
   std::vector<Node*> mNodesUp;
   std::vector<Node*> mNodesDown;
   std::vector<Node*> mNodesOnLayer;

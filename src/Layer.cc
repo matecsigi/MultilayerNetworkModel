@@ -16,13 +16,18 @@ Layer::Layer(int id)
 
 Layer::~Layer(void)
 {
-  for(std::vector<Node*>::iterator it = mNodesInLayer.begin(); it != mNodesInLayer.end(); ++it)
+  for(std::vector<Network*>::iterator it = mNetworksInLayer.begin(); it != mNetworksInLayer.end(); ++it)
   {
     delete (*it);
   }
 }
 
-void Layer::addNode(int nodeId)
+void Layer::addNetwork(int networkId)
 {
-  mNodesInLayer.push_back(new Node(nodeId));
+  mNetworksInLayer.push_back(new Network(networkId));
+}
+
+std::vector<Network*> Layer::getNetworks(void)
+{
+  return mNetworksInLayer;
 }

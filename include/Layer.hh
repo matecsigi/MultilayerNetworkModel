@@ -1,7 +1,7 @@
 #ifndef LAYER_HH
 #define LAYER_HH
 
-#include "Node.hh"
+#include "Network.hh"
 #include <vector>
 
 class Layer
@@ -11,10 +11,12 @@ public:
   Layer(int);
   ~Layer();
 
-  void addNode(int);
+  void addNetwork(int networkId);
+
+  std::vector<Network*> getNetworks(void);
 
 private:
   int mLayerId;
-  std::vector<Node*> mNodesInLayer;
+  std::vector<Network*> mNetworksInLayer;
 };
 #endif
