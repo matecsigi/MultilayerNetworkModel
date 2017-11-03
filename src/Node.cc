@@ -22,3 +22,8 @@ void Node::step(void)
 {
   cout<<"Stepping node"<<endl;
 }
+
+int Node::getId(void) const
+{
+  return mNodeId;
+}

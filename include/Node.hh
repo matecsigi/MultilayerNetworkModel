@@ -9,7 +9,10 @@ public:
   Node();
   Node(int);
   ~Node();
+
   void step(); //set return type if necessary
+
+  int getId(void) const;
 
 private:
   int mNodeId;

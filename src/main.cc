@@ -4,6 +4,8 @@
 #include "Network.hh"
 #include "Node.hh"
 
+using namespace std;
+
 int main(void)
 {
   std::cout<<"Hello World!"<<std::endl;
@@ -34,6 +36,8 @@ int main(void)
 	  }
       }
   }
+  
+  cout<<multiNetwork;
 
   return 0;
 }

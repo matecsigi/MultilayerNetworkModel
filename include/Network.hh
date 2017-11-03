@@ -12,8 +12,9 @@ public:
   ~Network();
 
   void addNode(int nodeId);
-
   std::vector<Node*> getNodes(void);
+
+  int getId(void) const;
 
 private:
   int mNetworkId;

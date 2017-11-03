@@ -3,6 +3,7 @@
 
 #include "Layer.hh"
 #include <vector>
+#include <iostream>
 
 class MultilayerNetwork
 {
@@ -11,8 +12,9 @@ public:
   ~MultilayerNetwork();
 
   void addLayer(int layerId);
+  std::vector<Layer*> getLayers(void) const;
 
-  std::vector<Layer*> getLayers(void);
+  friend std::ostream& operator<<(std::ostream& os, const MultilayerNetwork& multilayerNetwork);
 
 private:
   std::vector<Layer*> mLayers;

@@ -31,3 +31,8 @@ std::vector<Network*> Layer::getNetworks(void)
 {
   return mNetworksInLayer;
 }
+
+int Layer::getId(void) const
+{
+  return mLayerId;
+}

@@ -32,3 +32,8 @@ std::vector<Node*> Network::getNodes(void)
 {
   return mNodesInNetwork;
 }
+
+int Network::getId(void) const
+{
+  return mNetworkId;
+}

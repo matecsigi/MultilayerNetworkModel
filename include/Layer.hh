@@ -12,8 +12,9 @@ public:
   ~Layer();
 
   void addNetwork(int networkId);
-
   std::vector<Network*> getNetworks(void);
+
+  int getId(void) const;
 
 private:
   int mLayerId;
