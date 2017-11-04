@@ -44,6 +44,21 @@ ostream& operator<<(ostream& os, const MultilayerNetwork& multilayerNetwork)
       {
 	Node* currentNode = (*it3);
 	os<<"    ---Node "<<currentNode->getId()<<endl;
+	
+	//uncomment to check if the correct networks are assigned to nodes
+	std::vector<Network*> networksToNode = currentNode->getNetworks();
+	if(networksToNode.size() > 0)
+	{
+	  std::vector<Node*> neighbors = networksToNode[0]->getNodeNeighbors(currentNode->getId());
+	  for(std::vector<Node*>::iterator it4=neighbors.begin(); it4 != neighbors.end(); ++it4)
+	  {
+	    os<<"       "<<(*it4)->getId()<<endl;
+	  }
+	}
+	else
+	{
+	  os<<"       /no net assigned"<<endl;
+	}
       }
     }
   }

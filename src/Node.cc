@@ -23,7 +23,17 @@ void Node::step(void)
   cout<<"Stepping node"<<endl;
 }
 
+void Node::addToNetwork(Network* networkPtr)
+{
+  mNetworks.push_back(networkPtr);
+}
+
 int Node::getId(void) const
 {
   return mNodeId;
+}
+
+std::vector<Network*> Node::getNetworks(void) const
+{
+  return mNetworks;
 }

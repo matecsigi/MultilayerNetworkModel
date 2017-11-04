@@ -12,13 +12,21 @@ public:
   ~Network();
 
   void addNode(int nodeId);
-  std::vector<Node*> getNodes(void);
+  void addEdge(int nodeId1, int nodeId2);
+
+  //creating a graph
+  void generateConnections(void);
 
   int getId(void) const;
+  int getLocalId(int id);
+  std::vector<Node*> getNodes(void);
+  std::vector<Node*> getNodeNeighbors(int nodeId);
 
 private:
   int mNetworkId;
-  std::vector<Node*> mNodesInNetwork;
+  Node* mNodeAssigned;
+  std::vector<Node*> mNodes;
+  std::vector<std::vector<Node*> > mNodeConnections;
 };
 
 #endif

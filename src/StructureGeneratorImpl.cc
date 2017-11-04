@@ -29,10 +29,11 @@ MultilayerNetwork StructureGeneratorImpl::generateStructure(void)
     for(std::vector<Network*>::iterator it2=networks.begin(); it2 != networks.end(); ++it2)
       {
 	for(int i=0; i<3; i++)
-	  {
-	    (*it2)->addNode(nodeIdCounter);
-	    ++nodeIdCounter;
-	  }
+	{
+	  (*it2)->addNode(nodeIdCounter);
+	  ++nodeIdCounter;
+	}
+	(*it2)->generateConnections();
       }
   }
   

@@ -3,6 +3,8 @@
 
 #include <vector>
 
+class Network;
+
 class Node
 {
 public:
@@ -12,12 +14,14 @@ public:
 
   void step(); //set return type if necessary
 
+  void addToNetwork(Network* networkPtr);
+
   int getId(void) const;
+std::vector<Network*> getNetworks(void) const;
 
 private:
   int mNodeId;
-  std::vector<Node*> mNodesUp;
-  std::vector<Node*> mNodesDown;
-  std::vector<Node*> mNodesOnLayer;
+  std::vector<Network*> mNetworks;
+  Network* mNetworkAssigned; //should be one
 };
 #endif
