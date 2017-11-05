@@ -5,15 +5,14 @@
 
 using namespace std;
 
-MultilayerNetwork StructureGeneratorImpl::generateStructure(void)
+void StructureGeneratorImpl::generateStructure(MultilayerNetwork* multilayerNetwork)
 {
-  MultilayerNetwork multilayerNetwork;
   for(int i=0;i<3;i++)
   {
-    multilayerNetwork.addLayer(i);
+    multilayerNetwork->addLayer(i);
   }
 
-  std::vector<Layer*> layers = multilayerNetwork.getLayers();
+  std::vector<Layer*> layers = multilayerNetwork->getLayers();
   int networkIdCounter = 0;
   for(std::vector<Layer*>::iterator it=layers.begin(); it != layers.end(); ++it)
   {
@@ -57,7 +56,5 @@ MultilayerNetwork StructureGeneratorImpl::generateStructure(void)
       }
   }
 
-  cout<<multilayerNetwork;
-
-  return multilayerNetwork;
+  cout<<*multilayerNetwork;
 }

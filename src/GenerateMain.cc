@@ -12,8 +12,12 @@ int main(void)
 {
   cout<<"Start generation"<<endl;
 
+  MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
+
   IStructureGenerator* generator = new StructureGeneratorImpl();
-  generator->generateStructure();
+  generator->generateStructure(multilayerNetwork);
+
+  delete multilayerNetwork;
 
   return 0;
 }

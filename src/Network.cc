@@ -17,11 +17,11 @@ Network::Network(int id)
 
 Network::~Network(void)
 {
+  std::cout<<"    Network "<<this->getId()<<std::endl;
   for(std::vector<Node*>::iterator it = mNodes.begin(); it != mNodes.end(); ++it)
   {
     delete (*it);
   }
-
 }
 
 void Network::addNode(int nodeId)

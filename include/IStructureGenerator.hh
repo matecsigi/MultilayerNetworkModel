@@ -7,9 +7,9 @@ class IStructureGenerator
 {
 public:
   IStructureGenerator(void){};
-  ~IStructureGenerator(void){};
+  virtual ~IStructureGenerator(void){};
 
-  virtual MultilayerNetwork generateStructure() = 0;
+  virtual void generateStructure(MultilayerNetwork*) = 0;
 };
 
 #endif
