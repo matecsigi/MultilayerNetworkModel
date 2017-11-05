@@ -1,8 +1,9 @@
 #ifndef NETWORK_HH
 #define NETWORK_HH
 
-#include "Node.hh"
 #include <vector>
+
+class Node;
 
 class Network
 {
@@ -13,7 +14,8 @@ public:
 
   void addNode(int nodeId);
   void addEdge(int nodeId1, int nodeId2);
-
+  void assignToNode(Node *node);
+  
   //creating a graph
   void generateConnections(void);
 

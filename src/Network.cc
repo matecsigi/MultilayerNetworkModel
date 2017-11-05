@@ -3,17 +3,16 @@
 #include <algorithm>
 #include <assert.h>
 
+#include "Node.hh"
 using namespace std;
 
 Network::Network(void)
 {
-  cout<<"Creating network"<<endl;
 }
 
 Network::Network(int id)
 {
   mNetworkId = id;
-  cout<<"Creating network with id="<<mNetworkId<<endl;
 }
 
 Network::~Network(void)
@@ -59,6 +58,11 @@ void Network::addEdge(int nodeId1, int nodeId2)
   // }
 
   return;
+}
+
+void Network::assignToNode(Node* node)
+{
+  mNodeAssigned = node;
 }
 
 void Network::generateConnections(void)

@@ -1,9 +1,8 @@
 #ifndef NODE_HH
 #define NODE_HH
 
+#include "Network.hh"
 #include <vector>
-
-class Network;
 
 class Node
 {
@@ -15,6 +14,7 @@ public:
   void step(); //set return type if necessary
 
   void addToNetwork(Network* networkPtr);
+  void assignToNetwork(Network* network);
 
   int getId(void) const;
 std::vector<Network*> getNetworks(void) const;

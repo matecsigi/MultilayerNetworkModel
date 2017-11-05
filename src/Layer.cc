@@ -5,13 +5,11 @@ using namespace std;
 
 Layer::Layer(void)
 {
-  cout<<"Creating layer"<<endl;
 }
 
 Layer::Layer(int id)
 {
   mLayerId = id;
-  cout<<"Creating layer with id="<<mLayerId<<endl;
 }
 
 Layer::~Layer(void)

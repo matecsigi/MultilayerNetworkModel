@@ -1,6 +1,7 @@
 #ifndef MULTILAYERNETWORK_HH
 #define MULTILAYERNETWORK_HH
 
+#include "Node.hh"
 #include "Layer.hh"
 #include <vector>
 #include <iostream>

@@ -5,13 +5,11 @@ using namespace std;
 
 Node::Node(void)
 {
-  cout<<"New node created"<<endl;
 }
 
 Node::Node(int id)
 {
   mNodeId = id;
-  cout<<"New node with id="<<mNodeId<<endl;
 }
 
 Node::~Node(void)
@@ -26,6 +24,13 @@ void Node::step(void)
 void Node::addToNetwork(Network* networkPtr)
 {
   mNetworks.push_back(networkPtr);
+}
+
+void Node::assignToNetwork(Network* network)
+{
+  mNetworkAssigned = network;
+  network->assignToNode(this);
+
 }
 
 int Node::getId(void) const
