@@ -35,20 +35,20 @@ void Network::addNode(int nodeId)
 }
 
 //TODO: decide if edges should be directed or not
-void Network::addEdge(int nodeId1, int nodeId2)
+void Network::addEdge(int localNodeId1, int localNodeId2)
 {
   //check if has nodes
-  int localId1 = getLocalId(nodeId1);
-  int localId2 = getLocalId(nodeId2);
+  // int localId1 = getLocalId(nodeId1);
+  // int localId2 = getLocalId(nodeId2);
   //error handling
   //-1 is network has no node with given id
-  assert(localId1 != -1);
-  assert(localId2 != -1);
+  // assert(localId1 != -1);
+  // assert(localId2 != -1);
   
   //check if edge exists
-  if(std::find(mNodeConnections[localId1].begin(), mNodeConnections[localId1].end(), mNodes[localId2]) == mNodeConnections[localId1].end()) 
+  if(std::find(mNodeConnections[localNodeId1].begin(), mNodeConnections[localNodeId1].end(), mNodes[localNodeId2]) == mNodeConnections[localNodeId1].end()) 
   {
-    mNodeConnections[localId1].push_back(mNodes[localId2]);
+    mNodeConnections[localNodeId1].push_back(mNodes[localNodeId2]);
   }
 
   //uncomment to have undirected edges
@@ -70,7 +70,7 @@ void Network::generateConnections(void)
   //creating a circular graph
   for(unsigned i=1; i<mNodes.size(); ++i)
   {
-    addEdge(mNodes[i]->getId(), mNodes[i-1]->getId());
+    addEdge(i, i-1);
   }
 }
 

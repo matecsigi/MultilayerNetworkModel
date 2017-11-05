@@ -13,7 +13,7 @@ public:
   ~Network();
 
   void addNode(int nodeId);
-  void addEdge(int nodeId1, int nodeId2);
+  void addEdge(int localNodeId1, int localNodeId2);
   void assignToNode(Node *node);
   
   //creating a graph
