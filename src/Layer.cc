@@ -14,7 +14,6 @@ Layer::Layer(int id)
 
 Layer::~Layer(void)
 {
-  std::cout<<"  Layer "<<this->getId()<<std::endl;  
   for(std::vector<Network*>::iterator it = mNetworksInLayer.begin(); it != mNetworksInLayer.end(); ++it)
   {
     delete (*it);

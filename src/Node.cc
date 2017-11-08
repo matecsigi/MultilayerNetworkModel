@@ -5,11 +5,13 @@ using namespace std;
 
 Node::Node(void)
 {
+  mNetworkAssigned = NULL;
 }
 
 Node::Node(int id)
 {
   mNodeId = id;
+  mNetworkAssigned = NULL;
 }
 
 Node::~Node(void)
@@ -36,6 +38,11 @@ void Node::assignToNetwork(Network* network)
 int Node::getId(void) const
 {
   return mNodeId;
+}
+
+Network* Node::getNetworkAssigned(void) const
+{
+  return mNetworkAssigned;
 }
 
 std::vector<Network*> Node::getNetworks(void) const

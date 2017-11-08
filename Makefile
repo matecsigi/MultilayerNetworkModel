@@ -2,7 +2,7 @@ SRCDIR := src
 BUILDDIR := build
 GENERATE-SOURCES := build/GenerateMain.o
 SIMULATE-SOURCES := build/SimulateMain.o
-TEST-SOURCES := build/test_Network_addEdge.o
+TEST-SOURCES := build/test_StructureGeneration.o
 
 SRCEXT := cc
 SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))

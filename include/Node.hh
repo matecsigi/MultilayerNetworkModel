@@ -17,11 +17,12 @@ public:
   void assignToNetwork(Network* network);
 
   int getId(void) const;
-std::vector<Network*> getNetworks(void) const;
+  Network* getNetworkAssigned(void) const;
+  std::vector<Network*> getNetworks(void) const;
 
 private:
   int mNodeId;
+  Network* mNetworkAssigned;
   std::vector<Network*> mNetworks;
-  Network* mNetworkAssigned; //should be one
 };
 #endif

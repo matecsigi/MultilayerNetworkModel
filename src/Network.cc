@@ -8,16 +8,17 @@ using namespace std;
 
 Network::Network(void)
 {
+  mNodeAssigned = NULL;
 }
 
 Network::Network(int id)
 {
   mNetworkId = id;
+  mNodeAssigned = NULL;
 }
 
 Network::~Network(void)
 {
-  std::cout<<"    Network "<<this->getId()<<std::endl;
   for(std::vector<Node*>::iterator it = mNodes.begin(); it != mNodes.end(); ++it)
   {
     delete (*it);
@@ -50,12 +51,6 @@ void Network::addEdge(int localNodeId1, int localNodeId2)
   {
     mNodeConnections[localNodeId1].push_back(mNodes[localNodeId2]);
   }
-
-  //uncomment to have undirected edges
-  // if(std::find(mNodeConnections[localId2].begin(), mNodeConnections[localId2].end(), mNodes[localId1]) == mNodeConnections[localId2].end())
-  // {
-  //   mNodeConnections[localId2].push_back(mNodes[localId1]);
-  // }
 
   return;
 }
@@ -91,6 +86,11 @@ int Network::getLocalId(int id)
     ++counter;
   }
   return -1;
+}
+
+Node* Network::getNodeAssigned(void) const
+{
+  return mNodeAssigned;
 }
 
 std::vector<Node*> Network::getNodes(void)

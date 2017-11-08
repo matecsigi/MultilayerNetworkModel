@@ -56,5 +56,5 @@ void StructureGeneratorImpl::generateStructure(MultilayerNetwork* multilayerNetw
       }
   }
 
-  cout<<*multilayerNetwork;
+  //cout<<*multilayerNetwork;
 }

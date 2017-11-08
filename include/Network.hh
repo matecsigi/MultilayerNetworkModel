@@ -21,6 +21,7 @@ public:
 
   int getId(void) const;
   int getLocalId(int id);
+  Node* getNodeAssigned(void) const;
   std::vector<Node*> getNodes(void);
   std::vector<Node*> getNodeNeighbors(int nodeId);
 
