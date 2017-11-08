@@ -42,8 +42,8 @@ BOOST_AUTO_TEST_CASE(generateStructure_LayerIdUniqueness)
 {
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork();
 
-  IStructureGenerator* generator = new StructureGeneratorImpl();
-  generator->generateStructure(multilayerNetwork);
+  IStructureGenerator* generator = new StructureGeneratorImpl(multilayerNetwork);
+  generator->generateStructure();
 
   std::vector<Layer*> layers = multilayerNetwork->getLayers();
   std::vector<int> layerIds;
@@ -64,8 +64,8 @@ BOOST_AUTO_TEST_CASE(generateStructure_NetworkIdUniqueness)
 {
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork();
 
-  IStructureGenerator* generator = new StructureGeneratorImpl();
-  generator->generateStructure(multilayerNetwork);
+  IStructureGenerator* generator = new StructureGeneratorImpl(multilayerNetwork);
+  generator->generateStructure();
 
   std::vector<Layer*> layers = multilayerNetwork->getLayers();
   std::vector<int> networkIds;
@@ -90,8 +90,8 @@ BOOST_AUTO_TEST_CASE(generateStructure_NodeIdUniqueness)
 {
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork();
 
-  IStructureGenerator* generator = new StructureGeneratorImpl();
-  generator->generateStructure(multilayerNetwork);
+  IStructureGenerator* generator = new StructureGeneratorImpl(multilayerNetwork);
+  generator->generateStructure();
 
   std::vector<Layer*> layers = multilayerNetwork->getLayers();
   std::vector<int> nodeIds;
@@ -121,8 +121,8 @@ BOOST_AUTO_TEST_CASE(generateStructure_NetworkToNodeAssignment)
 {
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork();
 
-  IStructureGenerator* generator = new StructureGeneratorImpl();
-  generator->generateStructure(multilayerNetwork);
+  IStructureGenerator* generator = new StructureGeneratorImpl(multilayerNetwork);
+  generator->generateStructure();
 
   std::vector<Layer*> layers = multilayerNetwork->getLayers();
   int noNetworkAssigned = 0;
@@ -153,8 +153,8 @@ BOOST_AUTO_TEST_CASE(generateStructure_NodeToNetworkAssignment)
 {
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork();
 
-  IStructureGenerator* generator = new StructureGeneratorImpl();
-  generator->generateStructure(multilayerNetwork);
+  IStructureGenerator* generator = new StructureGeneratorImpl(multilayerNetwork);
+  generator->generateStructure();
 
   std::vector<Layer*> layers = multilayerNetwork->getLayers();
   int noNodeAssigned = 0;
@@ -181,8 +181,8 @@ BOOST_AUTO_TEST_CASE(generateStructure_AssignedNodeIsOneLayerHigherThanTheNetwor
 {
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork();
 
-  IStructureGenerator* generator = new StructureGeneratorImpl();
-  generator->generateStructure(multilayerNetwork);
+  IStructureGenerator* generator = new StructureGeneratorImpl(multilayerNetwork);
+  generator->generateStructure();
 
   std::vector<Layer*> layers = multilayerNetwork->getLayers();
   int assignedToProperLayer = 1;

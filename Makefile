@@ -1,5 +1,6 @@
 SRCDIR := src
 BUILDDIR := build
+TESTDIR := test
 GENERATE-SOURCES := build/GenerateMain.o
 SIMULATE-SOURCES := build/SimulateMain.o
 TEST-SOURCES := build/test_StructureGeneration.o

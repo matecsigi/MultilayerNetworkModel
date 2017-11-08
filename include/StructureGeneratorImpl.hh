@@ -6,9 +6,15 @@
 class StructureGeneratorImpl: public IStructureGenerator
 {
 public:
+  StructureGeneratorImpl(MultilayerNetwork* multilayerNetwork){mMultilayerNetwork=multilayerNetwork;};
   ~StructureGeneratorImpl(){};
 
-  void generateStructure(MultilayerNetwork* multilayerNetwork);
+  void generateStructure();
+private:
+  void generateLayers(void);
+  void generateNetworks(void);
+  void generateNodes(void);
+  void assignNetworksToNodes(void);
 };
 
 #endif

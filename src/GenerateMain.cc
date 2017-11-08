@@ -14,8 +14,8 @@ int main(void)
 
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
 
-  IStructureGenerator* generator = new StructureGeneratorImpl();
-  generator->generateStructure(multilayerNetwork);
+  IStructureGenerator* generator = new StructureGeneratorImpl(multilayerNetwork);
+  generator->generateStructure();
 
   delete multilayerNetwork;
 
