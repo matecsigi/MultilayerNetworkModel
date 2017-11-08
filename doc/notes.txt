@@ -1,0 +1,28 @@
+Using the Boost property tree library for JSON (slow way of doing json)
+
+  ptree pt;
+  ptree multilayer_node;
+
+  std::vector<Layer*> layers = this->getLayers();
+  for(std::vector<Layer*>::iterator it=layers.begin(); it != layers.end(); ++it)
+  {
+    ptree layer_node;
+    layer_node.put("id", (*it)->getId());
+    
+    std::vector<Network*> networks = (*it)->getNetworks();
+    for(std::vector<Network*>::iterator it2=networks.begin(); it2 != networks.end(); ++it2)
+    {
+      ptree network_node;
+      network_node.put("id", (*it2)->getId());
+      layer_node.add_child("Networks.Network", network_node);
+    }
+
+    multilayer_node.add_child("Layer", layer_node);
+  }
+
+  pt.add_child("MultilayerNetwork.Layers", multilayer_node);
+
+  std::ostringstream buf; 
+  write_json (buf, pt, false);
+  std::string json = buf.str();
+  std::cout<<json<<std::endl;

@@ -8,7 +8,7 @@ TEST-SOURCES := build/test_StructureGeneration.o
 SRCEXT := cc
 SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
 OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
-CFLAGS := -g  -Wall
+CFLAGS := -g  -Wall -std=c++11
 #LIB := -pthread -lmongoclient -L lib -lboost_thread-mt -lboost_filesystem-mt -lboost_system-mt
 LIB := -lboost_unit_test_framework
 INC := -I include

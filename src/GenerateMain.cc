@@ -17,6 +17,9 @@ int main(void)
   IStructureGenerator* generator = new StructureGeneratorImpl(multilayerNetwork);
   generator->generateStructure();
 
+  const char *filename="generated/MultilayerNetworkStructure-1.json";
+  multilayerNetwork->save(filename);
+
   delete multilayerNetwork;
 
   return 0;

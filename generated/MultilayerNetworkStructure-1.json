@@ -1,0 +1,996 @@
+{
+    "MultilayerNetwork": {
+        "Layers": [
+            {
+                "id": 0,
+                "Networks": [
+                    {
+                        "id": 0,
+                        "Nodes": [
+                            {
+                                "id": 0,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 1,
+                                "Neighbors": [
+                                    {
+                                        "id": 0
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 2,
+                                "Neighbors": [
+                                    {
+                                        "id": 1
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 1,
+                        "Nodes": [
+                            {
+                                "id": 3,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 4,
+                                "Neighbors": [
+                                    {
+                                        "id": 3
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 5,
+                                "Neighbors": [
+                                    {
+                                        "id": 4
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "Nodes": [
+                            {
+                                "id": 6,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 7,
+                                "Neighbors": [
+                                    {
+                                        "id": 6
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 8,
+                                "Neighbors": [
+                                    {
+                                        "id": 7
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 1,
+                "Networks": [
+                    {
+                        "id": 3,
+                        "Nodes": [
+                            {
+                                "id": 9,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 10,
+                                "Neighbors": [
+                                    {
+                                        "id": 9
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 11,
+                                "Neighbors": [
+                                    {
+                                        "id": 10
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 4,
+                        "Nodes": [
+                            {
+                                "id": 12,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 13,
+                                "Neighbors": [
+                                    {
+                                        "id": 12
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 14,
+                                "Neighbors": [
+                                    {
+                                        "id": 13
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 5,
+                        "Nodes": [
+                            {
+                                "id": 15,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 16,
+                                "Neighbors": [
+                                    {
+                                        "id": 15
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 17,
+                                "Neighbors": [
+                                    {
+                                        "id": 16
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 6,
+                        "Nodes": [
+                            {
+                                "id": 18,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 19,
+                                "Neighbors": [
+                                    {
+                                        "id": 18
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 20,
+                                "Neighbors": [
+                                    {
+                                        "id": 19
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 7,
+                        "Nodes": [
+                            {
+                                "id": 21,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 22,
+                                "Neighbors": [
+                                    {
+                                        "id": 21
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 23,
+                                "Neighbors": [
+                                    {
+                                        "id": 22
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 8,
+                        "Nodes": [
+                            {
+                                "id": 24,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 25,
+                                "Neighbors": [
+                                    {
+                                        "id": 24
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 26,
+                                "Neighbors": [
+                                    {
+                                        "id": 25
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 9,
+                        "Nodes": [
+                            {
+                                "id": 27,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 28,
+                                "Neighbors": [
+                                    {
+                                        "id": 27
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 29,
+                                "Neighbors": [
+                                    {
+                                        "id": 28
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 10,
+                        "Nodes": [
+                            {
+                                "id": 30,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 31,
+                                "Neighbors": [
+                                    {
+                                        "id": 30
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 32,
+                                "Neighbors": [
+                                    {
+                                        "id": 31
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 11,
+                        "Nodes": [
+                            {
+                                "id": 33,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 34,
+                                "Neighbors": [
+                                    {
+                                        "id": 33
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 35,
+                                "Neighbors": [
+                                    {
+                                        "id": 34
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "Networks": [
+                    {
+                        "id": 12,
+                        "Nodes": [
+                            {
+                                "id": 36,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 37,
+                                "Neighbors": [
+                                    {
+                                        "id": 36
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 38,
+                                "Neighbors": [
+                                    {
+                                        "id": 37
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 13,
+                        "Nodes": [
+                            {
+                                "id": 39,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 40,
+                                "Neighbors": [
+                                    {
+                                        "id": 39
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 41,
+                                "Neighbors": [
+                                    {
+                                        "id": 40
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 14,
+                        "Nodes": [
+                            {
+                                "id": 42,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 43,
+                                "Neighbors": [
+                                    {
+                                        "id": 42
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 44,
+                                "Neighbors": [
+                                    {
+                                        "id": 43
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 15,
+                        "Nodes": [
+                            {
+                                "id": 45,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 46,
+                                "Neighbors": [
+                                    {
+                                        "id": 45
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 47,
+                                "Neighbors": [
+                                    {
+                                        "id": 46
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 16,
+                        "Nodes": [
+                            {
+                                "id": 48,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 49,
+                                "Neighbors": [
+                                    {
+                                        "id": 48
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 50,
+                                "Neighbors": [
+                                    {
+                                        "id": 49
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 17,
+                        "Nodes": [
+                            {
+                                "id": 51,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 52,
+                                "Neighbors": [
+                                    {
+                                        "id": 51
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 53,
+                                "Neighbors": [
+                                    {
+                                        "id": 52
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 18,
+                        "Nodes": [
+                            {
+                                "id": 54,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 55,
+                                "Neighbors": [
+                                    {
+                                        "id": 54
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 56,
+                                "Neighbors": [
+                                    {
+                                        "id": 55
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 19,
+                        "Nodes": [
+                            {
+                                "id": 57,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 58,
+                                "Neighbors": [
+                                    {
+                                        "id": 57
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 59,
+                                "Neighbors": [
+                                    {
+                                        "id": 58
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 20,
+                        "Nodes": [
+                            {
+                                "id": 60,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 61,
+                                "Neighbors": [
+                                    {
+                                        "id": 60
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 62,
+                                "Neighbors": [
+                                    {
+                                        "id": 61
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 21,
+                        "Nodes": [
+                            {
+                                "id": 63,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 64,
+                                "Neighbors": [
+                                    {
+                                        "id": 63
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 65,
+                                "Neighbors": [
+                                    {
+                                        "id": 64
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 22,
+                        "Nodes": [
+                            {
+                                "id": 66,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 67,
+                                "Neighbors": [
+                                    {
+                                        "id": 66
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 68,
+                                "Neighbors": [
+                                    {
+                                        "id": 67
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 23,
+                        "Nodes": [
+                            {
+                                "id": 69,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 70,
+                                "Neighbors": [
+                                    {
+                                        "id": 69
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 71,
+                                "Neighbors": [
+                                    {
+                                        "id": 70
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 24,
+                        "Nodes": [
+                            {
+                                "id": 72,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 73,
+                                "Neighbors": [
+                                    {
+                                        "id": 72
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 74,
+                                "Neighbors": [
+                                    {
+                                        "id": 73
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 25,
+                        "Nodes": [
+                            {
+                                "id": 75,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 76,
+                                "Neighbors": [
+                                    {
+                                        "id": 75
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 77,
+                                "Neighbors": [
+                                    {
+                                        "id": 76
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 26,
+                        "Nodes": [
+                            {
+                                "id": 78,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 79,
+                                "Neighbors": [
+                                    {
+                                        "id": 78
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 80,
+                                "Neighbors": [
+                                    {
+                                        "id": 79
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 27,
+                        "Nodes": [
+                            {
+                                "id": 81,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 82,
+                                "Neighbors": [
+                                    {
+                                        "id": 81
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 83,
+                                "Neighbors": [
+                                    {
+                                        "id": 82
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 28,
+                        "Nodes": [
+                            {
+                                "id": 84,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 85,
+                                "Neighbors": [
+                                    {
+                                        "id": 84
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 86,
+                                "Neighbors": [
+                                    {
+                                        "id": 85
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 29,
+                        "Nodes": [
+                            {
+                                "id": 87,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 88,
+                                "Neighbors": [
+                                    {
+                                        "id": 87
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 89,
+                                "Neighbors": [
+                                    {
+                                        "id": 88
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 30,
+                        "Nodes": [
+                            {
+                                "id": 90,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 91,
+                                "Neighbors": [
+                                    {
+                                        "id": 90
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 92,
+                                "Neighbors": [
+                                    {
+                                        "id": 91
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 31,
+                        "Nodes": [
+                            {
+                                "id": 93,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 94,
+                                "Neighbors": [
+                                    {
+                                        "id": 93
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 95,
+                                "Neighbors": [
+                                    {
+                                        "id": 94
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 32,
+                        "Nodes": [
+                            {
+                                "id": 96,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 97,
+                                "Neighbors": [
+                                    {
+                                        "id": 96
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 98,
+                                "Neighbors": [
+                                    {
+                                        "id": 97
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 33,
+                        "Nodes": [
+                            {
+                                "id": 99,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 100,
+                                "Neighbors": [
+                                    {
+                                        "id": 99
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 101,
+                                "Neighbors": [
+                                    {
+                                        "id": 100
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 34,
+                        "Nodes": [
+                            {
+                                "id": 102,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 103,
+                                "Neighbors": [
+                                    {
+                                        "id": 102
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 104,
+                                "Neighbors": [
+                                    {
+                                        "id": 103
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 35,
+                        "Nodes": [
+                            {
+                                "id": 105,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 106,
+                                "Neighbors": [
+                                    {
+                                        "id": 105
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 107,
+                                "Neighbors": [
+                                    {
+                                        "id": 106
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 36,
+                        "Nodes": [
+                            {
+                                "id": 108,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 109,
+                                "Neighbors": [
+                                    {
+                                        "id": 108
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 110,
+                                "Neighbors": [
+                                    {
+                                        "id": 109
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 37,
+                        "Nodes": [
+                            {
+                                "id": 111,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 112,
+                                "Neighbors": [
+                                    {
+                                        "id": 111
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 113,
+                                "Neighbors": [
+                                    {
+                                        "id": 112
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "id": 38,
+                        "Nodes": [
+                            {
+                                "id": 114,
+                                "Neighbors": []
+                            },
+                            {
+                                "id": 115,
+                                "Neighbors": [
+                                    {
+                                        "id": 114
+                                    }
+                                ]
+                            },
+                            {
+                                "id": 116,
+                                "Neighbors": [
+                                    {
+                                        "id": 115
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

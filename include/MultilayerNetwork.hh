@@ -17,6 +17,8 @@ public:
 
   friend std::ostream& operator<<(std::ostream& os, const MultilayerNetwork& multilayerNetwork);
 
+  void save(const char* filename);
+
 private:
   std::vector<Layer*> mLayers;
 };
