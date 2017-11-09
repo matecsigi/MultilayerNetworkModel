@@ -20,6 +20,11 @@ int main(void)
   const char *filename="generated/MultilayerNetworkStructure-1.json";
   multilayerNetwork->save(filename);
 
+  MultilayerNetwork* multilayerNetwork2 = new MultilayerNetwork;
+  multilayerNetwork2->load(filename);
+
+  std::cout<<*multilayerNetwork2<<std::endl;
+
   delete multilayerNetwork;
 
   return 0;

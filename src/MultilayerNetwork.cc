@@ -1,6 +1,7 @@
 #include "MultilayerNetwork.hh"
 #include <iostream>
 #include <fstream>
+#include <map>
 #include <rapidjson/document.h>
 #include <rapidjson/writer.h>
 #include <rapidjson/stringbuffer.h>
@@ -104,6 +105,15 @@ void MultilayerNetwork::save(const char* filename)
       {
 	Value nodeObject(kObjectType);
 	nodeObject.AddMember("id", (*it3)->getId(), allocator);
+
+	Network* networkAssigned = (*it3)->getNetworkAssigned();
+	if(networkAssigned != NULL)
+	{
+	  Value networkAssignedObject(kObjectType);
+	  networkAssignedObject.AddMember("id", networkAssigned->getId(), allocator);
+	  nodeObject.AddMember("NetworkAssigned", networkAssignedObject, allocator);
+	}
+
 	Value neighborArray(kArrayType);
 	std::vector<Node*> neighbors = (*it2)->getNodeNeighbors((*it3)->getId());
 	for(std::vector<Node*>::iterator it4=neighbors.begin(); it4 != neighbors.end(); ++it4)
@@ -129,9 +139,83 @@ void MultilayerNetwork::save(const char* filename)
   StringBuffer buffer;
   PrettyWriter<StringBuffer> writer(buffer);
   document.Accept(writer);
-  std::cout<<buffer.GetString()<<std::endl;
+  //std::cout<<buffer.GetString()<<std::endl;
 
   std::ofstream file(filename);
   file<<buffer.GetString();
   file.close();
+}
+
+
+void MultilayerNetwork::load(const char* filename)
+{
+  std::ifstream file(filename);
+  std::string input((std::istreambuf_iterator<char>(file)), (std::istreambuf_iterator<char>()));
+
+  Document document;
+  document.Parse(input.c_str());
+
+  std::map<int, Network*> allNetworks; //used to assign nodes to networks
+
+  Value& layerArray = document["MultilayerNetwork"]["Layers"];
+  for(SizeType i=0; i<layerArray.Size(); ++i)
+  {
+    Value& layerObject = layerArray[i];
+    this->addLayer(layerObject["id"].GetInt());
+    std::vector<Layer*> layers = this->getLayers();
+    Layer* layer = layers[layers.size()-1];
+    Value& networkArray = layerObject["Networks"];
+    for(SizeType ii=0; ii<networkArray.Size(); ++ii)
+    {
+      Value& networkObject = networkArray[ii];
+      layer->addNetwork(networkObject["id"].GetInt());
+      std::vector<Network*> networks = layer->getNetworks();
+      Network* network = networks[networks.size()-1];
+      allNetworks[network->getId()] = network;
+      Value& nodeArray = networkObject["Nodes"];
+      for(SizeType iii=0; iii<nodeArray.Size(); ++iii)
+      {
+	Value& nodeObject = nodeArray[iii];
+	network->addNode(nodeObject["id"].GetInt());
+      }
+    }
+  }
+
+  //adding edges (nodes must exist at this point)
+  for(SizeType i=0; i<layerArray.Size(); ++i)
+  {
+    Value& layerObject = layerArray[i];
+    std::vector<Layer*> layers = this->getLayers();
+    Layer* layer = layers[i];
+    Value& networkArray = layerObject["Networks"];
+    for(SizeType ii=0; ii<networkArray.Size(); ++ii)
+    {
+      Value& networkObject = networkArray[ii];
+      std::vector<Network*> networks = layer->getNetworks();
+      Network* network = networks[ii];
+      Value& nodeArray = networkObject["Nodes"];
+      for(SizeType iii=0; iii<nodeArray.Size(); ++iii)
+      {
+	Value& nodeObject = nodeArray[iii];
+	std::vector<Node*> nodes = network->getNodes();
+	Node* node = nodes[iii];
+	if(nodeObject.HasMember("NetworkAssigned"))
+	{
+	  Value& networkAssignedObject = nodeObject["NetworkAssigned"];
+	  node->assignToNetwork(allNetworks[networkAssignedObject["id"].GetInt()]);
+	}
+	Value& neighborArray = nodeObject["Neighbors"];
+	for(SizeType iiii=0; iiii<neighborArray.Size(); ++iiii)
+	{
+	  Value& neighborObject = neighborArray[iiii];
+	  network->addEdge(network->getLocalId(node->getId()), network->getLocalId(neighborObject["id"].GetInt()));
+	}
+      }
+    }
+  }
+
+  StringBuffer buffer;
+  PrettyWriter<StringBuffer> writer(buffer);
+  document.Accept(writer);
+  //std::cout<<buffer.GetString()<<std::endl;
 }
