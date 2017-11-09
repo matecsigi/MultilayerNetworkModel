@@ -16,7 +16,8 @@ public:
   std::vector<Layer*> getLayers(void) const;
 
   friend std::ostream& operator<<(std::ostream& os, const MultilayerNetwork& multilayerNetwork);
-
+  friend bool operator==(const MultilayerNetwork& multilayerNetwork1, const MultilayerNetwork& multilayerNetwork2);
+  
   void save(const char* filename);
   void load(const char* filename);
 private:

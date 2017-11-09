@@ -1,5 +1,6 @@
 #include "Layer.hh"
 #include <iostream>
+#include <map>
 
 using namespace std;
 
@@ -25,7 +26,7 @@ void Layer::addNetwork(int networkId)
   mNetworksInLayer.push_back(new Network(networkId));
 }
 
-std::vector<Network*> Layer::getNetworks(void)
+std::vector<Network*> Layer::getNetworks(void) const
 {
   return mNetworksInLayer;
 }
@@ -33,4 +34,34 @@ std::vector<Network*> Layer::getNetworks(void)
 int Layer::getId(void) const
 {
   return mLayerId;
+}
+
+bool operator==(const Layer& layer1, const Layer& layer2)
+{
+  std::map<int, Network*> networkMap;
+  std::vector<Network*> networks = layer1.getNetworks();
+  for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
+  {
+    networkMap[(*itNet)->getId()] = (*itNet);
+  }
+
+  std::vector<Network*> networks2 = layer2.getNetworks();
+  for(std::vector<Network*>::iterator itNet=networks2.begin(); itNet != networks2.end(); ++itNet)
+  {
+    if(networkMap.count((*itNet)->getId()))
+    {
+      Network* currentNetwork = (*itNet);
+      Network* correspondingNetwork = networkMap[currentNetwork->getId()];
+      if(!(*currentNetwork == *correspondingNetwork))
+      {
+	return false;
+      }
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+  return true;
 }

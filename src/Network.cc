@@ -2,6 +2,7 @@
 #include <iostream>
 #include <algorithm>
 #include <assert.h>
+#include <map>
 
 #include "Node.hh"
 using namespace std;
@@ -74,10 +75,10 @@ int Network::getId(void) const
   return mNetworkId;
 }
 
-int Network::getLocalId(int id)
+int Network::getLocalId(int id) const
 {
   int counter = 0;
-  for(std::vector<Node*>::iterator it=mNodes.begin(); it != mNodes.end(); ++it)
+  for(std::vector<Node*>::const_iterator it=mNodes.begin(); it != mNodes.end(); ++it)
   {
     if((*it)->getId() == id)
     {
@@ -93,12 +94,12 @@ Node* Network::getNodeAssigned(void) const
   return mNodeAssigned;
 }
 
-std::vector<Node*> Network::getNodes(void)
+std::vector<Node*> Network::getNodes(void) const
 {
   return mNodes;
 }
 
-std::vector<Node*> Network::getNodeNeighbors(int nodeId)
+std::vector<Node*> Network::getNodeNeighbors(int nodeId) const
 {
   int localId = getLocalId(nodeId);
   if(localId != -1)
@@ -106,4 +107,60 @@ std::vector<Node*> Network::getNodeNeighbors(int nodeId)
     return mNodeConnections[localId];
   }
   return {};
+}
+
+bool operator==(const Network& network1, const Network& network2)
+{
+  std::vector<Node*> nodes1 = network1.getNodes();
+  std::vector<Node*> nodes2 = network2.getNodes();
+  if(nodes1.size() != nodes2.size())
+  {
+    return false;
+  }
+
+  std::map<int, Node*> nodeMap;
+  for(std::vector<Node*>::iterator itNode=nodes1.begin(); itNode != nodes1.end(); ++itNode)
+  {
+    nodeMap[(*itNode)->getId()] = (*itNode);
+  }
+
+  for(std::vector<Node*>::iterator itNode=nodes2.begin(); itNode != nodes2.end(); ++itNode)
+  {
+    if(nodeMap.count((*itNode)->getId()))
+    {
+      Node* currentNode = (*itNode);
+      Node* correspondingNode = nodeMap[currentNode->getId()];
+      if(!(*currentNode == *correspondingNode))
+      {
+	return false;
+      }
+      
+      std::vector<Node*> neighbors1 = network1.getNodeNeighbors(currentNode->getId());
+      std::vector<Node*> neighbors2 = network2.getNodeNeighbors(currentNode->getId());
+      if(neighbors1.size() != neighbors2.size())
+      {
+	return false;
+      }
+
+      std::map<int, Node*> neighborMap;
+      for(std::vector<Node*>::iterator itNei=neighbors1.begin(); itNei != neighbors1.end(); ++itNei)
+      {
+	neighborMap[(*itNei)->getId()] = (*itNei);
+      }
+
+      for(std::vector<Node*>::iterator itNei=neighbors2.begin(); itNei != neighbors2.end(); ++itNei)
+      {
+	if(!(neighborMap.count((*itNei)->getId())))
+	{
+	  return false;
+	}
+      }
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+  return true;
 }

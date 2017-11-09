@@ -22,6 +22,8 @@ int vectorHasDuplicatedElement(std::vector<int>& vectorToCheck)
   return 0;
 }
 
+BOOST_AUTO_TEST_SUITE(test_suite_StructureCorrectness)
+
 //testing if addEdge() creates duplicated edges if a connection is added twice
 BOOST_AUTO_TEST_CASE(addEdge_duplicatedEdges)
 {
@@ -218,3 +220,30 @@ BOOST_AUTO_TEST_CASE(generateStructure_AssignedNodeIsOneLayerHigherThanTheNetwor
 
   delete multilayerNetwork;
 }
+
+BOOST_AUTO_TEST_SUITE_END()
+
+BOOST_AUTO_TEST_SUITE(test_suite_SaveLoadFromJSON)
+
+BOOST_AUTO_TEST_CASE(generateStructure_AssignedNodeIsOneLayerHigherThanTheNetwork)
+{
+  MultilayerNetwork* multilayerNetwork = new MultilayerNetwork();
+
+  IStructureGenerator* generator = new StructureGeneratorImpl(multilayerNetwork);
+  generator->generateStructure();
+
+  const char *filename="generated/MultilayerNetworkStructure-1.json";
+  multilayerNetwork->save(filename);
+
+  MultilayerNetwork* multilayerNetwork2 = new MultilayerNetwork;
+  multilayerNetwork2->load(filename);
+
+  bool structuresEqual = (*multilayerNetwork == *multilayerNetwork2);
+
+  BOOST_CHECK_MESSAGE(structuresEqual == true, "Saved and loaded structures don't match");
+
+  delete multilayerNetwork;
+}
+
+
+BOOST_AUTO_TEST_SUITE_END()

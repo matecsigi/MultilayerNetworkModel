@@ -20,10 +20,12 @@ public:
   void generateConnections(void);
 
   int getId(void) const;
-  int getLocalId(int id);
+  int getLocalId(int id) const;
   Node* getNodeAssigned(void) const;
-  std::vector<Node*> getNodes(void);
-  std::vector<Node*> getNodeNeighbors(int nodeId);
+  std::vector<Node*> getNodes(void) const;
+  std::vector<Node*> getNodeNeighbors(int nodeId) const;
+
+  friend bool operator==(const Network& network1, const Network& network2);
 
 private:
   int mNetworkId;

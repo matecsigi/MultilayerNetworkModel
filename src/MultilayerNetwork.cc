@@ -80,6 +80,36 @@ ostream& operator<<(ostream& os, const MultilayerNetwork& multilayerNetwork)
 }
 
 
+bool operator==(const MultilayerNetwork& multilayerNetwork1, const MultilayerNetwork& multilayerNetwork2)
+{
+  std::map<int, Layer*> layerMap;
+  std::vector<Layer*> layers = multilayerNetwork1.getLayers();
+  for(std::vector<Layer*>::iterator itLay=layers.begin(); itLay != layers.end(); ++itLay)
+  {
+    layerMap[(*itLay)->getId()] = (*itLay);
+  }
+
+  std::vector<Layer*> layers2 = multilayerNetwork2.getLayers();
+  for(std::vector<Layer*>::iterator itLay=layers2.begin(); itLay != layers2.end(); ++itLay)
+  {
+    if(layerMap.count((*itLay)->getId()))
+    {
+      Layer* currentLayer = (*itLay);
+      Layer* correspondingLayer = layerMap[currentLayer->getId()];
+      if(!(*currentLayer == *correspondingLayer))
+      {
+	return false;
+      }
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+  return true;
+}
+
 void MultilayerNetwork::save(const char* filename)
 {
   Document document;

@@ -49,3 +49,28 @@ std::vector<Network*> Node::getNetworks(void) const
 {
   return mNetworks;
 }
+
+bool operator==(const Node& node1, const Node& node2)
+{
+  Network* networkAssigned1 = node1.getNetworkAssigned();
+  Network* networkAssigned2 = node2.getNetworkAssigned();
+  
+  if((networkAssigned1 == NULL) && (networkAssigned2 == NULL))
+  {
+    return true;
+  }
+  else if((networkAssigned1 != NULL) && (networkAssigned2 == NULL))
+  {
+    return false;
+  }
+  else if((networkAssigned1 == NULL) && (networkAssigned2 != NULL))
+  {
+    return false;
+  }
+  else if(networkAssigned1->getId() != networkAssigned2->getId())
+  {
+    return false;
+  }
+
+  return true;
+}

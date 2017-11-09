@@ -12,9 +12,11 @@ public:
   ~Layer();
 
   void addNetwork(int networkId);
-  std::vector<Network*> getNetworks(void);
+  std::vector<Network*> getNetworks(void) const;
 
   int getId(void) const;
+
+  friend bool operator==(const Layer& layer1, const Layer& layer2);
 
 private:
   int mLayerId;
