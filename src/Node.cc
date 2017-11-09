@@ -6,16 +6,19 @@ using namespace std;
 Node::Node(void)
 {
   mNetworkAssigned = NULL;
+  mValues = new int[2];
 }
 
 Node::Node(int id)
 {
   mNodeId = id;
   mNetworkAssigned = NULL;
+  mValues = new int[2];
 }
 
 Node::~Node(void)
 {
+  delete [] mValues;
 }
 
 void Node::step(void)
@@ -35,6 +38,12 @@ void Node::assignToNetwork(Network* network)
 
 }
 
+void Node::setValues(int* values)
+{
+  mValues[0] = values[0];
+  mValues[1] = values[1];
+}
+
 int Node::getId(void) const
 {
   return mNodeId;
@@ -48,6 +57,12 @@ Network* Node::getNetworkAssigned(void) const
 std::vector<Network*> Node::getNetworks(void) const
 {
   return mNetworks;
+}
+
+void Node::getValues(int* values)
+{
+  values[0] = mValues[0];
+  values[1] = mValues[1];
 }
 
 bool operator==(const Node& node1, const Node& node2)

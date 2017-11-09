@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <map>
+#include <algorithm>
 #include <rapidjson/document.h>
 #include <rapidjson/writer.h>
 #include <rapidjson/stringbuffer.h>
@@ -57,8 +58,11 @@ ostream& operator<<(ostream& os, const MultilayerNetwork& multilayerNetwork)
       for(std::vector<Node*>::iterator it3 = nodes.begin(); it3 != nodes.end(); ++it3)
       {
 	Node* currentNode = (*it3);
-	os<<"    ---Node "<<currentNode->getId()<<endl;
-	
+	os<<"    ---Node "<<currentNode->getId()<<": ";
+	int* tmpBuffer = new int[2];
+	currentNode->getValues(tmpBuffer);
+	os<<tmpBuffer[0]<<", "<<tmpBuffer[1]<<endl;
+	delete [] tmpBuffer;
 	//uncomment to check if the correct networks are assigned to nodes
 	std::vector<Network*> networksToNode = currentNode->getNetworks();
 	if(networksToNode.size() > 0)
@@ -82,14 +86,18 @@ ostream& operator<<(ostream& os, const MultilayerNetwork& multilayerNetwork)
 
 bool operator==(const MultilayerNetwork& multilayerNetwork1, const MultilayerNetwork& multilayerNetwork2)
 {
+  std::vector<Layer*> layers1 = multilayerNetwork1.getLayers();
+  std::vector<Layer*> layers2 = multilayerNetwork2.getLayers();
+  if(layers1.size() != layers2.size())
+  {
+    return false;
+  }
   std::map<int, Layer*> layerMap;
-  std::vector<Layer*> layers = multilayerNetwork1.getLayers();
-  for(std::vector<Layer*>::iterator itLay=layers.begin(); itLay != layers.end(); ++itLay)
+  for(std::vector<Layer*>::iterator itLay=layers1.begin(); itLay != layers1.end(); ++itLay)
   {
     layerMap[(*itLay)->getId()] = (*itLay);
   }
 
-  std::vector<Layer*> layers2 = multilayerNetwork2.getLayers();
   for(std::vector<Layer*>::iterator itLay=layers2.begin(); itLay != layers2.end(); ++itLay)
   {
     if(layerMap.count((*itLay)->getId()))
@@ -248,4 +256,44 @@ void MultilayerNetwork::load(const char* filename)
   PrettyWriter<StringBuffer> writer(buffer);
   document.Accept(writer);
   //std::cout<<buffer.GetString()<<std::endl;
+}
+
+void MultilayerNetwork::saveState(const char* filename)
+{
+  std::map<int, Node*> nodesMap;
+  std::vector<int> nodeIds;
+
+  std::vector<Layer*> layers = this->getLayers();
+  for(std::vector<Layer*>::iterator itLay=layers.begin(); itLay != layers.end(); ++itLay)
+  {
+    Layer* currentLayer = (*itLay);
+    std::vector<Network*> networks = currentLayer->getNetworks();
+    for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
+    {
+      Network* currentNetwork = (*itNet);
+      std::vector<Node*> nodes = currentNetwork->getNodes();
+      for(std::vector<Node*>::iterator itNode = nodes.begin(); itNode != nodes.end(); ++itNode)
+      {
+	Node* currentNode = (*itNode);
+	nodesMap[currentNode->getId()] = currentNode;
+	nodeIds.push_back(currentNode->getId());
+      }
+    }
+  }
+  std::sort(nodeIds.begin(), nodeIds.end());
+  int** buffer = new int*[nodeIds.size()];
+  for(unsigned i=0; i<nodeIds.size(); ++i)
+  {
+    buffer[i] = new int[2];
+  }
+  std::ofstream file(filename, std::ios::binary);
+  file.write(reinterpret_cast<const char*>(&buffer), nodeIds.size()*2*sizeof(int));
+  file.close();
+
+  for(unsigned i=0; i<nodeIds.size(); ++i)
+  {
+    delete [] buffer[i];
+  }
+  delete [] buffer;
+  
 }

@@ -225,7 +225,7 @@ BOOST_AUTO_TEST_SUITE_END()
 
 BOOST_AUTO_TEST_SUITE(test_suite_SaveLoadFromJSON)
 
-BOOST_AUTO_TEST_CASE(generateStructure_AssignedNodeIsOneLayerHigherThanTheNetwork)
+BOOST_AUTO_TEST_CASE(generateStructure_SavedStructureEqualsLoaded)
 {
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork();
 
@@ -235,7 +235,7 @@ BOOST_AUTO_TEST_CASE(generateStructure_AssignedNodeIsOneLayerHigherThanTheNetwor
   const char *filename="generated/MultilayerNetworkStructure-1.json";
   multilayerNetwork->save(filename);
 
-  MultilayerNetwork* multilayerNetwork2 = new MultilayerNetwork;
+  MultilayerNetwork* multilayerNetwork2 = new MultilayerNetwork();
   multilayerNetwork2->load(filename);
 
   bool structuresEqual = (*multilayerNetwork == *multilayerNetwork2);
@@ -243,6 +243,7 @@ BOOST_AUTO_TEST_CASE(generateStructure_AssignedNodeIsOneLayerHigherThanTheNetwor
   BOOST_CHECK_MESSAGE(structuresEqual == true, "Saved and loaded structures don't match");
 
   delete multilayerNetwork;
+  delete multilayerNetwork2;
 }
 
 

@@ -20,6 +20,8 @@ public:
   
   void save(const char* filename);
   void load(const char* filename);
+  
+  void saveState(const char* filename);
 private:
   std::vector<Layer*> mLayers;
 };
