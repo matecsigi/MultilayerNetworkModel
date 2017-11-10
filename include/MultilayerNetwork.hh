@@ -25,6 +25,8 @@ public:
   
   void saveState(const char* filename);
   void loadState(const char* filename);
+
+  void step(void);
 private:
   std::vector<Layer*> mLayers;
 

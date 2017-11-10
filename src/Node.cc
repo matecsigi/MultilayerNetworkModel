@@ -1,5 +1,6 @@
 #include "Node.hh"
 #include <iostream>
+#include "UpwardInfluenceImpl.hh"
 
 using namespace std;
 
@@ -7,6 +8,7 @@ Node::Node(void)
 {
   mNetworkAssigned = NULL;
   mValues = new double[2];
+  mUpwardInfluence = new UpwardInfluenceImpl();
 }
 
 Node::Node(int id)
@@ -14,16 +16,22 @@ Node::Node(int id)
   mNodeId = id;
   mNetworkAssigned = NULL;
   mValues = new double[2];
+  mUpwardInfluence = new UpwardInfluenceImpl();
 }
 
 Node::~Node(void)
 {
   delete [] mValues;
+  if(mUpwardInfluence != NULL)
+  {
+    delete mUpwardInfluence;
+  }
 }
 
 void Node::step(void)
 {
-  cout<<"Stepping node"<<endl;
+  cout<<"Stepping node "<<mNodeId<<endl;
+  mUpwardInfluence->calculateUpwardInfluence();
 }
 
 void Node::addToNetwork(Network* networkPtr)
@@ -42,6 +50,11 @@ void Node::setValues(double* values)
 {
   mValues[0] = values[0];
   mValues[1] = values[1];
+}
+
+void Node::setUpwardInfluence()
+{
+  mUpwardInfluence = new UpwardInfluenceImpl();
 }
 
 int Node::getId(void) const

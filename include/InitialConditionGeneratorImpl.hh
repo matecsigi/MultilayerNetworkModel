@@ -10,7 +10,6 @@ public:
   ~InitialConditionGeneratorImpl(){};
 
   void generateInitialCondition();
-private:
 };
 
 #endif

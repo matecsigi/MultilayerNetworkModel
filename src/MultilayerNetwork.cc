@@ -401,3 +401,19 @@ void MultilayerNetwork::loadState(const char* filename)
   }
   delete [] buffer;
 }
+
+void MultilayerNetwork::step(void)
+{
+  std::map<int, Node*> nodesMap;
+  std::vector<int> nodeIds;
+  this->collectNodes(nodesMap, nodeIds);
+  
+  std::sort(nodeIds.begin(), nodeIds.end());
+  nodeIds.erase(unique(nodeIds.begin(), nodeIds.end()), nodeIds.end());
+
+  for(std::vector<int>::iterator itId=nodeIds.begin(); itId != nodeIds.end(); ++itId)
+  {
+    Node* node = nodesMap[(*itId)];
+    node->step();
+  }
+}

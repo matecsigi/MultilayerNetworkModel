@@ -2,7 +2,10 @@
 #define NODE_HH
 
 #include "Network.hh"
+#include "IUpwardInfluence.hh"
 #include <vector>
+
+class IUpwardInfluence;
 
 class Node
 {
@@ -16,6 +19,7 @@ public:
   void addToNetwork(Network* networkPtr);
   void assignToNetwork(Network* network);
   void setValues(double* values);
+  void setUpwardInfluence();
 
   int getId(void) const;
   Network* getNetworkAssigned(void) const;
@@ -29,5 +33,6 @@ private:
   Network* mNetworkAssigned;
   std::vector<Network*> mNetworks;
   double* mValues;
+  IUpwardInfluence* mUpwardInfluence;
 };
 #endif

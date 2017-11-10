@@ -18,6 +18,11 @@ int main(void)
   multilayerNetwork->loadState(filenameInitialCond);
   //  std::cout<<*multilayerNetwork<<std::endl;
 
+  for(int t=0; t<2; ++t)
+  {
+    multilayerNetwork->step();
+  }
+
   delete multilayerNetwork;
 
   return 0;
