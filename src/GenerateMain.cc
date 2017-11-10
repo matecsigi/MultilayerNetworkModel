@@ -26,9 +26,13 @@ int main(void)
   const char *filenameInitialCond="generated/InitialCondition-1.bin";
   multilayerNetwork->saveState(filenameInitialCond);
 
-  //std::cout<<*multilayerNetwork<<std::endl;
+  MultilayerNetwork* multilayerNetwork2 = new MultilayerNetwork;
+  multilayerNetwork2->load(filename);
+  multilayerNetwork2->loadState(filenameInitialCond);
+  std::cout<<*multilayerNetwork2<<std::endl;
 
   delete multilayerNetwork;
+  delete multilayerNetwork2;
 
   return 0;
 }

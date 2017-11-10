@@ -6,6 +6,8 @@
 #include <algorithm>
 #include "IStructureGenerator.hh"
 #include "StructureGeneratorImpl.hh"
+#include "IInitialConditionGenerator.hh"
+#include "InitialConditionGeneratorImpl.hh"
 #include "Node.hh"
 #include "Network.hh"
 
@@ -241,6 +243,32 @@ BOOST_AUTO_TEST_CASE(generateStructure_SavedStructureEqualsLoaded)
   bool structuresEqual = (*multilayerNetwork == *multilayerNetwork2);
 
   BOOST_CHECK_MESSAGE(structuresEqual == true, "Saved and loaded structures don't match");
+
+  delete multilayerNetwork;
+  delete multilayerNetwork2;
+}
+
+BOOST_AUTO_TEST_CASE(generateStructure_SavedAndLoadedInitialConditionsMatch)
+{
+  MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
+
+  IStructureGenerator* structureGenerator = new StructureGeneratorImpl(multilayerNetwork);
+  structureGenerator->generateStructure();
+  const char *filename="generated/MultilayerNetworkStructure-1.json";
+  multilayerNetwork->save(filename);
+
+  const char *filenameInitialCond="generated/InitialCondition-1.bin";
+  IInitialConditionGenerator* initialConditionGenerator = new InitialConditionGeneratorImpl(multilayerNetwork);
+  initialConditionGenerator->generateInitialCondition();
+  multilayerNetwork->saveState(filenameInitialCond);
+
+  MultilayerNetwork* multilayerNetwork2 = new MultilayerNetwork;
+  multilayerNetwork2->load(filename);
+  multilayerNetwork2->loadState(filenameInitialCond);
+
+  bool initialConditionsMatch = initialConditionsEqual(*multilayerNetwork, *multilayerNetwork2);
+
+  BOOST_CHECK_MESSAGE(initialConditionsMatch == true, "Saved and loaded initial conditions don't match");
 
   delete multilayerNetwork;
   delete multilayerNetwork2;

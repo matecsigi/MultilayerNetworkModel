@@ -6,14 +6,14 @@ using namespace std;
 Node::Node(void)
 {
   mNetworkAssigned = NULL;
-  mValues = new int[2];
+  mValues = new double[2];
 }
 
 Node::Node(int id)
 {
   mNodeId = id;
   mNetworkAssigned = NULL;
-  mValues = new int[2];
+  mValues = new double[2];
 }
 
 Node::~Node(void)
@@ -38,7 +38,7 @@ void Node::assignToNetwork(Network* network)
 
 }
 
-void Node::setValues(int* values)
+void Node::setValues(double* values)
 {
   mValues[0] = values[0];
   mValues[1] = values[1];
@@ -59,7 +59,7 @@ std::vector<Network*> Node::getNetworks(void) const
   return mNetworks;
 }
 
-void Node::getValues(int* values)
+void Node::getValues(double* values)
 {
   values[0] = mValues[0];
   values[1] = mValues[1];

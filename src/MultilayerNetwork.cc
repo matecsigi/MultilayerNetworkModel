@@ -59,7 +59,7 @@ ostream& operator<<(ostream& os, const MultilayerNetwork& multilayerNetwork)
       {
 	Node* currentNode = (*it3);
 	os<<"    ---Node "<<currentNode->getId()<<": ";
-	int* tmpBuffer = new int[2];
+	double* tmpBuffer = new double[2];
 	currentNode->getValues(tmpBuffer);
 	os<<tmpBuffer[0]<<", "<<tmpBuffer[1]<<endl;
 	delete [] tmpBuffer;
@@ -115,6 +115,36 @@ bool operator==(const MultilayerNetwork& multilayerNetwork1, const MultilayerNet
     }
   }
 
+  return true;
+}
+
+bool initialConditionsEqual(const MultilayerNetwork& multilayerNetwork1, const MultilayerNetwork& multilayerNetwork2)
+{
+  std::map<int, Node*> nodesMap1;
+  std::vector<int> nodeIds1;
+  multilayerNetwork1.collectNodes(nodesMap1, nodeIds1);
+
+  std::map<int, Node*> nodesMap2;
+  std::vector<int> nodeIds2;
+  multilayerNetwork2.collectNodes(nodesMap2, nodeIds2);
+  
+  double* tmpBuffer1 = new double[2];
+  double* tmpBuffer2 = new double[2];
+  for(std::vector<int>::iterator itId=nodeIds1.begin(); itId != nodeIds1.end(); ++itId)
+  {
+    Node* node1 = nodesMap1[(*itId)];
+    Node* node2 = nodesMap2[(*itId)];
+    node1->getValues(tmpBuffer1);
+    node2->getValues(tmpBuffer2);
+    for(int i=0; i<2; ++i)
+    {
+      if(tmpBuffer1[i] != tmpBuffer2[i])
+      {
+	return false;
+      }
+    }
+  }
+  
   return true;
 }
 
@@ -258,11 +288,8 @@ void MultilayerNetwork::load(const char* filename)
   //std::cout<<buffer.GetString()<<std::endl;
 }
 
-void MultilayerNetwork::saveState(const char* filename)
+void MultilayerNetwork::collectNodes(std::map<int, Node*>& nodesMap, std::vector<int>& nodeIds) const
 {
-  std::map<int, Node*> nodesMap;
-  std::vector<int> nodeIds;
-
   std::vector<Layer*> layers = this->getLayers();
   for(std::vector<Layer*>::iterator itLay=layers.begin(); itLay != layers.end(); ++itLay)
   {
@@ -280,20 +307,75 @@ void MultilayerNetwork::saveState(const char* filename)
       }
     }
   }
-  std::sort(nodeIds.begin(), nodeIds.end());
-  int** buffer = new int*[nodeIds.size()];
-  for(unsigned i=0; i<nodeIds.size(); ++i)
-  {
-    buffer[i] = new int[2];
-  }
-  std::ofstream file(filename, std::ios::binary);
-  file.write(reinterpret_cast<const char*>(&buffer), nodeIds.size()*2*sizeof(int));
-  file.close();
+}
 
+void MultilayerNetwork::saveState(const char* filename)
+{
+  std::map<int, Node*> nodesMap;
+  std::vector<int> nodeIds;
+  collectNodes(nodesMap, nodeIds);
+  std::sort(nodeIds.begin(), nodeIds.end());
+
+  double** buffer = new double*[nodeIds.size()];
   for(unsigned i=0; i<nodeIds.size(); ++i)
   {
-    delete [] buffer[i];
+    buffer[i] = new double[2];
   }
+
+  int indexCounter = 0;
+  for(std::vector<int>::iterator itId=nodeIds.begin(); itId != nodeIds.end(); ++itId)
+  {
+    Node* currentNode = nodesMap[(*itId)];
+    currentNode->getValues(buffer[indexCounter]);
+    ++indexCounter;
+  }
+
+  ofstream out(filename, ios::binary);
+  if(out.is_open())
+  {
+    out.write((char*)buffer, nodeIds.size()*2*sizeof(double));
+  }
+  out.close();
+
+  // std::cout<<"In"<<std::endl;
+  // for(unsigned i=0; i<nodeIds.size(); ++i)
+  // {
+  //   std::cout<<buffer[i][0]<<" "<<buffer[i][1]<<std::endl;
+  // }
+
   delete [] buffer;
+}
+
+void MultilayerNetwork::loadState(const char* filename)
+{
+  std::map<int, Node*> nodesMap;
+  std::vector<int> nodeIds;
+  collectNodes(nodesMap, nodeIds);
+  std::sort(nodeIds.begin(), nodeIds.end());
+
+  double** buffer = new double*[nodeIds.size()];
+  for(unsigned i=0; i<nodeIds.size(); ++i)
+  {
+    buffer[i] = new double[2];
+  }
+
+  ifstream input(filename, ios::binary);
+  input.read((char*)buffer, nodeIds.size()*2*sizeof(double));
+  input.close();
+
+  // std::cout<<"Out"<<std::endl;
+  // for(unsigned i=0; i<nodeIds.size(); ++i)
+  // {
+  //   std::cout<<buffer[i][0]<<" "<<buffer[i][1]<<std::endl;
+  // }
+
+  int indexCounter = 0;
+  for(std::vector<int>::iterator itId=nodeIds.begin(); itId != nodeIds.end(); ++itId)
+  {
+    Node* currentNode = nodesMap[(*itId)];
+    currentNode->setValues(buffer[indexCounter]);
+    ++indexCounter;
+  }
   
+  delete [] buffer;
 }
