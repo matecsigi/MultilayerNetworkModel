@@ -14,25 +14,20 @@ int main(void)
 {
   cout<<"Start generation"<<endl;
 
+  const char *filename="generated/MultilayerNetworkStructure-1.json";
+  const char *filenameInitialCond="generated/InitialCondition-1.bin";
+
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
 
   IStructureGenerator* structureGenerator = new StructureGeneratorImpl(multilayerNetwork);
   structureGenerator->generateStructure();
-  const char *filename="generated/MultilayerNetworkStructure-1.json";
   multilayerNetwork->save(filename);
 
   IInitialConditionGenerator* initialConditionGenerator = new InitialConditionGeneratorImpl(multilayerNetwork);
   initialConditionGenerator->generateInitialCondition();
-  const char *filenameInitialCond="generated/InitialCondition-1.bin";
   multilayerNetwork->saveState(filenameInitialCond);
 
-  MultilayerNetwork* multilayerNetwork2 = new MultilayerNetwork;
-  multilayerNetwork2->load(filename);
-  multilayerNetwork2->loadState(filenameInitialCond);
-  std::cout<<*multilayerNetwork2<<std::endl;
-
   delete multilayerNetwork;
-  delete multilayerNetwork2;
 
   return 0;
 }

@@ -1,9 +1,12 @@
 #Ignore the build and lib dirs
 build
 lib/*
+generated/*
 
 #Ignore any executables
 bin/*
 
 #Ignore temporary files created by the text editor
 *~
+
+*Tmp*

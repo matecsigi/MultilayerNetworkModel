@@ -7,6 +7,7 @@
 #include <rapidjson/writer.h>
 #include <rapidjson/stringbuffer.h>
 #include <rapidjson/prettywriter.h>
+#include <system_error>
 
 //#include <sstream>
 //#include <boost/property_tree/ptree.hpp>
@@ -333,7 +334,14 @@ void MultilayerNetwork::saveState(const char* filename)
   ofstream out(filename, ios::binary);
   if(out.is_open())
   {
-    out.write((char*)buffer, nodeIds.size()*2*sizeof(double));
+    for(unsigned i=0; i<nodeIds.size(); ++i)
+    {
+      for(int j=0; j<2; ++j)
+      {
+	out.write((char*)&buffer[i][j], sizeof(double));
+      }
+    }
+
   }
   out.close();
 
@@ -343,6 +351,10 @@ void MultilayerNetwork::saveState(const char* filename)
   //   std::cout<<buffer[i][0]<<" "<<buffer[i][1]<<std::endl;
   // }
 
+  for(int i=0; i<10; ++i)
+  {
+    delete [] buffer[i];
+  }
   delete [] buffer;
 }
 
@@ -360,7 +372,13 @@ void MultilayerNetwork::loadState(const char* filename)
   }
 
   ifstream input(filename, ios::binary);
-  input.read((char*)buffer, nodeIds.size()*2*sizeof(double));
+  for(unsigned i=0; i<nodeIds.size(); ++i)
+    {
+      for(int j=0; j<2; ++j)
+      {
+	input.read((char*)&buffer[i][j], sizeof(double));
+      }
+  }
   input.close();
 
   // std::cout<<"Out"<<std::endl;
@@ -376,6 +394,10 @@ void MultilayerNetwork::loadState(const char* filename)
     currentNode->setValues(buffer[indexCounter]);
     ++indexCounter;
   }
-  
+
+  for(int i=0; i<10; ++i)
+  {
+    delete [] buffer[i];
+  }
   delete [] buffer;
 }
