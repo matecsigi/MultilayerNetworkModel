@@ -3,9 +3,11 @@
 
 #include "Network.hh"
 #include "IUpwardInfluence.hh"
+#include "IDownwardInfluence.hh"
 #include <vector>
 
 class IUpwardInfluence;
+class IDownwardInfluence;
 
 class Node
 {
@@ -20,6 +22,7 @@ public:
   void assignToNetwork(Network* network);
   void setValues(double* values);
   void setUpwardInfluence();
+  void setDownwardInfluence();
 
   int getId(void) const;
   Network* getNetworkAssigned(void) const;
@@ -34,5 +37,6 @@ private:
   std::vector<Network*> mNetworks;
   double* mValues;
   IUpwardInfluence* mUpwardInfluence;
+  IDownwardInfluence* mDownwardInfluence;
 };
 #endif
