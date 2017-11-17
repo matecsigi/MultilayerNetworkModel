@@ -6,16 +6,17 @@
 
 using namespace std;
 
-namespace EzAquarii {
+// namespace EzAquarii {
 
 class CalculationNode
 {
 public:
   CalculationNode(){};
-  ~CalculationNode(){};
+  virtual ~CalculationNode(){};
 
   virtual double evaluate() const = 0;
   virtual void print() const = 0;
+  virtual std::string toString() const = 0;
 };
 
 class CNConstant : public CalculationNode
@@ -35,6 +36,13 @@ public:
   {
     cout<<"const "<<evaluate()<<endl;
   }
+  
+  virtual std::string toString() const
+  {
+    std::string strCalcNode;
+    strCalcNode.append(std::to_string(value));
+    return strCalcNode;
+  }
 private:
   double value;
 };
@@ -52,13 +60,21 @@ public:
     {
 	return 1;
     }
-  
+
   virtual void print() const
   {
     cout<<"id "<<evaluate()<<endl;
   }
+
+  virtual std::string toString() const
+  {
+    std::string strCalcNode;
+    strCalcNode.append("ID");
+    strCalcNode.append(std::to_string(id));
+    return strCalcNode;
+  }
 private:
-  double id;
+  int id;
 };
 
 
@@ -84,6 +100,16 @@ public:
   {
     cout<<"negate "<<evaluate()<<endl;
     node->print();
+  }
+
+  virtual std::string toString() const
+  {
+    std::string strCalcNode;
+    strCalcNode.append("(");
+    strCalcNode.append("-");
+    strCalcNode.append(node->toString());
+    strCalcNode.append(")");
+    return strCalcNode;
   }
 private:
     CalculationNode* node;
@@ -115,6 +141,17 @@ public:
     left->print();
     right->print();
   }
+
+  virtual std::string toString() const
+  {
+    std::string strCalcNode;
+    strCalcNode.append("(");
+    strCalcNode.append(left->toString());
+    strCalcNode.append("+");
+    strCalcNode.append(right->toString());
+    strCalcNode.append(")");
+    return strCalcNode;
+  }
 private:
     CalculationNode* left;
     CalculationNode* right;
@@ -145,7 +182,17 @@ public:
     cout<<"substract "<<evaluate()<<endl;
     left->print();
     right->print();
+  }
 
+  virtual std::string toString() const
+  {
+    std::string strCalcNode;
+    strCalcNode.append("(");
+    strCalcNode.append(left->toString());
+    strCalcNode.append("-");
+    strCalcNode.append(right->toString());
+    strCalcNode.append(")");
+    return strCalcNode;
   }
 private:
     CalculationNode* left;
@@ -178,6 +225,17 @@ public:
     left->print();
     right->print();
   }
+
+  virtual std::string toString() const
+  {
+    std::string strCalcNode;
+    strCalcNode.append("(");
+    strCalcNode.append(left->toString());
+    strCalcNode.append("*");
+    strCalcNode.append(right->toString());
+    strCalcNode.append(")");
+    return strCalcNode;
+  }
 private:
     CalculationNode* left;
     CalculationNode* right;
@@ -208,6 +266,17 @@ public:
     cout<<"divide "<<evaluate()<<endl;
     left->print();
     right->print();
+  }
+
+  virtual std::string toString() const
+  {
+    std::string strCalcNode;
+    strCalcNode.append("(");
+    strCalcNode.append(left->toString());
+    strCalcNode.append("/");
+    strCalcNode.append(right->toString());
+    strCalcNode.append(")");
+    return strCalcNode;
   }
 private:
     CalculationNode* left;
@@ -240,12 +309,23 @@ public:
     left->print();
     right->print();
   }
+
+  virtual std::string toString() const
+  {
+    std::string strCalcNode;
+    strCalcNode.append("(");
+    strCalcNode.append(left->toString());
+    strCalcNode.append("^");
+    strCalcNode.append(right->toString());
+    strCalcNode.append(")");
+    return strCalcNode;
+  }
 private:
     CalculationNode* left;
     CalculationNode* right;
 
 };
 
-}
+//}
 
 #endif

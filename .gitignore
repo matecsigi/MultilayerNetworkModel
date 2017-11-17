@@ -2,6 +2,7 @@
 build
 lib/*
 generated/*
+CMakeFiles/*
 
 #Ignore any executables
 bin/*

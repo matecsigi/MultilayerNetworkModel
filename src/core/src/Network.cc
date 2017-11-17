@@ -20,9 +20,13 @@ Network::Network(int id)
 
 Network::~Network(void)
 {
-  for(std::vector<Node*>::iterator it = mNodes.begin(); it != mNodes.end(); ++it)
+  for(std::vector<Node*>::iterator itNode=mNodes.begin(); itNode != mNodes.end(); ++itNode)
   {
-    delete (*it);
+    delete (*itNode);
+  }
+  for(std::vector<DynamicalEquation*>::iterator itEq=mDynamicalEquations.begin(); itEq != mDynamicalEquations.end(); ++itEq)
+  {
+    delete (*itEq);
   }
 }
 
@@ -34,6 +38,7 @@ void Network::addNode(int nodeId)
   newNode->addToNetwork(this);
   std::vector<Node*> newConnectionVector;
   mNodeConnections.push_back(newConnectionVector);
+  mDynamicalEquations.push_back(new DynamicalEquation());
 }
 
 //TODO: decide if edges should be directed or not
@@ -59,6 +64,12 @@ void Network::addEdge(int localNodeId1, int localNodeId2)
 void Network::assignToNode(Node* node)
 {
   mNodeAssigned = node;
+}
+
+void Network::setDynamicalEquation(int nodeId, std::string strEquation)
+{
+  int localId = getLocalId(nodeId);
+  mDynamicalEquations[localId]->loadEquation(strEquation);
 }
 
 void Network::generateConnections(void)
@@ -107,6 +118,26 @@ std::vector<Node*> Network::getNodeNeighbors(int nodeId) const
     return mNodeConnections[localId];
   }
   return {};
+}
+
+DynamicalEquation* Network::getNodeDynamicalEquation(int nodeId) const
+{
+  int localId = getLocalId(nodeId);
+  if(localId != -1)
+  {
+    return mDynamicalEquations[localId];
+  }
+  return NULL;
+}
+
+std::string Network::getNodeDynamicalEquationString(int nodeId) const
+{
+  int localId = getLocalId(nodeId);
+  if(localId != -1)
+  {
+    return mDynamicalEquations[localId]->toString();
+  }
+  return "";
 }
 
 bool operator==(const Network& network1, const Network& network2)

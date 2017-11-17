@@ -9,16 +9,8 @@
 #include <rapidjson/prettywriter.h>
 #include <system_error>
 
-//#include <sstream>
-//#include <boost/property_tree/ptree.hpp>
-//#include <boost/property_tree/json_parser.hpp>
-//#include <boost/foreach.hpp>
-
 using namespace std;
 using namespace rapidjson;
-//using boost::property_tree::ptree;
-//using boost::property_tree::read_json;
-//using boost::property_tree::write_json;
 
 MultilayerNetwork::MultilayerNetwork(void)
 {
@@ -64,20 +56,25 @@ ostream& operator<<(ostream& os, const MultilayerNetwork& multilayerNetwork)
 	currentNode->getValues(tmpBuffer);
 	os<<tmpBuffer[0]<<", "<<tmpBuffer[1]<<endl;
 	delete [] tmpBuffer;
+	DynamicalEquation* currentDynamicalEquation = currentNetwork->getNodeDynamicalEquation(currentNode->getId());
+	if(currentDynamicalEquation != NULL)
+	{
+	  os<<"       dyn="<<currentDynamicalEquation->evaluate()<<" "<<currentDynamicalEquation->toString()<<endl;
+	}
 	//uncomment to check if the correct networks are assigned to nodes
-	std::vector<Network*> networksToNode = currentNode->getNetworks();
-	if(networksToNode.size() > 0)
-	{
-	  std::vector<Node*> neighbors = networksToNode[0]->getNodeNeighbors(currentNode->getId());
-	  for(std::vector<Node*>::iterator it4=neighbors.begin(); it4 != neighbors.end(); ++it4)
-	  {
-	    os<<"       "<<(*it4)->getId()<<endl;
-	  }
-	}
-	else
-	{
-	  os<<"       /no net assigned"<<endl;
-	}
+	// std::vector<Network*> networksToNode = currentNode->getNetworks();
+	// if(networksToNode.size() > 0)
+	// {
+	//   std::vector<Node*> neighbors = networksToNode[0]->getNodeNeighbors(currentNode->getId());
+	//   for(std::vector<Node*>::iterator it4=neighbors.begin(); it4 != neighbors.end(); ++it4)
+	//   {
+	//     os<<"       "<<(*it4)->getId()<<endl;
+	//   }
+	// }
+	// else
+	// {
+	//   os<<"       /no net assigned"<<endl;
+	// }
       }
     }
   }
@@ -158,24 +155,28 @@ void MultilayerNetwork::save(const char* filename)
   std::vector<Layer*> layers = this->getLayers();
 
   Value layerArray(kArrayType);
-  for(std::vector<Layer*>::iterator it=layers.begin(); it != layers.end(); ++it)
+  for(std::vector<Layer*>::iterator itLay=layers.begin(); itLay != layers.end(); ++itLay)
   {
     Value layerObject(kObjectType);
-    layerObject.AddMember("id", (*it)->getId(), allocator);
+    layerObject.AddMember("id", (*itLay)->getId(), allocator);
     Value networkArray(kArrayType);
-    std::vector<Network*> networks = (*it)->getNetworks();
-    for(std::vector<Network*>::iterator it2=networks.begin(); it2 != networks.end(); ++it2)
+    std::vector<Network*> networks = (*itLay)->getNetworks();
+    for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
     {
       Value networkObject(kObjectType);
-      networkObject.AddMember("id", (*it2)->getId(), allocator);
-      std::vector<Node*> nodes = (*it2)->getNodes();
+      networkObject.AddMember("id", (*itNet)->getId(), allocator);
+      std::vector<Node*> nodes = (*itNet)->getNodes();
       Value nodeArray(kArrayType);
-      for(std::vector<Node*>::iterator it3=nodes.begin(); it3 != nodes.end(); ++it3)
+      for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
       {
 	Value nodeObject(kObjectType);
-	nodeObject.AddMember("id", (*it3)->getId(), allocator);
+	nodeObject.AddMember("id", (*itNode)->getId(), allocator);
 
-	Network* networkAssigned = (*it3)->getNetworkAssigned();
+	Value textEq;
+	textEq.SetString((*itNet)->getNodeDynamicalEquationString((*itNode)->getId()).c_str(), allocator);
+	nodeObject.AddMember("DynamicalEquation", textEq, allocator);
+
+	Network* networkAssigned = (*itNode)->getNetworkAssigned();
 	if(networkAssigned != NULL)
 	{
 	  Value networkAssignedObject(kObjectType);
@@ -184,11 +185,11 @@ void MultilayerNetwork::save(const char* filename)
 	}
 
 	Value neighborArray(kArrayType);
-	std::vector<Node*> neighbors = (*it2)->getNodeNeighbors((*it3)->getId());
-	for(std::vector<Node*>::iterator it4=neighbors.begin(); it4 != neighbors.end(); ++it4)
+	std::vector<Node*> neighbors = (*itNet)->getNodeNeighbors((*itNode)->getId());
+	for(std::vector<Node*>::iterator itNei=neighbors.begin(); itNei != neighbors.end(); ++itNei)
 	{
 	  Value neighborObject(kObjectType);
-	  neighborObject.AddMember("id", (*it4)->getId(), allocator);
+	  neighborObject.AddMember("id", (*itNei)->getId(), allocator);
 	  neighborArray.PushBack(neighborObject, allocator);
 	}
 	nodeObject.AddMember("Neighbors", neighborArray, allocator);
@@ -246,6 +247,7 @@ void MultilayerNetwork::load(const char* filename)
       {
 	Value& nodeObject = nodeArray[iii];
 	network->addNode(nodeObject["id"].GetInt());
+	network->setDynamicalEquation(nodeObject["id"].GetInt(), nodeObject["DynamicalEquation"].GetString());
       }
     }
   }

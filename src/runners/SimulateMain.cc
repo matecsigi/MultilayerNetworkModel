@@ -16,12 +16,13 @@ int main(void)
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
   multilayerNetwork->load(filename);
   multilayerNetwork->loadState(filenameInitialCond);
-  //  std::cout<<*multilayerNetwork<<std::endl;
 
   for(int t=0; t<2; ++t)
   {
     multilayerNetwork->step();
   }
+
+  std::cout<<*multilayerNetwork<<std::endl;
 
   delete multilayerNetwork;
 

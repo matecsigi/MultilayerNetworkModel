@@ -2,6 +2,7 @@
 #define NETWORK_HH
 
 #include <vector>
+#include "DynamicalEquation.hh"
 
 class Node;
 
@@ -16,6 +17,8 @@ public:
   void addEdge(int localNodeId1, int localNodeId2);
   void assignToNode(Node *node);
   
+  void setDynamicalEquation(int nodeId, std::string strEquation);
+
   //creating a graph
   void generateConnections(void);
 
@@ -24,6 +27,8 @@ public:
   Node* getNodeAssigned(void) const;
   std::vector<Node*> getNodes(void) const;
   std::vector<Node*> getNodeNeighbors(int nodeId) const;
+  DynamicalEquation* getNodeDynamicalEquation(int nodeId) const;
+  std::string getNodeDynamicalEquationString(int nodeId) const;
 
   friend bool operator==(const Network& network1, const Network& network2);
 
@@ -32,6 +37,7 @@ private:
   Node* mNodeAssigned;
   std::vector<Node*> mNodes;
   std::vector<std::vector<Node*> > mNodeConnections;
+  std::vector<DynamicalEquation*> mDynamicalEquations;
 };
 
 #endif

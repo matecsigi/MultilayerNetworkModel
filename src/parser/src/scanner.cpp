@@ -444,18 +444,8 @@ static yyconst flex_int16_t yy_chk[47] =
 
 	// This will track current scanner location.
 	// Action is called when length of the token is known.
-	#define YY_USER_ACTION m_driver.increaseLocation(yyleng);
-	
-	// !!!WARNING!!!
-	// Location API is used, but the location is not initialized, 'cause I'm lazy. When making
-	// a token with make_{something} method you can pass detailed token location. Current location
-	// is accessible with m_driver.location() method. All puzzle elements are there - just
-	// pass location value in every action code block below. I'm going to waste more time writing
-	// this excuse than putting this boilerplate below...
-	//
-	// Location class can be found in location.hh and posistion.hh files. It's just a bit too much
-	// boilerplate for this small example. Bummer.
-#line 459 "scanner.cpp"
+	#define YY_USER_ACTION m_driver.increaseLocation(yyleng);	
+#line 449 "scanner.cpp"
 
 #define INITIAL 0
 
@@ -555,11 +545,11 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
     
-#line 37 "scanner.l"
+#line 27 "scanner.l"
 
 
 
-#line 563 "scanner.cpp"
+#line 553 "scanner.cpp"
 
 	if ( !(yy_init) )
 		{
@@ -644,127 +634,126 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 40 "scanner.l"
+#line 30 "scanner.l"
 {
-                cout << "Scanner: '('" << endl;
                 return EzAquarii::Parser::make_LEFTPAR(EzAquarii::location());
             }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 45 "scanner.l"
+#line 34 "scanner.l"
 { 
-                cout << "Scanner: ')'" << endl;
+                //cout << "Scanner: ')'" << endl;
                 return EzAquarii::Parser::make_RIGHTPAR(EzAquarii::location());
             }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 50 "scanner.l"
+#line 39 "scanner.l"
 {
-                cout << "Scanner: ';'" << endl;
+                //cout << "Scanner: ';'" << endl;
                 return EzAquarii::Parser::make_SEMICOLON(EzAquarii::location());
             }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 55 "scanner.l"
+#line 44 "scanner.l"
 {
-                cout << "Scanner: ','" << endl;
+                //cout << "Scanner: ','" << endl;
                 return EzAquarii::Parser::make_COMMA(EzAquarii::location());
             }
 	YY_BREAK
 case 5:
 /* rule 5 can match eol */
 YY_RULE_SETUP
-#line 60 "scanner.l"
+#line 49 "scanner.l"
 {
-                cout << "Scanner: whitechar (ignored)" << endl;
+                //cout << "Scanner: whitechar (ignored)" << endl;
             }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 64 "scanner.l"
+#line 53 "scanner.l"
 {
-                cout << "Scanner: decimal number: " << yytext << endl;
+                //cout << "Scanner: decimal number: " << yytext << endl;
                 int number = atoi(yytext);
                 return EzAquarii::Parser::make_INTEGER(number, EzAquarii::location());
             }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 70 "scanner.l"
+#line 59 "scanner.l"
 {
-                cout << "Scanner: decimal number: " << yytext << endl;
+                //cout << "Scanner: decimal number: " << yytext << endl;
                 double number = atof(yytext);
                 return EzAquarii::Parser::make_DOUBLE(number, EzAquarii::location());
             }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 76 "scanner.l"
+#line 65 "scanner.l"
 { 
-                cout << "Scanner: identifier [" << yytext << "]" << endl;
-                return EzAquarii::Parser::make_STRING(yytext, EzAquarii::location( /* put location data here if you want */ ));
+                //cout << "Scanner: identifier [" << yytext << "]" << endl;
+                return EzAquarii::Parser::make_STRING(yytext, EzAquarii::location());
             }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 81 "scanner.l"
+#line 70 "scanner.l"
 {
-               cout<<"Plus character:"<<yytext<<endl;
+               //cout<<"Plus character:"<<yytext<<endl;
                return EzAquarii::Parser::make_PLUS(EzAquarii::location());
            }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 86 "scanner.l"
+#line 75 "scanner.l"
 {
-               cout<<"Minus character:"<<yytext<<endl;
+               //cout<<"Minus character:"<<yytext<<endl;
                return EzAquarii::Parser::make_MINUS(EzAquarii::location());
            }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 91 "scanner.l"
+#line 80 "scanner.l"
 {
-               cout<<"Miltiply character:"<<yytext<<endl;
+               //cout<<"Multiply character:"<<yytext<<endl;
                return EzAquarii::Parser::make_MULTIPLY(EzAquarii::location());
            }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 96 "scanner.l"
+#line 85 "scanner.l"
 {
-               cout<<"DIVIDE character:"<<yytext<<endl;
+               //cout<<"Divide character:"<<yytext<<endl;
                return EzAquarii::Parser::make_DIVIDE(EzAquarii::location());
            }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 102 "scanner.l"
+#line 91 "scanner.l"
 {
-               cout<<"Power character:"<<yytext<<endl;
+               //cout<<"Power character:"<<yytext<<endl;
                return EzAquarii::Parser::make_POWER(EzAquarii::location());
            }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 107 "scanner.l"
+#line 96 "scanner.l"
 { 
-                cout << "Scanner: unknown character [" << yytext << "]" << endl; 
+                //cout << "Scanner: unknown character [" << yytext << "]" << endl; 
             }
 	YY_BREAK
 case YY_STATE_EOF(INITIAL):
-#line 111 "scanner.l"
+#line 100 "scanner.l"
 { return yyterminate(); }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 114 "scanner.l"
+#line 103 "scanner.l"
 YY_FATAL_ERROR( "flex scanner jammed" );
 	YY_BREAK
-#line 768 "scanner.cpp"
+#line 757 "scanner.cpp"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -1660,7 +1649,7 @@ void EzAquarii_free (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 114 "scanner.l"
+#line 103 "scanner.l"
 
 
 

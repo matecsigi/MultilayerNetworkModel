@@ -17,6 +17,11 @@ int Interpreter::parse() {
     return m_parser.parse();
 }
 
+CalculationNode* Interpreter::getBaseCalculationNode()
+{
+  return mCalcBase;
+}
+
 void Interpreter::printCalculationNodes()
 {
   cout<<"---------------"<<endl;

@@ -297,9 +297,33 @@ CMakeFiles/simulate.dir/src/generators/src/InitialConditionGeneratorImpl.cc.o.pr
 CMakeFiles/simulate.dir/src/generators/src/InitialConditionGeneratorImpl.cc.o.provides.build: CMakeFiles/simulate.dir/src/generators/src/InitialConditionGeneratorImpl.cc.o
 
 
+CMakeFiles/simulate.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o: CMakeFiles/simulate.dir/flags.make
+CMakeFiles/simulate.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o: src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/simulate.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/simulate.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o -c /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc
+
+CMakeFiles/simulate.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/simulate.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc > CMakeFiles/simulate.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.i
+
+CMakeFiles/simulate.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/simulate.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc -o CMakeFiles/simulate.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.s
+
+CMakeFiles/simulate.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o.requires:
+
+.PHONY : CMakeFiles/simulate.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o.requires
+
+CMakeFiles/simulate.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o.provides: CMakeFiles/simulate.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o.requires
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o.provides.build
+.PHONY : CMakeFiles/simulate.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o.provides
+
+CMakeFiles/simulate.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o.provides.build: CMakeFiles/simulate.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
+
+
 CMakeFiles/simulate.dir/src/parser/src/scanner.cpp.o: CMakeFiles/simulate.dir/flags.make
 CMakeFiles/simulate.dir/src/parser/src/scanner.cpp.o: src/parser/src/scanner.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/simulate.dir/src/parser/src/scanner.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/simulate.dir/src/parser/src/scanner.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/simulate.dir/src/parser/src/scanner.cpp.o -c /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/src/parser/src/scanner.cpp
 
 CMakeFiles/simulate.dir/src/parser/src/scanner.cpp.i: cmake_force
@@ -323,7 +347,7 @@ CMakeFiles/simulate.dir/src/parser/src/scanner.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/simulate.dir/src/parser/src/parser.cpp.o: CMakeFiles/simulate.dir/flags.make
 CMakeFiles/simulate.dir/src/parser/src/parser.cpp.o: src/parser/src/parser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/simulate.dir/src/parser/src/parser.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/simulate.dir/src/parser/src/parser.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/simulate.dir/src/parser/src/parser.cpp.o -c /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/src/parser/src/parser.cpp
 
 CMakeFiles/simulate.dir/src/parser/src/parser.cpp.i: cmake_force
@@ -347,7 +371,7 @@ CMakeFiles/simulate.dir/src/parser/src/parser.cpp.o.provides.build: CMakeFiles/s
 
 CMakeFiles/simulate.dir/src/parser/src/interpreter.cpp.o: CMakeFiles/simulate.dir/flags.make
 CMakeFiles/simulate.dir/src/parser/src/interpreter.cpp.o: src/parser/src/interpreter.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/simulate.dir/src/parser/src/interpreter.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/simulate.dir/src/parser/src/interpreter.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/simulate.dir/src/parser/src/interpreter.cpp.o -c /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/src/parser/src/interpreter.cpp
 
 CMakeFiles/simulate.dir/src/parser/src/interpreter.cpp.i: cmake_force
@@ -381,6 +405,7 @@ simulate_OBJECTS = \
 "CMakeFiles/simulate.dir/src/core/src/DownwardInfluenceImpl.cc.o" \
 "CMakeFiles/simulate.dir/src/generators/src/StructureGeneratorImpl.cc.o" \
 "CMakeFiles/simulate.dir/src/generators/src/InitialConditionGeneratorImpl.cc.o" \
+"CMakeFiles/simulate.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o" \
 "CMakeFiles/simulate.dir/src/parser/src/scanner.cpp.o" \
 "CMakeFiles/simulate.dir/src/parser/src/parser.cpp.o" \
 "CMakeFiles/simulate.dir/src/parser/src/interpreter.cpp.o"
@@ -398,12 +423,13 @@ bin/simulate: CMakeFiles/simulate.dir/src/core/src/DynamicalEquation.cc.o
 bin/simulate: CMakeFiles/simulate.dir/src/core/src/DownwardInfluenceImpl.cc.o
 bin/simulate: CMakeFiles/simulate.dir/src/generators/src/StructureGeneratorImpl.cc.o
 bin/simulate: CMakeFiles/simulate.dir/src/generators/src/InitialConditionGeneratorImpl.cc.o
+bin/simulate: CMakeFiles/simulate.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
 bin/simulate: CMakeFiles/simulate.dir/src/parser/src/scanner.cpp.o
 bin/simulate: CMakeFiles/simulate.dir/src/parser/src/parser.cpp.o
 bin/simulate: CMakeFiles/simulate.dir/src/parser/src/interpreter.cpp.o
 bin/simulate: CMakeFiles/simulate.dir/build.make
 bin/simulate: CMakeFiles/simulate.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable bin/simulate"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable bin/simulate"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/simulate.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -421,6 +447,7 @@ CMakeFiles/simulate.dir/requires: CMakeFiles/simulate.dir/src/core/src/Dynamical
 CMakeFiles/simulate.dir/requires: CMakeFiles/simulate.dir/src/core/src/DownwardInfluenceImpl.cc.o.requires
 CMakeFiles/simulate.dir/requires: CMakeFiles/simulate.dir/src/generators/src/StructureGeneratorImpl.cc.o.requires
 CMakeFiles/simulate.dir/requires: CMakeFiles/simulate.dir/src/generators/src/InitialConditionGeneratorImpl.cc.o.requires
+CMakeFiles/simulate.dir/requires: CMakeFiles/simulate.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o.requires
 CMakeFiles/simulate.dir/requires: CMakeFiles/simulate.dir/src/parser/src/scanner.cpp.o.requires
 CMakeFiles/simulate.dir/requires: CMakeFiles/simulate.dir/src/parser/src/parser.cpp.o.requires
 CMakeFiles/simulate.dir/requires: CMakeFiles/simulate.dir/src/parser/src/interpreter.cpp.o.requires

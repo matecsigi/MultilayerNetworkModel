@@ -15,6 +15,12 @@ DownwardInfluenceImpl.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/src/core/src/DynamicalEquation.cc
 DynamicalEquation.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/src/core/src/DynamicalEquation.hh
+interpreter.h
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/src/core/src/interpreter.h
+scanner.h
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/src/core/src/scanner.h
+parser.hpp
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/src/core/src/parser.hpp
 iostream
 -
 sstream
@@ -79,6 +85,10 @@ iostream
 -
 UpwardInfluenceImpl.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/src/core/src/UpwardInfluenceImpl.hh
+
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc
+DynamicalEquationGeneratorSimpleImpl.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/src/generators/src/DynamicalEquationGeneratorSimpleImpl.hh
 
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/src/generators/src/InitialConditionGeneratorImpl.cc
 InitialConditionGeneratorImpl.hh
@@ -183,6 +193,8 @@ iostream
 -
 string
 -
+CalculationNode.hh
+src/core/include/CalculationNode.hh
 
 src/core/include/IDownwardInfluence.hh
 MultilayerNetwork.hh
@@ -213,6 +225,8 @@ map
 src/core/include/Network.hh
 vector
 -
+DynamicalEquation.hh
+src/core/include/DynamicalEquation.hh
 
 src/core/include/Node.hh
 Network.hh
@@ -449,6 +463,14 @@ emmintrin.h
 -
 arm_neon.h
 -
+
+src/generators/include/DynamicalEquationGeneratorSimpleImpl.hh
+IDynamicalEquationGenerator.hh
+src/generators/include/IDynamicalEquationGenerator.hh
+
+src/generators/include/IDynamicalEquationGenerator.hh
+MultilayerNetwork.hh
+src/generators/include/MultilayerNetwork.hh
 
 src/generators/include/IInitialConditionGenerator.hh
 MultilayerNetwork.hh

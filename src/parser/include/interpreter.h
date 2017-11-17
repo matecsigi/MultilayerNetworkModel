@@ -2,14 +2,14 @@
 #define INTERPRETER_H
 
 #include <vector>
-
 #include "scanner.h"
-
 #include "parser.hpp"
+
+class CalculationNode;
 
 namespace EzAquarii {
 
-class CalculationNode;
+/* class CalculationNode; */
 
 class Interpreter
 {
@@ -17,9 +17,8 @@ public:
     Interpreter();
     
     int parse();
-            
+    CalculationNode* getBaseCalculationNode();
     void switchInputStream(std::istringstream *is);
-
     void printCalculationNodes(); 
 
     friend class Parser;

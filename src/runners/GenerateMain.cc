@@ -5,6 +5,8 @@
 #include "Node.hh"
 #include "IStructureGenerator.hh"
 #include "StructureGeneratorImpl.hh"
+#include "IDynamicalEquationGenerator.hh"
+#include "DynamicalEquationGeneratorSimpleImpl.hh"
 #include "IInitialConditionGenerator.hh"
 #include "InitialConditionGeneratorImpl.hh"
 
@@ -21,11 +23,17 @@ int main(void)
 
   IStructureGenerator* structureGenerator = new StructureGeneratorImpl(multilayerNetwork);
   structureGenerator->generateStructure();
+
+  IDynamicalEquationGenerator* dynamicalEquationGenerator = new DynamicalEquationGeneratorSimpleImpl(multilayerNetwork);
+  dynamicalEquationGenerator->generateDynamicalEquations();
+
   multilayerNetwork->save(filename);
 
   IInitialConditionGenerator* initialConditionGenerator = new InitialConditionGeneratorImpl(multilayerNetwork);
   initialConditionGenerator->generateInitialCondition();
   multilayerNetwork->saveState(filenameInitialCond);
+
+  cout<<*multilayerNetwork<<endl;
 
   delete multilayerNetwork;
 
