@@ -1,5 +1,0 @@
-/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/CMakeFiles/edit_cache.dir
-/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/CMakeFiles/rebuild_cache.dir
-/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/CMakeFiles/simulate.dir
-/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/CMakeFiles/generate.dir
-/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/CMakeFiles/test.dir
