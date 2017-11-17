@@ -6,7 +6,18 @@
 
 using namespace std;
 
-// namespace EzAquarii {
+class Node;
+
+enum CalcNodeTypes {
+  CONSTANT,
+  ID,
+  NEGATE,
+  ADD,
+  SUBSTRACT,
+  MULTIPLY,
+  DIVIDE,
+  POWER
+};
 
 class CalculationNode
 {
@@ -15,8 +26,17 @@ public:
   virtual ~CalculationNode(){};
 
   virtual double evaluate() const = 0;
-  virtual void print() const = 0;
   virtual std::string toString() const = 0;
+
+  CalcNodeTypes getType(){return type;};
+  virtual int getId(){return -1;};
+
+  virtual void setNode(Node* node){};
+
+  CalculationNode* left;
+  CalculationNode* right;
+protected:
+  CalcNodeTypes type;
 };
 
 class CNConstant : public CalculationNode
@@ -25,18 +45,16 @@ public:
     explicit CNConstant(double _value)
 	: CalculationNode(), value(_value)
     {
+      left = NULL;
+      right = NULL;
+      type = CONSTANT;
     }
 
     virtual double evaluate() const
     {
 	return value;
     }
-  
-  virtual void print() const
-  {
-    cout<<"const "<<evaluate()<<endl;
-  }
-  
+
   virtual std::string toString() const
   {
     std::string strCalcNode;
@@ -54,17 +72,26 @@ public:
     explicit CNId(int _id)
 	: CalculationNode(), id(_id)
     {
+      left = NULL;
+      right = NULL;
+      type = ID;
+      mNode = NULL;
     }
+
+  int getId()
+  {
+    return id;
+  }
+  
+  void setNode(Node* node)
+  {
+    mNode = node;
+  }
 
     virtual double evaluate() const
     {
 	return 1;
     }
-
-  virtual void print() const
-  {
-    cout<<"id "<<evaluate()<<endl;
-  }
 
   virtual std::string toString() const
   {
@@ -75,44 +102,39 @@ public:
   }
 private:
   int id;
+  Node* mNode;
 };
 
 
 class CNNegate : public CalculationNode
 {
 public:
-    explicit CNNegate(CalculationNode* _node)
-	: CalculationNode(), node(_node)
+    explicit CNNegate(CalculationNode* _right)
     {
+      right = _right;
+      left = NULL;
+      type = NEGATE;
     }
 
     virtual ~CNNegate()
     {
-	delete node;
+	delete right;
     }
 
     virtual double evaluate() const
     {
-	return - node->evaluate();
+	return - right->evaluate();
     }
-
-  virtual void print() const
-  {
-    cout<<"negate "<<evaluate()<<endl;
-    node->print();
-  }
 
   virtual std::string toString() const
   {
     std::string strCalcNode;
     strCalcNode.append("(");
     strCalcNode.append("-");
-    strCalcNode.append(node->toString());
+    strCalcNode.append(right->toString());
     strCalcNode.append(")");
     return strCalcNode;
   }
-private:
-    CalculationNode* node;
 };
 
 
@@ -120,8 +142,10 @@ class CNAdd : public CalculationNode
 {    
 public:
     explicit CNAdd(CalculationNode* _left, CalculationNode* _right)
-	: CalculationNode(), left(_left), right(_right)
     {
+      left = _left;
+      right = _right;
+      type = ADD;
     }
 
     virtual ~CNAdd()
@@ -135,13 +159,6 @@ public:
 	return left->evaluate() + right->evaluate();
     }
 
-  virtual void print() const
-  {
-    cout<<"add "<<evaluate()<<endl;
-    left->print();
-    right->print();
-  }
-
   virtual std::string toString() const
   {
     std::string strCalcNode;
@@ -152,9 +169,6 @@ public:
     strCalcNode.append(")");
     return strCalcNode;
   }
-private:
-    CalculationNode* left;
-    CalculationNode* right;
 };
 
 
@@ -162,8 +176,10 @@ class CNSubtract : public CalculationNode
 {    
 public:
     explicit CNSubtract(CalculationNode* _left, CalculationNode* _right)
-	: CalculationNode(), left(_left), right(_right)
     {
+      left = _left;
+      right = _right;
+      type = SUBSTRACT;
     }
 
     virtual ~CNSubtract()
@@ -177,13 +193,6 @@ public:
 	return left->evaluate() - right->evaluate();
     }
 
-  virtual void print() const
-  {
-    cout<<"substract "<<evaluate()<<endl;
-    left->print();
-    right->print();
-  }
-
   virtual std::string toString() const
   {
     std::string strCalcNode;
@@ -194,9 +203,6 @@ public:
     strCalcNode.append(")");
     return strCalcNode;
   }
-private:
-    CalculationNode* left;
-    CalculationNode* right;
 };
 
 
@@ -204,8 +210,10 @@ class CNMultiply : public CalculationNode
 {    
 public:
     explicit CNMultiply(CalculationNode* _left, CalculationNode* _right)
-	: CalculationNode(), left(_left), right(_right)
     {
+      left = _left;
+      right = _right;
+      type = MULTIPLY;
     }
 
     virtual ~CNMultiply()
@@ -219,13 +227,6 @@ public:
 	return left->evaluate() * right->evaluate();
     }
 
-  virtual void print() const
-  {
-    cout<<"multiply "<<evaluate()<<endl;
-    left->print();
-    right->print();
-  }
-
   virtual std::string toString() const
   {
     std::string strCalcNode;
@@ -236,9 +237,6 @@ public:
     strCalcNode.append(")");
     return strCalcNode;
   }
-private:
-    CalculationNode* left;
-    CalculationNode* right;
 };
 
 
@@ -246,8 +244,10 @@ class CNDivide : public CalculationNode
 {    
 public:
     explicit CNDivide(CalculationNode* _left, CalculationNode* _right)
-	: CalculationNode(), left(_left), right(_right)
     {
+      left = _left;
+      right = _right;
+      type = DIVIDE;
     }
 
     virtual ~CNDivide()
@@ -261,13 +261,6 @@ public:
 	return left->evaluate() / right->evaluate();
     }
 
-  virtual void print() const
-  {
-    cout<<"divide "<<evaluate()<<endl;
-    left->print();
-    right->print();
-  }
-
   virtual std::string toString() const
   {
     std::string strCalcNode;
@@ -278,9 +271,6 @@ public:
     strCalcNode.append(")");
     return strCalcNode;
   }
-private:
-    CalculationNode* left;
-    CalculationNode* right;
 };
 
 
@@ -288,8 +278,10 @@ class CNPower : public CalculationNode
 {    
 public:
     explicit CNPower(CalculationNode* _left, CalculationNode* _right)
-	: CalculationNode(), left(_left), right(_right)
     {
+      left = _left;
+      right = _right;
+      type = POWER;
     }
 
     virtual ~CNPower()
@@ -303,13 +295,6 @@ public:
 	return std::pow(left->evaluate(), right->evaluate());
     }
 
-  virtual void print() const
-  {
-    cout<<"power"<<evaluate()<<endl;
-    left->print();
-    right->print();
-  }
-
   virtual std::string toString() const
   {
     std::string strCalcNode;
@@ -320,12 +305,6 @@ public:
     strCalcNode.append(")");
     return strCalcNode;
   }
-private:
-    CalculationNode* left;
-    CalculationNode* right;
-
 };
-
-//}
 
 #endif

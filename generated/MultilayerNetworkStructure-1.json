@@ -9,7 +9,7 @@
                         "Nodes": [
                             {
                                 "id": 0,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 3
                                 },
@@ -17,7 +17,7 @@
                             },
                             {
                                 "id": 1,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 4
                                 },
@@ -29,7 +29,7 @@
                             },
                             {
                                 "id": 2,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 5
                                 },
@@ -46,7 +46,7 @@
                         "Nodes": [
                             {
                                 "id": 3,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 6
                                 },
@@ -54,7 +54,7 @@
                             },
                             {
                                 "id": 4,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 7
                                 },
@@ -66,7 +66,7 @@
                             },
                             {
                                 "id": 5,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 8
                                 },
@@ -83,7 +83,7 @@
                         "Nodes": [
                             {
                                 "id": 6,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 9
                                 },
@@ -91,7 +91,7 @@
                             },
                             {
                                 "id": 7,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 10
                                 },
@@ -103,7 +103,7 @@
                             },
                             {
                                 "id": 8,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 11
                                 },
@@ -125,7 +125,7 @@
                         "Nodes": [
                             {
                                 "id": 9,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 12
                                 },
@@ -133,7 +133,7 @@
                             },
                             {
                                 "id": 10,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 13
                                 },
@@ -145,7 +145,7 @@
                             },
                             {
                                 "id": 11,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 14
                                 },
@@ -162,7 +162,7 @@
                         "Nodes": [
                             {
                                 "id": 12,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 15
                                 },
@@ -170,7 +170,7 @@
                             },
                             {
                                 "id": 13,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 16
                                 },
@@ -182,7 +182,7 @@
                             },
                             {
                                 "id": 14,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 17
                                 },
@@ -199,7 +199,7 @@
                         "Nodes": [
                             {
                                 "id": 15,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 18
                                 },
@@ -207,7 +207,7 @@
                             },
                             {
                                 "id": 16,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 19
                                 },
@@ -219,7 +219,7 @@
                             },
                             {
                                 "id": 17,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 20
                                 },
@@ -236,7 +236,7 @@
                         "Nodes": [
                             {
                                 "id": 18,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 21
                                 },
@@ -244,7 +244,7 @@
                             },
                             {
                                 "id": 19,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 22
                                 },
@@ -256,7 +256,7 @@
                             },
                             {
                                 "id": 20,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 23
                                 },
@@ -273,7 +273,7 @@
                         "Nodes": [
                             {
                                 "id": 21,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 24
                                 },
@@ -281,7 +281,7 @@
                             },
                             {
                                 "id": 22,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 25
                                 },
@@ -293,7 +293,7 @@
                             },
                             {
                                 "id": 23,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 26
                                 },
@@ -310,7 +310,7 @@
                         "Nodes": [
                             {
                                 "id": 24,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 27
                                 },
@@ -318,7 +318,7 @@
                             },
                             {
                                 "id": 25,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 28
                                 },
@@ -330,7 +330,7 @@
                             },
                             {
                                 "id": 26,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 29
                                 },
@@ -347,7 +347,7 @@
                         "Nodes": [
                             {
                                 "id": 27,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 30
                                 },
@@ -355,7 +355,7 @@
                             },
                             {
                                 "id": 28,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 31
                                 },
@@ -367,7 +367,7 @@
                             },
                             {
                                 "id": 29,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 32
                                 },
@@ -384,7 +384,7 @@
                         "Nodes": [
                             {
                                 "id": 30,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 33
                                 },
@@ -392,7 +392,7 @@
                             },
                             {
                                 "id": 31,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 34
                                 },
@@ -404,7 +404,7 @@
                             },
                             {
                                 "id": 32,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 35
                                 },
@@ -421,7 +421,7 @@
                         "Nodes": [
                             {
                                 "id": 33,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 36
                                 },
@@ -429,7 +429,7 @@
                             },
                             {
                                 "id": 34,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 37
                                 },
@@ -441,7 +441,7 @@
                             },
                             {
                                 "id": 35,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "NetworkAssigned": {
                                     "id": 38
                                 },
@@ -463,12 +463,12 @@
                         "Nodes": [
                             {
                                 "id": 36,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": []
                             },
                             {
                                 "id": 37,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 36
@@ -477,7 +477,7 @@
                             },
                             {
                                 "id": 38,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 37
@@ -491,12 +491,12 @@
                         "Nodes": [
                             {
                                 "id": 39,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": []
                             },
                             {
                                 "id": 40,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 39
@@ -505,7 +505,7 @@
                             },
                             {
                                 "id": 41,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 40
@@ -519,12 +519,12 @@
                         "Nodes": [
                             {
                                 "id": 42,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": []
                             },
                             {
                                 "id": 43,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 42
@@ -533,7 +533,7 @@
                             },
                             {
                                 "id": 44,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 43
@@ -547,12 +547,12 @@
                         "Nodes": [
                             {
                                 "id": 45,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": []
                             },
                             {
                                 "id": 46,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 45
@@ -561,7 +561,7 @@
                             },
                             {
                                 "id": 47,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 46
@@ -575,12 +575,12 @@
                         "Nodes": [
                             {
                                 "id": 48,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": []
                             },
                             {
                                 "id": 49,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 48
@@ -589,7 +589,7 @@
                             },
                             {
                                 "id": 50,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 49
@@ -603,12 +603,12 @@
                         "Nodes": [
                             {
                                 "id": 51,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": []
                             },
                             {
                                 "id": 52,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 51
@@ -617,7 +617,7 @@
                             },
                             {
                                 "id": 53,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 52
@@ -631,12 +631,12 @@
                         "Nodes": [
                             {
                                 "id": 54,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": []
                             },
                             {
                                 "id": 55,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 54
@@ -645,7 +645,7 @@
                             },
                             {
                                 "id": 56,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 55
@@ -659,12 +659,12 @@
                         "Nodes": [
                             {
                                 "id": 57,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": []
                             },
                             {
                                 "id": 58,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 57
@@ -673,7 +673,7 @@
                             },
                             {
                                 "id": 59,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 58
@@ -687,12 +687,12 @@
                         "Nodes": [
                             {
                                 "id": 60,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": []
                             },
                             {
                                 "id": 61,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 60
@@ -701,7 +701,7 @@
                             },
                             {
                                 "id": 62,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 61
@@ -715,12 +715,12 @@
                         "Nodes": [
                             {
                                 "id": 63,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": []
                             },
                             {
                                 "id": 64,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 63
@@ -729,7 +729,7 @@
                             },
                             {
                                 "id": 65,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 64
@@ -743,12 +743,12 @@
                         "Nodes": [
                             {
                                 "id": 66,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": []
                             },
                             {
                                 "id": 67,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 66
@@ -757,7 +757,7 @@
                             },
                             {
                                 "id": 68,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 67
@@ -771,12 +771,12 @@
                         "Nodes": [
                             {
                                 "id": 69,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": []
                             },
                             {
                                 "id": 70,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 69
@@ -785,7 +785,7 @@
                             },
                             {
                                 "id": 71,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 70
@@ -799,12 +799,12 @@
                         "Nodes": [
                             {
                                 "id": 72,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": []
                             },
                             {
                                 "id": 73,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 72
@@ -813,7 +813,7 @@
                             },
                             {
                                 "id": 74,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 73
@@ -827,12 +827,12 @@
                         "Nodes": [
                             {
                                 "id": 75,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": []
                             },
                             {
                                 "id": 76,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 75
@@ -841,7 +841,7 @@
                             },
                             {
                                 "id": 77,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 76
@@ -855,12 +855,12 @@
                         "Nodes": [
                             {
                                 "id": 78,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": []
                             },
                             {
                                 "id": 79,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 78
@@ -869,7 +869,7 @@
                             },
                             {
                                 "id": 80,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 79
@@ -883,12 +883,12 @@
                         "Nodes": [
                             {
                                 "id": 81,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": []
                             },
                             {
                                 "id": 82,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 81
@@ -897,7 +897,7 @@
                             },
                             {
                                 "id": 83,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 82
@@ -911,12 +911,12 @@
                         "Nodes": [
                             {
                                 "id": 84,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": []
                             },
                             {
                                 "id": 85,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 84
@@ -925,7 +925,7 @@
                             },
                             {
                                 "id": 86,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 85
@@ -939,12 +939,12 @@
                         "Nodes": [
                             {
                                 "id": 87,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": []
                             },
                             {
                                 "id": 88,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 87
@@ -953,7 +953,7 @@
                             },
                             {
                                 "id": 89,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 88
@@ -967,12 +967,12 @@
                         "Nodes": [
                             {
                                 "id": 90,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": []
                             },
                             {
                                 "id": 91,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 90
@@ -981,7 +981,7 @@
                             },
                             {
                                 "id": 92,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 91
@@ -995,12 +995,12 @@
                         "Nodes": [
                             {
                                 "id": 93,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": []
                             },
                             {
                                 "id": 94,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 93
@@ -1009,7 +1009,7 @@
                             },
                             {
                                 "id": 95,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 94
@@ -1023,12 +1023,12 @@
                         "Nodes": [
                             {
                                 "id": 96,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": []
                             },
                             {
                                 "id": 97,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 96
@@ -1037,7 +1037,7 @@
                             },
                             {
                                 "id": 98,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 97
@@ -1051,12 +1051,12 @@
                         "Nodes": [
                             {
                                 "id": 99,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": []
                             },
                             {
                                 "id": 100,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 99
@@ -1065,7 +1065,7 @@
                             },
                             {
                                 "id": 101,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 100
@@ -1079,12 +1079,12 @@
                         "Nodes": [
                             {
                                 "id": 102,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": []
                             },
                             {
                                 "id": 103,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 102
@@ -1093,7 +1093,7 @@
                             },
                             {
                                 "id": 104,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 103
@@ -1107,12 +1107,12 @@
                         "Nodes": [
                             {
                                 "id": 105,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": []
                             },
                             {
                                 "id": 106,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 105
@@ -1121,7 +1121,7 @@
                             },
                             {
                                 "id": 107,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 106
@@ -1135,12 +1135,12 @@
                         "Nodes": [
                             {
                                 "id": 108,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": []
                             },
                             {
                                 "id": 109,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 108
@@ -1149,7 +1149,7 @@
                             },
                             {
                                 "id": 110,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 109
@@ -1163,12 +1163,12 @@
                         "Nodes": [
                             {
                                 "id": 111,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": []
                             },
                             {
                                 "id": 112,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 111
@@ -1177,7 +1177,7 @@
                             },
                             {
                                 "id": 113,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 112
@@ -1191,12 +1191,12 @@
                         "Nodes": [
                             {
                                 "id": 114,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": []
                             },
                             {
                                 "id": 115,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 114
@@ -1205,7 +1205,7 @@
                             },
                             {
                                 "id": 116,
-                                "DynamicalEquation": "(2.000000*(1.000000+1.000000))",
+                                "DynamicalEquation": "",
                                 "Neighbors": [
                                     {
                                         "id": 115

@@ -135,7 +135,8 @@ std::string Network::getNodeDynamicalEquationString(int nodeId) const
   int localId = getLocalId(nodeId);
   if(localId != -1)
   {
-    return mDynamicalEquations[localId]->toString();
+    std::string result = mDynamicalEquations[localId]->toString();
+    return result;
   }
   return "";
 }

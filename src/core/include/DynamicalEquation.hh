@@ -3,8 +3,12 @@
 
 #include <iostream>
 #include <string>
+#include <map>
 
 #include "CalculationNode.hh"
+
+class Node;
+class Network;
 
 class DynamicalEquation
 {
@@ -14,7 +18,10 @@ public:
 
   double evaluate();
 
+  CalculationNode* getBaseCalculationNode(void);
+
   void loadEquation(std::string strEquation);
+  void loadNodesToEquation(CalculationNode* calcPtr, std::map<int, Node*>& nodesMap);
   std::string toString() const;
 private:
   CalculationNode* mBaseCalculationNode;

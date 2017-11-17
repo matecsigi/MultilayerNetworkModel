@@ -34,6 +34,30 @@ std::vector<Layer*> MultilayerNetwork::getLayers(void) const
   return mLayers;
 }
 
+void MultilayerNetwork::loadNodesToAllEquations(void)
+{
+  std::vector<Layer*> layers = this->getLayers();
+  for(std::vector<Layer*>::iterator itLay=layers.begin(); itLay != layers.end(); ++itLay)
+  {
+    std::vector<Network*> networks = (*itLay)->getNetworks();
+    for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
+    {
+      Network* currentNetwork = (*itNet);
+      std::vector<Node*> nodes = currentNetwork->getNodes();
+      std::map<int, Node*> nodesMap;
+      for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode<nodes.end(); ++itNode)
+      {
+	nodesMap[(*itNode)->getId()] = (*itNode);
+      }
+      for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode<nodes.end(); ++itNode)
+      {
+	DynamicalEquation* dynamicalEquation = currentNetwork->getNodeDynamicalEquation((*itNode)->getId());
+	dynamicalEquation->loadNodesToEquation(dynamicalEquation->getBaseCalculationNode(), nodesMap);
+      }
+    }
+  }
+}
+
 ostream& operator<<(ostream& os, const MultilayerNetwork& multilayerNetwork)
 {
   os<<"<< operator"<<endl;
@@ -173,7 +197,10 @@ void MultilayerNetwork::save(const char* filename)
 	nodeObject.AddMember("id", (*itNode)->getId(), allocator);
 
 	Value textEq;
-	textEq.SetString((*itNet)->getNodeDynamicalEquationString((*itNode)->getId()).c_str(), allocator);
+	int nodeId = (*itNode)->getId();
+	std::string strEq = (*itNet)->getNodeDynamicalEquationString(nodeId);
+
+	textEq.SetString(strEq.c_str(), allocator);
 	nodeObject.AddMember("DynamicalEquation", textEq, allocator);
 
 	Network* networkAssigned = (*itNode)->getNetworkAssigned();
@@ -284,6 +311,8 @@ void MultilayerNetwork::load(const char* filename)
       }
     }
   }
+
+  loadNodesToAllEquations();
 
   StringBuffer buffer;
   PrettyWriter<StringBuffer> writer(buffer);

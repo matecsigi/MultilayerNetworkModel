@@ -22,13 +22,6 @@ CalculationNode* Interpreter::getBaseCalculationNode()
   return mCalcBase;
 }
 
-void Interpreter::printCalculationNodes()
-{
-  cout<<"---------------"<<endl;
-  cout<<"Print function"<<endl;
-  mCalcBase->print();
-}
-
 void Interpreter::switchInputStream(std::istringstream *is)
 {
     m_scanner.switch_streams(is, NULL);
