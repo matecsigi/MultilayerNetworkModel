@@ -20,6 +20,15 @@ double DynamicalEquation::evaluate()
   return mBaseCalculationNode->evaluate();
 }
 
+bool DynamicalEquation::testNodeIds(void) const
+{
+  if(mBaseCalculationNode != NULL)
+  {
+    return mBaseCalculationNode->testNodeIds();
+  }
+  return true;
+}
+
 CalculationNode* DynamicalEquation::getBaseCalculationNode(void)
 {
   return mBaseCalculationNode;
@@ -43,6 +52,7 @@ void DynamicalEquation::loadEquation(std::string strEquation)
 
 void DynamicalEquation::loadNodesToEquation(CalculationNode* calcPtr, std::map<int, Node*>& nodesMap)
 {
+  std::cout<<calcPtr->getType()<<std::endl;
   if(calcPtr == NULL)
   {
     return;

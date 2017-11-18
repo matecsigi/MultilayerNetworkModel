@@ -77,7 +77,11 @@ void Network::generateConnections(void)
   //creating a circular graph
   for(unsigned i=1; i<mNodes.size(); ++i)
   {
-    addEdge(i, i-1);
+    addEdge(i-1, i);
+  }
+  if(mNodes.size() > 1)
+  {
+    addEdge(mNodes.size()-1, 0);
   }
 }
 

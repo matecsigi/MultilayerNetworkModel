@@ -149,6 +149,39 @@ test/fast:
 	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
 .PHONY : test/fast
 
+src/core/src/CalculationNode.o: src/core/src/CalculationNode.cc.o
+
+.PHONY : src/core/src/CalculationNode.o
+
+# target to build an object file
+src/core/src/CalculationNode.cc.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/CalculationNode.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/CalculationNode.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/CalculationNode.cc.o
+.PHONY : src/core/src/CalculationNode.cc.o
+
+src/core/src/CalculationNode.i: src/core/src/CalculationNode.cc.i
+
+.PHONY : src/core/src/CalculationNode.i
+
+# target to preprocess a source file
+src/core/src/CalculationNode.cc.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/CalculationNode.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/CalculationNode.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/CalculationNode.cc.i
+.PHONY : src/core/src/CalculationNode.cc.i
+
+src/core/src/CalculationNode.s: src/core/src/CalculationNode.cc.s
+
+.PHONY : src/core/src/CalculationNode.s
+
+# target to generate assembly for a file
+src/core/src/CalculationNode.cc.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/CalculationNode.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/CalculationNode.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/CalculationNode.cc.s
+.PHONY : src/core/src/CalculationNode.cc.s
+
 src/core/src/DownwardInfluenceImpl.o: src/core/src/DownwardInfluenceImpl.cc.o
 
 .PHONY : src/core/src/DownwardInfluenceImpl.o
@@ -670,6 +703,9 @@ help:
 	@echo "... simulate"
 	@echo "... generate"
 	@echo "... test"
+	@echo "... src/core/src/CalculationNode.o"
+	@echo "... src/core/src/CalculationNode.i"
+	@echo "... src/core/src/CalculationNode.s"
 	@echo "... src/core/src/DownwardInfluenceImpl.o"
 	@echo "... src/core/src/DownwardInfluenceImpl.i"
 	@echo "... src/core/src/DownwardInfluenceImpl.s"

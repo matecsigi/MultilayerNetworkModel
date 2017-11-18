@@ -6,6 +6,8 @@
 #include <algorithm>
 #include "IStructureGenerator.hh"
 #include "StructureGeneratorImpl.hh"
+#include "IDynamicalEquationGenerator.hh"
+#include "DynamicalEquationGeneratorSimpleImpl.hh"
 #include "IInitialConditionGenerator.hh"
 #include "InitialConditionGeneratorImpl.hh"
 #include "Node.hh"
@@ -274,5 +276,68 @@ BOOST_AUTO_TEST_CASE(generateStructure_SavedAndLoadedInitialConditionsMatch)
   delete multilayerNetwork2;
 }
 
+
+BOOST_AUTO_TEST_SUITE_END()
+
+BOOST_AUTO_TEST_SUITE(test_suite_DynamicalEquationTests)
+
+BOOST_AUTO_TEST_CASE(generateStructure_SavedAndLoadedDynamicalEquationMatch)
+{
+  MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
+
+  IStructureGenerator* structureGenerator = new StructureGeneratorImpl(multilayerNetwork);
+  structureGenerator->generateStructure();
+  const char *filename="generated/MultilayerNetworkStructure-1.json";
+
+  IDynamicalEquationGenerator* dynamicalEquationGenerator = new DynamicalEquationGeneratorSimpleImpl(multilayerNetwork);
+  dynamicalEquationGenerator->generateDynamicalEquations();
+
+  multilayerNetwork->save(filename);
+
+  MultilayerNetwork* multilayerNetwork2 = new MultilayerNetwork;
+  multilayerNetwork2->load(filename);
+
+  bool dynamicalEquationsMatch = dynamicalEquationsEqual(*multilayerNetwork, *multilayerNetwork2);
+
+  BOOST_CHECK_MESSAGE(dynamicalEquationsMatch == true, "Saved and loaded dynamical equations don't match");
+
+  delete multilayerNetwork;
+  delete multilayerNetwork2;
+
+}
+
+BOOST_AUTO_TEST_CASE(generateStructure_CalculationNodeIds)
+{
+  MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
+
+  IStructureGenerator* structureGenerator = new StructureGeneratorImpl(multilayerNetwork);
+  structureGenerator->generateStructure();
+
+  IDynamicalEquationGenerator* dynamicalEquationGenerator = new DynamicalEquationGeneratorSimpleImpl(multilayerNetwork);
+  dynamicalEquationGenerator->generateDynamicalEquations();
+
+  bool correctNodesAssigned = true;
+  std::vector<Layer*> layers = multilayerNetwork->getLayers();
+  for(std::vector<Layer*>::iterator itLay=layers.begin(); itLay != layers.end(); ++itLay)
+  {
+    std::vector<Network*> networks = (*itLay)->getNetworks();
+    for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
+    {
+      std::vector<Node*> nodes = (*itNet)->getNodes();
+      for(std::vector<Node*>::iterator itNode = nodes.begin(); itNode != nodes.end(); ++itNode)
+      {
+	DynamicalEquation* dynamicalEquation = (*itNet)->getNodeDynamicalEquation((*itNode)->getId());
+	if(dynamicalEquation->testNodeIds() == false)
+	{
+	  correctNodesAssigned = false;
+	}
+      }
+    }
+  }
+
+  BOOST_CHECK_MESSAGE(correctNodesAssigned == true, "The IDs in CalculationNodes don't match with the node assigned to them");
+
+  delete multilayerNetwork;
+}
 
 BOOST_AUTO_TEST_SUITE_END()

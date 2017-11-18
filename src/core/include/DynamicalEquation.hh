@@ -18,6 +18,8 @@ public:
 
   double evaluate();
 
+  bool testNodeIds(void) const;
+
   CalculationNode* getBaseCalculationNode(void);
 
   void loadEquation(std::string strEquation);

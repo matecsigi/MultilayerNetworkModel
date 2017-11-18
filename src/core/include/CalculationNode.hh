@@ -26,6 +26,7 @@ public:
   virtual ~CalculationNode(){};
 
   virtual double evaluate() const = 0;
+  virtual bool testNodeIds() const = 0;
   virtual std::string toString() const = 0;
 
   CalcNodeTypes getType(){return type;};
@@ -42,18 +43,22 @@ protected:
 class CNConstant : public CalculationNode
 {
 public:
-    explicit CNConstant(double _value)
-	: CalculationNode(), value(_value)
-    {
-      left = NULL;
-      right = NULL;
-      type = CONSTANT;
-    }
+  explicit CNConstant(double _value) : CalculationNode(), value(_value)
+  {
+    left = NULL;
+    right = NULL;
+    type = CONSTANT;
+  }
 
-    virtual double evaluate() const
-    {
-	return value;
-    }
+  virtual double evaluate() const
+  {
+    return value;
+  }
+
+  virtual bool testNodeIds() const
+  {
+    return true;
+  }
 
   virtual std::string toString() const
   {
@@ -88,10 +93,12 @@ public:
     mNode = node;
   }
 
-    virtual double evaluate() const
-    {
-	return 1;
-    }
+  virtual double evaluate() const
+  {
+    return 1;
+  }
+
+  virtual bool testNodeIds() const;
 
   virtual std::string toString() const
   {
@@ -109,22 +116,27 @@ private:
 class CNNegate : public CalculationNode
 {
 public:
-    explicit CNNegate(CalculationNode* _right)
-    {
-      right = _right;
-      left = NULL;
-      type = NEGATE;
-    }
+  explicit CNNegate(CalculationNode* _right)
+  {
+    right = _right;
+    left = NULL;
+    type = NEGATE;
+  }
 
-    virtual ~CNNegate()
-    {
-	delete right;
-    }
+  virtual ~CNNegate()
+  {
+    delete right;
+  }
 
-    virtual double evaluate() const
-    {
-	return - right->evaluate();
-    }
+  virtual double evaluate() const
+  {
+    return - right->evaluate();
+  }
+
+  virtual bool testNodeIds() const
+  {
+    return right->testNodeIds();
+  }
 
   virtual std::string toString() const
   {
@@ -141,23 +153,28 @@ public:
 class CNAdd : public CalculationNode
 {    
 public:
-    explicit CNAdd(CalculationNode* _left, CalculationNode* _right)
-    {
-      left = _left;
-      right = _right;
-      type = ADD;
-    }
+  explicit CNAdd(CalculationNode* _left, CalculationNode* _right)
+  {
+    left = _left;
+    right = _right;
+    type = ADD;
+  }
 
-    virtual ~CNAdd()
-    {
-	delete left;
-	delete right;
-    }
+  virtual ~CNAdd()
+  {
+    delete left;
+    delete right;
+  }
 
-    virtual double evaluate() const
-    {
-	return left->evaluate() + right->evaluate();
-    }
+  virtual double evaluate() const
+  {
+    return left->evaluate() + right->evaluate();
+  }
+
+  virtual bool testNodeIds() const
+  {
+    return ((left->testNodeIds()) && (right->testNodeIds()));
+  }
 
   virtual std::string toString() const
   {
@@ -175,23 +192,28 @@ public:
 class CNSubtract : public CalculationNode
 {    
 public:
-    explicit CNSubtract(CalculationNode* _left, CalculationNode* _right)
-    {
-      left = _left;
-      right = _right;
-      type = SUBSTRACT;
-    }
+  explicit CNSubtract(CalculationNode* _left, CalculationNode* _right)
+  {
+    left = _left;
+    right = _right;
+    type = SUBSTRACT;
+  }
 
-    virtual ~CNSubtract()
-    {
-	delete left;
-	delete right;
-    }
+  virtual ~CNSubtract()
+  {
+    delete left;
+    delete right;
+  }
 
-    virtual double evaluate() const
-    {
-	return left->evaluate() - right->evaluate();
-    }
+  virtual double evaluate() const
+  {
+    return left->evaluate() - right->evaluate();
+  }
+
+  virtual bool testNodeIds() const
+  {
+    return ((left->testNodeIds()) && (right->testNodeIds()));
+  }
 
   virtual std::string toString() const
   {
@@ -209,23 +231,28 @@ public:
 class CNMultiply : public CalculationNode
 {    
 public:
-    explicit CNMultiply(CalculationNode* _left, CalculationNode* _right)
-    {
-      left = _left;
-      right = _right;
-      type = MULTIPLY;
-    }
+  explicit CNMultiply(CalculationNode* _left, CalculationNode* _right)
+  {
+    left = _left;
+    right = _right;
+    type = MULTIPLY;
+  }
 
-    virtual ~CNMultiply()
-    {
-	delete left;
-	delete right;
-    }
+  virtual ~CNMultiply()
+  {
+    delete left;
+    delete right;
+  }
 
-    virtual double evaluate() const
-    {
-	return left->evaluate() * right->evaluate();
-    }
+  virtual double evaluate() const
+  {
+    return left->evaluate() * right->evaluate();
+  }
+
+  virtual bool testNodeIds() const
+  {
+    return ((left->testNodeIds()) && (right->testNodeIds()));
+  }
 
   virtual std::string toString() const
   {
@@ -243,23 +270,28 @@ public:
 class CNDivide : public CalculationNode
 {    
 public:
-    explicit CNDivide(CalculationNode* _left, CalculationNode* _right)
-    {
-      left = _left;
-      right = _right;
-      type = DIVIDE;
-    }
+  explicit CNDivide(CalculationNode* _left, CalculationNode* _right)
+  {
+    left = _left;
+    right = _right;
+    type = DIVIDE;
+  }
 
-    virtual ~CNDivide()
-    {
-	delete left;
-	delete right;
-    }
+  virtual ~CNDivide()
+  {
+    delete left;
+    delete right;
+  }
 
-    virtual double evaluate() const
-    {
-	return left->evaluate() / right->evaluate();
-    }
+  virtual double evaluate() const
+  {
+    return left->evaluate() / right->evaluate();
+  }
+
+  virtual bool testNodeIds() const
+  {
+    return ((left->testNodeIds()) && (right->testNodeIds()));
+  }
 
   virtual std::string toString() const
   {
@@ -277,23 +309,28 @@ public:
 class CNPower : public CalculationNode
 {    
 public:
-    explicit CNPower(CalculationNode* _left, CalculationNode* _right)
-    {
-      left = _left;
-      right = _right;
-      type = POWER;
-    }
+  explicit CNPower(CalculationNode* _left, CalculationNode* _right)
+  {
+    left = _left;
+    right = _right;
+    type = POWER;
+  }
+  
+  virtual ~CNPower()
+  {
+    delete left;
+    delete right;
+  }
 
-    virtual ~CNPower()
-    {
-	delete left;
-	delete right;
-    }
+  virtual double evaluate() const
+  {
+    return std::pow(left->evaluate(), right->evaluate());
+  }
 
-    virtual double evaluate() const
-    {
-	return std::pow(left->evaluate(), right->evaluate());
-    }
+  virtual bool testNodeIds() const
+  {
+    return ((left->testNodeIds()) && (right->testNodeIds()));
+  }
 
   virtual std::string toString() const
   {

@@ -14,7 +14,14 @@ void DynamicalEquationGeneratorSimpleImpl::generateDynamicalEquations()
       for(std::vector<Node*>::iterator itNode = nodes.begin(); itNode != nodes.end(); ++itNode)
       {
 	Node* currentNode = (*itNode);
-	std::string myString = "2*(1+1)";
+	std::string myString = "1";
+	std::vector<Node*> neighbors = (*itNet)->getNodeNeighbors((*itNode)->getId());
+	for(std::vector<Node*>::iterator itNei=neighbors.begin(); itNei != neighbors.end(); ++itNei)
+	{
+	  myString.append("+");
+	  myString.append("ID");
+	  myString.append((std::to_string((*itNei)->getId())));
+	}
 	currentNetwork->setDynamicalEquation(currentNode->getId(), myString);
       }
     }
