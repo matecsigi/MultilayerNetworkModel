@@ -340,4 +340,44 @@ BOOST_AUTO_TEST_CASE(generateStructure_CalculationNodeIds)
   delete multilayerNetwork;
 }
 
+BOOST_AUTO_TEST_CASE(generateStructure_CalculationNodeCalculatesCorrectValue)
+{
+  // "1+ID{neighbor}"
+  double correctValue = 1+10;
+
+  MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
+
+  IStructureGenerator* structureGenerator = new StructureGeneratorImpl(multilayerNetwork);
+  structureGenerator->generateStructure();
+
+  IDynamicalEquationGenerator* dynamicalEquationGenerator = new DynamicalEquationGeneratorSimpleImpl(multilayerNetwork);
+  dynamicalEquationGenerator->generateDynamicalEquations();
+
+  IInitialConditionGenerator* initialConditionGenerator = new InitialConditionGeneratorImpl(multilayerNetwork);
+  initialConditionGenerator->generateInitialCondition();
+
+  bool valueCalculatedCorrectly = true;
+  std::vector<Layer*> layers = multilayerNetwork->getLayers();
+  for(std::vector<Layer*>::iterator itLay=layers.begin(); itLay != layers.end(); ++itLay)
+  {
+    std::vector<Network*> networks = (*itLay)->getNetworks();
+    for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
+    {
+      std::vector<Node*> nodes = (*itNet)->getNodes();
+      for(std::vector<Node*>::iterator itNode = nodes.begin(); itNode != nodes.end(); ++itNode)
+      {
+	DynamicalEquation* dynamicalEquation = (*itNet)->getNodeDynamicalEquation((*itNode)->getId());
+	if(dynamicalEquation->evaluate() != correctValue)
+	{
+	  valueCalculatedCorrectly = false;
+	}
+      }
+    }
+  }
+
+  BOOST_CHECK_MESSAGE(valueCalculatedCorrectly == true, "The value calculated by the CalculationNode is not correct");
+
+  delete multilayerNetwork;
+}
+
 BOOST_AUTO_TEST_SUITE_END()
