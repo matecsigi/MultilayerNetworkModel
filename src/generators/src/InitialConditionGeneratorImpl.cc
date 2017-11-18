@@ -15,8 +15,8 @@ void InitialConditionGeneratorImpl::generateInitialCondition()
       for(std::vector<Node*>::iterator itNode = nodes.begin(); itNode != nodes.end(); ++itNode)
       {
 	Node* currentNode = (*itNode);
-	tmpBuffer[0] = 1.1;
-	tmpBuffer[1] = 1.3;
+	tmpBuffer[0] = 10;
+	tmpBuffer[1] = 10;
 	currentNode->setValues(tmpBuffer);
       }
     }

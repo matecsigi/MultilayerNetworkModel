@@ -91,6 +91,11 @@ void Node::getValues(double* values)
   values[1] = mValues[1];
 }
 
+double Node::getValue(void)
+{
+  return mValues[0];
+}
+
 bool operator==(const Node& node1, const Node& node2)
 {
   Network* networkAssigned1 = node1.getNetworkAssigned();

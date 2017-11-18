@@ -16,6 +16,9 @@ int main(void)
 {
   cout<<"Start generation"<<endl;
 
+  std::string st = std::to_string(0);
+  std::cout<<st<<std::endl;
+
   const char *filename="generated/MultilayerNetworkStructure-1.json";
   const char *filenameInitialCond="generated/InitialCondition-1.bin";
 

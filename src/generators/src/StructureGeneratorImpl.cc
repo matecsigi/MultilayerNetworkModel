@@ -16,7 +16,7 @@ void StructureGeneratorImpl::generateStructure()
 
 void StructureGeneratorImpl::generateLayers(void)
 {
-  for(int i=0;i<3;i++)
+  for(int i=1;i<4;i++)
   {
     mMultilayerNetwork->addLayer(i);
   }
@@ -31,7 +31,7 @@ void StructureGeneratorImpl::generateNetworks(void)
     int layerIndex = std::distance(layers.begin(), it);
     for(int i=0; i<pow(3, (layerIndex+1)); ++i)
     {
-      (*it)->addNetwork(networkIdCounter);
+      (*it)->addNetwork(networkIdCounter+1);
       ++networkIdCounter;
     }
   }
@@ -48,7 +48,7 @@ void StructureGeneratorImpl::generateNodes(void)
       {
 	for(int i=0; i<3; i++)
 	{
-	  (*it2)->addNode(nodeIdCounter);
+	  (*it2)->addNode(nodeIdCounter+1);
 	  ++nodeIdCounter;
 	}
 	(*it2)->generateConnections();

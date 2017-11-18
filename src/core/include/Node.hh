@@ -28,6 +28,7 @@ public:
   Network* getNetworkAssigned(void) const;
   std::vector<Network*> getNetworks(void) const;
   void getValues(double* values);
+  double getValue(void);
 
   friend bool operator==(const Node& node1, const Node& node2);
 

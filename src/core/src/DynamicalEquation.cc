@@ -52,7 +52,6 @@ void DynamicalEquation::loadEquation(std::string strEquation)
 
 void DynamicalEquation::loadNodesToEquation(CalculationNode* calcPtr, std::map<int, Node*>& nodesMap)
 {
-  std::cout<<calcPtr->getType()<<std::endl;
   if(calcPtr == NULL)
   {
     return;
@@ -64,14 +63,18 @@ void DynamicalEquation::loadNodesToEquation(CalculationNode* calcPtr, std::map<i
       int nodeId = calcPtr->getId();
       calcPtr->setNode(nodesMap[nodeId]);
     }
+    return;
   }
-  else if(calcPtr->left != NULL)
+  else
   {
-    loadNodesToEquation(calcPtr->left, nodesMap);
-  }
-  else if(calcPtr->right != NULL)
-  {
-    loadNodesToEquation(calcPtr->right, nodesMap);
+    if(calcPtr->left != NULL)
+    {
+      loadNodesToEquation(calcPtr->left, nodesMap);
+    }
+    if(calcPtr->right != NULL)
+    {
+      loadNodesToEquation(calcPtr->right, nodesMap);
+    }
   }
 }
 

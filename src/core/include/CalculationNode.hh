@@ -93,10 +93,7 @@ public:
     mNode = node;
   }
 
-  virtual double evaluate() const
-  {
-    return 1;
-  }
+  virtual double evaluate() const;
 
   virtual bool testNodeIds() const;
 
