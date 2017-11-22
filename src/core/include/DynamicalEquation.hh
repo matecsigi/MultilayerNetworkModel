@@ -4,8 +4,11 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include <vector>
 
 #include "CalculationNode.hh"
+
+typedef std::vector<double> state_type;
 
 class Node;
 class Network;
@@ -17,6 +20,7 @@ public:
   ~DynamicalEquation();
 
   double evaluate();
+  void ODEcalculator(const state_type &x, state_type &dxdt, double t);
 
   bool testNodeIds(void) const;
 

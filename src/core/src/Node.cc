@@ -2,8 +2,12 @@
 #include <iostream>
 #include "UpwardInfluenceImpl.hh"
 #include "DownwardInfluenceImpl.hh"
+#include <boost/numeric/odeint.hpp>
+
+#include "OdeWrapper.hh"
 
 using namespace std;
+using namespace boost::numeric::odeint;
 
 Node::Node(void)
 {
@@ -40,6 +44,23 @@ void Node::step(void)
   cout<<"Stepping node "<<mNodeId<<endl;
   mUpwardInfluence->calculateUpwardInfluence();
   mDownwardInfluence->calculateDownwardInfluence();
+  std::vector<Network*> networks = getNetworks();
+  for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
+  {
+    DynamicalEquation* dynamicalEquation = (*itNet)->getNodeDynamicalEquation(this->getId());
+    stepODE(dynamicalEquation);
+  }
+}
+
+void Node::stepODE(DynamicalEquation* dynamicalEquation)
+{
+  std::cout<<"stepODE "<<std::endl;
+  state_type x = {0.0};
+
+  OdeWrapper wrapper(dynamicalEquation);
+  integrate(wrapper, x, 0.0, 15.0, 0.1);
+  
+  std::cout<<"   x="<<x[0]<<std::endl;
 }
 
 void Node::addToNetwork(Network* networkPtr)

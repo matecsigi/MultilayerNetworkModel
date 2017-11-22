@@ -22,7 +22,7 @@ int main(void)
     multilayerNetwork->step();
   }
 
-  std::cout<<*multilayerNetwork<<std::endl;
+  //std::cout<<*multilayerNetwork<<std::endl;
 
   delete multilayerNetwork;
 

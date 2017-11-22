@@ -20,6 +20,11 @@ double DynamicalEquation::evaluate()
   return mBaseCalculationNode->evaluate();
 }
 
+void DynamicalEquation::ODEcalculator(const state_type &x, state_type &dxdt, double t)
+{
+  dxdt[0] = evaluate();
+}
+
 bool DynamicalEquation::testNodeIds(void) const
 {
   if(mBaseCalculationNode != NULL)

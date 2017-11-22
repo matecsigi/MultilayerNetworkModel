@@ -17,6 +17,7 @@ public:
   ~Node();
 
   void step(); //set return type if necessary
+  void stepODE(DynamicalEquation* dynamicalEquation);
 
   void addToNetwork(Network* networkPtr);
   void assignToNetwork(Network* network);
