@@ -401,15 +401,13 @@ void MultilayerNetwork::collectNetworks(std::map<int, Network*>& networksMap, st
   }
 }
 
-void MultilayerNetwork::saveState(const char* filename)
+void MultilayerNetwork::saveState(std::string filename)
 {
-  if(filename == NULL)
+  if(filename.empty())
   {
-    std::string fName = "generated/nodeStates_t";
-    fName.append(std::to_string(t/bufferSize));
-    fName.append(".bin");
-    filename = fName.c_str();
-    std::cout<<"filename="<<filename<<std::endl;
+    filename.append("generated/nodeStates_t=");
+    filename.append(std::to_string(t/bufferSize));
+    filename.append(".bin");
   }
 
   std::map<int, Node*> nodesMap;
@@ -431,7 +429,7 @@ void MultilayerNetwork::saveState(const char* filename)
     ++indexCounter;
   }
 
-  ofstream out(filename, ios::binary);
+  ofstream out(filename.c_str(), ios::binary);
   if(out.is_open())
   {
     for(unsigned i=0; i<nodeIds.size(); ++i)

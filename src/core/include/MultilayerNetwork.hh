@@ -26,7 +26,7 @@ public:
   void save(const char* filename);
   void load(const char* filename);
   
-  void saveState(const char* filename = NULL);
+  void saveState(std::string filename = "");
   void loadState(const char* filename);
 
   void shiftBuffers(void);

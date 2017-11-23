@@ -15,11 +15,13 @@ int main(void)
   int simulationTime = 20;
 
   const char *filename="generated/MultilayerNetworkStructure-1.json";
-  const char *filenameInitialCond="generated/InitialCondition-1.bin";
+  // const char *filenameInitialCond="generated/InitialCondition-1.bin";
+
+  std::string filenameInitialCond = "generated/InitialCondition-1.bin";
 
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
   multilayerNetwork->load(filename);
-  multilayerNetwork->loadState(filenameInitialCond);
+  multilayerNetwork->loadState(filenameInitialCond.c_str());
 
   for(t=0; t<simulationTime; ++t)
   {
@@ -35,7 +37,7 @@ int main(void)
     }
   }
 
-  std::cout<<*multilayerNetwork<<std::endl;
+  // std::cout<<*multilayerNetwork<<std::endl;
 
   delete multilayerNetwork;
 
