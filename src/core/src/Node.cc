@@ -41,7 +41,7 @@ Node::~Node(void)
 
 void Node::step(void)
 {
-  cout<<"Stepping node "<<mNodeId<<endl;
+  // cout<<"Stepping node "<<mNodeId<<endl;
   mUpwardInfluence->calculateUpwardInfluence();
   mDownwardInfluence->calculateDownwardInfluence();
   std::vector<Network*> networks = getNetworks();
@@ -57,13 +57,12 @@ void Node::stepODE(DynamicalEquation* dynamicalEquation)
   // std::cout<<"stepODE "<<std::endl;
   state_type x = {getPreviousState()};
 
-  std::cout<<"start="<<x[0]<<std::endl;
+  // std::cout<<"start="<<x[0]<<std::endl;
 
   OdeWrapper wrapper(dynamicalEquation);
-  integrate(wrapper, x, 0.0, 15.0, 0.1);
-  
-  std::cout<<"   x="<<x[0]<<std::endl;
+  integrate(wrapper, x, 0.0, 15.0, 0.1);  
   setCurrentState(x);
+  // std::cout<<"   x="<<x[0]<<std::endl;
 }
 
 void Node::addToNetwork(Network* networkPtr)
@@ -106,7 +105,7 @@ void Node::setInitialConditions(double* values)
 
 void Node::setCurrentState(state_type state)
 {
-  mValues[t+2] = state[0];
+  mValues[(t+2)%bufferSize] = state[0];
 }
 
 int Node::getId(void) const
@@ -139,7 +138,7 @@ double Node::getValue(void)
 
 double Node::getPreviousState()
 {
-  return mValues[t+1];
+  return mValues[(t+1)%bufferSize];
 }
 
 bool operator==(const Node& node1, const Node& node2)

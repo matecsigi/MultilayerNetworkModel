@@ -403,6 +403,15 @@ void MultilayerNetwork::collectNetworks(std::map<int, Network*>& networksMap, st
 
 void MultilayerNetwork::saveState(const char* filename)
 {
+  if(filename == NULL)
+  {
+    std::string fName = "generated/nodeStates_t";
+    fName.append(std::to_string(t/bufferSize));
+    fName.append(".bin");
+    filename = fName.c_str();
+    std::cout<<"filename="<<filename<<std::endl;
+  }
+
   std::map<int, Node*> nodesMap;
   std::vector<int> nodeIds;
   collectNodes(nodesMap, nodeIds);
@@ -491,6 +500,39 @@ void MultilayerNetwork::loadState(const char* filename)
     delete [] buffer[i];
   }
   delete [] buffer;
+}
+
+void MultilayerNetwork::shiftBuffers(void)
+{
+  double* tmpBufferOld = new double[bufferSize];
+  double* tmpBufferNew = new double[bufferSize];
+  std::vector<Layer*> layers = this->getLayers();
+  for(std::vector<Layer*>::iterator itLay=layers.begin(); itLay != layers.end(); ++itLay)
+  {
+    Layer* currentLayer = (*itLay);
+    std::vector<Network*> networks = currentLayer->getNetworks();
+    for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
+    {
+      Network* currentNetwork = (*itNet);
+      std::vector<Node*> nodes = currentNetwork->getNodes();
+      for(std::vector<Node*>::iterator itNode = nodes.begin(); itNode != nodes.end(); ++itNode)
+      {
+	Node* currentNode = (*itNode);
+	currentNode->getValues(tmpBufferOld);
+	for(int i=0; i<bufferSize; ++i)
+	{
+	  tmpBufferNew[i] = 0;
+	}
+	for(int i=0; i<initialConditionsSize; ++i)
+	{
+	  tmpBufferNew[i] = tmpBufferOld[(bufferSize-1-initialConditionsSize)-i];
+	}
+	currentNode->setValues(tmpBufferNew);
+      }
+    }
+  }
+  delete [] tmpBufferOld;
+  delete [] tmpBufferNew;
 }
 
 void MultilayerNetwork::step(void)
