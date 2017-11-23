@@ -6,7 +6,7 @@
 class DownwardInfluenceImpl: public IDownwardInfluence
 {
 public:
-  DownwardInfluenceImpl(void){};
+  DownwardInfluenceImpl(Node* node):IDownwardInfluence(node){mNode = node;};
   ~DownwardInfluenceImpl(void){};
 
   double calculateDownwardInfluence();

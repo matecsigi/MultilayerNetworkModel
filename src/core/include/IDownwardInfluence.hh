@@ -6,10 +6,12 @@
 class IDownwardInfluence
 {
 public:
-  IDownwardInfluence(void){};
+  IDownwardInfluence(Node* node){mNode = node;};
   virtual ~IDownwardInfluence(void){};
 
   virtual double calculateDownwardInfluence() = 0;
+protected:
+  Node* mNode;
 };
 
 #endif

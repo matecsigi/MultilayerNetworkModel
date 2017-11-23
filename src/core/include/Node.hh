@@ -34,6 +34,7 @@ public:
   void getValues(double* values);
   double getValue(void);
   void getInitialConditions(double* values);
+  double getCurrentState();
   double getPreviousState();
 
   friend bool operator==(const Node& node1, const Node& node2);

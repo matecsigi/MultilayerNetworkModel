@@ -32,12 +32,11 @@ int main(void)
     {
       cout<<"Changing t="<<t<<endl;
       multilayerNetwork->saveState();
-      cout<<"After shiftBuffers"<<endl;
       multilayerNetwork->shiftBuffers();
     }
   }
 
-  // std::cout<<*multilayerNetwork<<std::endl;
+  std::cout<<*multilayerNetwork<<std::endl;
 
   delete multilayerNetwork;
 

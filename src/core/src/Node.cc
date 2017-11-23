@@ -14,7 +14,7 @@ Node::Node(void)
   mNetworkAssigned = NULL;
   mValues = new double[bufferSize];
   mUpwardInfluence = new UpwardInfluenceImpl();
-  mDownwardInfluence = new DownwardInfluenceImpl();
+  mDownwardInfluence = new DownwardInfluenceImpl(this);
 }
 
 Node::Node(int id)
@@ -23,7 +23,7 @@ Node::Node(int id)
   mNetworkAssigned = NULL;
   mValues = new double[bufferSize];
   mUpwardInfluence = new UpwardInfluenceImpl();
-  mDownwardInfluence = new DownwardInfluenceImpl();
+  mDownwardInfluence = new DownwardInfluenceImpl(this);
 }
 
 Node::~Node(void)
@@ -42,14 +42,15 @@ Node::~Node(void)
 void Node::step(void)
 {
   // cout<<"Stepping node "<<mNodeId<<endl;
-  mUpwardInfluence->calculateUpwardInfluence();
-  mDownwardInfluence->calculateDownwardInfluence();
   std::vector<Network*> networks = getNetworks();
   for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
   {
     DynamicalEquation* dynamicalEquation = (*itNet)->getNodeDynamicalEquation(this->getId());
     stepODE(dynamicalEquation);
   }
+
+  mUpwardInfluence->calculateUpwardInfluence();
+  mDownwardInfluence->calculateDownwardInfluence();
 }
 
 void Node::stepODE(DynamicalEquation* dynamicalEquation)
@@ -92,7 +93,7 @@ void Node::setUpwardInfluence()
 
 void Node::setDownwardInfluence()
 {
-  mDownwardInfluence = new DownwardInfluenceImpl();
+  mDownwardInfluence = new DownwardInfluenceImpl(this);
 }
 
 void Node::setInitialConditions(double* values)
@@ -134,6 +135,11 @@ void Node::getValues(double* values)
 double Node::getValue(void)
 {
   return mValues[0];
+}
+
+double Node::getCurrentState()
+{
+  return mValues[(t+2)%bufferSize];
 }
 
 double Node::getPreviousState()

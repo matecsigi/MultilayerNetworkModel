@@ -523,7 +523,7 @@ void MultilayerNetwork::shiftBuffers(void)
 	}
 	for(int i=0; i<initialConditionsSize; ++i)
 	{
-	  tmpBufferNew[i] = tmpBufferOld[(bufferSize-1-initialConditionsSize)-i];
+	  tmpBufferNew[i] = tmpBufferOld[(bufferSize-initialConditionsSize)-i];
 	}
 	currentNode->setValues(tmpBufferNew);
       }
