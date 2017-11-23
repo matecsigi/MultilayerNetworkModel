@@ -54,13 +54,16 @@ void Node::step(void)
 
 void Node::stepODE(DynamicalEquation* dynamicalEquation)
 {
-  std::cout<<"stepODE "<<std::endl;
-  state_type x = {0.0};
+  // std::cout<<"stepODE "<<std::endl;
+  state_type x = {getPreviousState()};
+
+  std::cout<<"start="<<x[0]<<std::endl;
 
   OdeWrapper wrapper(dynamicalEquation);
   integrate(wrapper, x, 0.0, 15.0, 0.1);
   
   std::cout<<"   x="<<x[0]<<std::endl;
+  setCurrentState(x);
 }
 
 void Node::addToNetwork(Network* networkPtr)
@@ -101,6 +104,11 @@ void Node::setInitialConditions(double* values)
   }  
 }
 
+void Node::setCurrentState(state_type state)
+{
+  mValues[t+2] = state[0];
+}
+
 int Node::getId(void) const
 {
   return mNodeId;
@@ -127,6 +135,11 @@ void Node::getValues(double* values)
 double Node::getValue(void)
 {
   return mValues[0];
+}
+
+double Node::getPreviousState()
+{
+  return mValues[t+1];
 }
 
 bool operator==(const Node& node1, const Node& node2)

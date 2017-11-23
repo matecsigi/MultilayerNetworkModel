@@ -3,5 +3,6 @@
 
 extern int bufferSize;
 extern int initialConditionsSize;
+extern int t;
 
 #endif

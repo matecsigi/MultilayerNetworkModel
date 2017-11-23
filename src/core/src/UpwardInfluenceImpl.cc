@@ -3,6 +3,6 @@
 
 double UpwardInfluenceImpl::calculateUpwardInfluence()
 {
-  std::cout<<"UpwardInfluence"<<std::endl;
+  // std::cout<<"UpwardInfluence"<<std::endl;
   return 1.7;
 }

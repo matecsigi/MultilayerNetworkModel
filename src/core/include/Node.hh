@@ -26,6 +26,7 @@ public:
   void setUpwardInfluence();
   void setDownwardInfluence();
   void setInitialConditions(double* values);
+  void setCurrentState(state_type state);
 
   int getId(void) const;
   Network* getNetworkAssigned(void) const;
@@ -33,6 +34,7 @@ public:
   void getValues(double* values);
   double getValue(void);
   void getInitialConditions(double* values);
+  double getPreviousState();
 
   friend bool operator==(const Node& node1, const Node& node2);
 

@@ -3,6 +3,6 @@
 
 double DownwardInfluenceImpl::calculateDownwardInfluence()
 {
-  std::cout<<"DownwardInfluence"<<std::endl;
+  // std::cout<<"DownwardInfluence"<<std::endl;
   return 1.9;
 }
