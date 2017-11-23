@@ -343,7 +343,7 @@ BOOST_AUTO_TEST_CASE(generateStructure_CalculationNodeIds)
 BOOST_AUTO_TEST_CASE(generateStructure_CalculationNodeCalculatesCorrectValue)
 {
   // "1+ID{neighbor}"
-  double correctValue = 1+10;
+  double correctValue = 1+1;
 
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
 
@@ -369,6 +369,7 @@ BOOST_AUTO_TEST_CASE(generateStructure_CalculationNodeCalculatesCorrectValue)
 	DynamicalEquation* dynamicalEquation = (*itNet)->getNodeDynamicalEquation((*itNode)->getId());
 	if(dynamicalEquation->evaluate() != correctValue)
 	{
+	  std::cout<<dynamicalEquation->evaluate()<<std::endl;
 	  valueCalculatedCorrectly = false;
 	}
       }

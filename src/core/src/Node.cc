@@ -12,7 +12,7 @@ using namespace boost::numeric::odeint;
 Node::Node(void)
 {
   mNetworkAssigned = NULL;
-  mValues = new double[2];
+  mValues = new double[bufferSize];
   mUpwardInfluence = new UpwardInfluenceImpl();
   mDownwardInfluence = new DownwardInfluenceImpl();
 }
@@ -21,7 +21,7 @@ Node::Node(int id)
 {
   mNodeId = id;
   mNetworkAssigned = NULL;
-  mValues = new double[2];
+  mValues = new double[bufferSize];
   mUpwardInfluence = new UpwardInfluenceImpl();
   mDownwardInfluence = new DownwardInfluenceImpl();
 }
@@ -77,8 +77,10 @@ void Node::assignToNetwork(Network* network)
 
 void Node::setValues(double* values)
 {
-  mValues[0] = values[0];
-  mValues[1] = values[1];
+  for(int i=0; i<bufferSize; ++i)
+  {
+    mValues[i] = values[i];
+  }
 }
 
 void Node::setUpwardInfluence()
@@ -89,6 +91,14 @@ void Node::setUpwardInfluence()
 void Node::setDownwardInfluence()
 {
   mDownwardInfluence = new DownwardInfluenceImpl();
+}
+
+void Node::setInitialConditions(double* values)
+{
+  for(int i=0; i<initialConditionsSize; ++i)
+  {
+    mValues[i] = values[i];
+  }  
 }
 
 int Node::getId(void) const
@@ -108,8 +118,10 @@ std::vector<Network*> Node::getNetworks(void) const
 
 void Node::getValues(double* values)
 {
-  values[0] = mValues[0];
-  values[1] = mValues[1];
+  for(int i=0; i<bufferSize; ++i)
+  {
+    values[i] = mValues[i];
+  }
 }
 
 double Node::getValue(void)

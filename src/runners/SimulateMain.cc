@@ -3,12 +3,14 @@
 #include "Layer.hh"
 #include "Network.hh"
 #include "Node.hh"
+#include "GlobalVariables.hh"
 
 using namespace std;
 
 int main(void)
 {
   cout<<"Start simulation"<<endl;
+  cout<<"bufferSize="<<bufferSize<<endl;
 
   const char *filename="generated/MultilayerNetworkStructure-1.json";
   const char *filenameInitialCond="generated/InitialCondition-1.bin";

@@ -2,7 +2,7 @@
 
 void InitialConditionGeneratorImpl::generateInitialCondition()
 {
-  double* tmpBuffer = new double[2];
+  double* tmpBuffer = new double[bufferSize];
   std::vector<Layer*> layers = mMultilayerNetwork->getLayers();
   for(std::vector<Layer*>::iterator itLay=layers.begin(); itLay != layers.end(); ++itLay)
   {
@@ -15,8 +15,10 @@ void InitialConditionGeneratorImpl::generateInitialCondition()
       for(std::vector<Node*>::iterator itNode = nodes.begin(); itNode != nodes.end(); ++itNode)
       {
 	Node* currentNode = (*itNode);
-	tmpBuffer[0] = 10;
-	tmpBuffer[1] = 10;
+	for(int i=0; i<bufferSize; ++i)
+	{
+	  tmpBuffer[i] = i+1;
+	}
 	currentNode->setValues(tmpBuffer);
       }
     }

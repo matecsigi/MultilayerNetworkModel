@@ -4,6 +4,7 @@
 #include "Network.hh"
 #include "IUpwardInfluence.hh"
 #include "IDownwardInfluence.hh"
+#include "GlobalVariables.hh"
 #include <vector>
 
 class IUpwardInfluence;
@@ -24,12 +25,14 @@ public:
   void setValues(double* values);
   void setUpwardInfluence();
   void setDownwardInfluence();
+  void setInitialConditions(double* values);
 
   int getId(void) const;
   Network* getNetworkAssigned(void) const;
   std::vector<Network*> getNetworks(void) const;
   void getValues(double* values);
   double getValue(void);
+  void getInitialConditions(double* values);
 
   friend bool operator==(const Node& node1, const Node& node2);
 

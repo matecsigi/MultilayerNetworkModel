@@ -76,9 +76,12 @@ ostream& operator<<(ostream& os, const MultilayerNetwork& multilayerNetwork)
       {
 	Node* currentNode = (*it3);
 	os<<"    ---Node "<<currentNode->getId()<<": ";
-	double* tmpBuffer = new double[2];
+	double* tmpBuffer = new double[bufferSize];
 	currentNode->getValues(tmpBuffer);
-	os<<tmpBuffer[0]<<", "<<tmpBuffer[1]<<endl;
+	for(int i=0; i<bufferSize; ++i)
+	{
+	  os<<" "<<tmpBuffer[i];
+	}
 	delete [] tmpBuffer;
 	DynamicalEquation* currentDynamicalEquation = currentNetwork->getNodeDynamicalEquation(currentNode->getId());
 	if(currentDynamicalEquation != NULL)
@@ -150,15 +153,15 @@ bool initialConditionsEqual(const MultilayerNetwork& multilayerNetwork1, const M
   std::vector<int> nodeIds2;
   multilayerNetwork2.collectNodes(nodesMap2, nodeIds2);
   
-  double* tmpBuffer1 = new double[2];
-  double* tmpBuffer2 = new double[2];
+  double* tmpBuffer1 = new double[bufferSize];
+  double* tmpBuffer2 = new double[bufferSize];
   for(std::vector<int>::iterator itId=nodeIds1.begin(); itId != nodeIds1.end(); ++itId)
   {
     Node* node1 = nodesMap1[(*itId)];
     Node* node2 = nodesMap2[(*itId)];
     node1->getValues(tmpBuffer1);
     node2->getValues(tmpBuffer2);
-    for(int i=0; i<2; ++i)
+    for(int i=0; i<bufferSize; ++i)
     {
       if(tmpBuffer1[i] != tmpBuffer2[i])
       {
@@ -166,7 +169,9 @@ bool initialConditionsEqual(const MultilayerNetwork& multilayerNetwork1, const M
       }
     }
   }
-  
+  delete [] tmpBuffer1;
+  delete [] tmpBuffer2;
+
   return true;
 }
 
@@ -406,7 +411,7 @@ void MultilayerNetwork::saveState(const char* filename)
   double** buffer = new double*[nodeIds.size()];
   for(unsigned i=0; i<nodeIds.size(); ++i)
   {
-    buffer[i] = new double[2];
+    buffer[i] = new double[bufferSize];
   }
 
   int indexCounter = 0;
@@ -422,7 +427,7 @@ void MultilayerNetwork::saveState(const char* filename)
   {
     for(unsigned i=0; i<nodeIds.size(); ++i)
     {
-      for(int j=0; j<2; ++j)
+      for(int j=0; j<bufferSize; ++j)
       {
 	out.write((char*)&buffer[i][j], sizeof(double));
       }
@@ -437,7 +442,7 @@ void MultilayerNetwork::saveState(const char* filename)
   //   std::cout<<buffer[i][0]<<" "<<buffer[i][1]<<std::endl;
   // }
 
-  for(int i=0; i<10; ++i)
+  for(unsigned i=0; i<nodeIds.size(); ++i)
   {
     delete [] buffer[i];
   }
@@ -454,13 +459,13 @@ void MultilayerNetwork::loadState(const char* filename)
   double** buffer = new double*[nodeIds.size()];
   for(unsigned i=0; i<nodeIds.size(); ++i)
   {
-    buffer[i] = new double[2];
+    buffer[i] = new double[bufferSize];
   }
 
   ifstream input(filename, ios::binary);
   for(unsigned i=0; i<nodeIds.size(); ++i)
     {
-      for(int j=0; j<2; ++j)
+      for(int j=0; j<bufferSize; ++j)
       {
 	input.read((char*)&buffer[i][j], sizeof(double));
       }
@@ -481,7 +486,7 @@ void MultilayerNetwork::loadState(const char* filename)
     ++indexCounter;
   }
 
-  for(int i=0; i<10; ++i)
+  for(unsigned i=0; i<nodeIds.size(); ++i)
   {
     delete [] buffer[i];
   }

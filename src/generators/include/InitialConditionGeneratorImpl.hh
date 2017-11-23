@@ -2,6 +2,7 @@
 #define INITIALCONDITIONGENERATORIMPL_HH
 
 #include "IInitialConditionGenerator.hh"
+#include "GlobalVariables.hh"
 
 class InitialConditionGeneratorImpl: public IInitialConditionGenerator
 {
