@@ -13,7 +13,7 @@ Node::Node(void)
 {
   mNetworkAssigned = NULL;
   mValues = new double[bufferSize];
-  mUpwardInfluence = new UpwardInfluenceImpl();
+  mUpwardInfluence = new UpwardInfluenceImpl(this);
   mDownwardInfluence = new DownwardInfluenceImpl(this);
 }
 
@@ -22,7 +22,7 @@ Node::Node(int id)
   mNodeId = id;
   mNetworkAssigned = NULL;
   mValues = new double[bufferSize];
-  mUpwardInfluence = new UpwardInfluenceImpl();
+  mUpwardInfluence = new UpwardInfluenceImpl(this);
   mDownwardInfluence = new DownwardInfluenceImpl(this);
 }
 
@@ -88,7 +88,7 @@ void Node::setValues(double* values)
 
 void Node::setUpwardInfluence()
 {
-  mUpwardInfluence = new UpwardInfluenceImpl();
+  mUpwardInfluence = new UpwardInfluenceImpl(this);
 }
 
 void Node::setDownwardInfluence()

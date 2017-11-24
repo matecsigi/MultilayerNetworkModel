@@ -1,7 +1,7 @@
 #include <iostream>
 #include "DownwardInfluenceImpl.hh"
 
-double DownwardInfluenceImpl::calculateDownwardInfluence()
+void DownwardInfluenceImpl::calculateDownwardInfluence()
 {
   // std::cout<<"DownwardInfluence"<<std::endl;
   double change = 0.0;
@@ -14,13 +14,11 @@ double DownwardInfluenceImpl::calculateDownwardInfluence()
     if(nodeHigher != NULL)
     {
       nodeHigher->getValues(tmpBuffer);
-      change += tmpBuffer[(t+1)%bufferSize]-tmpBuffer[(t)%bufferSize];
+      change += tmpBuffer[(t%(bufferSize-2))+1]-tmpBuffer[(t%(bufferSize-2))];
       // std::cout<<tmpBuffer[(t+1)%bufferSize]<<"-"<<tmpBuffer[(t)%bufferSize]<<"="<<change<<std::endl;
     }
   }
   state_type x = {mNode->getCurrentState()+change};
 
   delete [] tmpBuffer;
-
-  return 1.9;
 }

@@ -6,10 +6,12 @@
 class IUpwardInfluence
 {
 public:
-  IUpwardInfluence(void){};
+  IUpwardInfluence(Node* node){mNode = node;};
   virtual ~IUpwardInfluence(void){};
 
-  virtual double calculateUpwardInfluence() = 0;
+  virtual void calculateUpwardInfluence() = 0;
+protected:
+  Node* mNode;
 };
 
 #endif

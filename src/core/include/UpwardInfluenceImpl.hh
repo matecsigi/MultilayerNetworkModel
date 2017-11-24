@@ -6,10 +6,10 @@
 class UpwardInfluenceImpl: public IUpwardInfluence
 {
 public:
-  UpwardInfluenceImpl(void){};
+  UpwardInfluenceImpl(Node* node):IUpwardInfluence(node){mNode = node;};
   ~UpwardInfluenceImpl(void){};
 
-  double calculateUpwardInfluence();
+  void calculateUpwardInfluence();
 };
 
 #endif

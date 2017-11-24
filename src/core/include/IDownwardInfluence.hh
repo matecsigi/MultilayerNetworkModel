@@ -9,7 +9,7 @@ public:
   IDownwardInfluence(Node* node){mNode = node;};
   virtual ~IDownwardInfluence(void){};
 
-  virtual double calculateDownwardInfluence() = 0;
+  virtual void calculateDownwardInfluence() = 0;
 protected:
   Node* mNode;
 };

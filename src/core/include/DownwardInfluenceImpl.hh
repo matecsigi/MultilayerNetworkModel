@@ -9,7 +9,7 @@ public:
   DownwardInfluenceImpl(Node* node):IDownwardInfluence(node){mNode = node;};
   ~DownwardInfluenceImpl(void){};
 
-  double calculateDownwardInfluence();
+  void calculateDownwardInfluence();
 };
 
 #endif
