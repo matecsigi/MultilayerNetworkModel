@@ -17,7 +17,11 @@ void InitialConditionGeneratorImpl::generateInitialCondition()
 	Node* currentNode = (*itNode);
 	for(int i=0; i<bufferSize; ++i)
 	{
-	  tmpBuffer[i] = i+1;
+	  tmpBuffer[i] = 0;
+	}
+	for(int i=0; i<initialConditionsSize; ++i)
+	{
+	  tmpBuffer[i] = 1;
 	}
 	currentNode->setValues(tmpBuffer);
       }

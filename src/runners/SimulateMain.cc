@@ -28,15 +28,19 @@ int main(void)
     cout<<"t="<<t<<endl;
     multilayerNetwork->step();
 
-    if(((t+2) % bufferSize) == (bufferSize-1))
+    if((t % (bufferSize-2)) == (bufferSize-2-1))
     {
+      // std::cout<<"BEFORE SHIFT"<<std::endl;
+      // std::cout<<*multilayerNetwork<<std::endl;
       cout<<"Changing t="<<t<<endl;
       multilayerNetwork->saveState();
       multilayerNetwork->shiftBuffers();
+      // std::cout<<"AFTER SHIFT"<<std::endl;
+      // std::cout<<*multilayerNetwork<<std::endl;
     }
   }
 
-  std::cout<<*multilayerNetwork<<std::endl;
+  // std::cout<<*multilayerNetwork<<std::endl;
 
   delete multilayerNetwork;
 

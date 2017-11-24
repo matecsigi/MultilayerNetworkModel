@@ -106,7 +106,7 @@ void Node::setInitialConditions(double* values)
 
 void Node::setCurrentState(state_type state)
 {
-  mValues[(t+2)%bufferSize] = state[0];
+  mValues[(t%(bufferSize-2))+2] = state[0];
 }
 
 int Node::getId(void) const
@@ -139,12 +139,12 @@ double Node::getValue(void)
 
 double Node::getCurrentState()
 {
-  return mValues[(t+2)%bufferSize];
+  return mValues[(t%(bufferSize-2))+2];
 }
 
 double Node::getPreviousState()
 {
-  return mValues[(t+1)%bufferSize];
+  return mValues[(t%(bufferSize-2))+1];
 }
 
 bool operator==(const Node& node1, const Node& node2)
