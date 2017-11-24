@@ -4,11 +4,13 @@
 #include "Network.hh"
 #include "IUpwardInfluence.hh"
 #include "IDownwardInfluence.hh"
+#include "IVectorFieldReconfiguration.hh"
 #include "GlobalVariables.hh"
 #include <vector>
 
 class IUpwardInfluence;
 class IDownwardInfluence;
+class IVectorFieldReconfiguration;
 
 class Node
 {
@@ -46,5 +48,6 @@ private:
   double* mValues;
   IUpwardInfluence* mUpwardInfluence;
   IDownwardInfluence* mDownwardInfluence;
+  IVectorFieldReconfiguration* mVectorFieldReconfiguration;
 };
 #endif

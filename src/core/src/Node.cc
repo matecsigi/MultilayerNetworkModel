@@ -2,9 +2,10 @@
 #include <iostream>
 #include "UpwardInfluenceImpl.hh"
 #include "DownwardInfluenceImpl.hh"
+#include "VectorFieldReconfigurationImpl.hh"
+#include "OdeWrapper.hh"
 #include <boost/numeric/odeint.hpp>
 
-#include "OdeWrapper.hh"
 
 using namespace std;
 using namespace boost::numeric::odeint;
@@ -15,6 +16,7 @@ Node::Node(void)
   mValues = new double[bufferSize];
   mUpwardInfluence = new UpwardInfluenceImpl(this);
   mDownwardInfluence = new DownwardInfluenceImpl(this);
+  mVectorFieldReconfiguration = new VectorFieldReconfigurationImpl(this);
 }
 
 Node::Node(int id)
@@ -24,6 +26,7 @@ Node::Node(int id)
   mValues = new double[bufferSize];
   mUpwardInfluence = new UpwardInfluenceImpl(this);
   mDownwardInfluence = new DownwardInfluenceImpl(this);
+  mVectorFieldReconfiguration = new VectorFieldReconfigurationImpl(this);
 }
 
 Node::~Node(void)
@@ -36,6 +39,10 @@ Node::~Node(void)
   if(mDownwardInfluence != NULL)
   {
     delete mDownwardInfluence;
+  }
+  if(mVectorFieldReconfiguration != NULL)
+  {
+    delete mVectorFieldReconfiguration;
   }
 }
 
@@ -51,6 +58,7 @@ void Node::step(void)
 
   mUpwardInfluence->calculateUpwardInfluence();
   mDownwardInfluence->calculateDownwardInfluence();
+  mVectorFieldReconfiguration->calculateVectorFieldReconfiguration();
 }
 
 void Node::stepODE(DynamicalEquation* dynamicalEquation)
@@ -63,7 +71,6 @@ void Node::stepODE(DynamicalEquation* dynamicalEquation)
   OdeWrapper wrapper(dynamicalEquation);
   integrate(wrapper, x, 0.0, 15.0, 0.1);  
   setCurrentState(x);
-  // std::cout<<"   x="<<x[0]<<std::endl;
 }
 
 void Node::addToNetwork(Network* networkPtr)
