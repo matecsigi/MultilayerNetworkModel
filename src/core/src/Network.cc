@@ -154,6 +154,15 @@ std::map<int, double> Network::getDirectionAtState(std::map<int, double> basePoi
     DynamicalEquation* nodeEquation = getNodeDynamicalEquation((*itNode)->getId());
     (*itNode)->stepOdeAtState(nodeEquation, basePointCoordinates, finalState);
   }
+  
+  for(std::map<int, double>::iterator itState=basePointCoordinates.begin(); itState != basePointCoordinates.end(); ++itState)
+   {
+     int id = itState->first;
+     double startValue = basePointCoordinates[id];
+     double finalValue = finalState[id];
+     directions[id] = finalValue-startValue;
+   }
+
   return directions;
 }
 

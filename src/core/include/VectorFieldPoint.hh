@@ -1,12 +1,12 @@
 #ifndef VECTORFIELDPOINT_HH
 #define VECTORFIELDPOINT_HH
 
-#include <vector>
+#include <map>
 
 class VectorFieldPoint
 {
 public:
-  VectorFieldPoint(std::vector<double> coordinate, std::vector<double> direction)
+  VectorFieldPoint(std::map<int, double> coordinate, std::map<int, double> direction)
   {
     mCoordinate = coordinate;
     mDirection = direction;
@@ -15,8 +15,8 @@ public:
   ~VectorFieldPoint(){};
 
 private:
-  std::vector<double> mCoordinate;
-  std::vector<double> mDirection;
+  std::map<int, double> mCoordinate;
+  std::map<int, double> mDirection;
 };
 
 #endif
