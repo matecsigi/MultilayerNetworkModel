@@ -21,6 +21,7 @@ public:
 
   void step(); //set return type if necessary
   void stepODE(DynamicalEquation* dynamicalEquation);
+  void stepOdeAtState(DynamicalEquation* dynamicalEquation, std::map<int, double> startingState, std::map<int, double>& finalState);
 
   void addToNetwork(Network* networkPtr);
   void assignToNetwork(Network* network);

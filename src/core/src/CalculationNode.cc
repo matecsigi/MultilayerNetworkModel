@@ -3,7 +3,12 @@
 
 double CNId::evaluate() const
 {
-  return mNode->getValue();
+  return mNode->getPreviousState();
+}
+
+double CNId::evaluateAtState(std::map<int, double> startingState) const
+{
+  return startingState[mNode->getId()];
 }
 
 bool CNId::testNodeIds() const

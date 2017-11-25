@@ -4,6 +4,7 @@
 #include "DownwardInfluenceImpl.hh"
 #include "VectorFieldReconfigurationImpl.hh"
 #include "OdeWrapper.hh"
+#include "OdeWrapperAtState.hh"
 #include <boost/numeric/odeint.hpp>
 
 
@@ -71,6 +72,14 @@ void Node::stepODE(DynamicalEquation* dynamicalEquation)
   OdeWrapper wrapper(dynamicalEquation);
   integrate(wrapper, x, 0.0, 15.0, 0.1);  
   setCurrentState(x);
+}
+
+void Network::stepOdeAtState(DynamicalEquation* dynamicalEquation, std::map<int, double> startingState, std::map<int, double>& finalState)
+{
+  state_type x = {startingState[getId()]};
+  OdeWrapperAtState wrapper(dynamicalEquation, startingState);
+  integrate(wrapper, x, 0.0, 15.0, 0.1);  
+  finalState[getId()] = x[0];
 }
 
 void Node::addToNetwork(Network* networkPtr)

@@ -29,6 +29,8 @@ public:
   std::vector<Node*> getNodeNeighbors(int nodeId) const;
   DynamicalEquation* getNodeDynamicalEquation(int nodeId) const;
   std::string getNodeDynamicalEquationString(int nodeId) const;
+  std::map<int, double> getCurrentState(void) const;
+  std::map<int, double> getDirectionAtState(std::map<int, double> basePointCoordinates) const;
 
   friend bool operator==(const Network& network1, const Network& network2);
 

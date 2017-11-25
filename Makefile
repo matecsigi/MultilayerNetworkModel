@@ -479,6 +479,39 @@ src/core/src/VectorFieldReconfigurationImpl.cc.s:
 	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/VectorFieldReconfigurationImpl.cc.s
 .PHONY : src/core/src/VectorFieldReconfigurationImpl.cc.s
 
+src/core/src/VectorFieldSchemes.o: src/core/src/VectorFieldSchemes.cc.o
+
+.PHONY : src/core/src/VectorFieldSchemes.o
+
+# target to build an object file
+src/core/src/VectorFieldSchemes.cc.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/VectorFieldSchemes.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/VectorFieldSchemes.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/VectorFieldSchemes.cc.o
+.PHONY : src/core/src/VectorFieldSchemes.cc.o
+
+src/core/src/VectorFieldSchemes.i: src/core/src/VectorFieldSchemes.cc.i
+
+.PHONY : src/core/src/VectorFieldSchemes.i
+
+# target to preprocess a source file
+src/core/src/VectorFieldSchemes.cc.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/VectorFieldSchemes.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/VectorFieldSchemes.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/VectorFieldSchemes.cc.i
+.PHONY : src/core/src/VectorFieldSchemes.cc.i
+
+src/core/src/VectorFieldSchemes.s: src/core/src/VectorFieldSchemes.cc.s
+
+.PHONY : src/core/src/VectorFieldSchemes.s
+
+# target to generate assembly for a file
+src/core/src/VectorFieldSchemes.cc.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/VectorFieldSchemes.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/VectorFieldSchemes.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/VectorFieldSchemes.cc.s
+.PHONY : src/core/src/VectorFieldSchemes.cc.s
+
 src/generators/src/DynamicalEquationGeneratorSimpleImpl.o: src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
 
 .PHONY : src/generators/src/DynamicalEquationGeneratorSimpleImpl.o
@@ -799,6 +832,9 @@ help:
 	@echo "... src/core/src/VectorFieldReconfigurationImpl.o"
 	@echo "... src/core/src/VectorFieldReconfigurationImpl.i"
 	@echo "... src/core/src/VectorFieldReconfigurationImpl.s"
+	@echo "... src/core/src/VectorFieldSchemes.o"
+	@echo "... src/core/src/VectorFieldSchemes.i"
+	@echo "... src/core/src/VectorFieldSchemes.s"
 	@echo "... src/generators/src/DynamicalEquationGeneratorSimpleImpl.o"
 	@echo "... src/generators/src/DynamicalEquationGeneratorSimpleImpl.i"
 	@echo "... src/generators/src/DynamicalEquationGeneratorSimpleImpl.s"

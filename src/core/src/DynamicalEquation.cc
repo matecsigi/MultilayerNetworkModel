@@ -20,9 +20,19 @@ double DynamicalEquation::evaluate()
   return mBaseCalculationNode->evaluate();
 }
 
+double DynamicalEquation::evaluateAtState(std::map<int, double> startingState)
+{
+  return mBaseCalculationNode->evaluateAtState(std::map<int, double> startingState);
+}
+
 void DynamicalEquation::ODEcalculator(const state_type &x, state_type &dxdt, double t)
 {
   dxdt[0] = evaluate();
+}
+
+void ODEcalculatorAtState(const state_type &x, state_type &dxdt, double t, std::map<int, double> startingState)
+{
+  dxdt = evaluateAtState(startingState);
 }
 
 bool DynamicalEquation::testNodeIds(void) const

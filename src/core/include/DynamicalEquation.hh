@@ -20,7 +20,9 @@ public:
   ~DynamicalEquation();
 
   double evaluate();
+  double evaluateAtState(std::map<int, double> startingState);
   void ODEcalculator(const state_type &x, state_type &dxdt, double t);
+  void ODEcalculatorAtState(const state_type &x, state_type &dxdt, double t, std::map<int, double> startingState);
 
   bool testNodeIds(void) const;
 

@@ -26,6 +26,7 @@ public:
   virtual ~CalculationNode(){};
 
   virtual double evaluate() const = 0;
+  virtual double evaluateAtState(std::map<int, double>) const = 0;
   virtual bool testNodeIds() const = 0;
   virtual std::string toString() const = 0;
 
@@ -51,6 +52,11 @@ public:
   }
 
   virtual double evaluate() const
+  {
+    return value;
+  }
+
+  virtual double evaluateAtState(std::map<int, double> startingState) const
   {
     return value;
   }
@@ -94,6 +100,7 @@ public:
   }
 
   virtual double evaluate() const;
+  virtual double evaluateAtState(std::map<int, double> startingState) const;
 
   virtual bool testNodeIds() const;
 
@@ -128,6 +135,11 @@ public:
   virtual double evaluate() const
   {
     return - right->evaluate();
+  }
+
+  virtual double evaluateAtState(std::map<int, double> startingState) const
+  {
+    return - right->evaluateAtState(startingState);
   }
 
   virtual bool testNodeIds() const
@@ -166,6 +178,11 @@ public:
   virtual double evaluate() const
   {
     return left->evaluate() + right->evaluate();
+  }
+
+  virtual double evaluateAtState(std::map<int, double> startingState) const
+  {
+    return left->evaluateAtState(startingState) + right->evaluateAtState(startingState);
   }
 
   virtual bool testNodeIds() const
@@ -207,6 +224,11 @@ public:
     return left->evaluate() - right->evaluate();
   }
 
+  virtual double evaluateAtState(std::map<int, double> startingState) const
+  {
+    return left->evaluateAtState(startingState) - right->evaluateAtState(startingState);
+  }
+
   virtual bool testNodeIds() const
   {
     return ((left->testNodeIds()) && (right->testNodeIds()));
@@ -244,6 +266,11 @@ public:
   virtual double evaluate() const
   {
     return left->evaluate() * right->evaluate();
+  }
+
+  virtual double evaluateAtState(std::map<int, double> startingState) const
+  {
+    return left->evaluateAtState(startingState) * right->evaluateAtState(startingState);
   }
 
   virtual bool testNodeIds() const
@@ -285,6 +312,11 @@ public:
     return left->evaluate() / right->evaluate();
   }
 
+  virtual double evaluateAtState(std::map<int, double> startingState) const
+  {
+    return left->evaluateAtState(startingState) / right->evaluateAtState(startingState);
+  }
+
   virtual bool testNodeIds() const
   {
     return ((left->testNodeIds()) && (right->testNodeIds()));
@@ -322,6 +354,11 @@ public:
   virtual double evaluate() const
   {
     return std::pow(left->evaluate(), right->evaluate());
+  }
+
+  virtual double evaluateAtState(std::map<int, double> startingState) const
+  {
+    return std::pow(left->evaluateAtState(startingState), right->evaluateAtState(startingState));
   }
 
   virtual bool testNodeIds() const

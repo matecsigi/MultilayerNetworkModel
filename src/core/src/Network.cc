@@ -134,6 +134,29 @@ DynamicalEquation* Network::getNodeDynamicalEquation(int nodeId) const
   return NULL;
 }
 
+std::map<int, double> Network::getCurrentState(void) const
+{
+  std::map<int, double> currentState;
+  for(std::vector<Node*>::const_iterator itNode=mNodes.begin(); itNode != mNodes.end(); ++itNode)
+  {
+    currentState[(*itNode)->getId()] = (*itNode)->getPreviousState();
+  }
+
+  return currentState;
+}
+
+std::map<int, double> Network::getDirectionAtState(std::map<int, double> basePointCoordinates) const
+{
+  std::map<int, double> directions;
+  std::map<int, double> finalState;
+  for(std::vector<Node*>::iterator itNode=mNodes.begin(); itNode != mNodes.end(); ++itNode)
+  {
+    DynamicalEquation* nodeEquation = getNodeDynamicalEquation((*itNode)->getId());
+    (*itNode)->stepOdeAtState(nodeEquation, basPointCoordinates, finalState);
+  }
+  return directions;
+}
+
 std::string Network::getNodeDynamicalEquationString(int nodeId) const
 {
   int localId = getLocalId(nodeId);
