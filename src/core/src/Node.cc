@@ -74,7 +74,7 @@ void Node::stepODE(DynamicalEquation* dynamicalEquation)
   setCurrentState(x);
 }
 
-void Network::stepOdeAtState(DynamicalEquation* dynamicalEquation, std::map<int, double> startingState, std::map<int, double>& finalState)
+void Node::stepOdeAtState(DynamicalEquation* dynamicalEquation, std::map<int, double> startingState, std::map<int, double>& finalState)
 {
   state_type x = {startingState[getId()]};
   OdeWrapperAtState wrapper(dynamicalEquation, startingState);

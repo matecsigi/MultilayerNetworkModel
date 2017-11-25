@@ -149,10 +149,10 @@ std::map<int, double> Network::getDirectionAtState(std::map<int, double> basePoi
 {
   std::map<int, double> directions;
   std::map<int, double> finalState;
-  for(std::vector<Node*>::iterator itNode=mNodes.begin(); itNode != mNodes.end(); ++itNode)
+  for(std::vector<Node*>::const_iterator itNode=mNodes.begin(); itNode != mNodes.end(); ++itNode)
   {
     DynamicalEquation* nodeEquation = getNodeDynamicalEquation((*itNode)->getId());
-    (*itNode)->stepOdeAtState(nodeEquation, basPointCoordinates, finalState);
+    (*itNode)->stepOdeAtState(nodeEquation, basePointCoordinates, finalState);
   }
   return directions;
 }
