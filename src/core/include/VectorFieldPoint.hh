@@ -11,8 +11,17 @@ public:
     mCoordinate = coordinate;
     mDirection = direction;
   }
-
   ~VectorFieldPoint(){};
+
+  std::map<int, double> getCoordinate()
+  {
+    return mCoordinate;
+  }
+  
+  std::map<int, double> getDirection()
+  {
+    return mDirection;
+  }
 
 private:
   std::map<int, double> mCoordinate;

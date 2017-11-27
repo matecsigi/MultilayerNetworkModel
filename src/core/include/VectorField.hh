@@ -8,14 +8,25 @@ class VectorField
 {
 public:
   VectorField(){};
-  ~VectorField(){};
+  ~VectorField()
+  {
+    for(std::vector<VectorFieldPoint*>::iterator itPoint=mVectorFieldPoints.begin(); itPoint != mVectorFieldPoints.end(); ++itPoint)
+      {
+	delete (*itPoint);
+      }
+  }
 
   void addPoint(std::map<int, double> coordinate, std::map<int, double> direction)
   {
-    mVectorFieldPoints.push_back(VectorFieldPoint(coordinate, direction));
+    mVectorFieldPoints.push_back(new VectorFieldPoint(coordinate, direction));
+  }
+
+  std::vector<VectorFieldPoint*> getVectorFieldPoints()
+  {
+    return mVectorFieldPoints;
   }
 private:
-  std::vector<VectorFieldPoint> mVectorFieldPoints;
+  std::vector<VectorFieldPoint*> mVectorFieldPoints;
 };
 
 #endif
