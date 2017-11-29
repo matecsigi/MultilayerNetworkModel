@@ -26,11 +26,12 @@ public:
   void modifyNetwork(Network* network);
   void copyNetwork(Network* oldNetwork, Network* newNetwork);
   Node* chooseNode(Network* network);
+  Node* chooseNewNeighbor(Network* network, Node* node);
   ModificationType chooseType();
 
   //Modification functions
-  void addEdge(DynamicalEquation* nodeEquation);
-  void removeEdge(DynamicalEquation* nodeEquation);
+  void addEdge(Network* network, Node* node);
+  void removeEdge(Network* network, Node* node);
   void addToOuterBlock(DynamicalEquation* nodeEquation);
   void removeFromOuterBlock(DynamicalEquation* nodeEquation);
   void changeConstant(DynamicalEquation* nodeEquation);

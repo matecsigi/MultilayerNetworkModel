@@ -1,5 +1,6 @@
 #include "NetworkModifier.hh"
 #include <iostream>
+#include <algorithm>
 
 NetworkModifier::NetworkModifier(Network* network)
 {
@@ -27,10 +28,10 @@ void NetworkModifier::modifyNetwork(Network* network)
   switch(type)
   {
   case ADD_EDGE:
-    addEdge(nodeEquation);
+    addEdge(network, nodeToChange);
     break;
   case REMOVE_EDGE:
-    removeEdge(nodeEquation);
+    removeEdge(network, nodeToChange);
     break;
   case ADD_TO_OUTER_BLOCK:
     addToOuterBlock(nodeEquation);
@@ -84,6 +85,25 @@ Node* NetworkModifier::chooseNode(Network* network)
   return nodes[randomIndex];
 }
 
+Node* NetworkModifier::chooseNewNeighbor(Network* network, Node* node)
+{
+  std::vector<Node*> allNodes = network->getNodes();
+  std::vector<Node*> neighbors = network->getNodeNeighbors(node->getId());
+  std::vector<Node*> nonNeighbors;
+  for(std::vector<Node*>::iterator itNode=allNodes.begin(); itNode != allNodes.end(); ++itNode)
+  {
+    if(std::find(neighbors.begin(), neighbors.end(), (*itNode)) == neighbors.end())
+    {
+      nonNeighbors.push_back((*itNode));
+    }
+  }
+
+  int numberOfNonNeighbors = nonNeighbors.size();
+  int randomIndex = rand()%static_cast<int>(numberOfNonNeighbors);
+
+  return nonNeighbors[randomIndex];
+}
+
 ModificationType NetworkModifier::chooseType()
 {
   std::vector<ModificationType> typeVector;
@@ -104,12 +124,13 @@ ModificationType NetworkModifier::chooseType()
 //--------Modification functions-----
 //-----------------------------------
 
-void NetworkModifier::addEdge(DynamicalEquation* nodeEquation)
+void NetworkModifier::addEdge(Network* network, Node* node)
 {
-
+  Node* newNeighbor = chooseNewNeighbor(network, node);
+  std::cout<<newNeighbor<<std::endl;
 }
 
-void NetworkModifier::removeEdge(DynamicalEquation* nodeEquation)
+void NetworkModifier::removeEdge(Network* network, Node* node)
 {
 
 }
