@@ -27,7 +27,7 @@ Függvények:
 		-ha egy konstanst szeretnénk random megváltoztatni, akkor a random számmal kiválasztásos módszerhez kell az összes konstans száma
 	-elem törlése konstanssal együtt
 		-ha az adott elem közvetlenül be volt szorozva valamilyen konstanssal, akkor a konstanst is törölni kell az elem törlésekor, mert az hozzá tartozik, és magában nincs értelme megtartani
-	-adott helyen + helyettesítése * gal
+x	-adott helyen + helyettesítése * gal
 	-adott helyen * helyettesítése + szal
 		
 		

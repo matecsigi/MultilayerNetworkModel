@@ -13,37 +13,39 @@ NetworkModifier::~NetworkModifier()
 void NetworkModifier::fitToVectorField(VectorField* targetVectorField)
 {
   Network* networkModified = new Network;
-  modifyNetwork(mNetwork, networkModified);
+  copyNetwork(mNetwork, networkModified);
+  modifyNetwork(networkModified);
 }
 
-void NetworkModifier::modifyNetwork(Network* oldNetwork, Network* newNetwork)
+void NetworkModifier::modifyNetwork(Network* network)
 {
-  copyNetwork(oldNetwork, newNetwork);
-  Node* nodeToChange = chooseNode(newNetwork);
+  Node* nodeToChange = chooseNode(network);
   ModificationType type = chooseType();
+
+  DynamicalEquation* nodeEquation = network->getNodeDynamicalEquation(nodeToChange->getId());
   
   switch(type)
   {
   case ADD_EDGE:
-    addEdge(nodeToChange);
+    addEdge(nodeEquation);
     break;
   case REMOVE_EDGE:
-    removeEdge(nodeToChange);
+    removeEdge(nodeEquation);
     break;
   case ADD_TO_OUTER_BLOCK:
-    addToOuterBlock(nodeToChange);
+    addToOuterBlock(nodeEquation);
     break;
   case REMOVE_FROM_OUTER_BLOCK:
-    removeFromOuterBlock(nodeToChange);
+    removeFromOuterBlock(nodeEquation);
     break;
   case CHANGE_CONSTANT:
-    changeConstant(nodeToChange);
+    changeConstant(nodeEquation);
     break;
   case CHANGE_PLUS_TO_MULTIPLY:
-    changePlusToMultiply(nodeToChange);
+    changePlusToMultiply(nodeEquation);
     break;
   case CHANGE_MULTIPLY_TO_PLUS:
-    changeMultiplyToPlus(nodeToChange);
+    changeMultiplyToPlus(nodeEquation);
     break;
   default:
     std::cout<<"Default"<<std::endl;
@@ -102,37 +104,92 @@ ModificationType NetworkModifier::chooseType()
 //--------Modification functions-----
 //-----------------------------------
 
-void NetworkModifier::addEdge(Node* nodeToChange)
+void NetworkModifier::addEdge(DynamicalEquation* nodeEquation)
 {
 
 }
 
-void NetworkModifier::removeEdge(Node* nodeToChange)
+void NetworkModifier::removeEdge(DynamicalEquation* nodeEquation)
 {
 
 }
 
-void NetworkModifier::addToOuterBlock(Node* nodeToChange)
+void NetworkModifier::addToOuterBlock(DynamicalEquation* nodeEquation)
 {
 
 }
 
-void NetworkModifier::removeFromOuterBlock(Node* nodeToChange)
+void NetworkModifier::removeFromOuterBlock(DynamicalEquation* nodeEquation)
 {
 
 }
 
-void NetworkModifier::changeConstant(Node* nodeToChange)
+void NetworkModifier::changeConstant(DynamicalEquation* nodeEquation)
+{
+  CalculationNode* baseCalcNode = nodeEquation->getBaseCalculationNode();
+  int nrOfConstants = numberOfConstants(baseCalcNode);
+  std::cout<<nrOfConstants<<std::endl;
+
+  int randomConstantElement = rand()%static_cast<int>(nrOfConstants);
+  changeSpecifiedConstant(baseCalcNode, randomConstantElement, 0);
+}
+
+void NetworkModifier::changePlusToMultiply(DynamicalEquation* nodeEquation)
 {
 
 }
 
-void NetworkModifier::changePlusToMultiply(Node* nodeToChange)
+void NetworkModifier::changeMultiplyToPlus(DynamicalEquation* nodeEquation)
 {
 
 }
 
-void NetworkModifier::changeMultiplyToPlus(Node* nodeToChange)
-{
+//-----------------------------------
+//--------Helper functions-----------
+//-----------------------------------
 
+int NetworkModifier::numberOfConstants(CalculationNode* calcNode)
+{
+  int localCounter = 0;
+  if(calcNode->getType() == CONSTANT)
+  {
+    localCounter += 1;
+  }
+
+  if(calcNode->left != NULL)
+  {
+    localCounter += numberOfConstants(calcNode->left);
+  }
+  if(calcNode->right != NULL)
+  {
+    localCounter += numberOfConstants(calcNode->right);
+  }
+
+  return localCounter;
+}
+
+void NetworkModifier::changeSpecifiedConstant(CalculationNode* calcNode, int elementIndex, int elementCounter)
+{
+  if(calcNode->getType() == CONSTANT)
+  {
+    if(elementCounter == elementIndex)
+    {
+      double value = calcNode->getValue();
+      //random number in the [-1, 1] range
+      value += -1+2*((double)rand()/RAND_MAX);
+      calcNode->setValue(value);
+    }
+    elementCounter += 1;
+  }
+
+  if(calcNode->left != NULL)
+  {
+    changeSpecifiedConstant(calcNode->left, elementIndex, elementCounter);
+  }
+  if(calcNode->right != NULL)
+  {
+    changeSpecifiedConstant(calcNode->right, elementIndex, elementCounter);
+  }
+
+  return;  
 }

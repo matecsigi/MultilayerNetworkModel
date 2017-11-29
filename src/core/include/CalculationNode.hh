@@ -31,6 +31,9 @@ public:
   virtual bool testNodeIds() const = 0;
   virtual std::string toString() const = 0;
 
+  virtual double getValue() const {return 0;};
+  virtual void setValue(double value){};
+
   CalcNodeTypes getType(){return type;};
   virtual int getId(){return -1;};
 
@@ -45,7 +48,7 @@ protected:
 class CNConstant : public CalculationNode
 {
 public:
-  explicit CNConstant(double _value) : CalculationNode(), value(_value)
+  explicit CNConstant(double _value) : CalculationNode(), mValue(_value)
   {
     left = NULL;
     right = NULL;
@@ -54,12 +57,12 @@ public:
 
   virtual double evaluate() const
   {
-    return value;
+    return mValue;
   }
 
   virtual double evaluateAtState(std::map<int, double> startingState) const
   {
-    return value;
+    return mValue;
   }
 
   virtual bool testNodeIds() const
@@ -70,11 +73,21 @@ public:
   virtual std::string toString() const
   {
     std::string strCalcNode;
-    strCalcNode.append(std::to_string(value));
+    strCalcNode.append(std::to_string(mValue));
     return strCalcNode;
   }
+
+  virtual double getValue() const
+  {
+    return mValue;
+  }
+
+  virtual void setValue(double value)
+  {
+    mValue = value;
+  }
 private:
-  double value;
+  double mValue;
 };
 
 

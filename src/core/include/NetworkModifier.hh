@@ -23,18 +23,23 @@ public:
   ~NetworkModifier();
 
   void fitToVectorField(VectorField* targetVectorField);
-  void modifyNetwork(Network* oldNetwork, Network* newNetwork);
+  void modifyNetwork(Network* network);
   void copyNetwork(Network* oldNetwork, Network* newNetwork);
   Node* chooseNode(Network* network);
   ModificationType chooseType();
 
-  void addEdge(Node* nodeToChange);
-  void removeEdge(Node* nodeToChange);
-  void addToOuterBlock(Node* nodeToChange);
-  void removeFromOuterBlock(Node* nodeToChange);
-  void changeConstant(Node* nodeToChange);
-  void changePlusToMultiply(Node* nodeToChange);
-  void changeMultiplyToPlus(Node* nodeToChange);
+  //Modification functions
+  void addEdge(DynamicalEquation* nodeEquation);
+  void removeEdge(DynamicalEquation* nodeEquation);
+  void addToOuterBlock(DynamicalEquation* nodeEquation);
+  void removeFromOuterBlock(DynamicalEquation* nodeEquation);
+  void changeConstant(DynamicalEquation* nodeEquation);
+  void changePlusToMultiply(DynamicalEquation* nodeEquation);
+  void changeMultiplyToPlus(DynamicalEquation* nodeEquation);
+
+  //Helper functions
+  int numberOfConstants(CalculationNode* calcNode);
+  void changeSpecifiedConstant(CalculationNode* calcNode, int elementIndex, int elementCounter);
 private:
   Network* mNetwork;
 };
