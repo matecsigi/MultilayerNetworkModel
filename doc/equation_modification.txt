@@ -1,0 +1,72 @@
+Hálózatok változása a vektormező illesztéséhez:
+
+Struktúrával kapcsolatos módosítás:
+	-él hozzáadása: beépítése akár több szinten:
+		-átlagos előrodulási szám a beépítendő helyek száma
+	-él törlése akárhonnan: minden szinten kiszedve
+		-törölje ki a szorzót konstant is, ami az adott elemhez tartozott
+		
+Csak az egyenleten belüli módosítás:	
+	-egy tetszőleges konstans megváltoztatása
+		-mennyivel változzon?
+	-egy + helyettesítése * ral
+	-egy * helyettesítése + szal
+	-elem újboli hozzáadása legkívülre + szal
+		-ez azért kell, mert az eddigiek nem változtatják az egy adott elem előfordulásának a számát, egy adott elem csakis egyszer szerepel
+	-elem külső + előfordulásának előrofdulásának törlése, de csak akkor, ha marad még előfordulása, tehát nem törlődik a teljes él
+
+
+Függvények:
+	-ID/const elem törlése
+		-pointert adjuk meg, ki kell szedni, és a mutató pointereket úgy összerakni, hogy megmaradjon az egyenlet struktúrája
+	-ID/const elem hozzáadása adott helyre + szal
+		-elemre mutató pointer és a helyre mutató pointer
+	-lehetséges beszúrási helyek száma + szal: elemek száma függvény
+		-ha random helyekre kell beszúrni egy elemet, ez magadja, hogy hány különböző helyre kerülhet, kell a random beszúráshoz generált random számmal való összehasonlításhoz
+	-konstansok száma az egyenletben
+		-ha egy konstanst szeretnénk random megváltoztatni, akkor a random számmal kiválasztásos módszerhez kell az összes konstans száma
+	-elem törlése konstanssal együtt
+		-ha az adott elem közvetlenül be volt szorozva valamilyen konstanssal, akkor a konstanst is törölni kell az elem törlésekor, mert az hozzá tartozik, és magában nincs értelme megtartani
+	-adott helyen + helyettesítése * gal
+	-adott helyen * helyettesítése + szal
+		
+		
+		
+Tesztelést segítő függvények:
+	-numberOfConstants(), numberOfIDs, numberOfPluses(), numberOfMinuses(), numberOfMultiplies(), numberOfDivisions()
+		-minden egyes módfosító függvényt ezekkel ellenőrzünk
+	-numberOfElements()
+		-minden egyes függvényt ezzel is ellenőrzünk
+		
+Egyéb:
+	-globális paraméter legyen a generációk száma, egy generáció változásainak a száma
+	-globális paraméter legyenek a diffegyenlet iterator paraméterei
+	-globális paraméter legyen a diffegyenlet, upInfl, downInfl és vector-reconfig aránya
+	-tesztelni kell, hogy tényleg a kívánt módon válozik -e az egyenlet
+	-nódus beszúrása hogyan valósítható meg? -> Network pointerként átadva, így a függvény végén a módosított Network jön ki, ami akár új nódusokat is tartalmazhat
+	-nem kell "Negate", egy negatív konstans megoldja, lehessen negatív is a szorzó
+	-negatív szám is lehessen!!!
+	-minden lépésnél ki kell menteni a teljes struktúrát is, szintén érdemes bufferelni
+	
+Teszt:
+	-magát a mátrix összeállítását is kell tesztelni
+	
+	
+Visualizer:
+	-python vagy c++?
+	
+Refactor:
+	-std::map<int, double> helyett a FieldNode és Coordinate bevezetése
+	-iterétorok átnevezése mindenhol: itLay, itNet, itNode ...
+	-inlude-ok kiszedése, ahol nem kell
+	
+	-tab-ok ne legyenek
+	-Doxygen
+	
+Terv:
+	-vector-field-reconfig befejezése
+	-mindenféle tesztek, amik még eszembe jutnak
+	-dokumentálás Doxygen + refaktorálás
+	-próbarendszer, valami valós, de egyszerű
+	-optimalizálás, step thread-ek, író-olvasó pattern, gyorsítások
+	-ábrázoló program

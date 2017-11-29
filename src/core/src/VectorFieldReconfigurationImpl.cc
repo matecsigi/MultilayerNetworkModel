@@ -1,6 +1,7 @@
 #include "VectorFieldReconfigurationImpl.hh"
 #include "VectorField.hh"
 #include "VectorFieldSchemes.hh"
+#include "NetworkModifier.hh"
 
 void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration()
 {
@@ -18,6 +19,9 @@ void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration()
   std::map<int, double> directionInLowerNetwork = calculateLowerNetworkDirection();
   std::map<int, double> directionInHigherNetworks = calculateHigherNetworksDirection();
   calculateTargetVectorField(targetVectorField, currentVectorField, directionInLowerNetwork, directionInHigherNetworks);
+
+  NetworkModifier* networkModifier = new NetworkModifier(networkAssigned);
+  networkModifier->fitToVectorField(targetVectorField);
 
   delete currentVectorField;
   delete targetVectorField;

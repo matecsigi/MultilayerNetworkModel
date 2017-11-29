@@ -380,6 +380,39 @@ src/core/src/Network.cc.s:
 	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/Network.cc.s
 .PHONY : src/core/src/Network.cc.s
 
+src/core/src/NetworkModifier.o: src/core/src/NetworkModifier.cc.o
+
+.PHONY : src/core/src/NetworkModifier.o
+
+# target to build an object file
+src/core/src/NetworkModifier.cc.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/NetworkModifier.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/NetworkModifier.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/NetworkModifier.cc.o
+.PHONY : src/core/src/NetworkModifier.cc.o
+
+src/core/src/NetworkModifier.i: src/core/src/NetworkModifier.cc.i
+
+.PHONY : src/core/src/NetworkModifier.i
+
+# target to preprocess a source file
+src/core/src/NetworkModifier.cc.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/NetworkModifier.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/NetworkModifier.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/NetworkModifier.cc.i
+.PHONY : src/core/src/NetworkModifier.cc.i
+
+src/core/src/NetworkModifier.s: src/core/src/NetworkModifier.cc.s
+
+.PHONY : src/core/src/NetworkModifier.s
+
+# target to generate assembly for a file
+src/core/src/NetworkModifier.cc.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/NetworkModifier.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/NetworkModifier.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/NetworkModifier.cc.s
+.PHONY : src/core/src/NetworkModifier.cc.s
+
 src/core/src/Node.o: src/core/src/Node.cc.o
 
 .PHONY : src/core/src/Node.o
@@ -823,6 +856,9 @@ help:
 	@echo "... src/core/src/Network.o"
 	@echo "... src/core/src/Network.i"
 	@echo "... src/core/src/Network.s"
+	@echo "... src/core/src/NetworkModifier.o"
+	@echo "... src/core/src/NetworkModifier.i"
+	@echo "... src/core/src/NetworkModifier.s"
 	@echo "... src/core/src/Node.o"
 	@echo "... src/core/src/Node.i"
 	@echo "... src/core/src/Node.s"
