@@ -38,8 +38,10 @@ public:
   void changeMultiplyToPlus(DynamicalEquation* nodeEquation);
 
   //Helper functions
-  int numberOfConstants(CalculationNode* calcNode);
+  int numberOfType(CalculationNode* calcNode, CalcNodeTypes type);
   void changeSpecifiedConstant(CalculationNode* calcNode, int elementIndex, int elementCounter);
+  CalculationNode* changeSpecifiedPlusToMultiply(CalculationNode* baseCalcNode, CalculationNode* calcNode, int elementIndex, int elementCounter);
+  CalculationNode* getParent(CalculationNode* calcNode, CalculationNode* parentCalcNode);
 private:
   Network* mNetwork;
 };

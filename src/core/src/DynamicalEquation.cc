@@ -49,6 +49,11 @@ CalculationNode* DynamicalEquation::getBaseCalculationNode(void)
   return mBaseCalculationNode;
 }
 
+void DynamicalEquation::setBaseCalculationNode(CalculationNode* baseCalcNode)
+{
+  mBaseCalculationNode = baseCalcNode;
+}
+
 void DynamicalEquation::loadEquation(std::string strEquation)
 {
   if(strEquation.empty())

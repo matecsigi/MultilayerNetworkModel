@@ -12,6 +12,8 @@
 #include "InitialConditionGeneratorImpl.hh"
 #include "Node.hh"
 #include "Network.hh"
+#include "VectorFieldReconfigurationImpl.hh"
+#include "NetworkModifier.hh"
 
 int vectorHasDuplicatedElement(std::vector<int>& vectorToCheck)
 {
@@ -379,6 +381,33 @@ BOOST_AUTO_TEST_CASE(generateStructure_CalculationNodeCalculatesCorrectValue)
   BOOST_CHECK_MESSAGE(valueCalculatedCorrectly == true, "The value calculated by the CalculationNode is not correct");
 
   delete multilayerNetwork;
+}
+
+BOOST_AUTO_TEST_SUITE_END()
+
+BOOST_AUTO_TEST_SUITE(test_suite_NetworkModifierTests)
+
+BOOST_AUTO_TEST_CASE(networkModifier_changePlusToMultiply)
+{
+  std::string strEquation = "1+1";
+  DynamicalEquation* testEquation = new DynamicalEquation();
+  testEquation->loadEquation(strEquation);
+
+  NetworkModifier* networkModifier = new NetworkModifier(new Network());
+
+  int originalNumberOfAdds = networkModifier->numberOfType(testEquation->getBaseCalculationNode(), ADD);
+  int originalNumberOfMultiplies = networkModifier->numberOfType(testEquation->getBaseCalculationNode(), MULTIPLY);
+  networkModifier->changePlusToMultiply(testEquation);
+  int newNumberOfAdds = networkModifier->numberOfType(testEquation->getBaseCalculationNode(), ADD);
+  int newNumberOfMultiplies = networkModifier->numberOfType(testEquation->getBaseCalculationNode(), MULTIPLY);
+
+  bool operationCorrect = false;
+  if((originalNumberOfAdds == (newNumberOfAdds+1)) && (originalNumberOfMultiplies == (newNumberOfMultiplies-1)))
+  {
+    operationCorrect = true;
+  }
+
+  BOOST_CHECK_MESSAGE(operationCorrect == true, "Changing ADDs to MULTIPLYs in equations doesn't work");
 }
 
 BOOST_AUTO_TEST_SUITE_END()

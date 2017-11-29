@@ -127,16 +127,30 @@ void NetworkModifier::removeFromOuterBlock(DynamicalEquation* nodeEquation)
 void NetworkModifier::changeConstant(DynamicalEquation* nodeEquation)
 {
   CalculationNode* baseCalcNode = nodeEquation->getBaseCalculationNode();
-  int nrOfConstants = numberOfConstants(baseCalcNode);
+  int nrOfConstants = numberOfType(baseCalcNode, CONSTANT);
   std::cout<<nrOfConstants<<std::endl;
-
+  if(nrOfConstants == 0)
+  {
+    return;
+  }
   int randomConstantElement = rand()%static_cast<int>(nrOfConstants);
   changeSpecifiedConstant(baseCalcNode, randomConstantElement, 0);
 }
 
 void NetworkModifier::changePlusToMultiply(DynamicalEquation* nodeEquation)
 {
-
+  // std::cout<<"before="<<nodeEquation->toString()<<std::endl;
+  CalculationNode* baseCalcNode = nodeEquation->getBaseCalculationNode();
+  int nrOfAdds = numberOfType(baseCalcNode, ADD);
+  std::cout<<nrOfAdds<<std::endl;
+  if(nrOfAdds == 0)
+  {
+    return;
+  }
+  int randomPlusElement = rand()%static_cast<int>(nrOfAdds);
+  baseCalcNode = changeSpecifiedPlusToMultiply(baseCalcNode, baseCalcNode, randomPlusElement, 0);
+  nodeEquation->setBaseCalculationNode(baseCalcNode);
+  // std::cout<<"after="<<nodeEquation->toString()<<std::endl;
 }
 
 void NetworkModifier::changeMultiplyToPlus(DynamicalEquation* nodeEquation)
@@ -148,21 +162,21 @@ void NetworkModifier::changeMultiplyToPlus(DynamicalEquation* nodeEquation)
 //--------Helper functions-----------
 //-----------------------------------
 
-int NetworkModifier::numberOfConstants(CalculationNode* calcNode)
+int NetworkModifier::numberOfType(CalculationNode* calcNode, CalcNodeTypes type)
 {
   int localCounter = 0;
-  if(calcNode->getType() == CONSTANT)
+  if(calcNode->getType() == type)
   {
     localCounter += 1;
   }
 
   if(calcNode->left != NULL)
   {
-    localCounter += numberOfConstants(calcNode->left);
+    localCounter += numberOfType(calcNode->left, type);
   }
   if(calcNode->right != NULL)
   {
-    localCounter += numberOfConstants(calcNode->right);
+    localCounter += numberOfType(calcNode->right, type);
   }
 
   return localCounter;
@@ -192,4 +206,79 @@ void NetworkModifier::changeSpecifiedConstant(CalculationNode* calcNode, int ele
   }
 
   return;  
+}
+
+CalculationNode* NetworkModifier::changeSpecifiedPlusToMultiply(CalculationNode* baseCalcNode, CalculationNode* calcNode, int elementIndex, int elementCounter)
+{
+  if(calcNode->getType() == ADD)
+  {
+    if(elementCounter == elementIndex)
+    {
+      if(calcNode == baseCalcNode)
+      {
+	CalculationNode* multiplyNode = new CNMultiply(calcNode->left, calcNode->right);
+	calcNode->left = NULL;
+	calcNode->right = NULL;
+	baseCalcNode = multiplyNode;
+	delete calcNode;
+	calcNode = multiplyNode;
+      }
+      else
+      {
+	CalculationNode* parentCalcNode = getParent(baseCalcNode, calcNode);
+	CalculationNode* multiplyNode = new CNMultiply(calcNode->left, calcNode->right);
+	calcNode->left = NULL;
+	calcNode->right = NULL;
+	if(parentCalcNode->left == calcNode)
+	{
+	  parentCalcNode->left = multiplyNode;
+	}
+	else if(parentCalcNode->right == calcNode)
+	{
+	  parentCalcNode->right = multiplyNode;
+	}
+	delete calcNode;
+	calcNode = multiplyNode;
+      }
+    }
+    elementCounter += 1;
+  }
+
+  if(calcNode->left != NULL)
+  {
+    baseCalcNode = changeSpecifiedPlusToMultiply(baseCalcNode, calcNode->left, elementIndex, elementCounter);
+  }
+  if(calcNode->right != NULL)
+  {
+    baseCalcNode = changeSpecifiedPlusToMultiply(baseCalcNode, calcNode->right, elementIndex, elementCounter);
+  }
+
+  return baseCalcNode;  
+}
+
+CalculationNode* NetworkModifier::getParent(CalculationNode* calcNode, CalculationNode* childCalcNode)
+{
+  if((calcNode->left == childCalcNode) && (calcNode->right == childCalcNode))
+  {
+    return calcNode;
+  }
+
+  if(calcNode->left != NULL)
+  {
+    CalculationNode* parent = getParent(calcNode->left, childCalcNode);
+    if(parent != NULL)
+    {
+      return parent;
+    }
+  }
+  if(calcNode->right != NULL)
+  {
+    CalculationNode* parent = getParent(calcNode->right, childCalcNode);
+    if(parent != NULL)
+    {
+      return parent;
+    }    
+  }
+
+  return NULL;    
 }

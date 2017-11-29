@@ -27,6 +27,7 @@ public:
   bool testNodeIds(void) const;
 
   CalculationNode* getBaseCalculationNode(void);
+  void setBaseCalculationNode(CalculationNode* baseCalcNode);
 
   void loadEquation(std::string strEquation);
   void loadNodesToEquation(CalculationNode* calcPtr, std::map<int, Node*>& nodesMap);
