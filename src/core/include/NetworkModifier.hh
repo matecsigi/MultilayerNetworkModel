@@ -40,7 +40,9 @@ public:
   //Helper functions
   int numberOfType(CalculationNode* calcNode, CalcNodeTypes type);
   void changeSpecifiedConstant(CalculationNode* calcNode, int elementIndex, int elementCounter);
-  CalculationNode* changeSpecifiedPlusToMultiply(CalculationNode* baseCalcNode, CalculationNode* calcNode, int elementIndex, int elementCounter);
+  CalculationNode* changeSpecifiedPlusToMultiply(CalculationNode* baseCalcNode, int elementIndex);
+  CalculationNode* changeSpecifiedMultiplyToPlus(CalculationNode* baseCalcNode, int elementIndex);
+  void getSpecifiedElementFromType(CalculationNode* &storeCalcNode, CalculationNode* stepCalcNode, CalcNodeTypes type, int elementIndex, int elementCounter);
   CalculationNode* getParent(CalculationNode* calcNode, CalculationNode* parentCalcNode);
 private:
   Network* mNetwork;

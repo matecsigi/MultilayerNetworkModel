@@ -139,23 +139,28 @@ void NetworkModifier::changeConstant(DynamicalEquation* nodeEquation)
 
 void NetworkModifier::changePlusToMultiply(DynamicalEquation* nodeEquation)
 {
-  // std::cout<<"before="<<nodeEquation->toString()<<std::endl;
   CalculationNode* baseCalcNode = nodeEquation->getBaseCalculationNode();
   int nrOfAdds = numberOfType(baseCalcNode, ADD);
-  std::cout<<nrOfAdds<<std::endl;
   if(nrOfAdds == 0)
   {
     return;
   }
   int randomPlusElement = rand()%static_cast<int>(nrOfAdds);
-  baseCalcNode = changeSpecifiedPlusToMultiply(baseCalcNode, baseCalcNode, randomPlusElement, 0);
+  baseCalcNode = changeSpecifiedPlusToMultiply(baseCalcNode, randomPlusElement);
   nodeEquation->setBaseCalculationNode(baseCalcNode);
-  // std::cout<<"after="<<nodeEquation->toString()<<std::endl;
 }
 
 void NetworkModifier::changeMultiplyToPlus(DynamicalEquation* nodeEquation)
 {
-
+  CalculationNode* baseCalcNode = nodeEquation->getBaseCalculationNode();
+  int nrOfMultiplies = numberOfType(baseCalcNode, MULTIPLY);
+  if(nrOfMultiplies == 0)
+  {
+    return;
+  }
+  int randomMultiplyElement = rand()%static_cast<int>(nrOfMultiplies);
+  baseCalcNode = changeSpecifiedMultiplyToPlus(baseCalcNode, randomMultiplyElement);
+  nodeEquation->setBaseCalculationNode(baseCalcNode);
 }
 
 //-----------------------------------
@@ -208,52 +213,95 @@ void NetworkModifier::changeSpecifiedConstant(CalculationNode* calcNode, int ele
   return;  
 }
 
-CalculationNode* NetworkModifier::changeSpecifiedPlusToMultiply(CalculationNode* baseCalcNode, CalculationNode* calcNode, int elementIndex, int elementCounter)
+CalculationNode* NetworkModifier::changeSpecifiedPlusToMultiply(CalculationNode* baseCalcNode, int elementIndex)
 {
-  if(calcNode->getType() == ADD)
+  CalculationNode* calcNode = NULL;
+  getSpecifiedElementFromType(calcNode, baseCalcNode, ADD, elementIndex, 0);
+  if(calcNode == baseCalcNode)
+  {
+    CalculationNode* multiplyNode = new CNMultiply(calcNode->left, calcNode->right);
+    calcNode->left = NULL;
+    calcNode->right = NULL;
+    baseCalcNode = multiplyNode;
+    delete calcNode;
+    calcNode = multiplyNode;
+  }
+  else
+  {
+    CalculationNode* parentCalcNode = getParent(baseCalcNode, calcNode);
+    CalculationNode* multiplyNode = new CNMultiply(calcNode->left, calcNode->right);
+    calcNode->left = NULL;
+    calcNode->right = NULL;
+    if(parentCalcNode->left == calcNode)
+    {
+      parentCalcNode->left = multiplyNode;
+    }
+    else if(parentCalcNode->right == calcNode)
+    {
+      parentCalcNode->right = multiplyNode;
+    }
+    delete calcNode;
+    calcNode = multiplyNode;
+  }
+
+  return baseCalcNode;
+}
+
+CalculationNode* NetworkModifier::changeSpecifiedMultiplyToPlus(CalculationNode* baseCalcNode, int elementIndex)
+{
+  CalculationNode* calcNode = NULL;
+  getSpecifiedElementFromType(calcNode, baseCalcNode, MULTIPLY, elementIndex, 0);
+  if(calcNode == baseCalcNode)
+  {
+    CalculationNode* addNode = new CNAdd(calcNode->left, calcNode->right);
+    calcNode->left = NULL;
+    calcNode->right = NULL;
+    baseCalcNode = addNode;
+    delete calcNode;
+    calcNode = addNode;
+  }
+  else
+  {
+    CalculationNode* parentCalcNode = getParent(baseCalcNode, calcNode);
+    CalculationNode* addNode = new CNAdd(calcNode->left, calcNode->right);
+    calcNode->left = NULL;
+    calcNode->right = NULL;
+    if(parentCalcNode->left == calcNode)
+    {
+      parentCalcNode->left = addNode;
+    }
+    else if(parentCalcNode->right == calcNode)
+    {
+      parentCalcNode->right = addNode;
+    }
+    delete calcNode;
+    calcNode = addNode;
+  }
+
+  return baseCalcNode;
+}
+
+void NetworkModifier::getSpecifiedElementFromType(CalculationNode* &storeCalcNode, CalculationNode* stepCalcNode, CalcNodeTypes type, int elementIndex, int elementCounter)
+{
+  if(stepCalcNode->getType() == type)
   {
     if(elementCounter == elementIndex)
     {
-      if(calcNode == baseCalcNode)
-      {
-	CalculationNode* multiplyNode = new CNMultiply(calcNode->left, calcNode->right);
-	calcNode->left = NULL;
-	calcNode->right = NULL;
-	baseCalcNode = multiplyNode;
-	delete calcNode;
-	calcNode = multiplyNode;
-      }
-      else
-      {
-	CalculationNode* parentCalcNode = getParent(baseCalcNode, calcNode);
-	CalculationNode* multiplyNode = new CNMultiply(calcNode->left, calcNode->right);
-	calcNode->left = NULL;
-	calcNode->right = NULL;
-	if(parentCalcNode->left == calcNode)
-	{
-	  parentCalcNode->left = multiplyNode;
-	}
-	else if(parentCalcNode->right == calcNode)
-	{
-	  parentCalcNode->right = multiplyNode;
-	}
-	delete calcNode;
-	calcNode = multiplyNode;
-      }
+      storeCalcNode = stepCalcNode;
     }
     elementCounter += 1;
   }
 
-  if(calcNode->left != NULL)
+  if(stepCalcNode->left != NULL)
   {
-    baseCalcNode = changeSpecifiedPlusToMultiply(baseCalcNode, calcNode->left, elementIndex, elementCounter);
+    getSpecifiedElementFromType(storeCalcNode, stepCalcNode->left, type, elementIndex, elementCounter);
   }
-  if(calcNode->right != NULL)
+  if(stepCalcNode->right != NULL)
   {
-    baseCalcNode = changeSpecifiedPlusToMultiply(baseCalcNode, calcNode->right, elementIndex, elementCounter);
+    getSpecifiedElementFromType(storeCalcNode, stepCalcNode->right, type, elementIndex, elementCounter);
   }
 
-  return baseCalcNode;  
+  return;  
 }
 
 CalculationNode* NetworkModifier::getParent(CalculationNode* calcNode, CalculationNode* childCalcNode)

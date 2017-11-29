@@ -410,4 +410,28 @@ BOOST_AUTO_TEST_CASE(networkModifier_changePlusToMultiply)
   BOOST_CHECK_MESSAGE(operationCorrect == true, "Changing ADDs to MULTIPLYs in equations doesn't work");
 }
 
+BOOST_AUTO_TEST_CASE(networkModifier_changeMultiplyToPlus)
+{
+  std::string strEquation = "1*1";
+  DynamicalEquation* testEquation = new DynamicalEquation();
+  testEquation->loadEquation(strEquation);
+
+  NetworkModifier* networkModifier = new NetworkModifier(new Network());
+
+  int originalNumberOfAdds = networkModifier->numberOfType(testEquation->getBaseCalculationNode(), ADD);
+  int originalNumberOfMultiplies = networkModifier->numberOfType(testEquation->getBaseCalculationNode(), MULTIPLY);
+  networkModifier->changeMultiplyToPlus(testEquation);
+  int newNumberOfAdds = networkModifier->numberOfType(testEquation->getBaseCalculationNode(), ADD);
+  int newNumberOfMultiplies = networkModifier->numberOfType(testEquation->getBaseCalculationNode(), MULTIPLY);
+
+  bool operationCorrect = false;
+  if((originalNumberOfAdds == (newNumberOfAdds-1)) && (originalNumberOfMultiplies == (newNumberOfMultiplies+1)))
+  {
+    operationCorrect = true;
+  }
+
+  BOOST_CHECK_MESSAGE(operationCorrect == true, "Changing MULTIPLYs to ADDs in equations doesn't work");
+}
+
+
 BOOST_AUTO_TEST_SUITE_END()
