@@ -37,7 +37,7 @@ void NetworkModifier::modifyNetwork(Network* network)
     addToOuterBlock(network, nodeToChange);
     break;
   case REMOVE_FROM_OUTER_BLOCK:
-    removeFromOuterBlock(nodeEquation);
+    removeFromOuterBlock(network, nodeToChange);
     break;
   case CHANGE_CONSTANT:
     changeConstant(nodeEquation);
@@ -156,7 +156,7 @@ void NetworkModifier::removeEdge(Network* network, Node* node)
   CalculationNode* baseCalcNode = nodeEquation->getBaseCalculationNode();
 
   std::vector<CalculationNode*> deleteList;
-  getNodeOccurrences(baseCalcNode, deleteList, neighborToRemove);
+  getNodeOccurrences(baseCalcNode, deleteList, neighborToRemove->getId());
 
   for(std::vector<CalculationNode*>::iterator itCalc=deleteList.begin(); itCalc != deleteList.end(); ++itCalc)
   {
@@ -184,9 +184,34 @@ void NetworkModifier::addToOuterBlock(Network* network, Node* node)
   nodeEquation->setBaseCalculationNode(baseCalcNode);
 }
 
-void NetworkModifier::removeFromOuterBlock(DynamicalEquation* nodeEquation)
+void NetworkModifier::removeFromOuterBlock(Network* network, Node* node)
 {
+  DynamicalEquation* nodeEquation = network->getNodeDynamicalEquation(node->getId());
+  CalculationNode* baseCalcNode = nodeEquation->getBaseCalculationNode();
 
+  std::vector<CalculationNode*> outerElements;
+  getOuterInsertLocations(baseCalcNode, outerElements);
+  std::vector<CalculationNode*> outerIds;
+  for(std::vector<CalculationNode*>::iterator itCalc=outerElements.begin(); itCalc != outerElements.end(); ++itCalc)
+  {
+    CalculationNode* currentCalcNode = (*itCalc);
+    if(currentCalcNode->getType() == ID)
+    {
+      std::vector<CalculationNode*> nodeOccurrences;
+      getNodeOccurrences(baseCalcNode, nodeOccurrences, currentCalcNode->getId());
+      if(nodeOccurrences.size() > 1)
+      {
+	outerIds.push_back(currentCalcNode);	
+      }
+    }
+  }
+  if(outerIds.size() != 0)
+  {
+    int randomIndex = rand()%static_cast<int>(outerIds.size());
+    CalculationNode* outerNodeToRemove = outerIds[randomIndex];   
+    baseCalcNode = deleteAtLocation(baseCalcNode, outerNodeToRemove);
+    nodeEquation->setBaseCalculationNode(baseCalcNode);
+  }
 }
 
 void NetworkModifier::changeConstant(DynamicalEquation* nodeEquation)
@@ -427,11 +452,11 @@ void NetworkModifier::getOuterInsertLocations(CalculationNode* calcNode, std::ve
   return;        
 }
 
-void NetworkModifier::getNodeOccurrences(CalculationNode* calcNode, std::vector<CalculationNode*> &locations, Node* node)
+void NetworkModifier::getNodeOccurrences(CalculationNode* calcNode, std::vector<CalculationNode*> &locations, int nodeId)
 {
   if(calcNode->getType() == ID)
   {
-    if(calcNode->getId() == node->getId())
+    if(calcNode->getId() == nodeId)
     {
       locations.push_back(calcNode);      
     }
@@ -439,11 +464,11 @@ void NetworkModifier::getNodeOccurrences(CalculationNode* calcNode, std::vector<
 
   if(calcNode->left != NULL)
   {
-    getNodeOccurrences(calcNode->left, locations, node);
+    getNodeOccurrences(calcNode->left, locations, nodeId);
   }
   if(calcNode->right != NULL)
   {
-    getNodeOccurrences(calcNode->right, locations, node);
+    getNodeOccurrences(calcNode->right, locations, nodeId);
   }
 
   return;        

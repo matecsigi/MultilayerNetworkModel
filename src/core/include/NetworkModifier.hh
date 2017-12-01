@@ -34,7 +34,7 @@ public:
   void addEdge(Network* network, Node* node);
   void removeEdge(Network* network, Node* node);
   void addToOuterBlock(Network* network, Node* node);
-  void removeFromOuterBlock(DynamicalEquation* nodeEquation);
+  void removeFromOuterBlock(Network* network, Node* node);
   void changeConstant(DynamicalEquation* nodeEquation);
   void changePlusToMultiply(DynamicalEquation* nodeEquation);
   void changeMultiplyToPlus(DynamicalEquation* nodeEquation);
@@ -48,7 +48,7 @@ public:
   CalculationNode* getParent(CalculationNode* calcNode, CalculationNode* childCalcNode);
   void getInsertLocations(CalculationNode* calcNode, std::vector<CalculationNode*> &locations);
   void getOuterInsertLocations(CalculationNode* calcNode, std::vector<CalculationNode*> &locations);
-  void getNodeOccurrences(CalculationNode* calcNode, std::vector<CalculationNode*> &locations, Node* node);
+  void getNodeOccurrences(CalculationNode* calcNode, std::vector<CalculationNode*> &locations, int nodeId);
 
   CalculationNode* insertNodeAtLocation(CalculationNode* baseCalcNode, CalculationNode* calcNode, Node* node);
   CalculationNode* deleteAtLocation(CalculationNode* baseCalcNode, CalculationNode* calcNode);
