@@ -27,12 +27,13 @@ public:
   void copyNetwork(Network* oldNetwork, Network* newNetwork);
   Node* chooseNode(Network* network);
   Node* chooseNewNeighbor(Network* network, Node* node);
+  Node* chooseReAddedNode(Network* network, Node* node);
   ModificationType chooseType();
 
   //Modification functions
   void addEdge(Network* network, Node* node);
   void removeEdge(Network* network, Node* node);
-  void addToOuterBlock(DynamicalEquation* nodeEquation);
+  void addToOuterBlock(Network* network, Node* node);
   void removeFromOuterBlock(DynamicalEquation* nodeEquation);
   void changeConstant(DynamicalEquation* nodeEquation);
   void changePlusToMultiply(DynamicalEquation* nodeEquation);
@@ -44,7 +45,10 @@ public:
   CalculationNode* changeSpecifiedPlusToMultiply(CalculationNode* baseCalcNode, int elementIndex);
   CalculationNode* changeSpecifiedMultiplyToPlus(CalculationNode* baseCalcNode, int elementIndex);
   void getSpecifiedElementFromType(CalculationNode* &storeCalcNode, CalculationNode* stepCalcNode, CalcNodeTypes type, int elementIndex, int elementCounter);
-  CalculationNode* getParent(CalculationNode* calcNode, CalculationNode* parentCalcNode);
+  CalculationNode* getParent(CalculationNode* calcNode, CalculationNode* childCalcNode);
+  void getInsertLocations(CalculationNode* calcNode, std::vector<CalculationNode*> &locations);
+  void getOuterInsertLocations(CalculationNode* calcNode, std::vector<CalculationNode*> &locations);
+  CalculationNode* insertNodeAtLocation(CalculationNode* baseCalcNode, CalculationNode* calcNode, Node* node);
 private:
   Network* mNetwork;
 };

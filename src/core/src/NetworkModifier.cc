@@ -34,7 +34,7 @@ void NetworkModifier::modifyNetwork(Network* network)
     removeEdge(network, nodeToChange);
     break;
   case ADD_TO_OUTER_BLOCK:
-    addToOuterBlock(nodeEquation);
+    addToOuterBlock(network, nodeToChange);
     break;
   case REMOVE_FROM_OUTER_BLOCK:
     removeFromOuterBlock(nodeEquation);
@@ -104,6 +104,13 @@ Node* NetworkModifier::chooseNewNeighbor(Network* network, Node* node)
   return nonNeighbors[randomIndex];
 }
 
+Node* NetworkModifier::chooseReAddedNode(Network* network, Node* node)
+{
+  std::vector<Node*> neighbors = network->getNodeNeighbors(node->getId());
+  int randomIndex = rand()%static_cast<int>(neighbors.size());
+  return neighbors[randomIndex];
+}
+
 ModificationType NetworkModifier::chooseType()
 {
   std::vector<ModificationType> typeVector;
@@ -127,7 +134,16 @@ ModificationType NetworkModifier::chooseType()
 void NetworkModifier::addEdge(Network* network, Node* node)
 {
   Node* newNeighbor = chooseNewNeighbor(network, node);
-  std::cout<<newNeighbor<<std::endl;
+  DynamicalEquation* nodeEquation = network->getNodeDynamicalEquation(node->getId());
+  CalculationNode* baseCalcNode = nodeEquation->getBaseCalculationNode();
+
+  std::vector<CalculationNode*> insertLocations;
+  getInsertLocations(baseCalcNode, insertLocations);
+  int randomIndex = rand()%static_cast<int>(insertLocations.size());
+  CalculationNode* randomLocation = insertLocations[randomIndex];
+
+  baseCalcNode = insertNodeAtLocation(baseCalcNode, randomLocation, newNeighbor);
+  nodeEquation->setBaseCalculationNode(baseCalcNode);
 }
 
 void NetworkModifier::removeEdge(Network* network, Node* node)
@@ -135,9 +151,19 @@ void NetworkModifier::removeEdge(Network* network, Node* node)
 
 }
 
-void NetworkModifier::addToOuterBlock(DynamicalEquation* nodeEquation)
+void NetworkModifier::addToOuterBlock(Network* network, Node* node)
 {
+  Node* reAddedNode = chooseReAddedNode(network, node);
+  DynamicalEquation* nodeEquation = network->getNodeDynamicalEquation(node->getId());
+  CalculationNode* baseCalcNode = nodeEquation->getBaseCalculationNode();
 
+  std::vector<CalculationNode*> insertLocations;
+  getOuterInsertLocations(baseCalcNode, insertLocations);
+  int randomIndex = rand()%static_cast<int>(insertLocations.size());
+  CalculationNode* randomLocation = insertLocations[randomIndex];
+
+  baseCalcNode = insertNodeAtLocation(baseCalcNode, randomLocation, reAddedNode);
+  nodeEquation->setBaseCalculationNode(baseCalcNode);
 }
 
 void NetworkModifier::removeFromOuterBlock(DynamicalEquation* nodeEquation)
@@ -149,7 +175,6 @@ void NetworkModifier::changeConstant(DynamicalEquation* nodeEquation)
 {
   CalculationNode* baseCalcNode = nodeEquation->getBaseCalculationNode();
   int nrOfConstants = numberOfType(baseCalcNode, CONSTANT);
-  std::cout<<nrOfConstants<<std::endl;
   if(nrOfConstants == 0)
   {
     return;
@@ -327,7 +352,7 @@ void NetworkModifier::getSpecifiedElementFromType(CalculationNode* &storeCalcNod
 
 CalculationNode* NetworkModifier::getParent(CalculationNode* calcNode, CalculationNode* childCalcNode)
 {
-  if((calcNode->left == childCalcNode) && (calcNode->right == childCalcNode))
+  if((calcNode->left == childCalcNode) || (calcNode->right == childCalcNode))
   {
     return calcNode;
   }
@@ -350,4 +375,61 @@ CalculationNode* NetworkModifier::getParent(CalculationNode* calcNode, Calculati
   }
 
   return NULL;    
+}
+
+void NetworkModifier::getInsertLocations(CalculationNode* calcNode, std::vector<CalculationNode*> &locations)
+{
+  locations.push_back(calcNode);
+
+  if(calcNode->left != NULL)
+  {
+    getInsertLocations(calcNode->left, locations);
+  }
+  if(calcNode->right != NULL)
+  {
+    getInsertLocations(calcNode->right, locations);
+  }
+
+  return;      
+}
+
+void NetworkModifier::getOuterInsertLocations(CalculationNode* calcNode, std::vector<CalculationNode*> &locations)
+{
+  locations.push_back(calcNode);
+
+  if((calcNode->left != NULL) && ((calcNode->getType() == ADD) || (calcNode->getType() == SUBSTRACT)))
+  {
+    getInsertLocations(calcNode->left, locations);
+  }
+  if((calcNode->right != NULL) && ((calcNode->getType() == ADD) || (calcNode->getType() == SUBSTRACT)))
+  {
+    getInsertLocations(calcNode->right, locations);
+  }
+
+  return;        
+}
+
+CalculationNode* NetworkModifier::insertNodeAtLocation(CalculationNode* baseCalcNode, CalculationNode* calcNode, Node* node)
+{
+  CalculationNode* idNode = new CNId(node->getId());
+  idNode->setNode(node);
+  CalculationNode* addNode = new CNAdd(calcNode, idNode);
+  if(baseCalcNode == calcNode)
+  {
+    baseCalcNode = addNode;
+  }
+  else
+  {
+    CalculationNode* parent = getParent(baseCalcNode, calcNode);
+    if(parent->left == calcNode)
+    {
+      parent->left = addNode;
+    }
+    else if(parent->right == calcNode)
+    {
+      parent->right = addNode;
+    }
+  }
+
+  return baseCalcNode;
 }
