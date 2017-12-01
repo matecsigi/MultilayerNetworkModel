@@ -161,7 +161,7 @@ void NetworkModifier::removeEdge(Network* network, Node* node)
   for(std::vector<CalculationNode*>::iterator itCalc=deleteList.begin(); itCalc != deleteList.end(); ++itCalc)
   {
     CalculationNode* currentLocation = (*itCalc);
-    baseCalcNode = deleteAtLocation(baseCalcNode, currentLocation);
+    baseCalcNode = deleteNodeAtLocation(baseCalcNode, currentLocation);
   }
   nodeEquation->setBaseCalculationNode(baseCalcNode);
   int localId1 = network->getLocalId(node->getId());
@@ -209,7 +209,7 @@ void NetworkModifier::removeFromOuterBlock(Network* network, Node* node)
   {
     int randomIndex = rand()%static_cast<int>(outerIds.size());
     CalculationNode* outerNodeToRemove = outerIds[randomIndex];   
-    baseCalcNode = deleteAtLocation(baseCalcNode, outerNodeToRemove);
+    baseCalcNode = deleteNodeAtLocation(baseCalcNode, outerNodeToRemove);
     nodeEquation->setBaseCalculationNode(baseCalcNode);
   }
 }
@@ -422,7 +422,10 @@ CalculationNode* NetworkModifier::getParent(CalculationNode* calcNode, Calculati
 
 void NetworkModifier::getInsertLocations(CalculationNode* calcNode, std::vector<CalculationNode*> &locations)
 {
-  locations.push_back(calcNode);
+  if((calcNode->getType() != CONSTANT) && (calcNode->getType() != ID))
+  {
+    locations.push_back(calcNode);
+  }
 
   if(calcNode->left != NULL)
   {
@@ -438,7 +441,10 @@ void NetworkModifier::getInsertLocations(CalculationNode* calcNode, std::vector<
 
 void NetworkModifier::getOuterInsertLocations(CalculationNode* calcNode, std::vector<CalculationNode*> &locations)
 {
-  locations.push_back(calcNode);
+  if((calcNode->getType() != CONSTANT) && (calcNode->getType() != ID))
+  {
+    locations.push_back(calcNode);
+  }
 
   if((calcNode->left != NULL) && ((calcNode->getType() == ADD) || (calcNode->getType() == SUBSTRACT)))
   {
@@ -478,7 +484,9 @@ CalculationNode* NetworkModifier::insertNodeAtLocation(CalculationNode* baseCalc
 {
   CalculationNode* idNode = new CNId(node->getId());
   idNode->setNode(node);
-  CalculationNode* addNode = new CNAdd(calcNode, idNode);
+  CalculationNode* constantNode = new CNConstant(rand()/static_cast<float>(RAND_MAX));
+  CalculationNode* idConstMultiplyNode = new CNMultiply(constantNode, idNode);
+  CalculationNode* addNode = new CNAdd(calcNode, idConstMultiplyNode);
   if(baseCalcNode == calcNode)
   {
     baseCalcNode = addNode;
@@ -499,7 +507,7 @@ CalculationNode* NetworkModifier::insertNodeAtLocation(CalculationNode* baseCalc
   return baseCalcNode;
 }
 
-CalculationNode* NetworkModifier::deleteAtLocation(CalculationNode* baseCalcNode, CalculationNode* calcNode)
+CalculationNode* NetworkModifier::deleteNodeAtLocation(CalculationNode* baseCalcNode, CalculationNode* calcNode)
 {
   if(calcNode == baseCalcNode)
   {
@@ -509,6 +517,21 @@ CalculationNode* NetworkModifier::deleteAtLocation(CalculationNode* baseCalcNode
   else
   {
     CalculationNode* parent = getParent(baseCalcNode, calcNode);
+
+    if(parent->getType() == MULTIPLY)
+    {
+      if((parent->left == calcNode) && (parent->right->getType() == CONSTANT))
+      {
+	calcNode = parent;
+	parent = getParent(baseCalcNode, parent);
+      }
+      else if((parent->right == calcNode) && (parent->left->getType() == CONSTANT))
+      {
+	calcNode = parent;
+	parent = getParent(baseCalcNode, parent);
+      }
+    }
+
     if(parent == baseCalcNode)
     {
       if(parent->left == calcNode)

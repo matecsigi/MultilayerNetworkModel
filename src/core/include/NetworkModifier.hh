@@ -51,7 +51,7 @@ public:
   void getNodeOccurrences(CalculationNode* calcNode, std::vector<CalculationNode*> &locations, int nodeId);
 
   CalculationNode* insertNodeAtLocation(CalculationNode* baseCalcNode, CalculationNode* calcNode, Node* node);
-  CalculationNode* deleteAtLocation(CalculationNode* baseCalcNode, CalculationNode* calcNode);
+  CalculationNode* deleteNodeAtLocation(CalculationNode* baseCalcNode, CalculationNode* calcNode);
 
 private:
   Network* mNetwork;
