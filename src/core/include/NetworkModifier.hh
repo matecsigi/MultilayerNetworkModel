@@ -27,7 +27,7 @@ public:
   void copyNetwork(Network* oldNetwork, Network* newNetwork);
   Node* chooseNode(Network* network);
   Node* chooseNewNeighbor(Network* network, Node* node);
-  Node* chooseReAddedNode(Network* network, Node* node);
+  Node* chooseFromNeighbors(Network* network, Node* node);
   ModificationType chooseType();
 
   //Modification functions
@@ -48,7 +48,11 @@ public:
   CalculationNode* getParent(CalculationNode* calcNode, CalculationNode* childCalcNode);
   void getInsertLocations(CalculationNode* calcNode, std::vector<CalculationNode*> &locations);
   void getOuterInsertLocations(CalculationNode* calcNode, std::vector<CalculationNode*> &locations);
+  void getNodeOccurrences(CalculationNode* calcNode, std::vector<CalculationNode*> &locations, Node* node);
+
   CalculationNode* insertNodeAtLocation(CalculationNode* baseCalcNode, CalculationNode* calcNode, Node* node);
+  CalculationNode* deleteAtLocation(CalculationNode* baseCalcNode, CalculationNode* calcNode);
+
 private:
   Network* mNetwork;
 };

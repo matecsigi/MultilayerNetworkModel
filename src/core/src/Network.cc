@@ -57,8 +57,14 @@ void Network::addEdge(int localNodeId1, int localNodeId2)
   {
     mNodeConnections[localNodeId1].push_back(mNodes[localNodeId2]);
   }
+}
 
-  return;
+void Network::removeEdge(int localId1, int localId2)
+{
+  if(std::find(mNodeConnections[localId1].begin(), mNodeConnections[localId1].end(), mNodes[localId2]) != mNodeConnections[localId1].end()) 
+  {
+    mNodeConnections[localId1].erase(std::remove(mNodeConnections[localId1].begin(), mNodeConnections[localId1].end(), mNodes[localId2]), mNodeConnections[localId1].end());
+  }  
 }
 
 void Network::assignToNode(Node* node)

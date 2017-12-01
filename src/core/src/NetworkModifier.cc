@@ -104,7 +104,7 @@ Node* NetworkModifier::chooseNewNeighbor(Network* network, Node* node)
   return nonNeighbors[randomIndex];
 }
 
-Node* NetworkModifier::chooseReAddedNode(Network* network, Node* node)
+Node* NetworkModifier::chooseFromNeighbors(Network* network, Node* node)
 {
   std::vector<Node*> neighbors = network->getNodeNeighbors(node->getId());
   int randomIndex = rand()%static_cast<int>(neighbors.size());
@@ -144,16 +144,34 @@ void NetworkModifier::addEdge(Network* network, Node* node)
 
   baseCalcNode = insertNodeAtLocation(baseCalcNode, randomLocation, newNeighbor);
   nodeEquation->setBaseCalculationNode(baseCalcNode);
+  int localId1 = network->getLocalId(node->getId());
+  int localId2 = network->getLocalId(newNeighbor->getId());
+  network->addEdge(localId1, localId2);
 }
 
 void NetworkModifier::removeEdge(Network* network, Node* node)
 {
+  Node* neighborToRemove = chooseFromNeighbors(network, node);
+  DynamicalEquation* nodeEquation = network->getNodeDynamicalEquation(node->getId());
+  CalculationNode* baseCalcNode = nodeEquation->getBaseCalculationNode();
 
+  std::vector<CalculationNode*> deleteList;
+  getNodeOccurrences(baseCalcNode, deleteList, neighborToRemove);
+
+  for(std::vector<CalculationNode*>::iterator itCalc=deleteList.begin(); itCalc != deleteList.end(); ++itCalc)
+  {
+    CalculationNode* currentLocation = (*itCalc);
+    baseCalcNode = deleteAtLocation(baseCalcNode, currentLocation);
+  }
+  nodeEquation->setBaseCalculationNode(baseCalcNode);
+  int localId1 = network->getLocalId(node->getId());
+  int localId2 = network->getLocalId(neighborToRemove->getId());
+  network->removeEdge(localId1, localId2);
 }
 
 void NetworkModifier::addToOuterBlock(Network* network, Node* node)
 {
-  Node* reAddedNode = chooseReAddedNode(network, node);
+  Node* reAddedNode = chooseFromNeighbors(network, node);
   DynamicalEquation* nodeEquation = network->getNodeDynamicalEquation(node->getId());
   CalculationNode* baseCalcNode = nodeEquation->getBaseCalculationNode();
 
@@ -409,6 +427,28 @@ void NetworkModifier::getOuterInsertLocations(CalculationNode* calcNode, std::ve
   return;        
 }
 
+void NetworkModifier::getNodeOccurrences(CalculationNode* calcNode, std::vector<CalculationNode*> &locations, Node* node)
+{
+  if(calcNode->getType() == ID)
+  {
+    if(calcNode->getId() == node->getId())
+    {
+      locations.push_back(calcNode);      
+    }
+  }
+
+  if(calcNode->left != NULL)
+  {
+    getNodeOccurrences(calcNode->left, locations, node);
+  }
+  if(calcNode->right != NULL)
+  {
+    getNodeOccurrences(calcNode->right, locations, node);
+  }
+
+  return;        
+}
+
 CalculationNode* NetworkModifier::insertNodeAtLocation(CalculationNode* baseCalcNode, CalculationNode* calcNode, Node* node)
 {
   CalculationNode* idNode = new CNId(node->getId());
@@ -431,5 +471,66 @@ CalculationNode* NetworkModifier::insertNodeAtLocation(CalculationNode* baseCalc
     }
   }
 
+  return baseCalcNode;
+}
+
+CalculationNode* NetworkModifier::deleteAtLocation(CalculationNode* baseCalcNode, CalculationNode* calcNode)
+{
+  if(calcNode == baseCalcNode)
+  {
+    delete calcNode;
+    baseCalcNode = NULL;
+  }
+  else
+  {
+    CalculationNode* parent = getParent(baseCalcNode, calcNode);
+    if(parent == baseCalcNode)
+    {
+      if(parent->left == calcNode)
+      {
+	baseCalcNode = parent->right;
+      }
+      else if(parent->right == calcNode)
+      {
+	baseCalcNode = parent->left;
+      }
+      
+      delete calcNode;
+      parent->left = NULL;
+      parent->right = NULL;
+      delete parent;      
+    }
+    else
+    {
+      CalculationNode* grandParent = getParent(baseCalcNode, parent);
+      if(grandParent->left == parent)
+      {
+	if(parent->left == calcNode)
+	{
+	  grandParent->left = parent->right;
+	}
+	else if(parent->right == calcNode)
+	{
+	  grandParent->left = parent->left;
+	}
+      }
+      else if(grandParent->right == parent)
+      {
+	if(parent->left == calcNode)
+	{
+	  grandParent->right = parent->right;
+	}
+	else if(parent->right == calcNode)
+	{
+	  grandParent->right = parent->left;
+	}
+      }
+      delete calcNode;
+      parent->left = NULL;
+      parent->right = NULL;
+      delete parent;
+    }
+  }
+  
   return baseCalcNode;
 }

@@ -422,6 +422,39 @@ BOOST_AUTO_TEST_CASE(networkModifier_addEdge)
   delete multilayerNetwork;
 }
 
+BOOST_AUTO_TEST_CASE(networkModifier_removeEdge)
+{
+  MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
+
+  IStructureGenerator* structureGenerator = new StructureGeneratorImpl(multilayerNetwork);
+  structureGenerator->generateStructure();
+
+  IDynamicalEquationGenerator* dynamicalEquationGenerator = new DynamicalEquationGeneratorSimpleImpl(multilayerNetwork);
+  dynamicalEquationGenerator->generateDynamicalEquations();
+
+  std::vector<Layer*> layers = multilayerNetwork->getLayers();
+  std::vector<Network*> networks = layers[0]->getNetworks();
+  Network* network = networks[0];
+  NetworkModifier* networkModifier = new NetworkModifier(network);
+  Node* node = networkModifier->chooseNode(network);
+
+  DynamicalEquation* testEquation = network->getNodeDynamicalEquation(node->getId());
+  int originalNumberOfIds = networkModifier->numberOfType(testEquation->getBaseCalculationNode(), ID);
+  networkModifier->removeEdge(network, node);
+  testEquation = network->getNodeDynamicalEquation(node->getId());
+  int newNumberOfIds = networkModifier->numberOfType(testEquation->getBaseCalculationNode(), ID);
+
+  bool operationCorrect = false;
+  if(originalNumberOfIds == (newNumberOfIds+1))
+  {
+    operationCorrect = true;
+  }
+
+  BOOST_CHECK_MESSAGE(operationCorrect == true, "Removing edge in vector field reconfiguration doesn't work");
+
+  delete multilayerNetwork;
+}
+
 BOOST_AUTO_TEST_CASE(networkModifier_addToOuterBlock)
 {
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
