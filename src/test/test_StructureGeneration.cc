@@ -492,17 +492,21 @@ BOOST_AUTO_TEST_CASE(networkModifier_addToOuterBlock)
 
 BOOST_AUTO_TEST_CASE(networkModifier_changePlusToMultiply)
 {
-  std::string strEquation = "1+1";
-  DynamicalEquation* testEquation = new DynamicalEquation();
-  testEquation->loadEquation(strEquation);
+  Network* network = new Network;
+  network->addNode(1);
+  std::string strEquation = "(1+1)+(1+1)";
+  network->setDynamicalEquation(1, strEquation);
+  std::vector<Node*> nodes = network->getNodes();
+  Node* node = nodes[0];
+  DynamicalEquation* nodeEquation = network->getNodeDynamicalEquation(1);
 
   NetworkModifier* networkModifier = new NetworkModifier();
 
-  int originalNumberOfAdds = networkModifier->numberOfType(testEquation->getBaseCalculationNode(), ADD);
-  int originalNumberOfMultiplies = networkModifier->numberOfType(testEquation->getBaseCalculationNode(), MULTIPLY);
-  networkModifier->changePlusToMultiply(testEquation);
-  int newNumberOfAdds = networkModifier->numberOfType(testEquation->getBaseCalculationNode(), ADD);
-  int newNumberOfMultiplies = networkModifier->numberOfType(testEquation->getBaseCalculationNode(), MULTIPLY);
+  int originalNumberOfAdds = networkModifier->numberOfType(nodeEquation->getBaseCalculationNode(), ADD);
+  int originalNumberOfMultiplies = networkModifier->numberOfType(nodeEquation->getBaseCalculationNode(), MULTIPLY);
+  networkModifier->changePlusToMultiply(network, node);
+  int newNumberOfAdds = networkModifier->numberOfType(nodeEquation->getBaseCalculationNode(), ADD);
+  int newNumberOfMultiplies = networkModifier->numberOfType(nodeEquation->getBaseCalculationNode(), MULTIPLY);
 
   bool operationCorrect = false;
   if((originalNumberOfAdds == (newNumberOfAdds+1)) && (originalNumberOfMultiplies == (newNumberOfMultiplies-1)))
@@ -515,17 +519,21 @@ BOOST_AUTO_TEST_CASE(networkModifier_changePlusToMultiply)
 
 BOOST_AUTO_TEST_CASE(networkModifier_changeMultiplyToPlus)
 {
+  Network* network = new Network;
+  network->addNode(1);
   std::string strEquation = "1*1";
-  DynamicalEquation* testEquation = new DynamicalEquation();
-  testEquation->loadEquation(strEquation);
+  network->setDynamicalEquation(1, strEquation);
+  std::vector<Node*> nodes = network->getNodes();
+  Node* node = nodes[0];
+  DynamicalEquation* nodeEquation = network->getNodeDynamicalEquation(1);
 
   NetworkModifier* networkModifier = new NetworkModifier();
 
-  int originalNumberOfAdds = networkModifier->numberOfType(testEquation->getBaseCalculationNode(), ADD);
-  int originalNumberOfMultiplies = networkModifier->numberOfType(testEquation->getBaseCalculationNode(), MULTIPLY);
-  networkModifier->changeMultiplyToPlus(testEquation);
-  int newNumberOfAdds = networkModifier->numberOfType(testEquation->getBaseCalculationNode(), ADD);
-  int newNumberOfMultiplies = networkModifier->numberOfType(testEquation->getBaseCalculationNode(), MULTIPLY);
+  int originalNumberOfAdds = networkModifier->numberOfType(nodeEquation->getBaseCalculationNode(), ADD);
+  int originalNumberOfMultiplies = networkModifier->numberOfType(nodeEquation->getBaseCalculationNode(), MULTIPLY);
+  networkModifier->changeMultiplyToPlus(network, node);
+  int newNumberOfAdds = networkModifier->numberOfType(nodeEquation->getBaseCalculationNode(), ADD);
+  int newNumberOfMultiplies = networkModifier->numberOfType(nodeEquation->getBaseCalculationNode(), MULTIPLY);
 
   bool operationCorrect = false;
   if((originalNumberOfAdds == (newNumberOfAdds-1)) && (originalNumberOfMultiplies == (newNumberOfMultiplies+1)))

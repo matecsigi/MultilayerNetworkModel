@@ -34,9 +34,21 @@ public:
   void removeEdge(Network* network, Node* node);
   void addToOuterBlock(Network* network, Node* node);
   void removeFromOuterBlock(Network* network, Node* node);
-  void changeConstant(DynamicalEquation* nodeEquation);
-  void changePlusToMultiply(DynamicalEquation* nodeEquation);
-  void changeMultiplyToPlus(DynamicalEquation* nodeEquation);
+  void changeConstant(Network* network, Node* node);
+  void changePlusToMultiply(Network* network, Node* node);
+  void changeMultiplyToPlus(Network* network, Node* node);
+
+  //getNode function
+  Node* getNode_removeEdge(Network* network, Node* node);
+
+  //getLocations functions
+  void getLocations_changePlusToMultiply(CalculationNode* calcNode, std::vector<CalculationNode*> &locations);
+  void getLocations_changeMultiplyToPlus(CalculationNode* calcNode, std::vector<CalculationNode*> &locations);
+
+  //Specific change functions (given the exact location of change)
+  CalculationNode* specific_removeEdge(CalculationNode* baseCalcNode, CalculationNode* changingCalcNode);
+  CalculationNode* specific_changePlusToMultiply(CalculationNode* baseCalcNode, CalculationNode* changingCalcNode);
+  CalculationNode* specific_changeMultiplyToPlus(CalculationNode* baseCalcNode, CalculationNode* changingCalcNode);
 
   //Helper functions
   int numberOfType(CalculationNode* calcNode, CalcNodeTypes type);

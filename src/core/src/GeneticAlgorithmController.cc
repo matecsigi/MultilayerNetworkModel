@@ -1,4 +1,5 @@
 #include "GeneticAlgorithmController.hh"
+#include <algorithm>
 
 GeneticAlgorithmController::GeneticAlgorithmController()
 {
@@ -29,9 +30,14 @@ void GeneticAlgorithmController::fitToVectorField(Network* network, VectorField*
 void GeneticAlgorithmController::mutation()
 {
   int numberOfMutations = mPopulation.size()*mutationRatio;
-  std::cout<<"mutation="<<numberOfMutations<<std::endl;
-  NetworkPopulationElement* networkElement = chooseForMutation();
-  std::cout<<networkElement<<std::endl;
+  for(int i=0; i<numberOfMutations; ++i)
+  {
+    NetworkPopulationElement* networkElement = chooseForMutation();
+    Network* network = networkElement->getNetwork();
+    NetworkModifier networkModifier;
+    networkModifier.modifyNetwork(network);
+    networkElement->setNetwork(network);
+  }
 }
 
 void GeneticAlgorithmController::crossover()
@@ -45,9 +51,12 @@ void GeneticAlgorithmController::crossover()
 void GeneticAlgorithmController::death()
 {
   int numberOfDeaths = mPopulation.size()*deathRatio;
-  std::cout<<"death="<<numberOfDeaths<<std::endl;
-  NetworkPopulationElement* networkElement = chooseForDeath();
-  std::cout<<networkElement<<std::endl;
+  // std::cout<<"death="<<numberOfDeaths<<std::endl;
+  for(int i=0; i<numberOfDeaths; ++i)
+  {
+    NetworkPopulationElement* networkElement = chooseForDeath();
+    mPopulation.erase(std::remove(mPopulation.begin(), mPopulation.end(), networkElement), mPopulation.end());
+  }
 }
 
 void GeneticAlgorithmController::createInitialPopulation(Network* network, VectorField* targetVectorField)
