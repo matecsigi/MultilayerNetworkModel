@@ -17,6 +17,10 @@ public:
   void death();
   void createInitialPopulation(Network* network, VectorField* targetVectorField);
 
+  //Choosers
+  NetworkPopulationElement* chooseForMutation();
+  NetworkPopulationElement* chooseForCrossover();
+  NetworkPopulationElement* chooseForDeath();
 private:
 std::vector<NetworkPopulationElement*> mPopulation;
 };

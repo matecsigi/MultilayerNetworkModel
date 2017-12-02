@@ -28,17 +28,26 @@ void GeneticAlgorithmController::fitToVectorField(Network* network, VectorField*
 
 void GeneticAlgorithmController::mutation()
 {
-  std::cout<<"mutation"<<std::endl;
+  int numberOfMutations = mPopulation.size()*mutationRatio;
+  std::cout<<"mutation="<<numberOfMutations<<std::endl;
+  NetworkPopulationElement* networkElement = chooseForMutation();
+  std::cout<<networkElement<<std::endl;
 }
 
 void GeneticAlgorithmController::crossover()
 {
-  std::cout<<"crossover"<<std::endl;
+  int numberOfCrossovers = mPopulation.size()*crossoverRatio;
+  std::cout<<"crossover="<<numberOfCrossovers<<std::endl;
+  NetworkPopulationElement* networkElement = chooseForCrossover();
+  std::cout<<networkElement<<std::endl;
 }
 
 void GeneticAlgorithmController::death()
 {
-  std::cout<<"death"<<std::endl;
+  int numberOfDeaths = mPopulation.size()*deathRatio;
+  std::cout<<"death="<<numberOfDeaths<<std::endl;
+  NetworkPopulationElement* networkElement = chooseForDeath();
+  std::cout<<networkElement<<std::endl;
 }
 
 void GeneticAlgorithmController::createInitialPopulation(Network* network, VectorField* targetVectorField)
@@ -54,4 +63,24 @@ void GeneticAlgorithmController::createInitialPopulation(Network* network, Vecto
     populationElement->setGeneration(0);
     mPopulation.push_back(populationElement);
   }
+}
+
+//Choosers
+
+NetworkPopulationElement* GeneticAlgorithmController::chooseForMutation()
+{
+  int randomIndex = rand()%static_cast<int>(mPopulation.size());
+  return mPopulation[randomIndex];
+}
+
+NetworkPopulationElement* GeneticAlgorithmController::chooseForCrossover()
+{
+  int randomIndex = rand()%static_cast<int>(mPopulation.size());
+  return mPopulation[randomIndex];
+}
+
+NetworkPopulationElement* GeneticAlgorithmController::chooseForDeath()
+{
+  int randomIndex = rand()%static_cast<int>(mPopulation.size());
+  return mPopulation[randomIndex];
 }

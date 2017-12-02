@@ -12,5 +12,8 @@ extern double odeStepSize;
 //Genetic algorithm parameters
 extern int initialPopulationSize;
 extern int numberOfGenerations;
+extern double mutationRatio;
+extern double crossoverRatio;
+extern double deathRatio;
 
 #endif
