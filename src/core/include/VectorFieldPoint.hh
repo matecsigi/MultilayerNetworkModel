@@ -23,6 +23,7 @@ public:
     return mDirection;
   }
 
+  friend std::ostream& operator<<(std::ostream& os, const VectorFieldPoint &vectorFieldPoint);
 private:
   std::map<int, double> mCoordinate;
   std::map<int, double> mDirection;

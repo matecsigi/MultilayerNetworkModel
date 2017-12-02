@@ -1,7 +1,7 @@
 #include "VectorFieldReconfigurationImpl.hh"
 #include "VectorField.hh"
 #include "VectorFieldSchemes.hh"
-#include "NetworkModifier.hh"
+#include "GeneticAlgorithmController.hh"
 
 void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration()
 {
@@ -20,8 +20,13 @@ void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration()
   std::map<int, double> directionInHigherNetworks = calculateHigherNetworksDirection();
   calculateTargetVectorField(targetVectorField, currentVectorField, directionInLowerNetwork, directionInHigherNetworks);
 
-  NetworkModifier* networkModifier = new NetworkModifier(networkAssigned);
-  networkModifier->fitToVectorField(targetVectorField);
+  std::cout<<"--------Current---------"<<std::endl;;
+  std::cout<<*currentVectorField;
+  std::cout<<"--------Target----------"<<std::endl;
+  std::cout<<*targetVectorField;
+
+  GeneticAlgorithmController geneticController;
+  geneticController.fitToVectorField(networkAssigned, targetVectorField);
 
   delete currentVectorField;
   delete targetVectorField;

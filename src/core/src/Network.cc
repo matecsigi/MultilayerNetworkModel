@@ -183,6 +183,19 @@ std::string Network::getNodeDynamicalEquationString(int nodeId) const
   return "";
 }
 
+Node* Network::getNodeById(int nodeId)
+{
+  for(std::vector<Node*>::iterator itNode=mNodes.begin(); itNode != mNodes.end(); ++itNode)
+  {
+    Node* currentNode = (*itNode);
+    if(currentNode->getId() == nodeId)
+    {
+      return currentNode;
+    }
+  }
+  return NULL;
+}
+
 bool operator==(const Network& network1, const Network& network2)
 {
   std::vector<Node*> nodes1 = network1.getNodes();

@@ -33,6 +33,7 @@ public:
   std::string getNodeDynamicalEquationString(int nodeId) const;
   std::map<int, double> getCurrentState(void) const;
   std::map<int, double> getDirectionAtState(std::map<int, double> basePointCoordinates) const;
+  Node* getNodeById(int nodeId);
 
   friend bool operator==(const Network& network1, const Network& network2);
 

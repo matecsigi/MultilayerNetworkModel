@@ -400,7 +400,7 @@ BOOST_AUTO_TEST_CASE(networkModifier_addEdge)
   std::vector<Layer*> layers = multilayerNetwork->getLayers();
   std::vector<Network*> networks = layers[0]->getNetworks();
   Network* network = networks[0];
-  NetworkModifier* networkModifier = new NetworkModifier(network);
+  NetworkModifier* networkModifier = new NetworkModifier();
   Node* node = networkModifier->chooseNode(network);
 
   DynamicalEquation* testEquation = network->getNodeDynamicalEquation(node->getId());
@@ -435,7 +435,7 @@ BOOST_AUTO_TEST_CASE(networkModifier_removeEdge)
   std::vector<Layer*> layers = multilayerNetwork->getLayers();
   std::vector<Network*> networks = layers[0]->getNetworks();
   Network* network = networks[0];
-  NetworkModifier* networkModifier = new NetworkModifier(network);
+  NetworkModifier* networkModifier = new NetworkModifier();
   Node* node = networkModifier->chooseNode(network);
 
   DynamicalEquation* testEquation = network->getNodeDynamicalEquation(node->getId());
@@ -468,7 +468,7 @@ BOOST_AUTO_TEST_CASE(networkModifier_addToOuterBlock)
   std::vector<Layer*> layers = multilayerNetwork->getLayers();
   std::vector<Network*> networks = layers[0]->getNetworks();
   Network* network = networks[0];
-  NetworkModifier* networkModifier = new NetworkModifier(network);
+  NetworkModifier* networkModifier = new NetworkModifier();
   Node* node = networkModifier->chooseNode(network);
 
   DynamicalEquation* testEquation = network->getNodeDynamicalEquation(node->getId());
@@ -496,7 +496,7 @@ BOOST_AUTO_TEST_CASE(networkModifier_changePlusToMultiply)
   DynamicalEquation* testEquation = new DynamicalEquation();
   testEquation->loadEquation(strEquation);
 
-  NetworkModifier* networkModifier = new NetworkModifier(new Network());
+  NetworkModifier* networkModifier = new NetworkModifier();
 
   int originalNumberOfAdds = networkModifier->numberOfType(testEquation->getBaseCalculationNode(), ADD);
   int originalNumberOfMultiplies = networkModifier->numberOfType(testEquation->getBaseCalculationNode(), MULTIPLY);
@@ -519,7 +519,7 @@ BOOST_AUTO_TEST_CASE(networkModifier_changeMultiplyToPlus)
   DynamicalEquation* testEquation = new DynamicalEquation();
   testEquation->loadEquation(strEquation);
 
-  NetworkModifier* networkModifier = new NetworkModifier(new Network());
+  NetworkModifier* networkModifier = new NetworkModifier();
 
   int originalNumberOfAdds = networkModifier->numberOfType(testEquation->getBaseCalculationNode(), ADD);
   int originalNumberOfMultiplies = networkModifier->numberOfType(testEquation->getBaseCalculationNode(), MULTIPLY);

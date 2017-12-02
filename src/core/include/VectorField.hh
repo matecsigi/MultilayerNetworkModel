@@ -14,24 +14,15 @@ typedef std::map<int, std::pair<double, double>> FieldPoint;
 class VectorField
 {
 public:
-  VectorField(){};
-  ~VectorField()
-  {
-    for(std::vector<VectorFieldPoint*>::iterator itPoint=mVectorFieldPoints.begin(); itPoint != mVectorFieldPoints.end(); ++itPoint)
-    {
-      delete (*itPoint);
-    }
-  }
+  VectorField();
+  ~VectorField();
 
-  void addPoint(std::map<int, double> coordinate, std::map<int, double> direction)
-  {
-    mVectorFieldPoints.push_back(new VectorFieldPoint(coordinate, direction));
-  }
+  void addPoint(std::map<int, double> coordinate, std::map<int, double> direction);
+  std::vector<VectorFieldPoint*> getVectorFieldPoints();
+  double getDistanceFrom(VectorField* vectorField);
+  std::map<int, double> getDirectionForCoordinate(std::map<int, double> coordinate);
 
-  std::vector<VectorFieldPoint*> getVectorFieldPoints()
-  {
-    return mVectorFieldPoints;
-  }
+  friend std::ostream& operator<<(std::ostream& os, const VectorField &vectorField);
 private:
   std::vector<VectorFieldPoint*> mVectorFieldPoints;
 };

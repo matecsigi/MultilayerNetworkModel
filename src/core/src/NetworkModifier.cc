@@ -2,20 +2,12 @@
 #include <iostream>
 #include <algorithm>
 
-NetworkModifier::NetworkModifier(Network* network)
+NetworkModifier::NetworkModifier()
 {
-  mNetwork = network;
 }
 
 NetworkModifier::~NetworkModifier()
 {
-}
-
-void NetworkModifier::fitToVectorField(VectorField* targetVectorField)
-{
-  Network* networkModified = new Network;
-  copyNetwork(mNetwork, networkModified);
-  modifyNetwork(networkModified);
 }
 
 void NetworkModifier::modifyNetwork(Network* network)
@@ -60,8 +52,6 @@ void NetworkModifier::copyNetwork(Network* oldNetwork, Network* newNetwork)
   {
     Node* oldNode = (*itNode);
     newNetwork->addNode(oldNode->getId());
-    std::string strEquation = oldNetwork->getNodeDynamicalEquationString(oldNode->getId());
-    newNetwork->setDynamicalEquation(oldNode->getId(), strEquation);
   }
 
   for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
@@ -75,12 +65,28 @@ void NetworkModifier::copyNetwork(Network* oldNetwork, Network* newNetwork)
       int localId2 = newNetwork->getLocalId(oldNeighbor->getId());
       newNetwork->addEdge(localId1, localId2);
     }
+    Node* newNode = newNetwork->getNodeById(oldNode->getId());
+    double* tmpBuffer = new double[bufferSize];
+    oldNode->getValues(tmpBuffer);
+    newNode->setValues(tmpBuffer);
+    delete [] tmpBuffer;
+
+    std::string strEquation = oldNetwork->getNodeDynamicalEquationString(oldNode->getId());
+    newNetwork->setDynamicalEquation(oldNode->getId(), strEquation);
+    DynamicalEquation* nodeEquation = newNetwork->getNodeDynamicalEquation(newNode->getId());
+    std::vector<Node*> nodes = newNetwork->getNodeNeighbors(newNode->getId());
+    std::map<int, Node*> nodesMap;
+    for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
+    {
+      nodesMap[(*itNode)->getId()] = *itNode;
+    }
+    nodeEquation->loadNodesToEquation(nodeEquation->getBaseCalculationNode(), nodesMap);
   } 
 }
 
 Node* NetworkModifier::chooseNode(Network* network)
 {
-  std::vector<Node*> nodes = mNetwork->getNodes();
+  std::vector<Node*> nodes = network->getNodes();
   int randomIndex = rand()%static_cast<int>(nodes.size());
   return nodes[randomIndex];
 }

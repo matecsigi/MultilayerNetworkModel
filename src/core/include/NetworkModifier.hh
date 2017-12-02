@@ -19,10 +19,9 @@ enum ModificationType
 class NetworkModifier
 {
 public:
-  NetworkModifier(Network* network);
+  NetworkModifier();
   ~NetworkModifier();
 
-  void fitToVectorField(VectorField* targetVectorField);
   void modifyNetwork(Network* network);
   void copyNetwork(Network* oldNetwork, Network* newNetwork);
   Node* chooseNode(Network* network);
@@ -52,9 +51,6 @@ public:
 
   CalculationNode* insertNodeAtLocation(CalculationNode* baseCalcNode, CalculationNode* calcNode, Node* node);
   CalculationNode* deleteNodeAtLocation(CalculationNode* baseCalcNode, CalculationNode* calcNode);
-
-private:
-  Network* mNetwork;
 };
 
 #endif
