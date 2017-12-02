@@ -48,6 +48,7 @@ void VectorFieldReconfigurationImpl::calculateTargetVectorField(VectorField* tar
     {
       int key = itDir->first;
       double currentDirectionValue = itDir->second;
+      std::cout<<"Multiply="<<directionInLowerNetwork[key]<<" "<<assignedNodeChange<<std::endl;
       double value = currentDirectionValue*directionInLowerNetwork[key]*assignedNodeChange;
       newDirection[key] = value;
     }

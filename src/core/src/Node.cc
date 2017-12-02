@@ -70,7 +70,7 @@ void Node::stepODE(DynamicalEquation* dynamicalEquation)
   // std::cout<<"start="<<x[0]<<std::endl;
 
   OdeWrapper wrapper(dynamicalEquation);
-  integrate(wrapper, x, 0.0, 15.0, 0.1);  
+  integrate(wrapper, x, 0.0, odeTime, odeStepSize);  
   setCurrentState(x);
 }
 
@@ -78,7 +78,7 @@ void Node::stepOdeAtState(DynamicalEquation* dynamicalEquation, std::map<int, do
 {
   state_type x = {startingState[getId()]};
   OdeWrapperAtState wrapper(dynamicalEquation, startingState);
-  integrate(wrapper, x, 0.0, 15.0, 0.1);  
+  integrate(wrapper, x, 0.0, odeTime, odeStepSize);  
   finalState[getId()] = x[0];
 }
 
