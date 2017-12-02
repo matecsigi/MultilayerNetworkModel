@@ -17,14 +17,28 @@ void GeneticAlgorithmController::fitToVectorField(Network* network, VectorField*
 {
   createInitialPopulation(network, targetVectorField);
 
-  // for(int i=0; i<numberOfGenerations; ++i)
-  // {
-  //   mutation(population);
-  //   crossover(population);
-  //   death(population);
-  // }
-
+  for(int i=0; i<numberOfGenerations; ++i)
+  {
+    mutation();
+    crossover();
+    death();
+  }
   
+}
+
+void GeneticAlgorithmController::mutation()
+{
+  std::cout<<"mutation"<<std::endl;
+}
+
+void GeneticAlgorithmController::crossover()
+{
+  std::cout<<"crossover"<<std::endl;
+}
+
+void GeneticAlgorithmController::death()
+{
+  std::cout<<"death"<<std::endl;
 }
 
 void GeneticAlgorithmController::createInitialPopulation(Network* network, VectorField* targetVectorField)

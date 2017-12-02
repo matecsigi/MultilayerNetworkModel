@@ -12,6 +12,9 @@ public:
 
   void fitToVectorField(Network* network, VectorField* targetVectorField);
 
+  void mutation();
+  void crossover();
+  void death();
   void createInitialPopulation(Network* network, VectorField* targetVectorField);
 
 private:

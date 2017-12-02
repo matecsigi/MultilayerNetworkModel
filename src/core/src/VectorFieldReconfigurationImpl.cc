@@ -20,10 +20,10 @@ void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration()
   std::map<int, double> directionInHigherNetworks = calculateHigherNetworksDirection();
   calculateTargetVectorField(targetVectorField, currentVectorField, directionInLowerNetwork, directionInHigherNetworks);
 
-  std::cout<<"--------Current---------"<<std::endl;;
-  std::cout<<*currentVectorField;
-  std::cout<<"--------Target----------"<<std::endl;
-  std::cout<<*targetVectorField;
+  // std::cout<<"--------Current---------"<<std::endl;;
+  // std::cout<<*currentVectorField;
+  // std::cout<<"--------Target----------"<<std::endl;
+  // std::cout<<*targetVectorField;
 
   GeneticAlgorithmController geneticController;
   geneticController.fitToVectorField(networkAssigned, targetVectorField);
@@ -48,7 +48,7 @@ void VectorFieldReconfigurationImpl::calculateTargetVectorField(VectorField* tar
     {
       int key = itDir->first;
       double currentDirectionValue = itDir->second;
-      std::cout<<"Multiply="<<directionInLowerNetwork[key]<<" "<<assignedNodeChange<<std::endl;
+      // std::cout<<"Multiply="<<directionInLowerNetwork[key]<<" "<<assignedNodeChange<<std::endl;
       double value = currentDirectionValue*directionInLowerNetwork[key]*assignedNodeChange;
       newDirection[key] = value;
     }
