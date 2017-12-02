@@ -50,5 +50,8 @@ void NetworkPopulationElement::updateFitness()
   gridAroundPointScheme(currentVectorField, mNetwork, currentState);
   double distance = mTargetVectorField->getDistanceFrom(currentVectorField);
 
+  double fitness = 100.0/distance;
+  setFitness(fitness);
+
   delete currentVectorField;
 }
