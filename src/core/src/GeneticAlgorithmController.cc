@@ -16,9 +16,10 @@ GeneticAlgorithmController::~GeneticAlgorithmController()
 
 void GeneticAlgorithmController::fitToVectorField(Network* network, VectorField* targetVectorField)
 {
-  createInitialPopulation(network, targetVectorField);
+  mTargetVectorField = targetVectorField;
+  createInitialPopulation(network);
 
-  for(int i=0; i<numberOfGenerations; ++i)
+  for(mGeneration=1; mGeneration<numberOfGenerations; ++mGeneration)
   {
     mutation();
     crossover();
@@ -43,9 +44,19 @@ void GeneticAlgorithmController::mutation()
 void GeneticAlgorithmController::crossover()
 {
   int numberOfCrossovers = mPopulation.size()*crossoverRatio;
-  std::cout<<"crossover="<<numberOfCrossovers<<std::endl;
-  NetworkPopulationElement* networkElement = chooseForCrossover();
-  std::cout<<networkElement<<std::endl;
+  for(int i=0; i<numberOfCrossovers; ++i)
+  {
+    NetworkPopulationElement* networkElement1 = chooseForCrossover();
+    NetworkPopulationElement* networkElement2 = chooseForCrossover();
+    Network* parentNetwork1 = networkElement1->getNetwork();
+    Network* parentNetwork2 = networkElement2->getNetwork();
+    Network* childNetwork = new Network;
+    createMixedNetwork(parentNetwork1, parentNetwork2, childNetwork);
+
+    NetworkPopulationElement* childElement = new NetworkPopulationElement(childNetwork, mTargetVectorField);
+    childElement->setGeneration(mGeneration);
+    mPopulation.push_back(childElement);
+  }
 }
 
 void GeneticAlgorithmController::death()
@@ -59,7 +70,7 @@ void GeneticAlgorithmController::death()
   }
 }
 
-void GeneticAlgorithmController::createInitialPopulation(Network* network, VectorField* targetVectorField)
+void GeneticAlgorithmController::createInitialPopulation(Network* network)
 {
   NetworkModifier networkModifier;
   
@@ -68,7 +79,7 @@ void GeneticAlgorithmController::createInitialPopulation(Network* network, Vecto
     Network* networkModified = new Network;
     networkModifier.copyNetwork(network, networkModified);
     networkModifier.modifyNetwork(networkModified);
-    NetworkPopulationElement* populationElement = new NetworkPopulationElement(networkModified, targetVectorField);
+    NetworkPopulationElement* populationElement = new NetworkPopulationElement(networkModified, mTargetVectorField);
     populationElement->setGeneration(0);
     mPopulation.push_back(populationElement);
   }
@@ -92,4 +103,60 @@ NetworkPopulationElement* GeneticAlgorithmController::chooseForDeath()
 {
   int randomIndex = rand()%static_cast<int>(mPopulation.size());
   return mPopulation[randomIndex];
+}
+
+//Helpers
+
+void GeneticAlgorithmController::createMixedNetwork(Network* parentNetwork1, Network* parentNetwork2, Network* childNetwork)
+{
+  std::vector<Node*> nodes = parentNetwork1->getNodes();
+  for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
+  {
+    Node* parentNode = (*itNode);
+    childNetwork->addNode(parentNode->getId());
+
+    Node* childNode = childNetwork->getNodeById(parentNode->getId());
+    double* tmpBuffer = new double[bufferSize];
+    parentNode->getValues(tmpBuffer);
+    childNode->setValues(tmpBuffer);
+    delete [] tmpBuffer;
+  }
+
+  for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
+  {
+    Network* parentNetwork;
+    Node* parentNode;
+    double random = rand()/RAND_MAX;
+    if(random < 0.5)
+    {
+      parentNetwork = parentNetwork1;
+      parentNode = parentNetwork1->getNodeById((*itNode)->getId());
+    }
+    else
+    {
+      parentNetwork = parentNetwork2;
+      parentNode = parentNetwork2->getNodeById((*itNode)->getId());      
+    }
+    Node* childNode = childNetwork->getNodeById((*itNode)->getId());
+
+    std::vector<Node*> neighbors = parentNetwork->getNodeNeighbors(parentNode->getId());
+    for(std::vector<Node*>::iterator itNei=neighbors.begin(); itNei != neighbors.end(); ++itNei)
+    {
+      Node* parentNeighbor = (*itNei);
+      int localId1 = childNetwork->getLocalId(parentNode->getId());
+      int localId2 = childNetwork->getLocalId(parentNeighbor->getId());
+      childNetwork->addEdge(localId1, localId2);
+    }
+
+    std::string strEquation = parentNetwork->getNodeDynamicalEquationString(parentNode->getId());
+    childNetwork->setDynamicalEquation(childNode->getId(), strEquation);
+    DynamicalEquation* nodeEquation = childNetwork->getNodeDynamicalEquation(childNode->getId());
+    std::vector<Node*> nodes = childNetwork->getNodeNeighbors(childNode->getId());
+    std::map<int, Node*> nodesMap;
+    for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
+    {
+      nodesMap[(*itNode)->getId()] = *itNode;
+    }
+    nodeEquation->loadNodesToEquation(nodeEquation->getBaseCalculationNode(), nodesMap);
+  } 
 }

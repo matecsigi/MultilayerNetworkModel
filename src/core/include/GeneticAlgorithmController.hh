@@ -15,14 +15,19 @@ public:
   void mutation();
   void crossover();
   void death();
-  void createInitialPopulation(Network* network, VectorField* targetVectorField);
+  void createInitialPopulation(Network* network);
 
   //Choosers
   NetworkPopulationElement* chooseForMutation();
   NetworkPopulationElement* chooseForCrossover();
   NetworkPopulationElement* chooseForDeath();
+
+  //Helper functions
+  void createMixedNetwork(Network* parentNetwork1, Network* parentNetwork2, Network* childNetwork);
 private:
-std::vector<NetworkPopulationElement*> mPopulation;
+  int mGeneration;
+  VectorField* mTargetVectorField;
+  std::vector<NetworkPopulationElement*> mPopulation;
 };
 
 #endif
