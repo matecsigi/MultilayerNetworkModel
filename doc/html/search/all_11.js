@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['value',['value',['../structEzAquarii_1_1Parser_1_1basic__symbol.html#ad4222494987bf3e60a3bf224a0ecd4c9',1,'EzAquarii::Parser::basic_symbol']]],
-  ['variant',['variant',['../structEzAquarii_1_1variant.html#aba217414b27084fcfe62cc3e5e4b6e1f',1,'EzAquarii::variant::variant()'],['../structEzAquarii_1_1variant.html#a7aa6d2d6ef84300ce6058386da4fd301',1,'EzAquarii::variant::variant(const T &amp;t)']]],
-  ['variant',['variant',['../structEzAquarii_1_1variant.html',1,'EzAquarii']]],
-  ['variant_3c_20sizeof_28union_5ftype_29_3e',['variant&lt; sizeof(union_type)&gt;',['../structEzAquarii_1_1variant.html',1,'EzAquarii']]],
+  ['value',['value',['../structEquationParser_1_1Parser_1_1basic__symbol.html#af1042675e7012ce74eb1c18963c2ecd8',1,'EquationParser::Parser::basic_symbol']]],
+  ['variant',['variant',['../structEquationParser_1_1variant.html#a660b1678a9ba872275b4ddf9a28d871a',1,'EquationParser::variant::variant()'],['../structEquationParser_1_1variant.html#aff2dbf78ab3b00b4b3f184929c8c0472',1,'EquationParser::variant::variant(const T &amp;t)']]],
+  ['variant',['variant',['../structEquationParser_1_1variant.html',1,'EquationParser']]],
+  ['variant_3c_20sizeof_28union_5ftype_29_3e',['variant&lt; sizeof(union_type)&gt;',['../structEquationParser_1_1variant.html',1,'EquationParser']]],
   ['vectorfield',['VectorField',['../classVectorField.html',1,'']]],
   ['vectorfieldpoint',['VectorFieldPoint',['../classVectorFieldPoint.html',1,'']]],
   ['vectorfieldreconfigurationimpl',['VectorFieldReconfigurationImpl',['../classVectorFieldReconfigurationImpl.html',1,'']]]

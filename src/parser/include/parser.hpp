@@ -32,7 +32,7 @@
 
 /**
  ** \file parser.hpp
- ** Define the  EzAquarii ::parser class.
+ ** Define the  EquationParser ::parser class.
  */
 
 // C++ LALR(1) parser skeleton written by Akim Demaille.
@@ -50,7 +50,7 @@
 
     using namespace std;
 
-    namespace EzAquarii {
+    namespace EquationParser {
         class Scanner;
         class Interpreter;
     }
@@ -131,7 +131,7 @@
 #endif
 
 #line 9 "parser.y" // lalr1.cc:377
-namespace  EzAquarii  {
+namespace  EquationParser  {
 #line 136 "parser.hpp" // lalr1.cc:377
 
 
@@ -518,7 +518,7 @@ namespace  EzAquarii  {
 
 
     /// Build a parser object.
-     Parser  (EzAquarii::Scanner &scanner_yyarg, EzAquarii::Interpreter &driver_yyarg);
+     Parser  (EquationParser::Scanner &scanner_yyarg, EquationParser::Interpreter &driver_yyarg);
     virtual ~ Parser  ();
 
     /// Parse.
@@ -731,8 +731,8 @@ namespace  EzAquarii  {
 
 
     // User arguments.
-    EzAquarii::Scanner &scanner;
-    EzAquarii::Interpreter &driver;
+    EquationParser::Scanner &scanner;
+    EquationParser::Interpreter &driver;
   };
 
   // Symbol number corresponding to token number t.
@@ -1147,7 +1147,7 @@ namespace  EzAquarii  {
 
 
 #line 9 "parser.y" // lalr1.cc:377
-} //  EzAquarii 
+} //  EquationParser 
 #line 1152 "parser.hpp" // lalr1.cc:377
 
 

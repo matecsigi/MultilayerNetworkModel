@@ -32,7 +32,7 @@
 
 /**
  ** \file stack.hh
- ** Define the  EzAquarii ::stack class.
+ ** Define the  EquationParser ::stack class.
  */
 
 #ifndef YY_YY_STACK_HH_INCLUDED
@@ -41,7 +41,7 @@
 # include <vector>
 
 #line 9 "parser.y" // stack.hh:132
-namespace  EzAquarii  {
+namespace  EquationParser  {
 #line 46 "stack.hh" // stack.hh:132
   template <class T, class S = std::vector<T> >
   class stack
@@ -151,7 +151,7 @@ namespace  EzAquarii  {
   };
 
 #line 9 "parser.y" // stack.hh:132
-} //  EzAquarii 
+} //  EquationParser 
 #line 156 "stack.hh" // stack.hh:132
 
 #endif // !YY_YY_STACK_HH_INCLUDED

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['begin',['begin',['../classEzAquarii_1_1location.html#a44a3986e4a47d2e1a42b6d4ef4d325a7',1,'EzAquarii::location']]]
+  ['begin',['begin',['../classEquationParser_1_1location.html#aa1fdd6decfaa33b12c14a71895c6c5cb',1,'EquationParser::location']]]
 ];

@@ -61,7 +61,7 @@ void DynamicalEquation::loadEquation(std::string strEquation)
     mBaseCalculationNode = NULL;
     return;
   }
-  EzAquarii::Interpreter i;
+  EquationParser::Interpreter i;
   // std::string myString = "1+(1+ID1)";
   // std::istringstream myStream(myString);
   std::istringstream myStream(strEquation);

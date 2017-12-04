@@ -6,7 +6,7 @@
 %define api.token.constructor
 %define api.value.type variant
 %define parse.assert
-%define api.namespace { EzAquarii }
+%define api.namespace { EquationParser }
 %code requires
 {
     #include <iostream>
@@ -17,7 +17,7 @@
 
     using namespace std;
 
-    namespace EzAquarii {
+    namespace EquationParser {
         class Scanner;
         class Interpreter;
     }
@@ -32,17 +32,17 @@
     #include "location.hh"
     
     // yylex() arguments are defined in parser.y
-    static EzAquarii::Parser::symbol_type yylex(EzAquarii::Scanner &scanner, EzAquarii::Interpreter &driver) {
+    static EquationParser::Parser::symbol_type yylex(EquationParser::Scanner &scanner, EquationParser::Interpreter &driver) {
         return scanner.get_next_token();
     }
         
-    using namespace EzAquarii;
+    using namespace EquationParser;
 }
 
-%lex-param { EzAquarii::Scanner &scanner }
-%lex-param { EzAquarii::Interpreter &driver }
-%parse-param { EzAquarii::Scanner &scanner }
-%parse-param { EzAquarii::Interpreter &driver }
+%lex-param { EquationParser::Scanner &scanner }
+%lex-param { EquationParser::Interpreter &driver }
+%parse-param { EquationParser::Scanner &scanner }
+%parse-param { EquationParser::Interpreter &driver }
 %locations
 %define parse.trace
 %define parse.error verbose
@@ -179,7 +179,7 @@ start	: /* empty */
     
 %%
 
-void EzAquarii::Parser::error(const location &loc , const std::string &message) {
+void EquationParser::Parser::error(const location &loc , const std::string &message) {
         
         cout << "Error: " << message << endl << "Error location: " << driver.location() << endl;
 }

@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['set_5fdebug_5flevel',['set_debug_level',['../classEzAquarii_1_1Parser.html#a49f507f23a4f4c65d7c42467963c1a85',1,'EzAquarii::Parser']]],
-  ['set_5fdebug_5fstream',['set_debug_stream',['../classEzAquarii_1_1Parser.html#a52d6d4b537c8d25077bc5dc8975fb45a',1,'EzAquarii::Parser']]],
+  ['set_5fdebug_5flevel',['set_debug_level',['../classEquationParser_1_1Parser.html#a137944ceb4f3b149abcdddf80df21b85',1,'EquationParser::Parser']]],
+  ['set_5fdebug_5fstream',['set_debug_stream',['../classEquationParser_1_1Parser.html#aa5ecd3ac4d14a33a0836822e3ad0f08c',1,'EquationParser::Parser']]],
   ['shiftbuffers',['shiftBuffers',['../classMultilayerNetwork.html#a1d00f683f9d07fc715b8c2e4786884c8',1,'MultilayerNetwork']]],
-  ['step',['step',['../classMultilayerNetwork.html#a8b52de3dbb17a23b7c86708ad53ba161',1,'MultilayerNetwork::step()'],['../classEzAquarii_1_1location.html#acf36facf71d7a487c5f0b6d842cc131e',1,'EzAquarii::location::step()']]],
-  ['swap',['swap',['../structEzAquarii_1_1variant.html#a13e5d2c240938d776079a84a4d0a2885',1,'EzAquarii::variant']]]
+  ['step',['step',['../classMultilayerNetwork.html#a8b52de3dbb17a23b7c86708ad53ba161',1,'MultilayerNetwork::step()'],['../classEquationParser_1_1location.html#a8796256e64c782808b9e6cc5076f7b6b',1,'EquationParser::location::step()']]],
+  ['swap',['swap',['../structEquationParser_1_1variant.html#a7f5bd11f1d463f569efa8c2ca096f13e',1,'EquationParser::variant']]]
 ];

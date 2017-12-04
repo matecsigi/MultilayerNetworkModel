@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['type',['type',['../structEzAquarii_1_1Parser_1_1by__type.html#ace551e79e70eb0e2237dbab411f478a8',1,'EzAquarii::Parser::by_type']]]
+  ['type',['type',['../structEquationParser_1_1Parser_1_1by__type.html#af116c7ee695735c0b9a2a6e74efa25f0',1,'EquationParser::Parser::by_type']]]
 ];

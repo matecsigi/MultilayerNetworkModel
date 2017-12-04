@@ -2,7 +2,7 @@
 #include <sstream>
 #include <boost/concept_check.hpp>
 
-using namespace EzAquarii;
+using namespace EquationParser;
 
 Interpreter::Interpreter() :
     m_scanner(*this),

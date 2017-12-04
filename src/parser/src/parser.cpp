@@ -39,11 +39,11 @@
     #include "location.hh"
     
     // yylex() arguments are defined in parser.y
-    static EzAquarii::Parser::symbol_type yylex(EzAquarii::Scanner &scanner, EzAquarii::Interpreter &driver) {
+    static EquationParser::Parser::symbol_type yylex(EquationParser::Scanner &scanner, EquationParser::Interpreter &driver) {
         return scanner.get_next_token();
     }
         
-    using namespace EzAquarii;
+    using namespace EquationParser;
 
 #line 49 "parser.cpp" // lalr1.cc:397
 
@@ -149,7 +149,7 @@
 #define YYRECOVERING()  (!!yyerrstatus_)
 
 #line 9 "parser.y" // lalr1.cc:479
-namespace  EzAquarii  {
+namespace  EquationParser  {
 #line 154 "parser.cpp" // lalr1.cc:479
 
   /* Return YYSTR after stripping away unnecessary quotes and
@@ -191,7 +191,7 @@ namespace  EzAquarii  {
 
 
   /// Build a parser object.
-   Parser :: Parser  (EzAquarii::Scanner &scanner_yyarg, EzAquarii::Interpreter &driver_yyarg)
+   Parser :: Parser  (EquationParser::Scanner &scanner_yyarg, EquationParser::Interpreter &driver_yyarg)
     :
 #if YYDEBUG
       yydebug_ (false),
@@ -1149,12 +1149,12 @@ namespace  EzAquarii  {
 
 
 #line 9 "parser.y" // lalr1.cc:1167
-} //  EzAquarii 
+} //  EquationParser 
 #line 1154 "parser.cpp" // lalr1.cc:1167
 #line 180 "parser.y" // lalr1.cc:1168
 
 
-void EzAquarii::Parser::error(const location &loc , const std::string &message) {
+void EquationParser::Parser::error(const location &loc , const std::string &message) {
         
         cout << "Error: " << message << endl << "Error location: " << driver.location() << endl;
 }

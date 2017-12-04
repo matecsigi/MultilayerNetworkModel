@@ -32,7 +32,7 @@
 
 /**
  ** \file location.hh
- ** Define the  EzAquarii ::location class.
+ ** Define the  EquationParser ::location class.
  */
 
 #ifndef YY_YY_LOCATION_HH_INCLUDED
@@ -41,7 +41,7 @@
 # include "position.hh"
 
 #line 9 "parser.y" // location.cc:296
-namespace  EzAquarii  {
+namespace  EquationParser  {
 #line 46 "location.hh" // location.cc:296
   /// Abstract a location.
   class location
@@ -187,6 +187,6 @@ namespace  EzAquarii  {
   }
 
 #line 9 "parser.y" // location.cc:296
-} //  EzAquarii 
+} //  EquationParser 
 #line 192 "location.hh" // location.cc:296
 #endif // !YY_YY_LOCATION_HH_INCLUDED

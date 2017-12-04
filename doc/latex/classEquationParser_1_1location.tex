@@ -1,0 +1,56 @@
+\hypertarget{classEquationParser_1_1location}{}\section{Equation\+Parser\+:\+:location Class Reference}
+\label{classEquationParser_1_1location}\index{Equation\+Parser\+::location@{Equation\+Parser\+::location}}
+
+
+Abstract a location.  
+
+
+
+
+{\ttfamily \#include $<$location.\+hh$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classEquationParser_1_1location_a92b5f6e32ea3eabe14f537698b9f4563}{location} (const \hyperlink{classEquationParser_1_1position}{position} \&b, const \hyperlink{classEquationParser_1_1position}{position} \&e)\hypertarget{classEquationParser_1_1location_a92b5f6e32ea3eabe14f537698b9f4563}{}\label{classEquationParser_1_1location_a92b5f6e32ea3eabe14f537698b9f4563}
+
+\begin{DoxyCompactList}\small\item\em Construct a location from {\itshape b} to {\itshape e}. \end{DoxyCompactList}\item 
+\hyperlink{classEquationParser_1_1location_a461e436649b6fae8e2cde43e4140f8f3}{location} (const \hyperlink{classEquationParser_1_1position}{position} \&p=\hyperlink{classEquationParser_1_1position}{position}())\hypertarget{classEquationParser_1_1location_a461e436649b6fae8e2cde43e4140f8f3}{}\label{classEquationParser_1_1location_a461e436649b6fae8e2cde43e4140f8f3}
+
+\begin{DoxyCompactList}\small\item\em Construct a 0-\/width location in {\itshape p}. \end{DoxyCompactList}\item 
+\hyperlink{classEquationParser_1_1location_a00c520c87490f3dee70875782480256f}{location} (std\+::string $\ast$f, unsigned int l=1u, unsigned int c=1u)\hypertarget{classEquationParser_1_1location_a00c520c87490f3dee70875782480256f}{}\label{classEquationParser_1_1location_a00c520c87490f3dee70875782480256f}
+
+\begin{DoxyCompactList}\small\item\em Construct a 0-\/width location in {\itshape f}, {\itshape l}, {\itshape c}. \end{DoxyCompactList}\item 
+void \hyperlink{classEquationParser_1_1location_a5c7d7aa2ae28c40f506e83514acb3947}{initialize} (std\+::string $\ast$f=Y\+Y\+\_\+\+N\+U\+L\+L\+P\+TR, unsigned int l=1u, unsigned int c=1u)\hypertarget{classEquationParser_1_1location_a5c7d7aa2ae28c40f506e83514acb3947}{}\label{classEquationParser_1_1location_a5c7d7aa2ae28c40f506e83514acb3947}
+
+\begin{DoxyCompactList}\small\item\em Initialization. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}{\bf Line and Column related manipulators}\par
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classEquationParser_1_1location_a8796256e64c782808b9e6cc5076f7b6b}{step} ()\hypertarget{classEquationParser_1_1location_a8796256e64c782808b9e6cc5076f7b6b}{}\label{classEquationParser_1_1location_a8796256e64c782808b9e6cc5076f7b6b}
+
+\begin{DoxyCompactList}\small\item\em Reset initial location to final location. \end{DoxyCompactList}\item 
+void \hyperlink{classEquationParser_1_1location_aef9d17fbbfb8a0a98cd0bf3356008a72}{columns} (int count=1)\hypertarget{classEquationParser_1_1location_aef9d17fbbfb8a0a98cd0bf3356008a72}{}\label{classEquationParser_1_1location_aef9d17fbbfb8a0a98cd0bf3356008a72}
+
+\begin{DoxyCompactList}\small\item\em Extend the current location to the C\+O\+U\+NT next columns. \end{DoxyCompactList}\item 
+void \hyperlink{classEquationParser_1_1location_a856b91626aa857984a450e4395a4f41c}{lines} (int count=1)\hypertarget{classEquationParser_1_1location_a856b91626aa857984a450e4395a4f41c}{}\label{classEquationParser_1_1location_a856b91626aa857984a450e4395a4f41c}
+
+\begin{DoxyCompactList}\small\item\em Extend the current location to the C\+O\+U\+NT next lines. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classEquationParser_1_1position}{position} \hyperlink{classEquationParser_1_1location_aa1fdd6decfaa33b12c14a71895c6c5cb}{begin}\hypertarget{classEquationParser_1_1location_aa1fdd6decfaa33b12c14a71895c6c5cb}{}\label{classEquationParser_1_1location_aa1fdd6decfaa33b12c14a71895c6c5cb}
+
+\begin{DoxyCompactList}\small\item\em Beginning of the located region. \end{DoxyCompactList}\item 
+\hyperlink{classEquationParser_1_1position}{position} \hyperlink{classEquationParser_1_1location_a6399485d967cdee3a129a748a2b385f7}{end}\hypertarget{classEquationParser_1_1location_a6399485d967cdee3a129a748a2b385f7}{}\label{classEquationParser_1_1location_a6399485d967cdee3a129a748a2b385f7}
+
+\begin{DoxyCompactList}\small\item\em End of the located region. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Abstract a location. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/mate/\+Documents/\+Programming/\+Research/\+Multilayer\+Network\+Model/\+Multilayer\+Network\+Model/src/parser/include/\hyperlink{location_8hh}{location.\+hh}\end{DoxyCompactItemize}

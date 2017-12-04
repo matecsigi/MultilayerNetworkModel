@@ -7,7 +7,7 @@
 
 class CalculationNode;
 
-namespace EzAquarii {
+namespace EquationParser {
 
 /* class CalculationNode; */
 

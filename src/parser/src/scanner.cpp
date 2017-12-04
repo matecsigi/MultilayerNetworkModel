@@ -20,7 +20,7 @@
      * We will address this in a future release of flex, or omit the C++ scanner
      * altogether.
      */
-    #define yyFlexLexer EzAquarii_FlexLexer
+    #define yyFlexLexer EquationParser_FlexLexer
 
 /* First, we deal with  platform-specific or compiler-specific issues. */
 
@@ -276,9 +276,9 @@ struct yy_buffer_state
  */
 #define YY_CURRENT_BUFFER_LVALUE (yy_buffer_stack)[(yy_buffer_stack_top)]
 
-void *EzAquarii_alloc (yy_size_t  );
-void *EzAquarii_realloc (void *,yy_size_t  );
-void EzAquarii_free (void *  );
+void *EquationParser_alloc (yy_size_t  );
+void *EquationParser_realloc (void *,yy_size_t  );
+void EquationParser_free (void *  );
 
 #define yy_new_buffer yy_create_buffer
 
@@ -435,12 +435,12 @@ static yyconst flex_int16_t yy_chk[47] =
 	#include "parser.hpp"
 	#include "location.hh"
 
-       //typedef EzAquarii::Parser::token token;
-       //typedef EzAquarii::Parser::token_type token_type;
+       //typedef EquationParser::Parser::token token;
+       //typedef EquationParser::Parser::token_type token_type;
 
 	using namespace std;
 
-	#define yyterminate() EzAquarii::Parser::make_END(EzAquarii::location());
+	#define yyterminate() EquationParser::Parser::make_END(EquationParser::location());
 
 	// This will track current scanner location.
 	// Action is called when length of the token is known.
@@ -636,7 +636,7 @@ case 1:
 YY_RULE_SETUP
 #line 30 "scanner.l"
 {
-                return EzAquarii::Parser::make_LEFTPAR(EzAquarii::location());
+                return EquationParser::Parser::make_LEFTPAR(EquationParser::location());
             }
 	YY_BREAK
 case 2:
@@ -644,7 +644,7 @@ YY_RULE_SETUP
 #line 34 "scanner.l"
 { 
                 //cout << "Scanner: ')'" << endl;
-                return EzAquarii::Parser::make_RIGHTPAR(EzAquarii::location());
+                return EquationParser::Parser::make_RIGHTPAR(EquationParser::location());
             }
 	YY_BREAK
 case 3:
@@ -652,7 +652,7 @@ YY_RULE_SETUP
 #line 39 "scanner.l"
 {
                 //cout << "Scanner: ';'" << endl;
-                return EzAquarii::Parser::make_SEMICOLON(EzAquarii::location());
+                return EquationParser::Parser::make_SEMICOLON(EquationParser::location());
             }
 	YY_BREAK
 case 4:
@@ -660,7 +660,7 @@ YY_RULE_SETUP
 #line 44 "scanner.l"
 {
                 //cout << "Scanner: ','" << endl;
-                return EzAquarii::Parser::make_COMMA(EzAquarii::location());
+                return EquationParser::Parser::make_COMMA(EquationParser::location());
             }
 	YY_BREAK
 case 5:
@@ -677,7 +677,7 @@ YY_RULE_SETUP
 {
                 //cout << "Scanner: decimal number: " << yytext << endl;
                 int number = atoi(yytext);
-                return EzAquarii::Parser::make_INTEGER(number, EzAquarii::location());
+                return EquationParser::Parser::make_INTEGER(number, EquationParser::location());
             }
 	YY_BREAK
 case 7:
@@ -686,7 +686,7 @@ YY_RULE_SETUP
 {
                 //cout << "Scanner: decimal number: " << yytext << endl;
                 double number = atof(yytext);
-                return EzAquarii::Parser::make_DOUBLE(number, EzAquarii::location());
+                return EquationParser::Parser::make_DOUBLE(number, EquationParser::location());
             }
 	YY_BREAK
 case 8:
@@ -694,7 +694,7 @@ YY_RULE_SETUP
 #line 65 "scanner.l"
 { 
                 //cout << "Scanner: identifier [" << yytext << "]" << endl;
-                return EzAquarii::Parser::make_STRING(yytext, EzAquarii::location());
+                return EquationParser::Parser::make_STRING(yytext, EquationParser::location());
             }
 	YY_BREAK
 case 9:
@@ -702,7 +702,7 @@ YY_RULE_SETUP
 #line 70 "scanner.l"
 {
                //cout<<"Plus character:"<<yytext<<endl;
-               return EzAquarii::Parser::make_PLUS(EzAquarii::location());
+               return EquationParser::Parser::make_PLUS(EquationParser::location());
            }
 	YY_BREAK
 case 10:
@@ -710,7 +710,7 @@ YY_RULE_SETUP
 #line 75 "scanner.l"
 {
                //cout<<"Minus character:"<<yytext<<endl;
-               return EzAquarii::Parser::make_MINUS(EzAquarii::location());
+               return EquationParser::Parser::make_MINUS(EquationParser::location());
            }
 	YY_BREAK
 case 11:
@@ -718,7 +718,7 @@ YY_RULE_SETUP
 #line 80 "scanner.l"
 {
                //cout<<"Multiply character:"<<yytext<<endl;
-               return EzAquarii::Parser::make_MULTIPLY(EzAquarii::location());
+               return EquationParser::Parser::make_MULTIPLY(EquationParser::location());
            }
 	YY_BREAK
 case 12:
@@ -726,7 +726,7 @@ YY_RULE_SETUP
 #line 85 "scanner.l"
 {
                //cout<<"Divide character:"<<yytext<<endl;
-               return EzAquarii::Parser::make_DIVIDE(EzAquarii::location());
+               return EquationParser::Parser::make_DIVIDE(EquationParser::location());
            }
 	YY_BREAK
 case 13:
@@ -734,7 +734,7 @@ YY_RULE_SETUP
 #line 91 "scanner.l"
 {
                //cout<<"Power character:"<<yytext<<endl;
-               return EzAquarii::Parser::make_POWER(EzAquarii::location());
+               return EquationParser::Parser::make_POWER(EquationParser::location());
            }
 	YY_BREAK
 case 14:
@@ -919,9 +919,9 @@ yyFlexLexer::yyFlexLexer( std::istream* arg_yyin, std::ostream* arg_yyout )
 yyFlexLexer::~yyFlexLexer()
 {
 	delete [] yy_state_buf;
-	EzAquarii_free(yy_start_stack  );
+	EquationParser_free(yy_start_stack  );
 	yy_delete_buffer( YY_CURRENT_BUFFER );
-	EzAquarii_free(yy_buffer_stack  );
+	EquationParser_free(yy_buffer_stack  );
 }
 
 /* The contents of this function are C++ specific, so the () macro is not used.
@@ -1049,7 +1049,7 @@ int yyFlexLexer::yy_get_next_buffer()
 
 				b->yy_ch_buf = (char *)
 					/* Include room in for 2 EOB chars. */
-					EzAquarii_realloc((void *) b->yy_ch_buf,b->yy_buf_size + 2  );
+					EquationParser_realloc((void *) b->yy_ch_buf,b->yy_buf_size + 2  );
 				}
 			else
 				/* Can't grow it, we don't own it. */
@@ -1098,7 +1098,7 @@ int yyFlexLexer::yy_get_next_buffer()
 	if ((int) ((yy_n_chars) + number_to_move) > YY_CURRENT_BUFFER_LVALUE->yy_buf_size) {
 		/* Extend the array by 50%, plus the number we really need. */
 		int new_size = (yy_n_chars) + number_to_move + ((yy_n_chars) >> 1);
-		YY_CURRENT_BUFFER_LVALUE->yy_ch_buf = (char *) EzAquarii_realloc((void *) YY_CURRENT_BUFFER_LVALUE->yy_ch_buf,new_size  );
+		YY_CURRENT_BUFFER_LVALUE->yy_ch_buf = (char *) EquationParser_realloc((void *) YY_CURRENT_BUFFER_LVALUE->yy_ch_buf,new_size  );
 		if ( ! YY_CURRENT_BUFFER_LVALUE->yy_ch_buf )
 			YY_FATAL_ERROR( "out of dynamic memory in yy_get_next_buffer()" );
 	}
@@ -1344,7 +1344,7 @@ int yyFlexLexer::yy_get_next_buffer()
 {
 	YY_BUFFER_STATE b;
     
-	b = (YY_BUFFER_STATE) EzAquarii_alloc(sizeof( struct yy_buffer_state )  );
+	b = (YY_BUFFER_STATE) EquationParser_alloc(sizeof( struct yy_buffer_state )  );
 	if ( ! b )
 		YY_FATAL_ERROR( "out of dynamic memory in yy_create_buffer()" );
 
@@ -1353,7 +1353,7 @@ int yyFlexLexer::yy_get_next_buffer()
 	/* yy_ch_buf has to be 2 characters longer than the size given because
 	 * we need to put in 2 end-of-buffer characters.
 	 */
-	b->yy_ch_buf = (char *) EzAquarii_alloc(b->yy_buf_size + 2  );
+	b->yy_ch_buf = (char *) EquationParser_alloc(b->yy_buf_size + 2  );
 	if ( ! b->yy_ch_buf )
 		YY_FATAL_ERROR( "out of dynamic memory in yy_create_buffer()" );
 
@@ -1378,9 +1378,9 @@ int yyFlexLexer::yy_get_next_buffer()
 		YY_CURRENT_BUFFER_LVALUE = (YY_BUFFER_STATE) 0;
 
 	if ( b->yy_is_our_buffer )
-		EzAquarii_free((void *) b->yy_ch_buf  );
+		EquationParser_free((void *) b->yy_ch_buf  );
 
-	EzAquarii_free((void *) b  );
+	EquationParser_free((void *) b  );
 }
 
 /* Initializes or reinitializes a buffer.
@@ -1503,7 +1503,7 @@ void yyFlexLexer::yyensure_buffer_stack(void)
 		 * immediate realloc on the next call.
          */
 		num_to_alloc = 1;
-		(yy_buffer_stack) = (struct yy_buffer_state**)EzAquarii_alloc
+		(yy_buffer_stack) = (struct yy_buffer_state**)EquationParser_alloc
 								(num_to_alloc * sizeof(struct yy_buffer_state*)
 								);
 		if ( ! (yy_buffer_stack) )
@@ -1522,7 +1522,7 @@ void yyFlexLexer::yyensure_buffer_stack(void)
 		int grow_size = 8 /* arbitrary grow size */;
 
 		num_to_alloc = (yy_buffer_stack_max) + grow_size;
-		(yy_buffer_stack) = (struct yy_buffer_state**)EzAquarii_realloc
+		(yy_buffer_stack) = (struct yy_buffer_state**)EquationParser_realloc
 								((yy_buffer_stack),
 								num_to_alloc * sizeof(struct yy_buffer_state*)
 								);
@@ -1545,10 +1545,10 @@ void yyFlexLexer::yyensure_buffer_stack(void)
 		new_size = (yy_size_t) (yy_start_stack_depth) * sizeof( int );
 
 		if ( ! (yy_start_stack) )
-			(yy_start_stack) = (int *) EzAquarii_alloc(new_size  );
+			(yy_start_stack) = (int *) EquationParser_alloc(new_size  );
 
 		else
-			(yy_start_stack) = (int *) EzAquarii_realloc((void *) (yy_start_stack),new_size  );
+			(yy_start_stack) = (int *) EquationParser_realloc((void *) (yy_start_stack),new_size  );
 
 		if ( ! (yy_start_stack) )
 			YY_FATAL_ERROR( "out of memory expanding start-condition stack" );
@@ -1625,12 +1625,12 @@ static int yy_flex_strlen (yyconst char * s )
 }
 #endif
 
-void *EzAquarii_alloc (yy_size_t  size )
+void *EquationParser_alloc (yy_size_t  size )
 {
 	return (void *) malloc( size );
 }
 
-void *EzAquarii_realloc  (void * ptr, yy_size_t  size )
+void *EquationParser_realloc  (void * ptr, yy_size_t  size )
 {
 	/* The cast to (char *) in the following accommodates both
 	 * implementations that use char* generic pointers, and those
@@ -1642,9 +1642,9 @@ void *EzAquarii_realloc  (void * ptr, yy_size_t  size )
 	return (void *) realloc( (char *) ptr, size );
 }
 
-void EzAquarii_free (void * ptr )
+void EquationParser_free (void * ptr )
 {
-	free( (char *) ptr );	/* see EzAquarii_realloc() for (char *) cast */
+	free( (char *) ptr );	/* see EquationParser_realloc() for (char *) cast */
 }
 
 #define YYTABLES_NAME "yytables"

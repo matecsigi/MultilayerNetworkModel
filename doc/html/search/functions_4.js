@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['empty',['empty',['../structEzAquarii_1_1Parser_1_1basic__symbol.html#a8417f7d2f797554de6cf74ed08436baf',1,'EzAquarii::Parser::basic_symbol']]],
-  ['error',['error',['../classEzAquarii_1_1Parser.html#a30d9494d2cc667df108575d904dfe900',1,'EzAquarii::Parser::error(const location_type &amp;loc, const std::string &amp;msg)'],['../classEzAquarii_1_1Parser.html#a7bf3be118991b7cd3a4351a8e02a061f',1,'EzAquarii::Parser::error(const syntax_error &amp;err)']]]
+  ['empty',['empty',['../structEquationParser_1_1Parser_1_1basic__symbol.html#a3a903eee8a6d93b1e3f0974c509b5f1c',1,'EquationParser::Parser::basic_symbol']]],
+  ['error',['error',['../classEquationParser_1_1Parser.html#a5db274319dfc4b15b34aa42862640e8c',1,'EquationParser::Parser::error(const location_type &amp;loc, const std::string &amp;msg)'],['../classEquationParser_1_1Parser.html#a74089a0afda66e8931d3b4595c315e54',1,'EquationParser::Parser::error(const syntax_error &amp;err)']]]
 ];

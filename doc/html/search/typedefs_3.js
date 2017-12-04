@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['self_5ftype',['self_type',['../structEzAquarii_1_1variant.html#af94dbfa9a3e7310b9827d20cc65163a8',1,'EzAquarii::variant']]],
-  ['semantic_5ftype',['semantic_type',['../classEzAquarii_1_1Parser.html#aaaaae6127b81aac6e8be99c12433702e',1,'EzAquarii::Parser']]],
-  ['super_5ftype',['super_type',['../structEzAquarii_1_1Parser_1_1basic__symbol.html#aaf4f23168a670058fa38f5aa15d65b75',1,'EzAquarii::Parser::basic_symbol']]],
-  ['symbol_5fnumber_5ftype',['symbol_number_type',['../classEzAquarii_1_1Parser.html#a6b10da3f2fe3a3c8eaaf290343985935',1,'EzAquarii::Parser']]],
-  ['symbol_5ftype',['symbol_type',['../classEzAquarii_1_1Parser.html#a219e44a6cf61b8a88cf0db8d5bb7be5d',1,'EzAquarii::Parser']]]
+  ['self_5ftype',['self_type',['../structEquationParser_1_1variant.html#aa17a8f334ad949693cf8f6a8197092df',1,'EquationParser::variant']]],
+  ['semantic_5ftype',['semantic_type',['../classEquationParser_1_1Parser.html#a86482685d5f3d44fff68fd4150bbd2dd',1,'EquationParser::Parser']]],
+  ['super_5ftype',['super_type',['../structEquationParser_1_1Parser_1_1basic__symbol.html#a7ffb114bfe6a321069bbd6baeaefa0f7',1,'EquationParser::Parser::basic_symbol']]],
+  ['symbol_5fnumber_5ftype',['symbol_number_type',['../classEquationParser_1_1Parser.html#a95a5093ff65178baa4926eebed7aacf0',1,'EquationParser::Parser']]],
+  ['symbol_5ftype',['symbol_type',['../classEquationParser_1_1Parser.html#ac7f402ded60cb9ac9bb65f5d2bc9d79c',1,'EquationParser::Parser']]]
 ];

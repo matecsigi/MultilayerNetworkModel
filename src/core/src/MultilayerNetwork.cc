@@ -198,7 +198,6 @@ void MultilayerNetwork::load(const char* filename)
   StringBuffer buffer;
   PrettyWriter<StringBuffer> writer(buffer);
   document.Accept(writer);
-  //std::cout<<buffer.GetString()<<std::endl;
 }
 
 void MultilayerNetwork::saveState(std::string filename)

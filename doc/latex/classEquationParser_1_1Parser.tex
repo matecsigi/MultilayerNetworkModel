@@ -1,0 +1,162 @@
+\hypertarget{classEquationParser_1_1Parser}{}\section{Equation\+Parser\+:\+:Parser Class Reference}
+\label{classEquationParser_1_1Parser}\index{Equation\+Parser\+::\+Parser@{Equation\+Parser\+::\+Parser}}
+
+
+A Bison parser.  
+
+
+
+
+{\ttfamily \#include $<$parser.\+hpp$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structEquationParser_1_1Parser_1_1basic__symbol}{basic\+\_\+symbol}
+\item 
+struct \hyperlink{structEquationParser_1_1Parser_1_1by__type}{by\+\_\+type}
+\begin{DoxyCompactList}\small\item\em Type access provider for token (enum) based symbols. \end{DoxyCompactList}\item 
+struct \hyperlink{structEquationParser_1_1Parser_1_1syntax__error}{syntax\+\_\+error}
+\begin{DoxyCompactList}\small\item\em Syntax errors thrown from user actions. \end{DoxyCompactList}\item 
+struct \hyperlink{structEquationParser_1_1Parser_1_1token}{token}
+\begin{DoxyCompactList}\small\item\em Tokens. \end{DoxyCompactList}\item 
+union \hyperlink{unionEquationParser_1_1Parser_1_1union__type}{union\+\_\+type}
+\begin{DoxyCompactList}\small\item\em An auxiliary type to compute the largest semantic type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ {\bfseries empty\+\_\+symbol} = -\/2
+ \}\hypertarget{classEquationParser_1_1Parser_aa41212f5a2580bafc8f554129b4232bc}{}\label{classEquationParser_1_1Parser_aa41212f5a2580bafc8f554129b4232bc}
+\begin{DoxyCompactList}\small\item\em The symbol type number to denote an empty symbol. \end{DoxyCompactList}
+\item 
+typedef \hyperlink{structEquationParser_1_1variant}{variant}$<$ sizeof(\hyperlink{unionEquationParser_1_1Parser_1_1union__type}{union\+\_\+type})$>$ \hyperlink{classEquationParser_1_1Parser_a86482685d5f3d44fff68fd4150bbd2dd}{semantic\+\_\+type}\hypertarget{classEquationParser_1_1Parser_a86482685d5f3d44fff68fd4150bbd2dd}{}\label{classEquationParser_1_1Parser_a86482685d5f3d44fff68fd4150bbd2dd}
+
+\begin{DoxyCompactList}\small\item\em Symbol semantic values. \end{DoxyCompactList}\item 
+typedef \hyperlink{classEquationParser_1_1location}{location} \hyperlink{classEquationParser_1_1Parser_a9c08ca33906dfb521b4ec5989e3620bf}{location\+\_\+type}\hypertarget{classEquationParser_1_1Parser_a9c08ca33906dfb521b4ec5989e3620bf}{}\label{classEquationParser_1_1Parser_a9c08ca33906dfb521b4ec5989e3620bf}
+
+\begin{DoxyCompactList}\small\item\em Symbol locations. \end{DoxyCompactList}\item 
+typedef token\+::yytokentype \hyperlink{classEquationParser_1_1Parser_aa29d1fb4fbd9ec112dcb2acd504dc2f1}{token\+\_\+type}\hypertarget{classEquationParser_1_1Parser_aa29d1fb4fbd9ec112dcb2acd504dc2f1}{}\label{classEquationParser_1_1Parser_aa29d1fb4fbd9ec112dcb2acd504dc2f1}
+
+\begin{DoxyCompactList}\small\item\em (External) token type, as returned by yylex. \end{DoxyCompactList}\item 
+typedef int \hyperlink{classEquationParser_1_1Parser_a95a5093ff65178baa4926eebed7aacf0}{symbol\+\_\+number\+\_\+type}\hypertarget{classEquationParser_1_1Parser_a95a5093ff65178baa4926eebed7aacf0}{}\label{classEquationParser_1_1Parser_a95a5093ff65178baa4926eebed7aacf0}
+
+\begin{DoxyCompactList}\small\item\em Symbol type\+: an internal symbol number. \end{DoxyCompactList}\item 
+typedef unsigned char \hyperlink{classEquationParser_1_1Parser_a6430d28bfb6b8ac0a7f521ea5dd0d554}{token\+\_\+number\+\_\+type}\hypertarget{classEquationParser_1_1Parser_a6430d28bfb6b8ac0a7f521ea5dd0d554}{}\label{classEquationParser_1_1Parser_a6430d28bfb6b8ac0a7f521ea5dd0d554}
+
+\begin{DoxyCompactList}\small\item\em Internal symbol number for tokens (subsumed by symbol\+\_\+number\+\_\+type). \end{DoxyCompactList}\item 
+typedef \hyperlink{structEquationParser_1_1Parser_1_1basic__symbol}{basic\+\_\+symbol}$<$ \hyperlink{structEquationParser_1_1Parser_1_1by__type}{by\+\_\+type} $>$ \hyperlink{classEquationParser_1_1Parser_ac7f402ded60cb9ac9bb65f5d2bc9d79c}{symbol\+\_\+type}\hypertarget{classEquationParser_1_1Parser_ac7f402ded60cb9ac9bb65f5d2bc9d79c}{}\label{classEquationParser_1_1Parser_ac7f402ded60cb9ac9bb65f5d2bc9d79c}
+
+\begin{DoxyCompactList}\small\item\em \char`\"{}\+External\char`\"{} symbols\+: returned by the scanner. \end{DoxyCompactList}\item 
+typedef int \hyperlink{classEquationParser_1_1Parser_af424755ada4b3f8e2d6e70ff513242d9}{debug\+\_\+level\+\_\+type}\hypertarget{classEquationParser_1_1Parser_af424755ada4b3f8e2d6e70ff513242d9}{}\label{classEquationParser_1_1Parser_af424755ada4b3f8e2d6e70ff513242d9}
+
+\begin{DoxyCompactList}\small\item\em Type for debugging levels. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classEquationParser_1_1Parser_a38d8470f3359dfc8016e41cdd9152976}{Parser} (\hyperlink{classEquationParser_1_1Scanner}{Equation\+Parser\+::\+Scanner} \&scanner\+\_\+yyarg, \hyperlink{classEquationParser_1_1Interpreter}{Equation\+Parser\+::\+Interpreter} \&driver\+\_\+yyarg)\hypertarget{classEquationParser_1_1Parser_a38d8470f3359dfc8016e41cdd9152976}{}\label{classEquationParser_1_1Parser_a38d8470f3359dfc8016e41cdd9152976}
+
+\begin{DoxyCompactList}\small\item\em Build a parser object. \end{DoxyCompactList}\item 
+virtual int \hyperlink{classEquationParser_1_1Parser_a9d6040f47e455fd00a5eacccc2082210}{parse} ()
+\item 
+std\+::ostream \& \hyperlink{classEquationParser_1_1Parser_aa2beb7e7f4fa688b37cf8017f0077735}{debug\+\_\+stream} () const Y\+Y\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+P\+U\+RE\hypertarget{classEquationParser_1_1Parser_aa2beb7e7f4fa688b37cf8017f0077735}{}\label{classEquationParser_1_1Parser_aa2beb7e7f4fa688b37cf8017f0077735}
+
+\begin{DoxyCompactList}\small\item\em The current debugging stream. \end{DoxyCompactList}\item 
+void \hyperlink{classEquationParser_1_1Parser_aa5ecd3ac4d14a33a0836822e3ad0f08c}{set\+\_\+debug\+\_\+stream} (std\+::ostream \&)\hypertarget{classEquationParser_1_1Parser_aa5ecd3ac4d14a33a0836822e3ad0f08c}{}\label{classEquationParser_1_1Parser_aa5ecd3ac4d14a33a0836822e3ad0f08c}
+
+\begin{DoxyCompactList}\small\item\em Set the current debugging stream. \end{DoxyCompactList}\item 
+\hyperlink{classEquationParser_1_1Parser_af424755ada4b3f8e2d6e70ff513242d9}{debug\+\_\+level\+\_\+type} \hyperlink{classEquationParser_1_1Parser_ac1f3c93eda89df9f1d033594494d7608}{debug\+\_\+level} () const Y\+Y\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+P\+U\+RE\hypertarget{classEquationParser_1_1Parser_ac1f3c93eda89df9f1d033594494d7608}{}\label{classEquationParser_1_1Parser_ac1f3c93eda89df9f1d033594494d7608}
+
+\begin{DoxyCompactList}\small\item\em The current debugging level. \end{DoxyCompactList}\item 
+void \hyperlink{classEquationParser_1_1Parser_a137944ceb4f3b149abcdddf80df21b85}{set\+\_\+debug\+\_\+level} (\hyperlink{classEquationParser_1_1Parser_af424755ada4b3f8e2d6e70ff513242d9}{debug\+\_\+level\+\_\+type} l)\hypertarget{classEquationParser_1_1Parser_a137944ceb4f3b149abcdddf80df21b85}{}\label{classEquationParser_1_1Parser_a137944ceb4f3b149abcdddf80df21b85}
+
+\begin{DoxyCompactList}\small\item\em Set the current debugging level. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classEquationParser_1_1Parser_a5db274319dfc4b15b34aa42862640e8c}{error} (const \hyperlink{classEquationParser_1_1Parser_a9c08ca33906dfb521b4ec5989e3620bf}{location\+\_\+type} \&loc, const std\+::string \&msg)
+\item 
+void \hyperlink{classEquationParser_1_1Parser_a74089a0afda66e8931d3b4595c315e54}{error} (const \hyperlink{structEquationParser_1_1Parser_1_1syntax__error}{syntax\+\_\+error} \&err)\hypertarget{classEquationParser_1_1Parser_a74089a0afda66e8931d3b4595c315e54}{}\label{classEquationParser_1_1Parser_a74089a0afda66e8931d3b4595c315e54}
+
+\begin{DoxyCompactList}\small\item\em Report a syntax error. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classEquationParser_1_1Parser_ac7f402ded60cb9ac9bb65f5d2bc9d79c}{symbol\+\_\+type} {\bfseries make\+\_\+\+E\+ND} (const \hyperlink{classEquationParser_1_1Parser_a9c08ca33906dfb521b4ec5989e3620bf}{location\+\_\+type} \&l)\hypertarget{classEquationParser_1_1Parser_a3e315ef0f84cc5caf49b3ece559ca583}{}\label{classEquationParser_1_1Parser_a3e315ef0f84cc5caf49b3ece559ca583}
+
+\item 
+static \hyperlink{classEquationParser_1_1Parser_ac7f402ded60cb9ac9bb65f5d2bc9d79c}{symbol\+\_\+type} {\bfseries make\+\_\+\+S\+T\+R\+I\+NG} (const std\+::string \&v, const \hyperlink{classEquationParser_1_1Parser_a9c08ca33906dfb521b4ec5989e3620bf}{location\+\_\+type} \&l)\hypertarget{classEquationParser_1_1Parser_a5bcbdebe3d30968d101a3e84fc70d5b1}{}\label{classEquationParser_1_1Parser_a5bcbdebe3d30968d101a3e84fc70d5b1}
+
+\item 
+static \hyperlink{classEquationParser_1_1Parser_ac7f402ded60cb9ac9bb65f5d2bc9d79c}{symbol\+\_\+type} {\bfseries make\+\_\+\+L\+E\+F\+T\+P\+AR} (const \hyperlink{classEquationParser_1_1Parser_a9c08ca33906dfb521b4ec5989e3620bf}{location\+\_\+type} \&l)\hypertarget{classEquationParser_1_1Parser_ad6e4d0885df92817ed3c621cf22fb793}{}\label{classEquationParser_1_1Parser_ad6e4d0885df92817ed3c621cf22fb793}
+
+\item 
+static \hyperlink{classEquationParser_1_1Parser_ac7f402ded60cb9ac9bb65f5d2bc9d79c}{symbol\+\_\+type} {\bfseries make\+\_\+\+R\+I\+G\+H\+T\+P\+AR} (const \hyperlink{classEquationParser_1_1Parser_a9c08ca33906dfb521b4ec5989e3620bf}{location\+\_\+type} \&l)\hypertarget{classEquationParser_1_1Parser_a4918c2487120f7d04d6a3b70ef950fee}{}\label{classEquationParser_1_1Parser_a4918c2487120f7d04d6a3b70ef950fee}
+
+\item 
+static \hyperlink{classEquationParser_1_1Parser_ac7f402ded60cb9ac9bb65f5d2bc9d79c}{symbol\+\_\+type} {\bfseries make\+\_\+\+S\+E\+M\+I\+C\+O\+L\+ON} (const \hyperlink{classEquationParser_1_1Parser_a9c08ca33906dfb521b4ec5989e3620bf}{location\+\_\+type} \&l)\hypertarget{classEquationParser_1_1Parser_a49676ba6ad45e7b15b5efe331d63ff32}{}\label{classEquationParser_1_1Parser_a49676ba6ad45e7b15b5efe331d63ff32}
+
+\item 
+static \hyperlink{classEquationParser_1_1Parser_ac7f402ded60cb9ac9bb65f5d2bc9d79c}{symbol\+\_\+type} {\bfseries make\+\_\+\+C\+O\+M\+MA} (const \hyperlink{classEquationParser_1_1Parser_a9c08ca33906dfb521b4ec5989e3620bf}{location\+\_\+type} \&l)\hypertarget{classEquationParser_1_1Parser_a362044c9db2956abf180de2d03e2c3bb}{}\label{classEquationParser_1_1Parser_a362044c9db2956abf180de2d03e2c3bb}
+
+\item 
+static \hyperlink{classEquationParser_1_1Parser_ac7f402ded60cb9ac9bb65f5d2bc9d79c}{symbol\+\_\+type} {\bfseries make\+\_\+\+I\+N\+T\+E\+G\+ER} (const int \&v, const \hyperlink{classEquationParser_1_1Parser_a9c08ca33906dfb521b4ec5989e3620bf}{location\+\_\+type} \&l)\hypertarget{classEquationParser_1_1Parser_a0e0055c35f006b44992bd86de4924aca}{}\label{classEquationParser_1_1Parser_a0e0055c35f006b44992bd86de4924aca}
+
+\item 
+static \hyperlink{classEquationParser_1_1Parser_ac7f402ded60cb9ac9bb65f5d2bc9d79c}{symbol\+\_\+type} {\bfseries make\+\_\+\+D\+O\+U\+B\+LE} (const double \&v, const \hyperlink{classEquationParser_1_1Parser_a9c08ca33906dfb521b4ec5989e3620bf}{location\+\_\+type} \&l)\hypertarget{classEquationParser_1_1Parser_a86f3b2820a25a75d05549957acf9172b}{}\label{classEquationParser_1_1Parser_a86f3b2820a25a75d05549957acf9172b}
+
+\item 
+static \hyperlink{classEquationParser_1_1Parser_ac7f402ded60cb9ac9bb65f5d2bc9d79c}{symbol\+\_\+type} {\bfseries make\+\_\+\+P\+L\+US} (const \hyperlink{classEquationParser_1_1Parser_a9c08ca33906dfb521b4ec5989e3620bf}{location\+\_\+type} \&l)\hypertarget{classEquationParser_1_1Parser_a8405281453ab9f7967fb2de3031614d7}{}\label{classEquationParser_1_1Parser_a8405281453ab9f7967fb2de3031614d7}
+
+\item 
+static \hyperlink{classEquationParser_1_1Parser_ac7f402ded60cb9ac9bb65f5d2bc9d79c}{symbol\+\_\+type} {\bfseries make\+\_\+\+M\+I\+N\+US} (const \hyperlink{classEquationParser_1_1Parser_a9c08ca33906dfb521b4ec5989e3620bf}{location\+\_\+type} \&l)\hypertarget{classEquationParser_1_1Parser_aaf76f1159f45acfcf403ae918fac20f8}{}\label{classEquationParser_1_1Parser_aaf76f1159f45acfcf403ae918fac20f8}
+
+\item 
+static \hyperlink{classEquationParser_1_1Parser_ac7f402ded60cb9ac9bb65f5d2bc9d79c}{symbol\+\_\+type} {\bfseries make\+\_\+\+M\+U\+L\+T\+I\+P\+LY} (const \hyperlink{classEquationParser_1_1Parser_a9c08ca33906dfb521b4ec5989e3620bf}{location\+\_\+type} \&l)\hypertarget{classEquationParser_1_1Parser_a6621147e0977c005bfd4d952191b9fd6}{}\label{classEquationParser_1_1Parser_a6621147e0977c005bfd4d952191b9fd6}
+
+\item 
+static \hyperlink{classEquationParser_1_1Parser_ac7f402ded60cb9ac9bb65f5d2bc9d79c}{symbol\+\_\+type} {\bfseries make\+\_\+\+D\+I\+V\+I\+DE} (const \hyperlink{classEquationParser_1_1Parser_a9c08ca33906dfb521b4ec5989e3620bf}{location\+\_\+type} \&l)\hypertarget{classEquationParser_1_1Parser_a7f46dc0226a8b96bc81753360161fb18}{}\label{classEquationParser_1_1Parser_a7f46dc0226a8b96bc81753360161fb18}
+
+\item 
+static \hyperlink{classEquationParser_1_1Parser_ac7f402ded60cb9ac9bb65f5d2bc9d79c}{symbol\+\_\+type} {\bfseries make\+\_\+\+P\+O\+W\+ER} (const \hyperlink{classEquationParser_1_1Parser_a9c08ca33906dfb521b4ec5989e3620bf}{location\+\_\+type} \&l)\hypertarget{classEquationParser_1_1Parser_a0e0f7ef519e9547b9e42c70e910edcd3}{}\label{classEquationParser_1_1Parser_a0e0f7ef519e9547b9e42c70e910edcd3}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A Bison parser. 
+
+\subsection{Member Function Documentation}
+\index{Equation\+Parser\+::\+Parser@{Equation\+Parser\+::\+Parser}!error@{error}}
+\index{error@{error}!Equation\+Parser\+::\+Parser@{Equation\+Parser\+::\+Parser}}
+\subsubsection[{\texorpdfstring{error(const location\+\_\+type \&loc, const std\+::string \&msg)}{error(const location_type &loc, const std::string &msg)}}]{\setlength{\rightskip}{0pt plus 5cm}void Equation\+Parser\+::\+Parser\+::error (
+\begin{DoxyParamCaption}
+\item[{const {\bf location\+\_\+type} \&}]{loc, }
+\item[{const std\+::string \&}]{msg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classEquationParser_1_1Parser_a5db274319dfc4b15b34aa42862640e8c}{}\label{classEquationParser_1_1Parser_a5db274319dfc4b15b34aa42862640e8c}
+Report a syntax error. 
+\begin{DoxyParams}{Parameters}
+{\em loc} & where the syntax error is found. \\
+\hline
+{\em msg} & a description of the syntax error. \\
+\hline
+\end{DoxyParams}
+\index{Equation\+Parser\+::\+Parser@{Equation\+Parser\+::\+Parser}!parse@{parse}}
+\index{parse@{parse}!Equation\+Parser\+::\+Parser@{Equation\+Parser\+::\+Parser}}
+\subsubsection[{\texorpdfstring{parse()}{parse()}}]{\setlength{\rightskip}{0pt plus 5cm}int Equation\+Parser\+::\+Parser\+::parse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classEquationParser_1_1Parser_a9d6040f47e455fd00a5eacccc2082210}{}\label{classEquationParser_1_1Parser_a9d6040f47e455fd00a5eacccc2082210}
+Parse. \begin{DoxyReturn}{Returns}
+0 iff parsing succeeded. 
+\end{DoxyReturn}
+Length of the R\+HS of the rule being reduced.
+
+The lookahead symbol.
+
+The locations where the error started and ended.
+
+The return value of parse (). 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/mate/\+Documents/\+Programming/\+Research/\+Multilayer\+Network\+Model/\+Multilayer\+Network\+Model/src/parser/include/\hyperlink{parser_8hpp}{parser.\+hpp}\item 
+/home/mate/\+Documents/\+Programming/\+Research/\+Multilayer\+Network\+Model/\+Multilayer\+Network\+Model/src/parser/src/parser.\+cpp\end{DoxyCompactItemize}

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['value',['value',['../structEzAquarii_1_1Parser_1_1basic__symbol.html#ad4222494987bf3e60a3bf224a0ecd4c9',1,'EzAquarii::Parser::basic_symbol']]]
+  ['value',['value',['../structEquationParser_1_1Parser_1_1basic__symbol.html#af1042675e7012ce74eb1c18963c2ecd8',1,'EquationParser::Parser::basic_symbol']]]
 ];
