@@ -9,10 +9,10 @@
 void {\bfseries add\+Node} (int node\+Id)\hypertarget{classNetwork_ae5cee65d8d673280142c6f1a9420b0e7}{}\label{classNetwork_ae5cee65d8d673280142c6f1a9420b0e7}
 
 \item 
-void {\bfseries add\+Edge} (int local\+Node\+Id1, int local\+Node\+Id2)\hypertarget{classNetwork_ae45cbbac2dd53ec1e1bb0c8074139d7d}{}\label{classNetwork_ae45cbbac2dd53ec1e1bb0c8074139d7d}
+void {\bfseries add\+Edge} (int node\+Id1, int node\+Id2)\hypertarget{classNetwork_ae5a6b6ebf9ba5c8a758f54e9a368c72b}{}\label{classNetwork_ae5a6b6ebf9ba5c8a758f54e9a368c72b}
 
 \item 
-void {\bfseries remove\+Edge} (int local\+Node\+Id1, int local\+Node\+Id2)\hypertarget{classNetwork_a375aad913988baf7fefec77b7dd3a485}{}\label{classNetwork_a375aad913988baf7fefec77b7dd3a485}
+void {\bfseries remove\+Edge} (int node\+Id1, int node\+Id2)\hypertarget{classNetwork_a879adf47459ee92cbbcbadd6affb415b}{}\label{classNetwork_a879adf47459ee92cbbcbadd6affb415b}
 
 \item 
 void {\bfseries remove\+All\+Edges} ()\hypertarget{classNetwork_a900818896e85d83af131d590e68388f6}{}\label{classNetwork_a900818896e85d83af131d590e68388f6}
@@ -24,38 +24,28 @@ void {\bfseries assign\+To\+Node} (\hyperlink{classNode}{Node} $\ast$node)\hyper
 void {\bfseries set\+Dynamical\+Equation} (int node\+Id, std\+::string str\+Equation)\hypertarget{classNetwork_a1e066354c2d7e40338ee2e5b3e974595}{}\label{classNetwork_a1e066354c2d7e40338ee2e5b3e974595}
 
 \item 
-void {\bfseries generate\+Connections} (void)\hypertarget{classNetwork_a2fcc69db1e696f07424a3fee766e125f}{}\label{classNetwork_a2fcc69db1e696f07424a3fee766e125f}
-
+int \hyperlink{classNetwork_ae30196d51c9db40feaf93cde5508d106}{get\+Id} (void) const 
 \item 
-int {\bfseries get\+Id} (void) const \hypertarget{classNetwork_ae30196d51c9db40feaf93cde5508d106}{}\label{classNetwork_ae30196d51c9db40feaf93cde5508d106}
-
-\item 
-int {\bfseries get\+Local\+Id} (int id) const \hypertarget{classNetwork_a0b1b879abf7417e425325999a7919d15}{}\label{classNetwork_a0b1b879abf7417e425325999a7919d15}
-
+int \hyperlink{classNetwork_a0b1b879abf7417e425325999a7919d15}{get\+Local\+Id} (int id) const 
 \item 
 \hyperlink{classNode}{Node} $\ast$ {\bfseries get\+Node\+Assigned} (void) const \hypertarget{classNetwork_a0c67b1e20e97cff7dedb84571936fd0b}{}\label{classNetwork_a0c67b1e20e97cff7dedb84571936fd0b}
 
 \item 
+\hyperlink{classNode}{Node} $\ast$ \hyperlink{classNetwork_a0b983325b6f616ab86591f1a5c6b0d69}{get\+Node\+By\+Id} (int node\+Id)
+\item 
 std\+::vector$<$ \hyperlink{classNode}{Node} $\ast$ $>$ {\bfseries get\+Nodes} (void) const \hypertarget{classNetwork_afb787c0243504190c513013ca198e947}{}\label{classNetwork_afb787c0243504190c513013ca198e947}
 
 \item 
-std\+::vector$<$ \hyperlink{classNode}{Node} $\ast$ $>$ {\bfseries get\+Node\+Neighbors} (int node\+Id) const \hypertarget{classNetwork_afe7437019956a4677ef9d4df98c36730}{}\label{classNetwork_afe7437019956a4677ef9d4df98c36730}
-
+std\+::vector$<$ \hyperlink{classNode}{Node} $\ast$ $>$ \hyperlink{classNetwork_afe7437019956a4677ef9d4df98c36730}{get\+Node\+Neighbors} (int node\+Id) const 
 \item 
-\hyperlink{classDynamicalEquation}{Dynamical\+Equation} $\ast$ {\bfseries get\+Node\+Dynamical\+Equation} (int node\+Id) const \hypertarget{classNetwork_aecfd002e55cef6a23843d535e75f49e0}{}\label{classNetwork_aecfd002e55cef6a23843d535e75f49e0}
-
+\hyperlink{classDynamicalEquation}{Dynamical\+Equation} $\ast$ \hyperlink{classNetwork_aecfd002e55cef6a23843d535e75f49e0}{get\+Node\+Dynamical\+Equation} (int node\+Id) const 
 \item 
 std\+::string {\bfseries get\+Node\+Dynamical\+Equation\+String} (int node\+Id) const \hypertarget{classNetwork_a69e8e7ddd08590f496eeb38d28e5f8dd}{}\label{classNetwork_a69e8e7ddd08590f496eeb38d28e5f8dd}
 
 \item 
-std\+::map$<$ int, double $>$ {\bfseries get\+Current\+State} (void) const \hypertarget{classNetwork_aa5727c4eb316f69edae5efee422d5c6a}{}\label{classNetwork_aa5727c4eb316f69edae5efee422d5c6a}
-
+std\+::map$<$ int, double $>$ \hyperlink{classNetwork_aa5727c4eb316f69edae5efee422d5c6a}{get\+Current\+State} (void) const 
 \item 
-std\+::map$<$ int, double $>$ {\bfseries get\+Direction\+At\+State} (std\+::map$<$ int, double $>$ base\+Point\+Coordinates) const \hypertarget{classNetwork_a140759419ddad1c7dea5537e90c52572}{}\label{classNetwork_a140759419ddad1c7dea5537e90c52572}
-
-\item 
-\hyperlink{classNode}{Node} $\ast$ {\bfseries get\+Node\+By\+Id} (int node\+Id)\hypertarget{classNetwork_a0b983325b6f616ab86591f1a5c6b0d69}{}\label{classNetwork_a0b983325b6f616ab86591f1a5c6b0d69}
-
+std\+::map$<$ int, double $>$ \hyperlink{classNetwork_a140759419ddad1c7dea5537e90c52572}{get\+Direction\+At\+State} (std\+::map$<$ int, double $>$ base\+Point\+Coordinates) const 
 \end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
@@ -63,6 +53,84 @@ std\+::map$<$ int, double $>$ {\bfseries get\+Direction\+At\+State} (std\+::map$
 bool {\bfseries operator==} (const \hyperlink{classNetwork}{Network} \&network1, const \hyperlink{classNetwork}{Network} \&network2)\hypertarget{classNetwork_a7a1b02eac9fc1db7f981fe618019d99a}{}\label{classNetwork_a7a1b02eac9fc1db7f981fe618019d99a}
 
 \end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{Network@{Network}!get\+Current\+State@{get\+Current\+State}}
+\index{get\+Current\+State@{get\+Current\+State}!Network@{Network}}
+\subsubsection[{\texorpdfstring{get\+Current\+State(void) const }{getCurrentState(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::map$<$ int, double $>$ Network\+::get\+Current\+State (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classNetwork_aa5727c4eb316f69edae5efee422d5c6a}{}\label{classNetwork_aa5727c4eb316f69edae5efee422d5c6a}
+Return the actual state of the network i.\+e. the actual value of all the nodes in the network. \begin{DoxyReturn}{Returns}
+map where the first value is the ID of the node and the second value is the actual value of that node 
+\end{DoxyReturn}
+\index{Network@{Network}!get\+Direction\+At\+State@{get\+Direction\+At\+State}}
+\index{get\+Direction\+At\+State@{get\+Direction\+At\+State}!Network@{Network}}
+\subsubsection[{\texorpdfstring{get\+Direction\+At\+State(std\+::map$<$ int, double $>$ base\+Point\+Coordinates) const }{getDirectionAtState(std::map< int, double > basePointCoordinates) const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::map$<$ int, double $>$ Network\+::get\+Direction\+At\+State (
+\begin{DoxyParamCaption}
+\item[{std\+::map$<$ int, double $>$}]{base\+Point\+Coordinates}
+\end{DoxyParamCaption}
+) const}\hypertarget{classNetwork_a140759419ddad1c7dea5537e90c52572}{}\label{classNetwork_a140759419ddad1c7dea5537e90c52572}
+Return the direction in which the network is currently moving in the state space i.\+e. the derivative in the phase space. Calculated by stepping the network one step and measuring the changes in the axis directions. 
+\begin{DoxyParams}{Parameters}
+{\em base\+Point\+Coordinates} & the coordinates of the current state in the phase space \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+map where first value is the ID of the node and the secodn value is the change along the node\textquotesingle{}s axis i.\+e. partial derivative. 
+\end{DoxyReturn}
+\index{Network@{Network}!get\+Id@{get\+Id}}
+\index{get\+Id@{get\+Id}!Network@{Network}}
+\subsubsection[{\texorpdfstring{get\+Id(void) const }{getId(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}int Network\+::get\+Id (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classNetwork_ae30196d51c9db40feaf93cde5508d106}{}\label{classNetwork_ae30196d51c9db40feaf93cde5508d106}
+Return the unique ID of the network. \index{Network@{Network}!get\+Local\+Id@{get\+Local\+Id}}
+\index{get\+Local\+Id@{get\+Local\+Id}!Network@{Network}}
+\subsubsection[{\texorpdfstring{get\+Local\+Id(int id) const }{getLocalId(int id) const }}]{\setlength{\rightskip}{0pt plus 5cm}int Network\+::get\+Local\+Id (
+\begin{DoxyParamCaption}
+\item[{int}]{id}
+\end{DoxyParamCaption}
+) const}\hypertarget{classNetwork_a0b1b879abf7417e425325999a7919d15}{}\label{classNetwork_a0b1b879abf7417e425325999a7919d15}
+Within the network, each node has a local ID that is the index of the node in the m\+Nodes vector. \index{Network@{Network}!get\+Node\+By\+Id@{get\+Node\+By\+Id}}
+\index{get\+Node\+By\+Id@{get\+Node\+By\+Id}!Network@{Network}}
+\subsubsection[{\texorpdfstring{get\+Node\+By\+Id(int node\+Id)}{getNodeById(int nodeId)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Node} $\ast$ Network\+::get\+Node\+By\+Id (
+\begin{DoxyParamCaption}
+\item[{int}]{node\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{classNetwork_a0b983325b6f616ab86591f1a5c6b0d69}{}\label{classNetwork_a0b983325b6f616ab86591f1a5c6b0d69}
+Return a pointer to the node that corresponds to the given node ID. 
+\begin{DoxyParams}{Parameters}
+{\em node\+Id} & the node ID \\
+\hline
+\end{DoxyParams}
+\index{Network@{Network}!get\+Node\+Dynamical\+Equation@{get\+Node\+Dynamical\+Equation}}
+\index{get\+Node\+Dynamical\+Equation@{get\+Node\+Dynamical\+Equation}!Network@{Network}}
+\subsubsection[{\texorpdfstring{get\+Node\+Dynamical\+Equation(int node\+Id) const }{getNodeDynamicalEquation(int nodeId) const }}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Dynamical\+Equation} $\ast$ Network\+::get\+Node\+Dynamical\+Equation (
+\begin{DoxyParamCaption}
+\item[{int}]{node\+Id}
+\end{DoxyParamCaption}
+) const}\hypertarget{classNetwork_aecfd002e55cef6a23843d535e75f49e0}{}\label{classNetwork_aecfd002e55cef6a23843d535e75f49e0}
+Return a pointer to the \hyperlink{classDynamicalEquation}{Dynamical\+Equation} of the given node. 
+\begin{DoxyParams}{Parameters}
+{\em node\+Id} & the node ID \\
+\hline
+\end{DoxyParams}
+\index{Network@{Network}!get\+Node\+Neighbors@{get\+Node\+Neighbors}}
+\index{get\+Node\+Neighbors@{get\+Node\+Neighbors}!Network@{Network}}
+\subsubsection[{\texorpdfstring{get\+Node\+Neighbors(int node\+Id) const }{getNodeNeighbors(int nodeId) const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ {\bf Node} $\ast$ $>$ Network\+::get\+Node\+Neighbors (
+\begin{DoxyParamCaption}
+\item[{int}]{node\+Id}
+\end{DoxyParamCaption}
+) const}\hypertarget{classNetwork_afe7437019956a4677ef9d4df98c36730}{}\label{classNetwork_afe7437019956a4677ef9d4df98c36730}
+Return the list of neighbors of a given node. 
+\begin{DoxyParams}{Parameters}
+{\em node\+Id} & the node ID \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

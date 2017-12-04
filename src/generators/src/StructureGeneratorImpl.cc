@@ -51,8 +51,26 @@ void StructureGeneratorImpl::generateNodes(void)
 	  (*it2)->addNode(nodeIdCounter+1);
 	  ++nodeIdCounter;
 	}
-	(*it2)->generateConnections();
+	generateEdges(*it2);
       }
+  }
+}
+
+void StructureGeneratorImpl::generateEdges(Network* network)
+{
+  //creating a circular graph
+  std::vector<Node*> nodes = network->getNodes();
+  for(unsigned i=1; i<nodes.size(); ++i)
+  {
+    int nodeId1 = nodes[i-1]->getId();
+    int nodeId2 = nodes[i]->getId();
+    network->addEdge(nodeId1, nodeId2);
+  }
+  if(nodes.size() > 1)
+  {
+    int nodeId1 = nodes[nodes.size()-1]->getId();
+    int nodeId2 = nodes[0]->getId();
+    network->addEdge(nodeId1, nodeId2);
   }
 }
 

@@ -64,9 +64,7 @@ void NetworkModifier::copyNetwork(Network* oldNetwork, Network* newNetwork)
     for(std::vector<Node*>::iterator itNei=neighbors.begin(); itNei != neighbors.end(); ++itNei)
     {
       Node* oldNeighbor = (*itNei);
-      int localId1 = newNetwork->getLocalId(oldNode->getId());
-      int localId2 = newNetwork->getLocalId(oldNeighbor->getId());
-      newNetwork->addEdge(localId1, localId2);
+      newNetwork->addEdge(oldNode->getId(), oldNeighbor->getId());
     }
     Node* newNode = newNetwork->getNodeById(oldNode->getId());
     double* tmpBuffer = new double[bufferSize];
@@ -130,9 +128,7 @@ void NetworkModifier::addEdge(Network* network, Node* node)
 
   baseCalcNode = specific_addEdge(baseCalcNode, changingCalcNode, newNeighbor);
   nodeEquation->setBaseCalculationNode(baseCalcNode);
-  int localId1 = network->getLocalId(node->getId());
-  int localId2 = network->getLocalId(newNeighbor->getId());
-  network->addEdge(localId1, localId2);
+  network->addEdge(node->getId(), newNeighbor->getId());
 }
 
 
@@ -154,9 +150,7 @@ void NetworkModifier::removeEdge(Network* network, Node* node)
   }
 
   nodeEquation->setBaseCalculationNode(baseCalcNode);
-  int localId1 = network->getLocalId(node->getId());
-  int localId2 = network->getLocalId(neighborToRemove->getId());
-  network->removeEdge(localId1, localId2);
+  network->removeEdge(node->getId(), neighborToRemove->getId());
 }
 
 

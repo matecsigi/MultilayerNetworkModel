@@ -187,7 +187,7 @@ void MultilayerNetwork::load(const char* filename)
 	for(SizeType iiii=0; iiii<neighborArray.Size(); ++iiii)
 	{
 	  Value& neighborObject = neighborArray[iiii];
-	  network->addEdge(network->getLocalId(node->getId()), network->getLocalId(neighborObject["id"].GetInt()));
+	  network->addEdge(node->getId(), neighborObject["id"].GetInt());
 	}
       }
     }

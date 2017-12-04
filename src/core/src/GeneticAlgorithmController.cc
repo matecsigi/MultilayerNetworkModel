@@ -148,9 +148,9 @@ void GeneticAlgorithmController::createMixedNetwork(Network* parentNetwork1, Net
     for(std::vector<Node*>::iterator itNei=neighbors.begin(); itNei != neighbors.end(); ++itNei)
     {
       Node* parentNeighbor = (*itNei);
-      int localId1 = childNetwork->getLocalId(parentNode->getId());
-      int localId2 = childNetwork->getLocalId(parentNeighbor->getId());
-      childNetwork->addEdge(localId1, localId2);
+      int nodeId1 = parentNode->getId();
+      int nodeId2 = parentNeighbor->getId();
+      childNetwork->addEdge(nodeId1, nodeId2);
     }
 
     std::string strEquation = parentNetwork->getNodeDynamicalEquationString(parentNode->getId());

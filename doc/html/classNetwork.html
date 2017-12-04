@@ -99,12 +99,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae5cee65d8d673280142c6f1a9420b0e7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae5cee65d8d673280142c6f1a9420b0e7"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>addNode</b> (int nodeId)</td></tr>
 <tr class="separator:ae5cee65d8d673280142c6f1a9420b0e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae45cbbac2dd53ec1e1bb0c8074139d7d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae45cbbac2dd53ec1e1bb0c8074139d7d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addEdge</b> (int localNodeId1, int localNodeId2)</td></tr>
-<tr class="separator:ae45cbbac2dd53ec1e1bb0c8074139d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a375aad913988baf7fefec77b7dd3a485"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a375aad913988baf7fefec77b7dd3a485"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>removeEdge</b> (int localNodeId1, int localNodeId2)</td></tr>
-<tr class="separator:a375aad913988baf7fefec77b7dd3a485"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5a6b6ebf9ba5c8a758f54e9a368c72b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae5a6b6ebf9ba5c8a758f54e9a368c72b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>addEdge</b> (int nodeId1, int nodeId2)</td></tr>
+<tr class="separator:ae5a6b6ebf9ba5c8a758f54e9a368c72b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a879adf47459ee92cbbcbadd6affb415b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a879adf47459ee92cbbcbadd6affb415b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>removeEdge</b> (int nodeId1, int nodeId2)</td></tr>
+<tr class="separator:a879adf47459ee92cbbcbadd6affb415b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a900818896e85d83af131d590e68388f6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a900818896e85d83af131d590e68388f6"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>removeAllEdges</b> ()</td></tr>
 <tr class="separator:a900818896e85d83af131d590e68388f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,39 +114,29 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>assignToNode</b> (<a 
 <tr class="memitem:a1e066354c2d7e40338ee2e5b3e974595"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1e066354c2d7e40338ee2e5b3e974595"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>setDynamicalEquation</b> (int nodeId, std::string strEquation)</td></tr>
 <tr class="separator:a1e066354c2d7e40338ee2e5b3e974595"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2fcc69db1e696f07424a3fee766e125f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2fcc69db1e696f07424a3fee766e125f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>generateConnections</b> (void)</td></tr>
-<tr class="separator:a2fcc69db1e696f07424a3fee766e125f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae30196d51c9db40feaf93cde5508d106"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae30196d51c9db40feaf93cde5508d106"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getId</b> (void) const </td></tr>
+<tr class="memitem:ae30196d51c9db40feaf93cde5508d106"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork.html#ae30196d51c9db40feaf93cde5508d106">getId</a> (void) const </td></tr>
 <tr class="separator:ae30196d51c9db40feaf93cde5508d106"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b1b879abf7417e425325999a7919d15"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b1b879abf7417e425325999a7919d15"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getLocalId</b> (int id) const </td></tr>
+<tr class="memitem:a0b1b879abf7417e425325999a7919d15"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork.html#a0b1b879abf7417e425325999a7919d15">getLocalId</a> (int id) const </td></tr>
 <tr class="separator:a0b1b879abf7417e425325999a7919d15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c67b1e20e97cff7dedb84571936fd0b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0c67b1e20e97cff7dedb84571936fd0b"></a>
 <a class="el" href="classNode.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getNodeAssigned</b> (void) const </td></tr>
 <tr class="separator:a0c67b1e20e97cff7dedb84571936fd0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b983325b6f616ab86591f1a5c6b0d69"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classNode.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork.html#a0b983325b6f616ab86591f1a5c6b0d69">getNodeById</a> (int nodeId)</td></tr>
+<tr class="separator:a0b983325b6f616ab86591f1a5c6b0d69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb787c0243504190c513013ca198e947"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afb787c0243504190c513013ca198e947"></a>
 std::vector&lt; <a class="el" href="classNode.html">Node</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getNodes</b> (void) const </td></tr>
 <tr class="separator:afb787c0243504190c513013ca198e947"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe7437019956a4677ef9d4df98c36730"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afe7437019956a4677ef9d4df98c36730"></a>
-std::vector&lt; <a class="el" href="classNode.html">Node</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getNodeNeighbors</b> (int nodeId) const </td></tr>
+<tr class="memitem:afe7437019956a4677ef9d4df98c36730"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classNode.html">Node</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork.html#afe7437019956a4677ef9d4df98c36730">getNodeNeighbors</a> (int nodeId) const </td></tr>
 <tr class="separator:afe7437019956a4677ef9d4df98c36730"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aecfd002e55cef6a23843d535e75f49e0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aecfd002e55cef6a23843d535e75f49e0"></a>
-<a class="el" href="classDynamicalEquation.html">DynamicalEquation</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getNodeDynamicalEquation</b> (int nodeId) const </td></tr>
+<tr class="memitem:aecfd002e55cef6a23843d535e75f49e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classDynamicalEquation.html">DynamicalEquation</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork.html#aecfd002e55cef6a23843d535e75f49e0">getNodeDynamicalEquation</a> (int nodeId) const </td></tr>
 <tr class="separator:aecfd002e55cef6a23843d535e75f49e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69e8e7ddd08590f496eeb38d28e5f8dd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a69e8e7ddd08590f496eeb38d28e5f8dd"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getNodeDynamicalEquationString</b> (int nodeId) const </td></tr>
 <tr class="separator:a69e8e7ddd08590f496eeb38d28e5f8dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5727c4eb316f69edae5efee422d5c6a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa5727c4eb316f69edae5efee422d5c6a"></a>
-std::map&lt; int, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getCurrentState</b> (void) const </td></tr>
+<tr class="memitem:aa5727c4eb316f69edae5efee422d5c6a"><td class="memItemLeft" align="right" valign="top">std::map&lt; int, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork.html#aa5727c4eb316f69edae5efee422d5c6a">getCurrentState</a> (void) const </td></tr>
 <tr class="separator:aa5727c4eb316f69edae5efee422d5c6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a140759419ddad1c7dea5537e90c52572"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a140759419ddad1c7dea5537e90c52572"></a>
-std::map&lt; int, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getDirectionAtState</b> (std::map&lt; int, double &gt; basePointCoordinates) const </td></tr>
+<tr class="memitem:a140759419ddad1c7dea5537e90c52572"><td class="memItemLeft" align="right" valign="top">std::map&lt; int, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork.html#a140759419ddad1c7dea5537e90c52572">getDirectionAtState</a> (std::map&lt; int, double &gt; basePointCoordinates) const </td></tr>
 <tr class="separator:a140759419ddad1c7dea5537e90c52572"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b983325b6f616ab86591f1a5c6b0d69"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b983325b6f616ab86591f1a5c6b0d69"></a>
-<a class="el" href="classNode.html">Node</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getNodeById</b> (int nodeId)</td></tr>
-<tr class="separator:a0b983325b6f616ab86591f1a5c6b0d69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -154,6 +144,147 @@ Friends</h2></td></tr>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="classNetwork.html">Network</a> &amp;network1, const <a class="el" href="classNetwork.html">Network</a> &amp;network2)</td></tr>
 <tr class="separator:a7a1b02eac9fc1db7f981fe618019d99a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="aa5727c4eb316f69edae5efee422d5c6a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; int, double &gt; Network::getCurrentState </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the actual state of the network i.e. the actual value of all the nodes in the network. </p><dl class="section return"><dt>Returns</dt><dd>map where the first value is the ID of the node and the second value is the actual value of that node </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a140759419ddad1c7dea5537e90c52572"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; int, double &gt; Network::getDirectionAtState </td>
+          <td>(</td>
+          <td class="paramtype">std::map&lt; int, double &gt;&#160;</td>
+          <td class="paramname"><em>basePointCoordinates</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the direction in which the network is currently moving in the state space i.e. the derivative in the phase space. Calculated by stepping the network one step and measuring the changes in the axis directions. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">basePointCoordinates</td><td>the coordinates of the current state in the phase space </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>map where first value is the ID of the node and the secodn value is the change along the node's axis i.e. partial derivative. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae30196d51c9db40feaf93cde5508d106"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Network::getId </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the unique ID of the network. </p>
+
+</div>
+</div>
+<a class="anchor" id="a0b1b879abf7417e425325999a7919d15"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Network::getLocalId </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Within the network, each node has a local ID that is the index of the node in the mNodes vector. </p>
+
+</div>
+</div>
+<a class="anchor" id="a0b983325b6f616ab86591f1a5c6b0d69"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classNode.html">Node</a> * Network::getNodeById </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nodeId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return a pointer to the node that corresponds to the given node ID. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nodeId</td><td>the node ID </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aecfd002e55cef6a23843d535e75f49e0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classDynamicalEquation.html">DynamicalEquation</a> * Network::getNodeDynamicalEquation </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nodeId</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return a pointer to the <a class="el" href="classDynamicalEquation.html">DynamicalEquation</a> of the given node. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nodeId</td><td>the node ID </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="afe7437019956a4677ef9d4df98c36730"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classNode.html">Node</a> * &gt; Network::getNodeNeighbors </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nodeId</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Return the list of neighbors of a given node. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nodeId</td><td>the node ID </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/src/core/include/<a class="el" href="Network_8hh_source.html">Network.hh</a></li>
 <li>/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/src/core/src/Network.cc</li>

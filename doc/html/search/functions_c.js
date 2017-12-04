@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['variant',['variant',['../structEzAquarii_1_1variant.html#aba217414b27084fcfe62cc3e5e4b6e1f',1,'EzAquarii::variant::variant()'],['../structEzAquarii_1_1variant.html#a7aa6d2d6ef84300ce6058386da4fd301',1,'EzAquarii::variant::variant(const T &amp;t)']]]
+  ['token',['token',['../structEzAquarii_1_1Parser_1_1by__type.html#aa65cdc8218313785870dc6bfed537ca4',1,'EzAquarii::Parser::by_type']]],
+  ['type_5fget',['type_get',['../structEzAquarii_1_1Parser_1_1by__type.html#a8d138a6b3fb230852c22967330ccd44b',1,'EzAquarii::Parser::by_type']]]
 ];

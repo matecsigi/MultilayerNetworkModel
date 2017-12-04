@@ -42,25 +42,20 @@ void Network::addNode(int nodeId)
 }
 
 //TODO: decide if edges should be directed or not
-void Network::addEdge(int localNodeId1, int localNodeId2)
+void Network::addEdge(int nodeId1, int nodeId2)
 {
-  //check if has nodes
-  // int localId1 = getLocalId(nodeId1);
-  // int localId2 = getLocalId(nodeId2);
-  //error handling
-  //-1 is network has no node with given id
-  // assert(localId1 != -1);
-  // assert(localId2 != -1);
-  
-  //check if edge exists
+  int localNodeId1 = getLocalId(nodeId1);
+  int localNodeId2 = getLocalId(nodeId2);
   if(std::find(mNodeConnections[localNodeId1].begin(), mNodeConnections[localNodeId1].end(), mNodes[localNodeId2]) == mNodeConnections[localNodeId1].end()) 
   {
     mNodeConnections[localNodeId1].push_back(mNodes[localNodeId2]);
   }
 }
 
-void Network::removeEdge(int localId1, int localId2)
+void Network::removeEdge(int nodeId1, int nodeId2)
 {
+  int localId1 = getLocalId(nodeId1);
+  int localId2 = getLocalId(nodeId2);
   if(std::find(mNodeConnections[localId1].begin(), mNodeConnections[localId1].end(), mNodes[localId2]) != mNodeConnections[localId1].end()) 
   {
     mNodeConnections[localId1].erase(std::remove(mNodeConnections[localId1].begin(), mNodeConnections[localId1].end(), mNodes[localId2]), mNodeConnections[localId1].end());
@@ -76,7 +71,7 @@ void Network::removeAllEdges()
     for(std::vector<Node*>::iterator itNei=neighbors.begin(); itNei != neighbors.end(); ++itNei)
     {
       Node* neighbor = (*itNei);
-      removeEdge(getLocalId(node->getId()), getLocalId(neighbor->getId()));
+      removeEdge(node->getId(), neighbor->getId());
     }
   }
 }
@@ -90,19 +85,6 @@ void Network::setDynamicalEquation(int nodeId, std::string strEquation)
 {
   int localId = getLocalId(nodeId);
   mDynamicalEquations[localId]->loadEquation(strEquation);
-}
-
-void Network::generateConnections(void)
-{
-  //creating a circular graph
-  for(unsigned i=1; i<mNodes.size(); ++i)
-  {
-    addEdge(i-1, i);
-  }
-  if(mNodes.size() > 1)
-  {
-    addEdge(mNodes.size()-1, 0);
-  }
 }
 
 int Network::getId(void) const
