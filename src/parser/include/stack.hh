@@ -40,7 +40,7 @@
 
 # include <vector>
 
-#line 9 "parser.y" // stack.hh:132
+#line 15 "parser.y" // stack.hh:132
 namespace  EquationParser  {
 #line 46 "stack.hh" // stack.hh:132
   template <class T, class S = std::vector<T> >
@@ -150,7 +150,7 @@ namespace  EquationParser  {
     unsigned int range_;
   };
 
-#line 9 "parser.y" // stack.hh:132
+#line 15 "parser.y" // stack.hh:132
 } //  EquationParser 
 #line 156 "stack.hh" // stack.hh:132
 

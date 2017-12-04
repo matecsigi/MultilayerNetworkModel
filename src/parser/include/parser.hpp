@@ -40,7 +40,7 @@
 #ifndef YY_YY_PARSER_HPP_INCLUDED
 # define YY_YY_PARSER_HPP_INCLUDED
 // //                    "%code requires" blocks.
-#line 11 "parser.y" // lalr1.cc:377
+#line 17 "parser.y" // lalr1.cc:377
 
     #include <iostream>
     #include <string>
@@ -130,7 +130,7 @@
 # define YYDEBUG 1
 #endif
 
-#line 9 "parser.y" // lalr1.cc:377
+#line 15 "parser.y" // lalr1.cc:377
 namespace  EquationParser  {
 #line 136 "parser.hpp" // lalr1.cc:377
 
@@ -721,9 +721,9 @@ namespace  EquationParser  {
     enum
     {
       yyeof_ = 0,
-      yylast_ = 28,     ///< Last index in yytable_.
+      yylast_ = 36,     ///< Last index in yytable_.
       yynnts_ = 10,  ///< Number of nonterminal symbols.
-      yyfinal_ = 27, ///< Termination state number.
+      yyfinal_ = 30, ///< Termination state number.
       yyterror_ = 1,
       yyerrcode_ = 256,
       yyntokens_ = 15  ///< Number of tokens.
@@ -1146,7 +1146,7 @@ namespace  EquationParser  {
   }
 
 
-#line 9 "parser.y" // lalr1.cc:377
+#line 15 "parser.y" // lalr1.cc:377
 } //  EquationParser 
 #line 1152 "parser.hpp" // lalr1.cc:377
 

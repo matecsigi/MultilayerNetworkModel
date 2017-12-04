@@ -12,11 +12,9 @@ int main(void)
   cout<<"Start simulation"<<endl;
   cout<<"bufferSize="<<bufferSize<<endl;
 
-  int simulationTime = 3;
+  int simulationTime = 30;
 
-  const char *filename="generated/MultilayerNetworkStructure-1.json";
-  // const char *filenameInitialCond="generated/InitialCondition-1.bin";
-
+  const char *filename="generated/multilayerStructure_0.json";
   std::string filenameInitialCond = "generated/InitialCondition-1.bin";
 
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
@@ -30,13 +28,10 @@ int main(void)
 
     if((t % (bufferSize-2)) == (bufferSize-2-1))
     {
-      // std::cout<<"BEFORE SHIFT"<<std::endl;
-      // std::cout<<*multilayerNetwork<<std::endl;
       cout<<"Changing t="<<t<<endl;
+      multilayerNetwork->save();
       multilayerNetwork->saveState();
       multilayerNetwork->shiftBuffers();
-      // std::cout<<"AFTER SHIFT"<<std::endl;
-      // std::cout<<*multilayerNetwork<<std::endl;
     }
   }
 

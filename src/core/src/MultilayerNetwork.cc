@@ -51,8 +51,17 @@ void MultilayerNetwork::step(void)
   }
 }
 
-void MultilayerNetwork::save(const char* filename)
+void MultilayerNetwork::save(std::string filename)
 {
+  if(filename.empty())
+  {
+    filename.append("generated/multilayerStructure_");
+    filename.append(std::to_string(t/bufferSize));
+    filename.append(".json");
+  }
+
+  std::cout<<"FILE="<<filename<<std::endl;
+
   Document document;
   Document::AllocatorType& allocator = document.GetAllocator();
   document.SetObject();
@@ -119,7 +128,7 @@ void MultilayerNetwork::save(const char* filename)
   document.Accept(writer);
   //std::cout<<buffer.GetString()<<std::endl;
 
-  std::ofstream file(filename);
+  std::ofstream file(filename.c_str());
   file<<buffer.GetString();
   file.close();
 }
@@ -204,7 +213,7 @@ void MultilayerNetwork::saveState(std::string filename)
 {
   if(filename.empty())
   {
-    filename.append("generated/nodeStates_t=");
+    filename.append("generated/nodeStates_");
     filename.append(std::to_string(t/bufferSize));
     filename.append(".bin");
   }
@@ -472,19 +481,19 @@ ostream& operator<<(ostream& os, const MultilayerNetwork& multilayerNetwork)
 {
   os<<"<< operator"<<endl;
   std::vector<Layer*> layers = multilayerNetwork.getLayers();
-  for(std::vector<Layer*>::iterator it1=layers.begin(); it1 != layers.end(); ++it1)
+  for(std::vector<Layer*>::iterator itLay=layers.begin(); itLay != layers.end(); ++itLay)
   {
-    Layer* currentLayer = (*it1);
+    Layer* currentLayer = (*itLay);
     os<<"-Layer "<<currentLayer->getId()<<endl;
     std::vector<Network*> networks = currentLayer->getNetworks();
-    for(std::vector<Network*>::iterator it2=networks.begin(); it2 != networks.end(); ++it2)
+    for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
     {
-      Network* currentNetwork = (*it2);
+      Network* currentNetwork = (*itNet);
       os<<"  --Network "<<currentNetwork->getId()<<endl;
       std::vector<Node*> nodes = currentNetwork->getNodes();
-      for(std::vector<Node*>::iterator it3 = nodes.begin(); it3 != nodes.end(); ++it3)
+      for(std::vector<Node*>::iterator itNode = nodes.begin(); itNode != nodes.end(); ++itNode)
       {
-	Node* currentNode = (*it3);
+	Node* currentNode = (*itNode);
 	os<<"    ---Node "<<currentNode->getId()<<": ";
 	double* tmpBuffer = new double[bufferSize];
 	currentNode->getValues(tmpBuffer);
@@ -503,9 +512,9 @@ ostream& operator<<(ostream& os, const MultilayerNetwork& multilayerNetwork)
 	if(networksToNode.size() > 0)
 	{
 	  std::vector<Node*> neighbors = networksToNode[0]->getNodeNeighbors(currentNode->getId());
-	  for(std::vector<Node*>::iterator it4=neighbors.begin(); it4 != neighbors.end(); ++it4)
+	  for(std::vector<Node*>::iterator itNei=neighbors.begin(); itNei != neighbors.end(); ++itNei)
 	  {
-	    os<<"       "<<(*it4)->getId()<<endl;
+	    os<<"       "<<(*itNei)->getId()<<endl;
 	  }
 	}
 	else

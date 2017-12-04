@@ -28,7 +28,7 @@ public:
   void step(void);
 
   //Save and load
-  void save(const char* filename);
+  void save(std::string filename = "");
   void load(const char* filename);
   
   void saveState(std::string filename = "");

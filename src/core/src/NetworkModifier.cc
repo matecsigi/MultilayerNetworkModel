@@ -15,6 +15,9 @@ void NetworkModifier::modifyNetwork(Network* network)
   Node* nodeToChange = chooseNode(network);
   ModificationType type = chooseType();
 
+  DynamicalEquation* nodeEquation = network->getNodeDynamicalEquation(nodeToChange->getId());
+  std::cout<<nodeEquation->toString()<<std::endl;
+
   switch(type)
   {
   case ADD_EDGE:

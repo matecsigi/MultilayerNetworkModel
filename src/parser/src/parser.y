@@ -1,3 +1,9 @@
+/**
+   Generate parser with the followign commands:
+   >>flex -o scanner.cpp scanner.l
+   >>bison -o parser.cpp parser.y
+ */
+
 %skeleton "lalr1.cc" /* -*- C++ -*- */
 %require "3.0"
 %defines
@@ -90,6 +96,14 @@ constant : INTEGER
          | DOUBLE
            {
 	     $$ = new CNConstant($1);
+	   }
+         | MINUS INTEGER
+	   {
+	     $$ = new CNConstant(-$2);
+	   }
+         | MINUS DOUBLE
+	   {
+	     $$ = new CNConstant(-$2);
 	   }
 
 atomexpr : constant

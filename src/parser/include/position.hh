@@ -50,7 +50,7 @@
 #  endif
 # endif
 
-#line 9 "parser.y" // location.cc:296
+#line 15 "parser.y" // location.cc:296
 namespace  EquationParser  {
 #line 56 "position.hh" // location.cc:296
   /// Abstract a position.
@@ -174,7 +174,7 @@ namespace  EquationParser  {
     return ostr << pos.line << '.' << pos.column;
   }
 
-#line 9 "parser.y" // location.cc:296
+#line 15 "parser.y" // location.cc:296
 } //  EquationParser 
 #line 180 "position.hh" // location.cc:296
 #endif // !YY_YY_POSITION_HH_INCLUDED

@@ -40,7 +40,7 @@
 
 # include "position.hh"
 
-#line 9 "parser.y" // location.cc:296
+#line 15 "parser.y" // location.cc:296
 namespace  EquationParser  {
 #line 46 "location.hh" // location.cc:296
   /// Abstract a location.
@@ -186,7 +186,7 @@ namespace  EquationParser  {
     return ostr;
   }
 
-#line 9 "parser.y" // location.cc:296
+#line 15 "parser.y" // location.cc:296
 } //  EquationParser 
 #line 192 "location.hh" // location.cc:296
 #endif // !YY_YY_LOCATION_HH_INCLUDED
