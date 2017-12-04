@@ -60,8 +60,6 @@ void MultilayerNetwork::save(std::string filename)
     filename.append(".json");
   }
 
-  std::cout<<"FILE="<<filename<<std::endl;
-
   Document document;
   Document::AllocatorType& allocator = document.GetAllocator();
   document.SetObject();
@@ -190,7 +188,7 @@ void MultilayerNetwork::load(const char* filename)
 	if(nodeObject.HasMember("NetworkAssigned"))
 	{
 	  Value& networkAssignedObject = nodeObject["NetworkAssigned"];
-	  node->assignToNetwork(allNetworks[networkAssignedObject["id"].GetInt()]);
+	  node->setNetworkAssigned(allNetworks[networkAssignedObject["id"].GetInt()]);
 	}
 	Value& neighborArray = nodeObject["Neighbors"];
 	for(SizeType iiii=0; iiii<neighborArray.Size(); ++iiii)

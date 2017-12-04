@@ -6,58 +6,42 @@
 {\bfseries Node} (int)\hypertarget{classNode_aff71d952af8363f046a67a8b12194e46}{}\label{classNode_aff71d952af8363f046a67a8b12194e46}
 
 \item 
-void {\bfseries step} ()\hypertarget{classNode_aeca7ef58472c76e9e751226abc2f6454}{}\label{classNode_aeca7ef58472c76e9e751226abc2f6454}
-
-\item 
-void {\bfseries step\+O\+DE} (\hyperlink{classDynamicalEquation}{Dynamical\+Equation} $\ast$dynamical\+Equation)\hypertarget{classNode_afe30b7fc1388bb03bf2db231cc1c8656}{}\label{classNode_afe30b7fc1388bb03bf2db231cc1c8656}
-
-\item 
-void {\bfseries step\+Ode\+At\+State} (\hyperlink{classDynamicalEquation}{Dynamical\+Equation} $\ast$dynamical\+Equation, std\+::map$<$ int, double $>$ starting\+State, std\+::map$<$ int, double $>$ \&final\+State)\hypertarget{classNode_aeb2d389fbdfff8a2b4df8da2293b0e0d}{}\label{classNode_aeb2d389fbdfff8a2b4df8da2293b0e0d}
-
-\item 
-void {\bfseries add\+To\+Network} (\hyperlink{classNetwork}{Network} $\ast$network\+Ptr)\hypertarget{classNode_a0152bc26929db78224617004ddf9aadb}{}\label{classNode_a0152bc26929db78224617004ddf9aadb}
-
-\item 
-void {\bfseries assign\+To\+Network} (\hyperlink{classNetwork}{Network} $\ast$network)\hypertarget{classNode_aa0bfc27090c27167472e0bc4499ad17c}{}\label{classNode_aa0bfc27090c27167472e0bc4499ad17c}
-
-\item 
-void {\bfseries set\+Values} (double $\ast$values)\hypertarget{classNode_a507e58ea4aa68188b159643fbd90e657}{}\label{classNode_a507e58ea4aa68188b159643fbd90e657}
-
-\item 
-void {\bfseries set\+Upward\+Influence} ()\hypertarget{classNode_a905952508ade253c1e8c826ce4ab5434}{}\label{classNode_a905952508ade253c1e8c826ce4ab5434}
-
-\item 
-void {\bfseries set\+Downward\+Influence} ()\hypertarget{classNode_acf0d5159faf93928dbfbe654feedd9a4}{}\label{classNode_acf0d5159faf93928dbfbe654feedd9a4}
-
-\item 
-void {\bfseries set\+Initial\+Conditions} (double $\ast$values)\hypertarget{classNode_acb93f815a8e880978604967e12b345fc}{}\label{classNode_acb93f815a8e880978604967e12b345fc}
-
-\item 
-void {\bfseries set\+Current\+State} (state\+\_\+type state)\hypertarget{classNode_a6b10486fcfffdc3ba4e92378c8b86fcd}{}\label{classNode_a6b10486fcfffdc3ba4e92378c8b86fcd}
-
-\item 
 int {\bfseries get\+Id} (void) const \hypertarget{classNode_a962c1706091481c7ae0552cf6232e1fe}{}\label{classNode_a962c1706091481c7ae0552cf6232e1fe}
 
+\item 
+std\+::vector$<$ \hyperlink{classNetwork}{Network} $\ast$ $>$ \hyperlink{classNode_abb91c473b57d816afd9c3a3ebd8d8b8a}{get\+Networks} (void) const 
 \item 
 \hyperlink{classNetwork}{Network} $\ast$ {\bfseries get\+Network\+Assigned} (void) const \hypertarget{classNode_aa8b0d5bdeeb3ca58b241e96f4bc7d662}{}\label{classNode_aa8b0d5bdeeb3ca58b241e96f4bc7d662}
 
 \item 
-std\+::vector$<$ \hyperlink{classNetwork}{Network} $\ast$ $>$ {\bfseries get\+Networks} (void) const \hypertarget{classNode_abb91c473b57d816afd9c3a3ebd8d8b8a}{}\label{classNode_abb91c473b57d816afd9c3a3ebd8d8b8a}
+void {\bfseries set\+Network\+Assigned} (\hyperlink{classNetwork}{Network} $\ast$network)\hypertarget{classNode_ac652ab341f6ea808146a3d557b889468}{}\label{classNode_ac652ab341f6ea808146a3d557b889468}
 
 \item 
-void {\bfseries get\+Values} (double $\ast$values)\hypertarget{classNode_a5fc3cc057fe9e72d71c207f369f88f34}{}\label{classNode_a5fc3cc057fe9e72d71c207f369f88f34}
+void \hyperlink{classNode_aae6f1c4d0ddcdcdc83bdc572009d9a4a}{add\+To\+Network} (\hyperlink{classNetwork}{Network} $\ast$network)
+\item 
+void \hyperlink{classNode_a507e58ea4aa68188b159643fbd90e657}{set\+Values} (double $\ast$values)
+\item 
+void {\bfseries set\+Current\+State} (state\+\_\+type state)\hypertarget{classNode_a6b10486fcfffdc3ba4e92378c8b86fcd}{}\label{classNode_a6b10486fcfffdc3ba4e92378c8b86fcd}
 
 \item 
-double {\bfseries get\+Value} (void)\hypertarget{classNode_a2c5adb1557cf4326f42f02fe88706aaf}{}\label{classNode_a2c5adb1557cf4326f42f02fe88706aaf}
-
-\item 
-void {\bfseries get\+Initial\+Conditions} (double $\ast$values)\hypertarget{classNode_a642e190ff5343c6c9ffc86b8670a9a7c}{}\label{classNode_a642e190ff5343c6c9ffc86b8670a9a7c}
-
+void \hyperlink{classNode_a5fc3cc057fe9e72d71c207f369f88f34}{get\+Values} (double $\ast$values)
 \item 
 double {\bfseries get\+Current\+State} ()\hypertarget{classNode_a69708281dcb26b5c2068153cce56de32}{}\label{classNode_a69708281dcb26b5c2068153cce56de32}
 
 \item 
 double {\bfseries get\+Previous\+State} ()\hypertarget{classNode_a6aa927856c01c3e3849fb79db03a4232}{}\label{classNode_a6aa927856c01c3e3849fb79db03a4232}
+
+\item 
+void \hyperlink{classNode_aeca7ef58472c76e9e751226abc2f6454}{step} ()
+\item 
+void \hyperlink{classNode_aeb2d389fbdfff8a2b4df8da2293b0e0d}{step\+Ode\+At\+State} (\hyperlink{classDynamicalEquation}{Dynamical\+Equation} $\ast$dynamical\+Equation, std\+::map$<$ int, double $>$ starting\+State, std\+::map$<$ int, double $>$ \&final\+State)
+\item 
+void \hyperlink{classNode_afe30b7fc1388bb03bf2db231cc1c8656}{step\+O\+DE} (\hyperlink{classDynamicalEquation}{Dynamical\+Equation} $\ast$dynamical\+Equation)
+\item 
+void {\bfseries set\+Upward\+Influence} ()\hypertarget{classNode_a905952508ade253c1e8c826ce4ab5434}{}\label{classNode_a905952508ade253c1e8c826ce4ab5434}
+
+\item 
+void {\bfseries set\+Downward\+Influence} ()\hypertarget{classNode_acf0d5159faf93928dbfbe654feedd9a4}{}\label{classNode_acf0d5159faf93928dbfbe654feedd9a4}
 
 \end{DoxyCompactItemize}
 \subsection*{Friends}
@@ -66,6 +50,92 @@ double {\bfseries get\+Previous\+State} ()\hypertarget{classNode_a6aa927856c01c3
 bool {\bfseries operator==} (const \hyperlink{classNode}{Node} \&node1, const \hyperlink{classNode}{Node} \&node2)\hypertarget{classNode_aa6ca4e78d2001f10e20ffcf962ef42cb}{}\label{classNode_aa6ca4e78d2001f10e20ffcf962ef42cb}
 
 \end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{Node@{Node}!add\+To\+Network@{add\+To\+Network}}
+\index{add\+To\+Network@{add\+To\+Network}!Node@{Node}}
+\subsubsection[{\texorpdfstring{add\+To\+Network(\+Network $\ast$network)}{addToNetwork(Network *network)}}]{\setlength{\rightskip}{0pt plus 5cm}void Node\+::add\+To\+Network (
+\begin{DoxyParamCaption}
+\item[{{\bf Network} $\ast$}]{network}
+\end{DoxyParamCaption}
+)}\hypertarget{classNode_aae6f1c4d0ddcdcdc83bdc572009d9a4a}{}\label{classNode_aae6f1c4d0ddcdcdc83bdc572009d9a4a}
+The node is added to a network. Not called directly, but through Network\+::add\+Node(). 
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\index{Node@{Node}!get\+Networks@{get\+Networks}}
+\index{get\+Networks@{get\+Networks}!Node@{Node}}
+\subsubsection[{\texorpdfstring{get\+Networks(void) const }{getNetworks(void) const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ {\bf Network} $\ast$ $>$ Node\+::get\+Networks (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classNode_abb91c473b57d816afd9c3a3ebd8d8b8a}{}\label{classNode_abb91c473b57d816afd9c3a3ebd8d8b8a}
+Returns a vector containing pointers to all the networks the node is part of. \begin{DoxyReturn}{Returns}
+vector of networks a node is part of 
+\end{DoxyReturn}
+\index{Node@{Node}!get\+Values@{get\+Values}}
+\index{get\+Values@{get\+Values}!Node@{Node}}
+\subsubsection[{\texorpdfstring{get\+Values(double $\ast$values)}{getValues(double *values)}}]{\setlength{\rightskip}{0pt plus 5cm}void Node\+::get\+Values (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{values}
+\end{DoxyParamCaption}
+)}\hypertarget{classNode_a5fc3cc057fe9e72d71c207f369f88f34}{}\label{classNode_a5fc3cc057fe9e72d71c207f369f88f34}
+Stored the content of the whole buffer in the values variable. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt out}  & {\em values} & all the states oof the buffer are stored here \\
+\hline
+\end{DoxyParams}
+\index{Node@{Node}!set\+Values@{set\+Values}}
+\index{set\+Values@{set\+Values}!Node@{Node}}
+\subsubsection[{\texorpdfstring{set\+Values(double $\ast$values)}{setValues(double *values)}}]{\setlength{\rightskip}{0pt plus 5cm}void Node\+::set\+Values (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{values}
+\end{DoxyParamCaption}
+)}\hypertarget{classNode_a507e58ea4aa68188b159643fbd90e657}{}\label{classNode_a507e58ea4aa68188b159643fbd90e657}
+Sets the contents of the whole buffer and not just single values. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em values} & these values are set to the buffer \\
+\hline
+\end{DoxyParams}
+\index{Node@{Node}!step@{step}}
+\index{step@{step}!Node@{Node}}
+\subsubsection[{\texorpdfstring{step()}{step()}}]{\setlength{\rightskip}{0pt plus 5cm}void Node\+::step (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classNode_aeca7ef58472c76e9e751226abc2f6454}{}\label{classNode_aeca7ef58472c76e9e751226abc2f6454}
+Performs one step on the node involving the O\+DE, Upward\+Influence, Downward\+Influence and Vector\+Field\+Reconfiguration. The current value of the node is used for the stepping. \index{Node@{Node}!step\+O\+DE@{step\+O\+DE}}
+\index{step\+O\+DE@{step\+O\+DE}!Node@{Node}}
+\subsubsection[{\texorpdfstring{step\+O\+D\+E(\+Dynamical\+Equation $\ast$dynamical\+Equation)}{stepODE(DynamicalEquation *dynamicalEquation)}}]{\setlength{\rightskip}{0pt plus 5cm}void Node\+::step\+O\+DE (
+\begin{DoxyParamCaption}
+\item[{{\bf Dynamical\+Equation} $\ast$}]{dynamical\+Equation}
+\end{DoxyParamCaption}
+)}\hypertarget{classNode_afe30b7fc1388bb03bf2db231cc1c8656}{}\label{classNode_afe30b7fc1388bb03bf2db231cc1c8656}
+Steps the dynamical equation. A node can have multiple dynamical equations, because it can be part of multiple network in the same layer. Only one of these equations is stepped in this function. 
+\begin{DoxyParams}{Parameters}
+{\em dynamical\+Equation} & the dynamical equation to be stepped \\
+\hline
+\end{DoxyParams}
+\index{Node@{Node}!step\+Ode\+At\+State@{step\+Ode\+At\+State}}
+\index{step\+Ode\+At\+State@{step\+Ode\+At\+State}!Node@{Node}}
+\subsubsection[{\texorpdfstring{step\+Ode\+At\+State(\+Dynamical\+Equation $\ast$dynamical\+Equation, std\+::map$<$ int, double $>$ starting\+State, std\+::map$<$ int, double $>$ \&final\+State)}{stepOdeAtState(DynamicalEquation *dynamicalEquation, std::map< int, double > startingState, std::map< int, double > &finalState)}}]{\setlength{\rightskip}{0pt plus 5cm}void Node\+::step\+Ode\+At\+State (
+\begin{DoxyParamCaption}
+\item[{{\bf Dynamical\+Equation} $\ast$}]{dynamical\+Equation, }
+\item[{std\+::map$<$ int, double $>$}]{starting\+State, }
+\item[{std\+::map$<$ int, double $>$ \&}]{final\+State}
+\end{DoxyParamCaption}
+)}\hypertarget{classNode_aeb2d389fbdfff8a2b4df8da2293b0e0d}{}\label{classNode_aeb2d389fbdfff8a2b4df8da2293b0e0d}
+Performs one step on the node involving only the O\+DE. The state given is used as the starting state of stepping. The dynamical equation is given as a parameter, because the O\+DE is only stepped for one equation, but a node could be part of multiply networks with different equations. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em dynamical\+Equation} & the dynamical equation to be stepped \\
+\hline
+\mbox{\tt in}  & {\em starting\+State} & describes the state of the node to be taken as the basis for stepping \\
+\hline
+\mbox{\tt out}  & {\em final\+State} & the result of the stepping (final value) is stored here \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

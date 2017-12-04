@@ -26,12 +26,12 @@ void StructureGeneratorImpl::generateNetworks(void)
 {
   std::vector<Layer*> layers = mMultilayerNetwork->getLayers();
   int networkIdCounter = 0;
-  for(std::vector<Layer*>::iterator it=layers.begin(); it != layers.end(); ++it)
+  for(std::vector<Layer*>::iterator itLay=layers.begin(); itLay != layers.end(); ++itLay)
   {
-    int layerIndex = std::distance(layers.begin(), it);
+    int layerIndex = std::distance(layers.begin(), itLay);
     for(int i=0; i<pow(3, (layerIndex+1)); ++i)
     {
-      (*it)->addNetwork(networkIdCounter+1);
+      (*itLay)->addNetwork(networkIdCounter+1);
       ++networkIdCounter;
     }
   }
@@ -41,17 +41,17 @@ void StructureGeneratorImpl::generateNodes(void)
 {
   std::vector<Layer*> layers = mMultilayerNetwork->getLayers();
   int nodeIdCounter = 0;
-  for(std::vector<Layer*>::iterator it=layers.begin(); it != layers.end(); ++it)
+  for(std::vector<Layer*>::iterator itLay=layers.begin(); itLay != layers.end(); ++itLay)
   {
-    std::vector<Network*> networks = (*it)->getNetworks();
-    for(std::vector<Network*>::iterator it2=networks.begin(); it2 != networks.end(); ++it2)
+    std::vector<Network*> networks = (*itLay)->getNetworks();
+    for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
       {
 	for(int i=0; i<3; i++)
 	{
-	  (*it2)->addNode(nodeIdCounter+1);
+	  (*itNet)->addNode(nodeIdCounter+1);
 	  ++nodeIdCounter;
 	}
-	generateEdges(*it2);
+	generateEdges(*itNet);
       }
   }
 }
@@ -82,12 +82,12 @@ void StructureGeneratorImpl::assignNetworksToNodes(void)
     std::vector<Network*> networksUp = layers[i]->getNetworks();
     std::vector<Network*> networksDown = layers[i+1]->getNetworks();
     int nodeCounter = 0;
-    for(std::vector<Network*>::iterator it2=networksUp.begin(); it2 != networksUp.end(); ++it2)
+    for(std::vector<Network*>::iterator itNet=networksUp.begin(); itNet != networksUp.end(); ++itNet)
     {
-      std::vector<Node*> nodesInNetwork = (*it2)->getNodes();
-      for(std::vector<Node*>::iterator it3=nodesInNetwork.begin(); it3 != nodesInNetwork.end(); ++it3)
+      std::vector<Node*> nodesInNetwork = (*itNet)->getNodes();
+      for(std::vector<Node*>::iterator itNode=nodesInNetwork.begin(); itNode != nodesInNetwork.end(); ++itNode)
       {
-	(*it3)->assignToNetwork(networksDown[nodeCounter]);
+	(*itNode)->setNetworkAssigned(networksDown[nodeCounter]);
   	 ++nodeCounter;
       }
     }
