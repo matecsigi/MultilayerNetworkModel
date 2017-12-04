@@ -39,13 +39,16 @@ public:
   void changeMultiplyToPlus(Network* network, Node* node);
 
   //getNode function
+  Node* getNode_addEdge(Network* network, Node* node);
   Node* getNode_removeEdge(Network* network, Node* node);
 
   //getLocations functions
+  void getLocations_addEdge(CalculationNode* calcNode, std::vector<CalculationNode*> &locations);
   void getLocations_changePlusToMultiply(CalculationNode* calcNode, std::vector<CalculationNode*> &locations);
   void getLocations_changeMultiplyToPlus(CalculationNode* calcNode, std::vector<CalculationNode*> &locations);
 
   //Specific change functions (given the exact location of change)
+  CalculationNode* specific_addEdge(CalculationNode* baseCalcNode, CalculationNode* changingCalcNode, Node* newNeighbor);
   CalculationNode* specific_removeEdge(CalculationNode* baseCalcNode, CalculationNode* changingCalcNode);
   CalculationNode* specific_changePlusToMultiply(CalculationNode* baseCalcNode, CalculationNode* changingCalcNode);
   CalculationNode* specific_changeMultiplyToPlus(CalculationNode* baseCalcNode, CalculationNode* changingCalcNode);

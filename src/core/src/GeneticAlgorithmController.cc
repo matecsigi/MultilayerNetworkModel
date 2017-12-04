@@ -17,15 +17,20 @@ GeneticAlgorithmController::~GeneticAlgorithmController()
 void GeneticAlgorithmController::fitToVectorField(Network* network, VectorField* targetVectorField)
 {
   mTargetVectorField = targetVectorField;
-  createInitialPopulation(network);
 
+  createInitialPopulation(network);
   for(mGeneration=1; mGeneration<numberOfGenerations; ++mGeneration)
   {
     mutation();
     crossover();
     death();
+    // chooseBestNetwork();
   }
-  
+
+  Network* bestNetwork = chooseBestNetwork();
+  // std::cout<<"END"<<std::endl;
+  NetworkModifier networkModifier;
+  networkModifier.copyNetwork(bestNetwork, network);
 }
 
 void GeneticAlgorithmController::mutation()
@@ -159,4 +164,19 @@ void GeneticAlgorithmController::createMixedNetwork(Network* parentNetwork1, Net
     }
     nodeEquation->loadNodesToEquation(nodeEquation->getBaseCalculationNode(), nodesMap);
   } 
+}
+
+Network* GeneticAlgorithmController::chooseBestNetwork()
+{
+  NetworkPopulationElement* bestPopulationElement = mPopulation[0];
+  for(std::vector<NetworkPopulationElement*>::iterator itNet=mPopulation.begin(); itNet != mPopulation.end(); ++itNet)
+  {
+    NetworkPopulationElement* currentElement = (*itNet);
+    if(currentElement->getFitness() > bestPopulationElement->getFitness())
+    {
+      bestPopulationElement = currentElement;
+    }
+  }
+  std::cout<<"fitness="<<bestPopulationElement->getFitness()<<std::endl;
+  return bestPopulationElement->getNetwork();
 }

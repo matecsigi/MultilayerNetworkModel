@@ -25,8 +25,21 @@ void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration()
   // std::cout<<"--------Target----------"<<std::endl;
   // std::cout<<*targetVectorField;
 
+  // Network* testNetwork = new Network;
+  // NetworkModifier modifier;
+  // modifier.copyNetwork(networkAssigned, testNetwork);
+
   GeneticAlgorithmController geneticController;
   geneticController.fitToVectorField(networkAssigned, targetVectorField);
+
+  // if(*testNetwork == *networkAssigned)
+  // {
+  //   std::cout<<"EQUAL"<<std::endl;
+  // }
+  // else
+  // {
+  //   std::cout<<"NOT EQUAL"<<std::endl;
+  // }
 
   delete currentVectorField;
   delete targetVectorField;

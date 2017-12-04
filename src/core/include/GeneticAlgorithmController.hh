@@ -24,6 +24,7 @@ public:
 
   //Helper functions
   void createMixedNetwork(Network* parentNetwork1, Network* parentNetwork2, Network* childNetwork);
+  Network* chooseBestNetwork();
 private:
   int mGeneration;
   VectorField* mTargetVectorField;

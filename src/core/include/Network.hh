@@ -16,6 +16,7 @@ public:
   void addNode(int nodeId);
   void addEdge(int localNodeId1, int localNodeId2);
   void removeEdge(int localNodeId1, int localNodeId2);
+  void removeAllEdges();
 
   void assignToNode(Node *node);
   

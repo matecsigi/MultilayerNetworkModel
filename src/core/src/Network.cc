@@ -67,6 +67,20 @@ void Network::removeEdge(int localId1, int localId2)
   }  
 }
 
+void Network::removeAllEdges()
+{
+  for(std::vector<Node*>::iterator itNode=mNodes.begin(); itNode != mNodes.end(); ++itNode)
+  {
+    Node* node = (*itNode);
+    std::vector<Node*> neighbors = getNodeNeighbors(node->getId());
+    for(std::vector<Node*>::iterator itNei=neighbors.begin(); itNei != neighbors.end(); ++itNei)
+    {
+      Node* neighbor = (*itNei);
+      removeEdge(getLocalId(node->getId()), getLocalId(neighbor->getId()));
+    }
+  }
+}
+
 void Network::assignToNode(Node* node)
 {
   mNodeAssigned = node;
