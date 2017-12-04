@@ -34,185 +34,21 @@ std::vector<Layer*> MultilayerNetwork::getLayers(void) const
   return mLayers;
 }
 
-void MultilayerNetwork::loadNodesToAllEquations(void)
+void MultilayerNetwork::step(void)
 {
-  std::vector<Layer*> layers = this->getLayers();
-  for(std::vector<Layer*>::iterator itLay=layers.begin(); itLay != layers.end(); ++itLay)
+  /* This is needed so that each node is stepped only once,
+   even if it's part of multiple networks*/
+  std::map<int, Node*> nodesMap;
+  std::vector<int> nodeIds;
+  this->collectNodes(nodesMap, nodeIds);  
+  std::sort(nodeIds.begin(), nodeIds.end());
+  nodeIds.erase(unique(nodeIds.begin(), nodeIds.end()), nodeIds.end());
+
+  for(std::vector<int>::iterator itId=nodeIds.begin(); itId != nodeIds.end(); ++itId)
   {
-    std::vector<Network*> networks = (*itLay)->getNetworks();
-    for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
-    {
-      Network* currentNetwork = (*itNet);
-      std::vector<Node*> nodes = currentNetwork->getNodes();
-      std::map<int, Node*> nodesMap;
-      for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode<nodes.end(); ++itNode)
-      {
-	nodesMap[(*itNode)->getId()] = (*itNode);
-      }
-      for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode<nodes.end(); ++itNode)
-      {
-	DynamicalEquation* dynamicalEquation = currentNetwork->getNodeDynamicalEquation((*itNode)->getId());
-	dynamicalEquation->loadNodesToEquation(dynamicalEquation->getBaseCalculationNode(), nodesMap);
-      }
-    }
+    Node* node = nodesMap[(*itId)];
+    node->step();
   }
-}
-
-ostream& operator<<(ostream& os, const MultilayerNetwork& multilayerNetwork)
-{
-  os<<"<< operator"<<endl;
-  std::vector<Layer*> layers = multilayerNetwork.getLayers();
-  for(std::vector<Layer*>::iterator it1=layers.begin(); it1 != layers.end(); ++it1)
-  {
-    Layer* currentLayer = (*it1);
-    os<<"-Layer "<<currentLayer->getId()<<endl;
-    std::vector<Network*> networks = currentLayer->getNetworks();
-    for(std::vector<Network*>::iterator it2=networks.begin(); it2 != networks.end(); ++it2)
-    {
-      Network* currentNetwork = (*it2);
-      os<<"  --Network "<<currentNetwork->getId()<<endl;
-      std::vector<Node*> nodes = currentNetwork->getNodes();
-      for(std::vector<Node*>::iterator it3 = nodes.begin(); it3 != nodes.end(); ++it3)
-      {
-	Node* currentNode = (*it3);
-	os<<"    ---Node "<<currentNode->getId()<<": ";
-	double* tmpBuffer = new double[bufferSize];
-	currentNode->getValues(tmpBuffer);
-	for(int i=0; i<bufferSize; ++i)
-	{
-	  os<<" "<<tmpBuffer[i];
-	}
-	delete [] tmpBuffer;
-	DynamicalEquation* currentDynamicalEquation = currentNetwork->getNodeDynamicalEquation(currentNode->getId());
-	if(currentDynamicalEquation != NULL)
-	{
-	  os<<"       dyn="<<currentDynamicalEquation->evaluate()<<" "<<currentDynamicalEquation->toString()<<endl;
-	}
-	//uncomment to check if the correct networks are assigned to nodes
-	std::vector<Network*> networksToNode = currentNode->getNetworks();
-	if(networksToNode.size() > 0)
-	{
-	  std::vector<Node*> neighbors = networksToNode[0]->getNodeNeighbors(currentNode->getId());
-	  for(std::vector<Node*>::iterator it4=neighbors.begin(); it4 != neighbors.end(); ++it4)
-	  {
-	    os<<"       "<<(*it4)->getId()<<endl;
-	  }
-	}
-	else
-	{
-	  os<<"       /no net assigned"<<endl;
-	}
-      }
-    }
-  }
-  return os;
-}
-
-
-bool operator==(const MultilayerNetwork& multilayerNetwork1, const MultilayerNetwork& multilayerNetwork2)
-{
-  std::vector<Layer*> layers1 = multilayerNetwork1.getLayers();
-  std::vector<Layer*> layers2 = multilayerNetwork2.getLayers();
-  if(layers1.size() != layers2.size())
-  {
-    return false;
-  }
-  std::map<int, Layer*> layerMap;
-  for(std::vector<Layer*>::iterator itLay=layers1.begin(); itLay != layers1.end(); ++itLay)
-  {
-    layerMap[(*itLay)->getId()] = (*itLay);
-  }
-
-  for(std::vector<Layer*>::iterator itLay=layers2.begin(); itLay != layers2.end(); ++itLay)
-  {
-    if(layerMap.count((*itLay)->getId()))
-    {
-      Layer* currentLayer = (*itLay);
-      Layer* correspondingLayer = layerMap[currentLayer->getId()];
-      if(!(*currentLayer == *correspondingLayer))
-      {
-	return false;
-      }
-    }
-    else
-    {
-      return false;
-    }
-  }
-
-  return true;
-}
-
-bool initialConditionsEqual(const MultilayerNetwork& multilayerNetwork1, const MultilayerNetwork& multilayerNetwork2)
-{
-  std::map<int, Node*> nodesMap1;
-  std::vector<int> nodeIds1;
-  multilayerNetwork1.collectNodes(nodesMap1, nodeIds1);
-
-  std::map<int, Node*> nodesMap2;
-  std::vector<int> nodeIds2;
-  multilayerNetwork2.collectNodes(nodesMap2, nodeIds2);
-  
-  double* tmpBuffer1 = new double[bufferSize];
-  double* tmpBuffer2 = new double[bufferSize];
-  for(std::vector<int>::iterator itId=nodeIds1.begin(); itId != nodeIds1.end(); ++itId)
-  {
-    Node* node1 = nodesMap1[(*itId)];
-    Node* node2 = nodesMap2[(*itId)];
-    node1->getValues(tmpBuffer1);
-    node2->getValues(tmpBuffer2);
-    for(int i=0; i<bufferSize; ++i)
-    {
-      if(tmpBuffer1[i] != tmpBuffer2[i])
-      {
-	return false;
-      }
-    }
-  }
-  delete [] tmpBuffer1;
-  delete [] tmpBuffer2;
-
-  return true;
-}
-
-bool dynamicalEquationsEqual(const MultilayerNetwork& multilayerNetwork1, const MultilayerNetwork& multilayerNetwork2)
-{
-  std::map<int, Node*> nodesMap1;
-  std::vector<int> nodeIds1;
-  multilayerNetwork1.collectNodes(nodesMap1, nodeIds1);
-
-  std::map<int, Node*> nodesMap2;
-  std::vector<int> nodeIds2;
-  multilayerNetwork2.collectNodes(nodesMap2, nodeIds2);
-
-  std::map<int, Network*> networksMap1;
-  std::vector<int> networkIds1;
-  multilayerNetwork1.collectNetworks(networksMap1, networkIds1);
-
-  std::map<int, Network*> networksMap2;
-  std::vector<int> networkIds2;
-  multilayerNetwork2.collectNetworks(networksMap2, networkIds2);
-  
-  for(std::vector<int>::iterator itId=nodeIds1.begin(); itId != nodeIds1.end(); ++itId)
-  {
-    Node* node1 = nodesMap1[(*itId)];
-    Node* node2 = nodesMap2[(*itId)];
-    std::vector<Network*> networks1 = node1->getNetworks();
-    std::vector<Network*> networks2 = node2->getNetworks();
-    for(std::vector<Network*>::iterator itNet=networks1.begin(); itNet != networks1.end(); ++itNet)
-    {
-      Network* network1 = networksMap1[(*itNet)->getId()];
-      Network* network2 = networksMap2[(*itNet)->getId()];
-      std::string dynamicEquation1 = network1->getNodeDynamicalEquationString(node1->getId());
-      std::string dynamicEquation2 = network2->getNodeDynamicalEquationString(node2->getId());
-      if(dynamicEquation1 != dynamicEquation2)
-      {
-	return false;
-      }
-    }
-  }
-  
-  return true;
 }
 
 void MultilayerNetwork::save(const char* filename)
@@ -365,42 +201,6 @@ void MultilayerNetwork::load(const char* filename)
   //std::cout<<buffer.GetString()<<std::endl;
 }
 
-void MultilayerNetwork::collectNodes(std::map<int, Node*>& nodesMap, std::vector<int>& nodeIds) const
-{
-  std::vector<Layer*> layers = this->getLayers();
-  for(std::vector<Layer*>::iterator itLay=layers.begin(); itLay != layers.end(); ++itLay)
-  {
-    Layer* currentLayer = (*itLay);
-    std::vector<Network*> networks = currentLayer->getNetworks();
-    for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
-    {
-      Network* currentNetwork = (*itNet);
-      std::vector<Node*> nodes = currentNetwork->getNodes();
-      for(std::vector<Node*>::iterator itNode = nodes.begin(); itNode != nodes.end(); ++itNode)
-      {
-	Node* currentNode = (*itNode);
-	nodesMap[currentNode->getId()] = currentNode;
-	nodeIds.push_back(currentNode->getId());
-      }
-    }
-  }
-}
-
-void MultilayerNetwork::collectNetworks(std::map<int, Network*>& networksMap, std::vector<int>& networkIds) const
-{
-  std::vector<Layer*> layers = this->getLayers();
-  for(std::vector<Layer*>::iterator itLay=layers.begin(); itLay != layers.end(); ++itLay)
-  {
-    Layer* currentLayer = (*itLay);
-    std::vector<Network*> networks = currentLayer->getNetworks();
-    for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
-    {
-      networksMap[(*itNet)->getId()] = (*itNet);
-      networkIds.push_back((*itNet)->getId());
-    }
-  }
-}
-
 void MultilayerNetwork::saveState(std::string filename)
 {
   if(filename.empty())
@@ -500,6 +300,142 @@ void MultilayerNetwork::loadState(const char* filename)
   delete [] buffer;
 }
 
+
+void MultilayerNetwork::loadNodesToAllEquations(void)
+{
+  std::vector<Layer*> layers = this->getLayers();
+  for(std::vector<Layer*>::iterator itLay=layers.begin(); itLay != layers.end(); ++itLay)
+  {
+    std::vector<Network*> networks = (*itLay)->getNetworks();
+    for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
+    {
+      Network* currentNetwork = (*itNet);
+      std::vector<Node*> nodes = currentNetwork->getNodes();
+      std::map<int, Node*> nodesMap;
+      for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode<nodes.end(); ++itNode)
+      {
+	nodesMap[(*itNode)->getId()] = (*itNode);
+      }
+      for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode<nodes.end(); ++itNode)
+      {
+	DynamicalEquation* dynamicalEquation = currentNetwork->getNodeDynamicalEquation((*itNode)->getId());
+	dynamicalEquation->loadNodesToEquation(dynamicalEquation->getBaseCalculationNode(), nodesMap);
+      }
+    }
+  }
+}
+
+
+bool initialConditionsEqual(const MultilayerNetwork& multilayerNetwork1, const MultilayerNetwork& multilayerNetwork2)
+{
+  std::map<int, Node*> nodesMap1;
+  std::vector<int> nodeIds1;
+  multilayerNetwork1.collectNodes(nodesMap1, nodeIds1);
+
+  std::map<int, Node*> nodesMap2;
+  std::vector<int> nodeIds2;
+  multilayerNetwork2.collectNodes(nodesMap2, nodeIds2);
+  
+  double* tmpBuffer1 = new double[bufferSize];
+  double* tmpBuffer2 = new double[bufferSize];
+  for(std::vector<int>::iterator itId=nodeIds1.begin(); itId != nodeIds1.end(); ++itId)
+  {
+    Node* node1 = nodesMap1[(*itId)];
+    Node* node2 = nodesMap2[(*itId)];
+    node1->getValues(tmpBuffer1);
+    node2->getValues(tmpBuffer2);
+    for(int i=0; i<bufferSize; ++i)
+    {
+      if(tmpBuffer1[i] != tmpBuffer2[i])
+      {
+	return false;
+      }
+    }
+  }
+  delete [] tmpBuffer1;
+  delete [] tmpBuffer2;
+
+  return true;
+}
+
+bool dynamicalEquationsEqual(const MultilayerNetwork& multilayerNetwork1, const MultilayerNetwork& multilayerNetwork2)
+{
+  std::map<int, Node*> nodesMap1;
+  std::vector<int> nodeIds1;
+  multilayerNetwork1.collectNodes(nodesMap1, nodeIds1);
+
+  std::map<int, Node*> nodesMap2;
+  std::vector<int> nodeIds2;
+  multilayerNetwork2.collectNodes(nodesMap2, nodeIds2);
+
+  std::map<int, Network*> networksMap1;
+  std::vector<int> networkIds1;
+  multilayerNetwork1.collectNetworks(networksMap1, networkIds1);
+
+  std::map<int, Network*> networksMap2;
+  std::vector<int> networkIds2;
+  multilayerNetwork2.collectNetworks(networksMap2, networkIds2);
+  
+  for(std::vector<int>::iterator itId=nodeIds1.begin(); itId != nodeIds1.end(); ++itId)
+  {
+    Node* node1 = nodesMap1[(*itId)];
+    Node* node2 = nodesMap2[(*itId)];
+    std::vector<Network*> networks1 = node1->getNetworks();
+    std::vector<Network*> networks2 = node2->getNetworks();
+    for(std::vector<Network*>::iterator itNet=networks1.begin(); itNet != networks1.end(); ++itNet)
+    {
+      Network* network1 = networksMap1[(*itNet)->getId()];
+      Network* network2 = networksMap2[(*itNet)->getId()];
+      std::string dynamicEquation1 = network1->getNodeDynamicalEquationString(node1->getId());
+      std::string dynamicEquation2 = network2->getNodeDynamicalEquationString(node2->getId());
+      if(dynamicEquation1 != dynamicEquation2)
+      {
+	return false;
+      }
+    }
+  }
+  
+  return true;
+}
+
+
+void MultilayerNetwork::collectNodes(std::map<int, Node*>& nodesMap, std::vector<int>& nodeIds) const
+{
+  std::vector<Layer*> layers = this->getLayers();
+  for(std::vector<Layer*>::iterator itLay=layers.begin(); itLay != layers.end(); ++itLay)
+  {
+    Layer* currentLayer = (*itLay);
+    std::vector<Network*> networks = currentLayer->getNetworks();
+    for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
+    {
+      Network* currentNetwork = (*itNet);
+      std::vector<Node*> nodes = currentNetwork->getNodes();
+      for(std::vector<Node*>::iterator itNode = nodes.begin(); itNode != nodes.end(); ++itNode)
+      {
+	Node* currentNode = (*itNode);
+	nodesMap[currentNode->getId()] = currentNode;
+	nodeIds.push_back(currentNode->getId());
+      }
+    }
+  }
+}
+
+void MultilayerNetwork::collectNetworks(std::map<int, Network*>& networksMap, std::vector<int>& networkIds) const
+{
+  std::vector<Layer*> layers = this->getLayers();
+  for(std::vector<Layer*>::iterator itLay=layers.begin(); itLay != layers.end(); ++itLay)
+  {
+    Layer* currentLayer = (*itLay);
+    std::vector<Network*> networks = currentLayer->getNetworks();
+    for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
+    {
+      networksMap[(*itNet)->getId()] = (*itNet);
+      networkIds.push_back((*itNet)->getId());
+    }
+  }
+}
+
+
 void MultilayerNetwork::shiftBuffers(void)
 {
   double* tmpBufferOld = new double[bufferSize];
@@ -533,18 +469,87 @@ void MultilayerNetwork::shiftBuffers(void)
   delete [] tmpBufferNew;
 }
 
-void MultilayerNetwork::step(void)
+ostream& operator<<(ostream& os, const MultilayerNetwork& multilayerNetwork)
 {
-  std::map<int, Node*> nodesMap;
-  std::vector<int> nodeIds;
-  this->collectNodes(nodesMap, nodeIds);
-  
-  std::sort(nodeIds.begin(), nodeIds.end());
-  nodeIds.erase(unique(nodeIds.begin(), nodeIds.end()), nodeIds.end());
-
-  for(std::vector<int>::iterator itId=nodeIds.begin(); itId != nodeIds.end(); ++itId)
+  os<<"<< operator"<<endl;
+  std::vector<Layer*> layers = multilayerNetwork.getLayers();
+  for(std::vector<Layer*>::iterator it1=layers.begin(); it1 != layers.end(); ++it1)
   {
-    Node* node = nodesMap[(*itId)];
-    node->step();
+    Layer* currentLayer = (*it1);
+    os<<"-Layer "<<currentLayer->getId()<<endl;
+    std::vector<Network*> networks = currentLayer->getNetworks();
+    for(std::vector<Network*>::iterator it2=networks.begin(); it2 != networks.end(); ++it2)
+    {
+      Network* currentNetwork = (*it2);
+      os<<"  --Network "<<currentNetwork->getId()<<endl;
+      std::vector<Node*> nodes = currentNetwork->getNodes();
+      for(std::vector<Node*>::iterator it3 = nodes.begin(); it3 != nodes.end(); ++it3)
+      {
+	Node* currentNode = (*it3);
+	os<<"    ---Node "<<currentNode->getId()<<": ";
+	double* tmpBuffer = new double[bufferSize];
+	currentNode->getValues(tmpBuffer);
+	for(int i=0; i<bufferSize; ++i)
+	{
+	  os<<" "<<tmpBuffer[i];
+	}
+	delete [] tmpBuffer;
+	DynamicalEquation* currentDynamicalEquation = currentNetwork->getNodeDynamicalEquation(currentNode->getId());
+	if(currentDynamicalEquation != NULL)
+	{
+	  os<<"       dyn="<<currentDynamicalEquation->evaluate()<<" "<<currentDynamicalEquation->toString()<<endl;
+	}
+	//uncomment to check if the correct networks are assigned to nodes
+	std::vector<Network*> networksToNode = currentNode->getNetworks();
+	if(networksToNode.size() > 0)
+	{
+	  std::vector<Node*> neighbors = networksToNode[0]->getNodeNeighbors(currentNode->getId());
+	  for(std::vector<Node*>::iterator it4=neighbors.begin(); it4 != neighbors.end(); ++it4)
+	  {
+	    os<<"       "<<(*it4)->getId()<<endl;
+	  }
+	}
+	else
+	{
+	  os<<"       /no net assigned"<<endl;
+	}
+      }
+    }
   }
+  return os;
+}
+
+
+bool operator==(const MultilayerNetwork& multilayerNetwork1, const MultilayerNetwork& multilayerNetwork2)
+{
+  std::vector<Layer*> layers1 = multilayerNetwork1.getLayers();
+  std::vector<Layer*> layers2 = multilayerNetwork2.getLayers();
+  if(layers1.size() != layers2.size())
+  {
+    return false;
+  }
+  std::map<int, Layer*> layerMap;
+  for(std::vector<Layer*>::iterator itLay=layers1.begin(); itLay != layers1.end(); ++itLay)
+  {
+    layerMap[(*itLay)->getId()] = (*itLay);
+  }
+
+  for(std::vector<Layer*>::iterator itLay=layers2.begin(); itLay != layers2.end(); ++itLay)
+  {
+    if(layerMap.count((*itLay)->getId()))
+    {
+      Layer* currentLayer = (*itLay);
+      Layer* correspondingLayer = layerMap[currentLayer->getId()];
+      if(!(*currentLayer == *correspondingLayer))
+      {
+	return false;
+      }
+    }
+    else
+    {
+      return false;
+    }
+  }
+
+  return true;
 }

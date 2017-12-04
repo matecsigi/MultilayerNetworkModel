@@ -1,0 +1,70 @@
+\hypertarget{structGenericStringStream}{}\section{Generic\+String\+Stream$<$ Encoding $>$ Struct Template Reference}
+\label{structGenericStringStream}\index{Generic\+String\+Stream$<$ Encoding $>$@{Generic\+String\+Stream$<$ Encoding $>$}}
+
+
+Read-\/only string stream.  
+
+
+
+
+{\ttfamily \#include $<$stream.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef Encoding\+::\+Ch {\bfseries Ch}\hypertarget{structGenericStringStream_a4289aca895330084ff3168e37e4f08bd}{}\label{structGenericStringStream_a4289aca895330084ff3168e37e4f08bd}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Generic\+String\+Stream} (const Ch $\ast$src)\hypertarget{structGenericStringStream_a6b20885ed64e33f5d081a1e83b07da06}{}\label{structGenericStringStream_a6b20885ed64e33f5d081a1e83b07da06}
+
+\item 
+Ch {\bfseries Peek} () const \hypertarget{structGenericStringStream_a87d794a70cf132f32521fb2b145ba58d}{}\label{structGenericStringStream_a87d794a70cf132f32521fb2b145ba58d}
+
+\item 
+Ch {\bfseries Take} ()\hypertarget{structGenericStringStream_a0d26e3e77e4fca64a87c2d71f48ac5e5}{}\label{structGenericStringStream_a0d26e3e77e4fca64a87c2d71f48ac5e5}
+
+\item 
+size\+\_\+t {\bfseries Tell} () const \hypertarget{structGenericStringStream_a71dde3ded678912be1ef56376a72a653}{}\label{structGenericStringStream_a71dde3ded678912be1ef56376a72a653}
+
+\item 
+Ch $\ast$ {\bfseries Put\+Begin} ()\hypertarget{structGenericStringStream_a88c908b4dac9773240ce4bca4b6dd837}{}\label{structGenericStringStream_a88c908b4dac9773240ce4bca4b6dd837}
+
+\item 
+void {\bfseries Put} (Ch)\hypertarget{structGenericStringStream_aaa59dc5313151a4125bf7840f87a33eb}{}\label{structGenericStringStream_aaa59dc5313151a4125bf7840f87a33eb}
+
+\item 
+void {\bfseries Flush} ()\hypertarget{structGenericStringStream_a5ff1a870d9334cd054cf4ca34c86ddc3}{}\label{structGenericStringStream_a5ff1a870d9334cd054cf4ca34c86ddc3}
+
+\item 
+size\+\_\+t {\bfseries Put\+End} (Ch $\ast$)\hypertarget{structGenericStringStream_a07b942bacda494afb3b2f7629cef14af}{}\label{structGenericStringStream_a07b942bacda494afb3b2f7629cef14af}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const Ch $\ast$ \hyperlink{structGenericStringStream_aeda813798e3f2d6bfdac86afc11b6b80}{src\+\_\+}\hypertarget{structGenericStringStream_aeda813798e3f2d6bfdac86afc11b6b80}{}\label{structGenericStringStream_aeda813798e3f2d6bfdac86afc11b6b80}
+
+\begin{DoxyCompactList}\small\item\em Current read position. \end{DoxyCompactList}\item 
+const Ch $\ast$ \hyperlink{structGenericStringStream_a3c86ef1e1f0655028cb8a3afce11ee4f}{head\+\_\+}\hypertarget{structGenericStringStream_a3c86ef1e1f0655028cb8a3afce11ee4f}{}\label{structGenericStringStream_a3c86ef1e1f0655028cb8a3afce11ee4f}
+
+\begin{DoxyCompactList}\small\item\em Original head of the string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Encoding$>$\\*
+struct Generic\+String\+Stream$<$ Encoding $>$}
+
+Read-\/only string stream. 
+
+\begin{DoxyNote}{Note}
+implements Stream concept 
+\end{DoxyNote}
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/mate/\+Documents/\+Programming/\+Research/\+Multilayer\+Network\+Model/\+Multilayer\+Network\+Model/src/external/rapidjson/fwd.\+h\item 
+/home/mate/\+Documents/\+Programming/\+Research/\+Multilayer\+Network\+Model/\+Multilayer\+Network\+Model/src/external/rapidjson/stream.\+h\end{DoxyCompactItemize}

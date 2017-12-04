@@ -1,0 +1,91 @@
+\hypertarget{classinternal_1_1Schema}{}\section{internal\+:\+:Schema$<$ Schema\+Document\+Type $>$ Class Template Reference}
+\label{classinternal_1_1Schema}\index{internal\+::\+Schema$<$ Schema\+Document\+Type $>$@{internal\+::\+Schema$<$ Schema\+Document\+Type $>$}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef Schema\+Document\+Type\+::\+Value\+Type {\bfseries Value\+Type}\hypertarget{classinternal_1_1Schema_a8976b6d7e2a885483d0b51d941019340}{}\label{classinternal_1_1Schema_a8976b6d7e2a885483d0b51d941019340}
+
+\item 
+typedef Schema\+Document\+Type\+::\+Allocator\+Type {\bfseries Allocator\+Type}\hypertarget{classinternal_1_1Schema_a7af392edd81e610754cd2e6b4f82761c}{}\label{classinternal_1_1Schema_a7af392edd81e610754cd2e6b4f82761c}
+
+\item 
+typedef Schema\+Document\+Type\+::\+Pointer\+Type {\bfseries Pointer\+Type}\hypertarget{classinternal_1_1Schema_a13d7dbba6e4a77b10862546777c5aae8}{}\label{classinternal_1_1Schema_a13d7dbba6e4a77b10862546777c5aae8}
+
+\item 
+typedef Value\+Type\+::\+Encoding\+Type {\bfseries Encoding\+Type}\hypertarget{classinternal_1_1Schema_a9ea269c3ca8099c2a14b6519fe34efb1}{}\label{classinternal_1_1Schema_a9ea269c3ca8099c2a14b6519fe34efb1}
+
+\item 
+typedef Encoding\+Type\+::\+Ch {\bfseries Ch}\hypertarget{classinternal_1_1Schema_a98043fca39adbf8b42e7472e3d80d6fa}{}\label{classinternal_1_1Schema_a98043fca39adbf8b42e7472e3d80d6fa}
+
+\item 
+typedef \hyperlink{structinternal_1_1SchemaValidationContext}{Schema\+Validation\+Context}$<$ Schema\+Document\+Type $>$ {\bfseries Context}\hypertarget{classinternal_1_1Schema_ac3f54abfefe300c5610c1205869cfd66}{}\label{classinternal_1_1Schema_ac3f54abfefe300c5610c1205869cfd66}
+
+\item 
+typedef \hyperlink{classinternal_1_1Schema}{Schema}$<$ Schema\+Document\+Type $>$ {\bfseries Schema\+Type}\hypertarget{classinternal_1_1Schema_ac2556ebf7a7db971e1c1c0f76eb5786e}{}\label{classinternal_1_1Schema_ac2556ebf7a7db971e1c1c0f76eb5786e}
+
+\item 
+typedef \hyperlink{classGenericValue}{Generic\+Value}$<$ Encoding\+Type, Allocator\+Type $>$ {\bfseries S\+Value}\hypertarget{classinternal_1_1Schema_ab3a07540a27d4cc2b0e260290c5c5771}{}\label{classinternal_1_1Schema_ab3a07540a27d4cc2b0e260290c5c5771}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Schema} (Schema\+Document\+Type $\ast$schema\+Document, const Pointer\+Type \&p, const Value\+Type \&value, const Value\+Type \&document, Allocator\+Type $\ast$allocator)\hypertarget{classinternal_1_1Schema_a31cbb5eaff43df83253f57d51585dc1d}{}\label{classinternal_1_1Schema_a31cbb5eaff43df83253f57d51585dc1d}
+
+\item 
+bool {\bfseries Begin\+Value} (\hyperlink{structinternal_1_1SchemaValidationContext}{Context} \&context) const \hypertarget{classinternal_1_1Schema_a60be92e1be5daec58dca25732617ad1b}{}\label{classinternal_1_1Schema_a60be92e1be5daec58dca25732617ad1b}
+
+\item 
+R\+A\+P\+I\+D\+J\+S\+O\+N\+\_\+\+F\+O\+R\+C\+E\+I\+N\+L\+I\+NE bool {\bfseries End\+Value} (\hyperlink{structinternal_1_1SchemaValidationContext}{Context} \&context) const \hypertarget{classinternal_1_1Schema_a5ea07987ee41ba93eeeb6ff8fc1ea197}{}\label{classinternal_1_1Schema_a5ea07987ee41ba93eeeb6ff8fc1ea197}
+
+\item 
+bool {\bfseries Null} (\hyperlink{structinternal_1_1SchemaValidationContext}{Context} \&context) const \hypertarget{classinternal_1_1Schema_acf2fd31da6d4ce46142dac016af1c047}{}\label{classinternal_1_1Schema_acf2fd31da6d4ce46142dac016af1c047}
+
+\item 
+bool {\bfseries Bool} (\hyperlink{structinternal_1_1SchemaValidationContext}{Context} \&context, bool) const \hypertarget{classinternal_1_1Schema_af9b64174e5248f276864ae63ec478ebd}{}\label{classinternal_1_1Schema_af9b64174e5248f276864ae63ec478ebd}
+
+\item 
+bool {\bfseries Int} (\hyperlink{structinternal_1_1SchemaValidationContext}{Context} \&context, int i) const \hypertarget{classinternal_1_1Schema_a39286fc0bfdfe3be57b1cd61fe162f19}{}\label{classinternal_1_1Schema_a39286fc0bfdfe3be57b1cd61fe162f19}
+
+\item 
+bool {\bfseries Uint} (\hyperlink{structinternal_1_1SchemaValidationContext}{Context} \&context, unsigned u) const \hypertarget{classinternal_1_1Schema_af355dc00a672448f42caee5a3b62a273}{}\label{classinternal_1_1Schema_af355dc00a672448f42caee5a3b62a273}
+
+\item 
+bool {\bfseries Int64} (\hyperlink{structinternal_1_1SchemaValidationContext}{Context} \&context, int64\+\_\+t i) const \hypertarget{classinternal_1_1Schema_a4aa9da1fd0cb4c19dcaaeebbc8abf1dc}{}\label{classinternal_1_1Schema_a4aa9da1fd0cb4c19dcaaeebbc8abf1dc}
+
+\item 
+bool {\bfseries Uint64} (\hyperlink{structinternal_1_1SchemaValidationContext}{Context} \&context, uint64\+\_\+t u) const \hypertarget{classinternal_1_1Schema_afb862d9aee4bbe2aa99e0f44ec90b9d8}{}\label{classinternal_1_1Schema_afb862d9aee4bbe2aa99e0f44ec90b9d8}
+
+\item 
+bool {\bfseries Double} (\hyperlink{structinternal_1_1SchemaValidationContext}{Context} \&context, double d) const \hypertarget{classinternal_1_1Schema_aaf4ff1cb84013ff1a82ecb59cac38bfe}{}\label{classinternal_1_1Schema_aaf4ff1cb84013ff1a82ecb59cac38bfe}
+
+\item 
+bool {\bfseries String} (\hyperlink{structinternal_1_1SchemaValidationContext}{Context} \&context, const Ch $\ast$str, \hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type} length, bool) const \hypertarget{classinternal_1_1Schema_a2bc7b83a75b84c241e733be9d356a2c4}{}\label{classinternal_1_1Schema_a2bc7b83a75b84c241e733be9d356a2c4}
+
+\item 
+bool {\bfseries Start\+Object} (\hyperlink{structinternal_1_1SchemaValidationContext}{Context} \&context) const \hypertarget{classinternal_1_1Schema_a907b715d5f817d337a3e18759f3ac0e4}{}\label{classinternal_1_1Schema_a907b715d5f817d337a3e18759f3ac0e4}
+
+\item 
+bool {\bfseries Key} (\hyperlink{structinternal_1_1SchemaValidationContext}{Context} \&context, const Ch $\ast$str, \hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type} len, bool) const \hypertarget{classinternal_1_1Schema_af0855cd2ee33929513dd8b148bfa9017}{}\label{classinternal_1_1Schema_af0855cd2ee33929513dd8b148bfa9017}
+
+\item 
+bool {\bfseries End\+Object} (\hyperlink{structinternal_1_1SchemaValidationContext}{Context} \&context, \hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type} member\+Count) const \hypertarget{classinternal_1_1Schema_ac66720d141d8c811cb2c71da05509618}{}\label{classinternal_1_1Schema_ac66720d141d8c811cb2c71da05509618}
+
+\item 
+bool {\bfseries Start\+Array} (\hyperlink{structinternal_1_1SchemaValidationContext}{Context} \&context) const \hypertarget{classinternal_1_1Schema_a6340166b92577ce0ef9b7735f66937ec}{}\label{classinternal_1_1Schema_a6340166b92577ce0ef9b7735f66937ec}
+
+\item 
+bool {\bfseries End\+Array} (\hyperlink{structinternal_1_1SchemaValidationContext}{Context} \&context, \hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type} element\+Count) const \hypertarget{classinternal_1_1Schema_a58101f966bd7e51086d456b3d84653eb}{}\label{classinternal_1_1Schema_a58101f966bd7e51086d456b3d84653eb}
+
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class {\bfseries Generic\+Schema\+Document$<$ Value\+Type, Allocator\+Type $>$}\hypertarget{classinternal_1_1Schema_a04f1d1acd0a5a7fda069c115970d52b3}{}\label{classinternal_1_1Schema_a04f1d1acd0a5a7fda069c115970d52b3}
+
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/mate/\+Documents/\+Programming/\+Research/\+Multilayer\+Network\+Model/\+Multilayer\+Network\+Model/src/external/rapidjson/schema.\+h\end{DoxyCompactItemize}

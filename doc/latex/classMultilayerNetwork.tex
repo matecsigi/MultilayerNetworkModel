@@ -1,0 +1,91 @@
+\hypertarget{classMultilayerNetwork}{}\section{Multilayer\+Network Class Reference}
+\label{classMultilayerNetwork}\index{Multilayer\+Network@{Multilayer\+Network}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classMultilayerNetwork_a229198446718a0bf87d872ea04f5308a}{add\+Layer} (int layer\+Id)
+\item 
+std\+::vector$<$ \hyperlink{classLayer}{Layer} $\ast$ $>$ {\bfseries get\+Layers} (void) const \hypertarget{classMultilayerNetwork_ad4ec3500f8c0b436ba738dcd5b533ba6}{}\label{classMultilayerNetwork_ad4ec3500f8c0b436ba738dcd5b533ba6}
+
+\item 
+void \hyperlink{classMultilayerNetwork_a8b52de3dbb17a23b7c86708ad53ba161}{step} (void)
+\item 
+void {\bfseries save} (const char $\ast$filename)\hypertarget{classMultilayerNetwork_ad5e402faebd6fb5b44616f549286757b}{}\label{classMultilayerNetwork_ad5e402faebd6fb5b44616f549286757b}
+
+\item 
+void {\bfseries load} (const char $\ast$filename)\hypertarget{classMultilayerNetwork_a6649a568665867114ddebe7b4b0726f7}{}\label{classMultilayerNetwork_a6649a568665867114ddebe7b4b0726f7}
+
+\item 
+void {\bfseries save\+State} (std\+::string filename=\char`\"{}\char`\"{})\hypertarget{classMultilayerNetwork_a4723e9478fe2a78bcf35a540869d66a4}{}\label{classMultilayerNetwork_a4723e9478fe2a78bcf35a540869d66a4}
+
+\item 
+void {\bfseries load\+State} (const char $\ast$filename)\hypertarget{classMultilayerNetwork_a2536024138714e0ddc51bb4b1ae79395}{}\label{classMultilayerNetwork_a2536024138714e0ddc51bb4b1ae79395}
+
+\item 
+void \hyperlink{classMultilayerNetwork_ab21e50242eea4221aab415e5b2a5a326}{load\+Nodes\+To\+All\+Equations} (void)
+\item 
+void \hyperlink{classMultilayerNetwork_a1d00f683f9d07fc715b8c2e4786884c8}{shift\+Buffers} (void)
+\item 
+void {\bfseries collect\+Nodes} (std\+::map$<$ int, \hyperlink{classNode}{Node} $\ast$ $>$ \&nodes\+Map, std\+::vector$<$ int $>$ \&node\+Ids) const \hypertarget{classMultilayerNetwork_a336346cc9479828006fed64ce4f204e8}{}\label{classMultilayerNetwork_a336346cc9479828006fed64ce4f204e8}
+
+\item 
+void {\bfseries collect\+Networks} (std\+::map$<$ int, \hyperlink{classNetwork}{Network} $\ast$ $>$ \&networks\+Map, std\+::vector$<$ int $>$ \&network\+Ids) const \hypertarget{classMultilayerNetwork_a9e846141725eb38c565af6db4040cf34}{}\label{classMultilayerNetwork_a9e846141725eb38c565af6db4040cf34}
+
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+bool {\bfseries initial\+Conditions\+Equal} (const \hyperlink{classMultilayerNetwork}{Multilayer\+Network} \&multilayer\+Network1, const \hyperlink{classMultilayerNetwork}{Multilayer\+Network} \&multilayer\+Network2)\hypertarget{classMultilayerNetwork_a64691b2acaece23358b93a9e66625219}{}\label{classMultilayerNetwork_a64691b2acaece23358b93a9e66625219}
+
+\item 
+bool {\bfseries dynamical\+Equations\+Equal} (const \hyperlink{classMultilayerNetwork}{Multilayer\+Network} \&multilayer\+Network1, const \hyperlink{classMultilayerNetwork}{Multilayer\+Network} \&multilayer\+Network2)\hypertarget{classMultilayerNetwork_ab9211d4a43da6142bc9acaa862a27bc0}{}\label{classMultilayerNetwork_ab9211d4a43da6142bc9acaa862a27bc0}
+
+\item 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&os, const \hyperlink{classMultilayerNetwork}{Multilayer\+Network} \&multilayer\+Network)\hypertarget{classMultilayerNetwork_a42b39b2faefcb63564d2e4ba5cfeac26}{}\label{classMultilayerNetwork_a42b39b2faefcb63564d2e4ba5cfeac26}
+
+\item 
+bool {\bfseries operator==} (const \hyperlink{classMultilayerNetwork}{Multilayer\+Network} \&multilayer\+Network1, const \hyperlink{classMultilayerNetwork}{Multilayer\+Network} \&multilayer\+Network2)\hypertarget{classMultilayerNetwork_a63e44ec945c844ee62bb16debee88369}{}\label{classMultilayerNetwork_a63e44ec945c844ee62bb16debee88369}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{Multilayer\+Network@{Multilayer\+Network}!add\+Layer@{add\+Layer}}
+\index{add\+Layer@{add\+Layer}!Multilayer\+Network@{Multilayer\+Network}}
+\subsubsection[{\texorpdfstring{add\+Layer(int layer\+Id)}{addLayer(int layerId)}}]{\setlength{\rightskip}{0pt plus 5cm}void Multilayer\+Network\+::add\+Layer (
+\begin{DoxyParamCaption}
+\item[{int}]{layer\+Id}
+\end{DoxyParamCaption}
+)}\hypertarget{classMultilayerNetwork_a229198446718a0bf87d872ea04f5308a}{}\label{classMultilayerNetwork_a229198446718a0bf87d872ea04f5308a}
+Adds a layer to the multilayer network. 
+\begin{DoxyParams}{Parameters}
+{\em layer\+Id} & the ID of the newly added layer \\
+\hline
+\end{DoxyParams}
+\index{Multilayer\+Network@{Multilayer\+Network}!load\+Nodes\+To\+All\+Equations@{load\+Nodes\+To\+All\+Equations}}
+\index{load\+Nodes\+To\+All\+Equations@{load\+Nodes\+To\+All\+Equations}!Multilayer\+Network@{Multilayer\+Network}}
+\subsubsection[{\texorpdfstring{load\+Nodes\+To\+All\+Equations(void)}{loadNodesToAllEquations(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void Multilayer\+Network\+::load\+Nodes\+To\+All\+Equations (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classMultilayerNetwork_ab21e50242eea4221aab415e5b2a5a326}{}\label{classMultilayerNetwork_ab21e50242eea4221aab415e5b2a5a326}
+Calculation\+Nodes with type ID need to contain the pointer to the \hyperlink{classNode}{Node} they represent. This function loads all \hyperlink{classNode}{Node} objects to their representing Calculation\+Nodes. \index{Multilayer\+Network@{Multilayer\+Network}!shift\+Buffers@{shift\+Buffers}}
+\index{shift\+Buffers@{shift\+Buffers}!Multilayer\+Network@{Multilayer\+Network}}
+\subsubsection[{\texorpdfstring{shift\+Buffers(void)}{shiftBuffers(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void Multilayer\+Network\+::shift\+Buffers (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classMultilayerNetwork_a1d00f683f9d07fc715b8c2e4786884c8}{}\label{classMultilayerNetwork_a1d00f683f9d07fc715b8c2e4786884c8}
+When the end of buffers is reached i.\+e. they are filled with the previous values of the nodes, the contents of the current buffers is writen to a file, and the buffers are set back to all 0 elements, except for the first two values that contain the end values of the previous buffer. \index{Multilayer\+Network@{Multilayer\+Network}!step@{step}}
+\index{step@{step}!Multilayer\+Network@{Multilayer\+Network}}
+\subsubsection[{\texorpdfstring{step(void)}{step(void)}}]{\setlength{\rightskip}{0pt plus 5cm}void Multilayer\+Network\+::step (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{classMultilayerNetwork_a8b52de3dbb17a23b7c86708ad53ba161}{}\label{classMultilayerNetwork_a8b52de3dbb17a23b7c86708ad53ba161}
+Performs a single step on all of the nodes within the multilayer network. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/mate/\+Documents/\+Programming/\+Research/\+Multilayer\+Network\+Model/\+Multilayer\+Network\+Model/src/core/include/Multilayer\+Network.\+hh\item 
+/home/mate/\+Documents/\+Programming/\+Research/\+Multilayer\+Network\+Model/\+Multilayer\+Network\+Model/src/core/src/Multilayer\+Network.\+cc\end{DoxyCompactItemize}

@@ -1,0 +1,67 @@
+\hypertarget{classinternal_1_1Hasher}{}\section{internal\+:\+:Hasher$<$ Encoding, Allocator $>$ Class Template Reference}
+\label{classinternal_1_1Hasher}\index{internal\+::\+Hasher$<$ Encoding, Allocator $>$@{internal\+::\+Hasher$<$ Encoding, Allocator $>$}}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef Encoding\+::\+Ch {\bfseries Ch}\hypertarget{classinternal_1_1Hasher_a415970af68a067615c3c95306cff6d43}{}\label{classinternal_1_1Hasher_a415970af68a067615c3c95306cff6d43}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Hasher} (Allocator $\ast$allocator=0, size\+\_\+t stack\+Capacity=k\+Default\+Size)\hypertarget{classinternal_1_1Hasher_a7b6abfdd3bdc60064a2322cdd20708c1}{}\label{classinternal_1_1Hasher_a7b6abfdd3bdc60064a2322cdd20708c1}
+
+\item 
+bool {\bfseries Null} ()\hypertarget{classinternal_1_1Hasher_a57c656866aa08cc7c448ce47b7a243c3}{}\label{classinternal_1_1Hasher_a57c656866aa08cc7c448ce47b7a243c3}
+
+\item 
+bool {\bfseries Bool} (bool b)\hypertarget{classinternal_1_1Hasher_a11efd784a4e9c4f8a3dc281552df0486}{}\label{classinternal_1_1Hasher_a11efd784a4e9c4f8a3dc281552df0486}
+
+\item 
+bool {\bfseries Int} (int i)\hypertarget{classinternal_1_1Hasher_aadbadf98ee7c9ab03a636e0f06d38bac}{}\label{classinternal_1_1Hasher_aadbadf98ee7c9ab03a636e0f06d38bac}
+
+\item 
+bool {\bfseries Uint} (unsigned u)\hypertarget{classinternal_1_1Hasher_a4401600c24c817a45cea6c281438e5b4}{}\label{classinternal_1_1Hasher_a4401600c24c817a45cea6c281438e5b4}
+
+\item 
+bool {\bfseries Int64} (int64\+\_\+t i)\hypertarget{classinternal_1_1Hasher_ae0579cd54b3c545f77452543793b9a97}{}\label{classinternal_1_1Hasher_ae0579cd54b3c545f77452543793b9a97}
+
+\item 
+bool {\bfseries Uint64} (uint64\+\_\+t u)\hypertarget{classinternal_1_1Hasher_a14832ac4ec204f1065b929df2c255457}{}\label{classinternal_1_1Hasher_a14832ac4ec204f1065b929df2c255457}
+
+\item 
+bool {\bfseries Double} (double d)\hypertarget{classinternal_1_1Hasher_a83abe847e24ed88d5aab092d840e37c1}{}\label{classinternal_1_1Hasher_a83abe847e24ed88d5aab092d840e37c1}
+
+\item 
+bool {\bfseries Raw\+Number} (const Ch $\ast$str, \hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type} len, bool)\hypertarget{classinternal_1_1Hasher_ae277289ad2fb3a938a6507e566d3c5e2}{}\label{classinternal_1_1Hasher_ae277289ad2fb3a938a6507e566d3c5e2}
+
+\item 
+bool {\bfseries String} (const Ch $\ast$str, \hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type} len, bool)\hypertarget{classinternal_1_1Hasher_a885f2bf42f2bb64d6f9443129dce3883}{}\label{classinternal_1_1Hasher_a885f2bf42f2bb64d6f9443129dce3883}
+
+\item 
+bool {\bfseries Start\+Object} ()\hypertarget{classinternal_1_1Hasher_a1607d6cac3daab9725e442e38d121028}{}\label{classinternal_1_1Hasher_a1607d6cac3daab9725e442e38d121028}
+
+\item 
+bool {\bfseries Key} (const Ch $\ast$str, \hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type} len, bool copy)\hypertarget{classinternal_1_1Hasher_a1b34d88f85f9c6a739c1f9038f14f078}{}\label{classinternal_1_1Hasher_a1b34d88f85f9c6a739c1f9038f14f078}
+
+\item 
+bool {\bfseries End\+Object} (\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type} member\+Count)\hypertarget{classinternal_1_1Hasher_a7050f1552d88967944195163a6a0b08e}{}\label{classinternal_1_1Hasher_a7050f1552d88967944195163a6a0b08e}
+
+\item 
+bool {\bfseries Start\+Array} ()\hypertarget{classinternal_1_1Hasher_a2ceb3cc00216f6b6ce66907856a16404}{}\label{classinternal_1_1Hasher_a2ceb3cc00216f6b6ce66907856a16404}
+
+\item 
+bool {\bfseries End\+Array} (\hyperlink{rapidjson_8h_a5ed6e6e67250fadbd041127e6386dcb5}{Size\+Type} element\+Count)\hypertarget{classinternal_1_1Hasher_ad445b2730be23e18b4dec2c4d1033419}{}\label{classinternal_1_1Hasher_ad445b2730be23e18b4dec2c4d1033419}
+
+\item 
+bool {\bfseries Is\+Valid} () const \hypertarget{classinternal_1_1Hasher_abd4cb8325b81217dc34eecf63d47579f}{}\label{classinternal_1_1Hasher_abd4cb8325b81217dc34eecf63d47579f}
+
+\item 
+uint64\+\_\+t {\bfseries Get\+Hash\+Code} () const \hypertarget{classinternal_1_1Hasher_ad44fcaf9a12fefb387e9624327572b61}{}\label{classinternal_1_1Hasher_ad44fcaf9a12fefb387e9624327572b61}
+
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/mate/\+Documents/\+Programming/\+Research/\+Multilayer\+Network\+Model/\+Multilayer\+Network\+Model/src/external/rapidjson/schema.\+h\end{DoxyCompactItemize}

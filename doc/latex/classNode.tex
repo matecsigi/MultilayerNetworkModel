@@ -1,0 +1,74 @@
+\hypertarget{classNode}{}\section{Node Class Reference}
+\label{classNode}\index{Node@{Node}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Node} (int)\hypertarget{classNode_aff71d952af8363f046a67a8b12194e46}{}\label{classNode_aff71d952af8363f046a67a8b12194e46}
+
+\item 
+void {\bfseries step} ()\hypertarget{classNode_aeca7ef58472c76e9e751226abc2f6454}{}\label{classNode_aeca7ef58472c76e9e751226abc2f6454}
+
+\item 
+void {\bfseries step\+O\+DE} (\hyperlink{classDynamicalEquation}{Dynamical\+Equation} $\ast$dynamical\+Equation)\hypertarget{classNode_afe30b7fc1388bb03bf2db231cc1c8656}{}\label{classNode_afe30b7fc1388bb03bf2db231cc1c8656}
+
+\item 
+void {\bfseries step\+Ode\+At\+State} (\hyperlink{classDynamicalEquation}{Dynamical\+Equation} $\ast$dynamical\+Equation, std\+::map$<$ int, double $>$ starting\+State, std\+::map$<$ int, double $>$ \&final\+State)\hypertarget{classNode_aeb2d389fbdfff8a2b4df8da2293b0e0d}{}\label{classNode_aeb2d389fbdfff8a2b4df8da2293b0e0d}
+
+\item 
+void {\bfseries add\+To\+Network} (\hyperlink{classNetwork}{Network} $\ast$network\+Ptr)\hypertarget{classNode_a0152bc26929db78224617004ddf9aadb}{}\label{classNode_a0152bc26929db78224617004ddf9aadb}
+
+\item 
+void {\bfseries assign\+To\+Network} (\hyperlink{classNetwork}{Network} $\ast$network)\hypertarget{classNode_aa0bfc27090c27167472e0bc4499ad17c}{}\label{classNode_aa0bfc27090c27167472e0bc4499ad17c}
+
+\item 
+void {\bfseries set\+Values} (double $\ast$values)\hypertarget{classNode_a507e58ea4aa68188b159643fbd90e657}{}\label{classNode_a507e58ea4aa68188b159643fbd90e657}
+
+\item 
+void {\bfseries set\+Upward\+Influence} ()\hypertarget{classNode_a905952508ade253c1e8c826ce4ab5434}{}\label{classNode_a905952508ade253c1e8c826ce4ab5434}
+
+\item 
+void {\bfseries set\+Downward\+Influence} ()\hypertarget{classNode_acf0d5159faf93928dbfbe654feedd9a4}{}\label{classNode_acf0d5159faf93928dbfbe654feedd9a4}
+
+\item 
+void {\bfseries set\+Initial\+Conditions} (double $\ast$values)\hypertarget{classNode_acb93f815a8e880978604967e12b345fc}{}\label{classNode_acb93f815a8e880978604967e12b345fc}
+
+\item 
+void {\bfseries set\+Current\+State} (state\+\_\+type state)\hypertarget{classNode_a6b10486fcfffdc3ba4e92378c8b86fcd}{}\label{classNode_a6b10486fcfffdc3ba4e92378c8b86fcd}
+
+\item 
+int {\bfseries get\+Id} (void) const \hypertarget{classNode_a962c1706091481c7ae0552cf6232e1fe}{}\label{classNode_a962c1706091481c7ae0552cf6232e1fe}
+
+\item 
+\hyperlink{classNetwork}{Network} $\ast$ {\bfseries get\+Network\+Assigned} (void) const \hypertarget{classNode_aa8b0d5bdeeb3ca58b241e96f4bc7d662}{}\label{classNode_aa8b0d5bdeeb3ca58b241e96f4bc7d662}
+
+\item 
+std\+::vector$<$ \hyperlink{classNetwork}{Network} $\ast$ $>$ {\bfseries get\+Networks} (void) const \hypertarget{classNode_abb91c473b57d816afd9c3a3ebd8d8b8a}{}\label{classNode_abb91c473b57d816afd9c3a3ebd8d8b8a}
+
+\item 
+void {\bfseries get\+Values} (double $\ast$values)\hypertarget{classNode_a5fc3cc057fe9e72d71c207f369f88f34}{}\label{classNode_a5fc3cc057fe9e72d71c207f369f88f34}
+
+\item 
+double {\bfseries get\+Value} (void)\hypertarget{classNode_a2c5adb1557cf4326f42f02fe88706aaf}{}\label{classNode_a2c5adb1557cf4326f42f02fe88706aaf}
+
+\item 
+void {\bfseries get\+Initial\+Conditions} (double $\ast$values)\hypertarget{classNode_a642e190ff5343c6c9ffc86b8670a9a7c}{}\label{classNode_a642e190ff5343c6c9ffc86b8670a9a7c}
+
+\item 
+double {\bfseries get\+Current\+State} ()\hypertarget{classNode_a69708281dcb26b5c2068153cce56de32}{}\label{classNode_a69708281dcb26b5c2068153cce56de32}
+
+\item 
+double {\bfseries get\+Previous\+State} ()\hypertarget{classNode_a6aa927856c01c3e3849fb79db03a4232}{}\label{classNode_a6aa927856c01c3e3849fb79db03a4232}
+
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+bool {\bfseries operator==} (const \hyperlink{classNode}{Node} \&node1, const \hyperlink{classNode}{Node} \&node2)\hypertarget{classNode_aa6ca4e78d2001f10e20ffcf962ef42cb}{}\label{classNode_aa6ca4e78d2001f10e20ffcf962ef42cb}
+
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/mate/\+Documents/\+Programming/\+Research/\+Multilayer\+Network\+Model/\+Multilayer\+Network\+Model/src/core/include/Node.\+hh\item 
+/home/mate/\+Documents/\+Programming/\+Research/\+Multilayer\+Network\+Model/\+Multilayer\+Network\+Model/src/core/src/Node.\+cc\end{DoxyCompactItemize}

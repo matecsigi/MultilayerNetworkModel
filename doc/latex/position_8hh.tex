@@ -1,0 +1,64 @@
+\hypertarget{position_8hh}{}\section{/home/mate/\+Documents/\+Programming/\+Research/\+Multilayer\+Network\+Model/\+Multilayer\+Network\+Model/src/parser/include/position.hh File Reference}
+\label{position_8hh}\index{/home/mate/\+Documents/\+Programming/\+Research/\+Multilayer\+Network\+Model/\+Multilayer\+Network\+Model/src/parser/include/position.\+hh@{/home/mate/\+Documents/\+Programming/\+Research/\+Multilayer\+Network\+Model/\+Multilayer\+Network\+Model/src/parser/include/position.\+hh}}
+{\ttfamily \#include $<$algorithm$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$string$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classEzAquarii_1_1position}{Ez\+Aquarii\+::position}
+\begin{DoxyCompactList}\small\item\em Abstract a position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries Y\+Y\+\_\+\+N\+U\+L\+L\+P\+TR}~0\hypertarget{position_8hh_a5a6c82f7ce4ad9cc8c6c08b7a2de5b84}{}\label{position_8hh_a5a6c82f7ce4ad9cc8c6c08b7a2de5b84}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+position \& \hyperlink{position_8hh_a776075db5d575173cee3477cf52a3d2f}{Ez\+Aquarii\+::operator+=} (position \&res, int width)\hypertarget{position_8hh_a776075db5d575173cee3477cf52a3d2f}{}\label{position_8hh_a776075db5d575173cee3477cf52a3d2f}
+
+\begin{DoxyCompactList}\small\item\em Add {\itshape width} columns, in place. \end{DoxyCompactList}\item 
+position \hyperlink{position_8hh_a1a49e31b514d7012a1e56e2f42d93743}{Ez\+Aquarii\+::operator+} (position res, int width)\hypertarget{position_8hh_a1a49e31b514d7012a1e56e2f42d93743}{}\label{position_8hh_a1a49e31b514d7012a1e56e2f42d93743}
+
+\begin{DoxyCompactList}\small\item\em Add {\itshape width} columns. \end{DoxyCompactList}\item 
+position \& \hyperlink{position_8hh_abfbf651c0a1357fc5f626fd22e7b854a}{Ez\+Aquarii\+::operator-\/=} (position \&res, int width)\hypertarget{position_8hh_abfbf651c0a1357fc5f626fd22e7b854a}{}\label{position_8hh_abfbf651c0a1357fc5f626fd22e7b854a}
+
+\begin{DoxyCompactList}\small\item\em Subtract {\itshape width} columns, in place. \end{DoxyCompactList}\item 
+position \hyperlink{position_8hh_a6b30baed1df233c7097b6b86425a7c67}{Ez\+Aquarii\+::operator-\/} (position res, int width)\hypertarget{position_8hh_a6b30baed1df233c7097b6b86425a7c67}{}\label{position_8hh_a6b30baed1df233c7097b6b86425a7c67}
+
+\begin{DoxyCompactList}\small\item\em Subtract {\itshape width} columns. \end{DoxyCompactList}\item 
+bool \hyperlink{position_8hh_aed0a9ce66c088e9abfa60cdf7a26bac6}{Ez\+Aquarii\+::operator==} (const position \&pos1, const position \&pos2)\hypertarget{position_8hh_aed0a9ce66c088e9abfa60cdf7a26bac6}{}\label{position_8hh_aed0a9ce66c088e9abfa60cdf7a26bac6}
+
+\begin{DoxyCompactList}\small\item\em Compare two position objects. \end{DoxyCompactList}\item 
+bool \hyperlink{position_8hh_aa2ad6e14224c9046eecab6dc081743e1}{Ez\+Aquarii\+::operator!=} (const position \&pos1, const position \&pos2)\hypertarget{position_8hh_aa2ad6e14224c9046eecab6dc081743e1}{}\label{position_8hh_aa2ad6e14224c9046eecab6dc081743e1}
+
+\begin{DoxyCompactList}\small\item\em Compare two position objects. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Y\+Y\+Char $>$ }\\std\+::basic\+\_\+ostream$<$ Y\+Y\+Char $>$ \& \hyperlink{position_8hh_a1207e62f57092128cc0141cc552df8fa}{Ez\+Aquarii\+::operator$<$$<$} (std\+::basic\+\_\+ostream$<$ Y\+Y\+Char $>$ \&ostr, const position \&pos)
+\begin{DoxyCompactList}\small\item\em Intercept output stream redirection. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Define the Ez\+Aquarii \+::position class. 
+
+\subsection{Function Documentation}
+\index{position.\+hh@{position.\+hh}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!position.\+hh@{position.\+hh}}
+\subsubsection[{\texorpdfstring{operator$<$$<$(std\+::basic\+\_\+ostream$<$ Y\+Y\+Char $>$ \&ostr, const position \&pos)}{operator<<(std::basic_ostream< YYChar > &ostr, const position &pos)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename Y\+Y\+Char $>$ std\+::basic\+\_\+ostream$<$Y\+Y\+Char$>$\& Ez\+Aquarii\+::operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std\+::basic\+\_\+ostream$<$ Y\+Y\+Char $>$ \&}]{ostr, }
+\item[{const {\bf position} \&}]{pos}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{position_8hh_file_a1207e62f57092128cc0141cc552df8fa}{}\label{position_8hh_file_a1207e62f57092128cc0141cc552df8fa}
+
+
+Intercept output stream redirection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ostr} & the destination output stream \\
+\hline
+{\em pos} & a reference to the position to redirect \\
+\hline
+\end{DoxyParams}

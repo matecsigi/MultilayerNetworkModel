@@ -1,0 +1,56 @@
+\hypertarget{classEzAquarii_1_1location}{}\section{Ez\+Aquarii\+:\+:location Class Reference}
+\label{classEzAquarii_1_1location}\index{Ez\+Aquarii\+::location@{Ez\+Aquarii\+::location}}
+
+
+Abstract a location.  
+
+
+
+
+{\ttfamily \#include $<$location.\+hh$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classEzAquarii_1_1location_ad1317d935037a54e328f1b540d296e76}{location} (const \hyperlink{classEzAquarii_1_1position}{position} \&b, const \hyperlink{classEzAquarii_1_1position}{position} \&e)\hypertarget{classEzAquarii_1_1location_ad1317d935037a54e328f1b540d296e76}{}\label{classEzAquarii_1_1location_ad1317d935037a54e328f1b540d296e76}
+
+\begin{DoxyCompactList}\small\item\em Construct a location from {\itshape b} to {\itshape e}. \end{DoxyCompactList}\item 
+\hyperlink{classEzAquarii_1_1location_a53601244b738c831abb3a4fa6b6879a9}{location} (const \hyperlink{classEzAquarii_1_1position}{position} \&p=\hyperlink{classEzAquarii_1_1position}{position}())\hypertarget{classEzAquarii_1_1location_a53601244b738c831abb3a4fa6b6879a9}{}\label{classEzAquarii_1_1location_a53601244b738c831abb3a4fa6b6879a9}
+
+\begin{DoxyCompactList}\small\item\em Construct a 0-\/width location in {\itshape p}. \end{DoxyCompactList}\item 
+\hyperlink{classEzAquarii_1_1location_a0c8659136500d18d4b2bca8077074c5b}{location} (std\+::string $\ast$f, unsigned int l=1u, unsigned int c=1u)\hypertarget{classEzAquarii_1_1location_a0c8659136500d18d4b2bca8077074c5b}{}\label{classEzAquarii_1_1location_a0c8659136500d18d4b2bca8077074c5b}
+
+\begin{DoxyCompactList}\small\item\em Construct a 0-\/width location in {\itshape f}, {\itshape l}, {\itshape c}. \end{DoxyCompactList}\item 
+void \hyperlink{classEzAquarii_1_1location_ab7e7119497ff53c35cf63c5589c598e6}{initialize} (std\+::string $\ast$f=Y\+Y\+\_\+\+N\+U\+L\+L\+P\+TR, unsigned int l=1u, unsigned int c=1u)\hypertarget{classEzAquarii_1_1location_ab7e7119497ff53c35cf63c5589c598e6}{}\label{classEzAquarii_1_1location_ab7e7119497ff53c35cf63c5589c598e6}
+
+\begin{DoxyCompactList}\small\item\em Initialization. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{Indent}{\bf Line and Column related manipulators}\par
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classEzAquarii_1_1location_acf36facf71d7a487c5f0b6d842cc131e}{step} ()\hypertarget{classEzAquarii_1_1location_acf36facf71d7a487c5f0b6d842cc131e}{}\label{classEzAquarii_1_1location_acf36facf71d7a487c5f0b6d842cc131e}
+
+\begin{DoxyCompactList}\small\item\em Reset initial location to final location. \end{DoxyCompactList}\item 
+void \hyperlink{classEzAquarii_1_1location_aa28f227132ae57c28625c819ce4f0cd0}{columns} (int count=1)\hypertarget{classEzAquarii_1_1location_aa28f227132ae57c28625c819ce4f0cd0}{}\label{classEzAquarii_1_1location_aa28f227132ae57c28625c819ce4f0cd0}
+
+\begin{DoxyCompactList}\small\item\em Extend the current location to the C\+O\+U\+NT next columns. \end{DoxyCompactList}\item 
+void \hyperlink{classEzAquarii_1_1location_ad63e80d670f482a693e727c9a0f4e7a0}{lines} (int count=1)\hypertarget{classEzAquarii_1_1location_ad63e80d670f482a693e727c9a0f4e7a0}{}\label{classEzAquarii_1_1location_ad63e80d670f482a693e727c9a0f4e7a0}
+
+\begin{DoxyCompactList}\small\item\em Extend the current location to the C\+O\+U\+NT next lines. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classEzAquarii_1_1position}{position} \hyperlink{classEzAquarii_1_1location_a44a3986e4a47d2e1a42b6d4ef4d325a7}{begin}\hypertarget{classEzAquarii_1_1location_a44a3986e4a47d2e1a42b6d4ef4d325a7}{}\label{classEzAquarii_1_1location_a44a3986e4a47d2e1a42b6d4ef4d325a7}
+
+\begin{DoxyCompactList}\small\item\em Beginning of the located region. \end{DoxyCompactList}\item 
+\hyperlink{classEzAquarii_1_1position}{position} \hyperlink{classEzAquarii_1_1location_acc6895050d9a3a5de820d0b482d9baf0}{end}\hypertarget{classEzAquarii_1_1location_acc6895050d9a3a5de820d0b482d9baf0}{}\label{classEzAquarii_1_1location_acc6895050d9a3a5de820d0b482d9baf0}
+
+\begin{DoxyCompactList}\small\item\em End of the located region. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Abstract a location. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/mate/\+Documents/\+Programming/\+Research/\+Multilayer\+Network\+Model/\+Multilayer\+Network\+Model/src/parser/include/\hyperlink{location_8hh}{location.\+hh}\end{DoxyCompactItemize}

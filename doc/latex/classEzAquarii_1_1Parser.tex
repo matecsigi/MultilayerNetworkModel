@@ -1,0 +1,162 @@
+\hypertarget{classEzAquarii_1_1Parser}{}\section{Ez\+Aquarii\+:\+:Parser Class Reference}
+\label{classEzAquarii_1_1Parser}\index{Ez\+Aquarii\+::\+Parser@{Ez\+Aquarii\+::\+Parser}}
+
+
+A Bison parser.  
+
+
+
+
+{\ttfamily \#include $<$parser.\+hpp$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structEzAquarii_1_1Parser_1_1basic__symbol}{basic\+\_\+symbol}
+\item 
+struct \hyperlink{structEzAquarii_1_1Parser_1_1by__type}{by\+\_\+type}
+\begin{DoxyCompactList}\small\item\em Type access provider for token (enum) based symbols. \end{DoxyCompactList}\item 
+struct \hyperlink{structEzAquarii_1_1Parser_1_1syntax__error}{syntax\+\_\+error}
+\begin{DoxyCompactList}\small\item\em Syntax errors thrown from user actions. \end{DoxyCompactList}\item 
+struct \hyperlink{structEzAquarii_1_1Parser_1_1token}{token}
+\begin{DoxyCompactList}\small\item\em Tokens. \end{DoxyCompactList}\item 
+union \hyperlink{unionEzAquarii_1_1Parser_1_1union__type}{union\+\_\+type}
+\begin{DoxyCompactList}\small\item\em An auxiliary type to compute the largest semantic type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ {\bfseries empty\+\_\+symbol} = -\/2
+ \}\hypertarget{classEzAquarii_1_1Parser_ac9175939b17a7f5c752f911bf9cc563e}{}\label{classEzAquarii_1_1Parser_ac9175939b17a7f5c752f911bf9cc563e}
+\begin{DoxyCompactList}\small\item\em The symbol type number to denote an empty symbol. \end{DoxyCompactList}
+\item 
+typedef \hyperlink{structEzAquarii_1_1variant}{variant}$<$ sizeof(\hyperlink{unionEzAquarii_1_1Parser_1_1union__type}{union\+\_\+type})$>$ \hyperlink{classEzAquarii_1_1Parser_aaaaae6127b81aac6e8be99c12433702e}{semantic\+\_\+type}\hypertarget{classEzAquarii_1_1Parser_aaaaae6127b81aac6e8be99c12433702e}{}\label{classEzAquarii_1_1Parser_aaaaae6127b81aac6e8be99c12433702e}
+
+\begin{DoxyCompactList}\small\item\em Symbol semantic values. \end{DoxyCompactList}\item 
+typedef \hyperlink{classEzAquarii_1_1location}{location} \hyperlink{classEzAquarii_1_1Parser_acc4b937a827f1be285bf28ec90eeb125}{location\+\_\+type}\hypertarget{classEzAquarii_1_1Parser_acc4b937a827f1be285bf28ec90eeb125}{}\label{classEzAquarii_1_1Parser_acc4b937a827f1be285bf28ec90eeb125}
+
+\begin{DoxyCompactList}\small\item\em Symbol locations. \end{DoxyCompactList}\item 
+typedef token\+::yytokentype \hyperlink{classEzAquarii_1_1Parser_a56291d58866809533c2eb3f54911674c}{token\+\_\+type}\hypertarget{classEzAquarii_1_1Parser_a56291d58866809533c2eb3f54911674c}{}\label{classEzAquarii_1_1Parser_a56291d58866809533c2eb3f54911674c}
+
+\begin{DoxyCompactList}\small\item\em (External) token type, as returned by yylex. \end{DoxyCompactList}\item 
+typedef int \hyperlink{classEzAquarii_1_1Parser_a6b10da3f2fe3a3c8eaaf290343985935}{symbol\+\_\+number\+\_\+type}\hypertarget{classEzAquarii_1_1Parser_a6b10da3f2fe3a3c8eaaf290343985935}{}\label{classEzAquarii_1_1Parser_a6b10da3f2fe3a3c8eaaf290343985935}
+
+\begin{DoxyCompactList}\small\item\em Symbol type\+: an internal symbol number. \end{DoxyCompactList}\item 
+typedef unsigned char \hyperlink{classEzAquarii_1_1Parser_a8534ae67ef531c12ceffacd8d9f18f5f}{token\+\_\+number\+\_\+type}\hypertarget{classEzAquarii_1_1Parser_a8534ae67ef531c12ceffacd8d9f18f5f}{}\label{classEzAquarii_1_1Parser_a8534ae67ef531c12ceffacd8d9f18f5f}
+
+\begin{DoxyCompactList}\small\item\em Internal symbol number for tokens (subsumed by symbol\+\_\+number\+\_\+type). \end{DoxyCompactList}\item 
+typedef \hyperlink{structEzAquarii_1_1Parser_1_1basic__symbol}{basic\+\_\+symbol}$<$ \hyperlink{structEzAquarii_1_1Parser_1_1by__type}{by\+\_\+type} $>$ \hyperlink{classEzAquarii_1_1Parser_a219e44a6cf61b8a88cf0db8d5bb7be5d}{symbol\+\_\+type}\hypertarget{classEzAquarii_1_1Parser_a219e44a6cf61b8a88cf0db8d5bb7be5d}{}\label{classEzAquarii_1_1Parser_a219e44a6cf61b8a88cf0db8d5bb7be5d}
+
+\begin{DoxyCompactList}\small\item\em \char`\"{}\+External\char`\"{} symbols\+: returned by the scanner. \end{DoxyCompactList}\item 
+typedef int \hyperlink{classEzAquarii_1_1Parser_a945601d6f0ff5d112687ff087ba4eee5}{debug\+\_\+level\+\_\+type}\hypertarget{classEzAquarii_1_1Parser_a945601d6f0ff5d112687ff087ba4eee5}{}\label{classEzAquarii_1_1Parser_a945601d6f0ff5d112687ff087ba4eee5}
+
+\begin{DoxyCompactList}\small\item\em Type for debugging levels. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classEzAquarii_1_1Parser_acd08ae3a93fb14cc80ba83233b57f301}{Parser} (\hyperlink{classEzAquarii_1_1Scanner}{Ez\+Aquarii\+::\+Scanner} \&scanner\+\_\+yyarg, \hyperlink{classEzAquarii_1_1Interpreter}{Ez\+Aquarii\+::\+Interpreter} \&driver\+\_\+yyarg)\hypertarget{classEzAquarii_1_1Parser_acd08ae3a93fb14cc80ba83233b57f301}{}\label{classEzAquarii_1_1Parser_acd08ae3a93fb14cc80ba83233b57f301}
+
+\begin{DoxyCompactList}\small\item\em Build a parser object. \end{DoxyCompactList}\item 
+virtual int \hyperlink{classEzAquarii_1_1Parser_a5b6486cacbe811c9099d235ecdee0f0d}{parse} ()
+\item 
+std\+::ostream \& \hyperlink{classEzAquarii_1_1Parser_a8676fbc29497d80dc94dcc6fa8f3ee52}{debug\+\_\+stream} () const Y\+Y\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+P\+U\+RE\hypertarget{classEzAquarii_1_1Parser_a8676fbc29497d80dc94dcc6fa8f3ee52}{}\label{classEzAquarii_1_1Parser_a8676fbc29497d80dc94dcc6fa8f3ee52}
+
+\begin{DoxyCompactList}\small\item\em The current debugging stream. \end{DoxyCompactList}\item 
+void \hyperlink{classEzAquarii_1_1Parser_a52d6d4b537c8d25077bc5dc8975fb45a}{set\+\_\+debug\+\_\+stream} (std\+::ostream \&)\hypertarget{classEzAquarii_1_1Parser_a52d6d4b537c8d25077bc5dc8975fb45a}{}\label{classEzAquarii_1_1Parser_a52d6d4b537c8d25077bc5dc8975fb45a}
+
+\begin{DoxyCompactList}\small\item\em Set the current debugging stream. \end{DoxyCompactList}\item 
+\hyperlink{classEzAquarii_1_1Parser_a945601d6f0ff5d112687ff087ba4eee5}{debug\+\_\+level\+\_\+type} \hyperlink{classEzAquarii_1_1Parser_a4810ec57cbf0ef29f0045cb49580867e}{debug\+\_\+level} () const Y\+Y\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+P\+U\+RE\hypertarget{classEzAquarii_1_1Parser_a4810ec57cbf0ef29f0045cb49580867e}{}\label{classEzAquarii_1_1Parser_a4810ec57cbf0ef29f0045cb49580867e}
+
+\begin{DoxyCompactList}\small\item\em The current debugging level. \end{DoxyCompactList}\item 
+void \hyperlink{classEzAquarii_1_1Parser_a49f507f23a4f4c65d7c42467963c1a85}{set\+\_\+debug\+\_\+level} (\hyperlink{classEzAquarii_1_1Parser_a945601d6f0ff5d112687ff087ba4eee5}{debug\+\_\+level\+\_\+type} l)\hypertarget{classEzAquarii_1_1Parser_a49f507f23a4f4c65d7c42467963c1a85}{}\label{classEzAquarii_1_1Parser_a49f507f23a4f4c65d7c42467963c1a85}
+
+\begin{DoxyCompactList}\small\item\em Set the current debugging level. \end{DoxyCompactList}\item 
+virtual void \hyperlink{classEzAquarii_1_1Parser_a30d9494d2cc667df108575d904dfe900}{error} (const \hyperlink{classEzAquarii_1_1Parser_acc4b937a827f1be285bf28ec90eeb125}{location\+\_\+type} \&loc, const std\+::string \&msg)
+\item 
+void \hyperlink{classEzAquarii_1_1Parser_a7bf3be118991b7cd3a4351a8e02a061f}{error} (const \hyperlink{structEzAquarii_1_1Parser_1_1syntax__error}{syntax\+\_\+error} \&err)\hypertarget{classEzAquarii_1_1Parser_a7bf3be118991b7cd3a4351a8e02a061f}{}\label{classEzAquarii_1_1Parser_a7bf3be118991b7cd3a4351a8e02a061f}
+
+\begin{DoxyCompactList}\small\item\em Report a syntax error. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{classEzAquarii_1_1Parser_a219e44a6cf61b8a88cf0db8d5bb7be5d}{symbol\+\_\+type} {\bfseries make\+\_\+\+E\+ND} (const \hyperlink{classEzAquarii_1_1Parser_acc4b937a827f1be285bf28ec90eeb125}{location\+\_\+type} \&l)\hypertarget{classEzAquarii_1_1Parser_a64bc5f8c6607233518d0f0c505de93a9}{}\label{classEzAquarii_1_1Parser_a64bc5f8c6607233518d0f0c505de93a9}
+
+\item 
+static \hyperlink{classEzAquarii_1_1Parser_a219e44a6cf61b8a88cf0db8d5bb7be5d}{symbol\+\_\+type} {\bfseries make\+\_\+\+S\+T\+R\+I\+NG} (const std\+::string \&v, const \hyperlink{classEzAquarii_1_1Parser_acc4b937a827f1be285bf28ec90eeb125}{location\+\_\+type} \&l)\hypertarget{classEzAquarii_1_1Parser_abf9dafd4ffc35984e31e3c84488593ef}{}\label{classEzAquarii_1_1Parser_abf9dafd4ffc35984e31e3c84488593ef}
+
+\item 
+static \hyperlink{classEzAquarii_1_1Parser_a219e44a6cf61b8a88cf0db8d5bb7be5d}{symbol\+\_\+type} {\bfseries make\+\_\+\+L\+E\+F\+T\+P\+AR} (const \hyperlink{classEzAquarii_1_1Parser_acc4b937a827f1be285bf28ec90eeb125}{location\+\_\+type} \&l)\hypertarget{classEzAquarii_1_1Parser_a4324d2938dce6e36206e186a3aa13ba6}{}\label{classEzAquarii_1_1Parser_a4324d2938dce6e36206e186a3aa13ba6}
+
+\item 
+static \hyperlink{classEzAquarii_1_1Parser_a219e44a6cf61b8a88cf0db8d5bb7be5d}{symbol\+\_\+type} {\bfseries make\+\_\+\+R\+I\+G\+H\+T\+P\+AR} (const \hyperlink{classEzAquarii_1_1Parser_acc4b937a827f1be285bf28ec90eeb125}{location\+\_\+type} \&l)\hypertarget{classEzAquarii_1_1Parser_a0df3a1547d1fe4d6b10e45502de43b6f}{}\label{classEzAquarii_1_1Parser_a0df3a1547d1fe4d6b10e45502de43b6f}
+
+\item 
+static \hyperlink{classEzAquarii_1_1Parser_a219e44a6cf61b8a88cf0db8d5bb7be5d}{symbol\+\_\+type} {\bfseries make\+\_\+\+S\+E\+M\+I\+C\+O\+L\+ON} (const \hyperlink{classEzAquarii_1_1Parser_acc4b937a827f1be285bf28ec90eeb125}{location\+\_\+type} \&l)\hypertarget{classEzAquarii_1_1Parser_afe57a94b971524b68419da3db527cb8e}{}\label{classEzAquarii_1_1Parser_afe57a94b971524b68419da3db527cb8e}
+
+\item 
+static \hyperlink{classEzAquarii_1_1Parser_a219e44a6cf61b8a88cf0db8d5bb7be5d}{symbol\+\_\+type} {\bfseries make\+\_\+\+C\+O\+M\+MA} (const \hyperlink{classEzAquarii_1_1Parser_acc4b937a827f1be285bf28ec90eeb125}{location\+\_\+type} \&l)\hypertarget{classEzAquarii_1_1Parser_a31408a2f7f553b67616c26357906f8e3}{}\label{classEzAquarii_1_1Parser_a31408a2f7f553b67616c26357906f8e3}
+
+\item 
+static \hyperlink{classEzAquarii_1_1Parser_a219e44a6cf61b8a88cf0db8d5bb7be5d}{symbol\+\_\+type} {\bfseries make\+\_\+\+I\+N\+T\+E\+G\+ER} (const int \&v, const \hyperlink{classEzAquarii_1_1Parser_acc4b937a827f1be285bf28ec90eeb125}{location\+\_\+type} \&l)\hypertarget{classEzAquarii_1_1Parser_aba28e7a76c9bf769a487b30be10ef73a}{}\label{classEzAquarii_1_1Parser_aba28e7a76c9bf769a487b30be10ef73a}
+
+\item 
+static \hyperlink{classEzAquarii_1_1Parser_a219e44a6cf61b8a88cf0db8d5bb7be5d}{symbol\+\_\+type} {\bfseries make\+\_\+\+D\+O\+U\+B\+LE} (const double \&v, const \hyperlink{classEzAquarii_1_1Parser_acc4b937a827f1be285bf28ec90eeb125}{location\+\_\+type} \&l)\hypertarget{classEzAquarii_1_1Parser_aface469a8bafa14584cacea59dc4f4cb}{}\label{classEzAquarii_1_1Parser_aface469a8bafa14584cacea59dc4f4cb}
+
+\item 
+static \hyperlink{classEzAquarii_1_1Parser_a219e44a6cf61b8a88cf0db8d5bb7be5d}{symbol\+\_\+type} {\bfseries make\+\_\+\+P\+L\+US} (const \hyperlink{classEzAquarii_1_1Parser_acc4b937a827f1be285bf28ec90eeb125}{location\+\_\+type} \&l)\hypertarget{classEzAquarii_1_1Parser_a6282bd0c16f22fc037687e7ee1e8b917}{}\label{classEzAquarii_1_1Parser_a6282bd0c16f22fc037687e7ee1e8b917}
+
+\item 
+static \hyperlink{classEzAquarii_1_1Parser_a219e44a6cf61b8a88cf0db8d5bb7be5d}{symbol\+\_\+type} {\bfseries make\+\_\+\+M\+I\+N\+US} (const \hyperlink{classEzAquarii_1_1Parser_acc4b937a827f1be285bf28ec90eeb125}{location\+\_\+type} \&l)\hypertarget{classEzAquarii_1_1Parser_a73d5902699233c5a0f883259bf3001eb}{}\label{classEzAquarii_1_1Parser_a73d5902699233c5a0f883259bf3001eb}
+
+\item 
+static \hyperlink{classEzAquarii_1_1Parser_a219e44a6cf61b8a88cf0db8d5bb7be5d}{symbol\+\_\+type} {\bfseries make\+\_\+\+M\+U\+L\+T\+I\+P\+LY} (const \hyperlink{classEzAquarii_1_1Parser_acc4b937a827f1be285bf28ec90eeb125}{location\+\_\+type} \&l)\hypertarget{classEzAquarii_1_1Parser_a52c3b0c727818587ddb7cea716d187ee}{}\label{classEzAquarii_1_1Parser_a52c3b0c727818587ddb7cea716d187ee}
+
+\item 
+static \hyperlink{classEzAquarii_1_1Parser_a219e44a6cf61b8a88cf0db8d5bb7be5d}{symbol\+\_\+type} {\bfseries make\+\_\+\+D\+I\+V\+I\+DE} (const \hyperlink{classEzAquarii_1_1Parser_acc4b937a827f1be285bf28ec90eeb125}{location\+\_\+type} \&l)\hypertarget{classEzAquarii_1_1Parser_acad54af9b6b3ee1271550ab9d894ad8a}{}\label{classEzAquarii_1_1Parser_acad54af9b6b3ee1271550ab9d894ad8a}
+
+\item 
+static \hyperlink{classEzAquarii_1_1Parser_a219e44a6cf61b8a88cf0db8d5bb7be5d}{symbol\+\_\+type} {\bfseries make\+\_\+\+P\+O\+W\+ER} (const \hyperlink{classEzAquarii_1_1Parser_acc4b937a827f1be285bf28ec90eeb125}{location\+\_\+type} \&l)\hypertarget{classEzAquarii_1_1Parser_accb27e9376f1b567575b67c3be229829}{}\label{classEzAquarii_1_1Parser_accb27e9376f1b567575b67c3be229829}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A Bison parser. 
+
+\subsection{Member Function Documentation}
+\index{Ez\+Aquarii\+::\+Parser@{Ez\+Aquarii\+::\+Parser}!error@{error}}
+\index{error@{error}!Ez\+Aquarii\+::\+Parser@{Ez\+Aquarii\+::\+Parser}}
+\subsubsection[{\texorpdfstring{error(const location\+\_\+type \&loc, const std\+::string \&msg)}{error(const location_type &loc, const std::string &msg)}}]{\setlength{\rightskip}{0pt plus 5cm}void Ez\+Aquarii\+::\+Parser\+::error (
+\begin{DoxyParamCaption}
+\item[{const {\bf location\+\_\+type} \&}]{loc, }
+\item[{const std\+::string \&}]{msg}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classEzAquarii_1_1Parser_a30d9494d2cc667df108575d904dfe900}{}\label{classEzAquarii_1_1Parser_a30d9494d2cc667df108575d904dfe900}
+Report a syntax error. 
+\begin{DoxyParams}{Parameters}
+{\em loc} & where the syntax error is found. \\
+\hline
+{\em msg} & a description of the syntax error. \\
+\hline
+\end{DoxyParams}
+\index{Ez\+Aquarii\+::\+Parser@{Ez\+Aquarii\+::\+Parser}!parse@{parse}}
+\index{parse@{parse}!Ez\+Aquarii\+::\+Parser@{Ez\+Aquarii\+::\+Parser}}
+\subsubsection[{\texorpdfstring{parse()}{parse()}}]{\setlength{\rightskip}{0pt plus 5cm}int Ez\+Aquarii\+::\+Parser\+::parse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classEzAquarii_1_1Parser_a5b6486cacbe811c9099d235ecdee0f0d}{}\label{classEzAquarii_1_1Parser_a5b6486cacbe811c9099d235ecdee0f0d}
+Parse. \begin{DoxyReturn}{Returns}
+0 iff parsing succeeded. 
+\end{DoxyReturn}
+Length of the R\+HS of the rule being reduced.
+
+The lookahead symbol.
+
+The locations where the error started and ended.
+
+The return value of parse (). 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/mate/\+Documents/\+Programming/\+Research/\+Multilayer\+Network\+Model/\+Multilayer\+Network\+Model/src/parser/include/\hyperlink{parser_8hpp}{parser.\+hpp}\item 
+/home/mate/\+Documents/\+Programming/\+Research/\+Multilayer\+Network\+Model/\+Multilayer\+Network\+Model/src/parser/src/parser.\+cpp\end{DoxyCompactItemize}

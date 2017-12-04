@@ -1,0 +1,81 @@
+\hypertarget{classGenericStreamWrapper}{}\section{Generic\+Stream\+Wrapper$<$ Input\+Stream, Encoding $>$ Class Template Reference}
+\label{classGenericStreamWrapper}\index{Generic\+Stream\+Wrapper$<$ Input\+Stream, Encoding $>$@{Generic\+Stream\+Wrapper$<$ Input\+Stream, Encoding $>$}}
+
+
+A Stream Wrapper.  
+
+
+
+
+{\ttfamily \#include $<$stream.\+h$>$}
+
+Inheritance diagram for Generic\+Stream\+Wrapper$<$ Input\+Stream, Encoding $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classGenericStreamWrapper}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef Encoding\+::\+Ch {\bfseries Ch}\hypertarget{classGenericStreamWrapper_aef9e89bc4997497315bde1b60e8bb848}{}\label{classGenericStreamWrapper_aef9e89bc4997497315bde1b60e8bb848}
+
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Generic\+Stream\+Wrapper} (Input\+Stream \&is)\hypertarget{classGenericStreamWrapper_a7b12b1de6337d3f8e635b650e372c803}{}\label{classGenericStreamWrapper_a7b12b1de6337d3f8e635b650e372c803}
+
+\item 
+Ch {\bfseries Peek} () const \hypertarget{classGenericStreamWrapper_a67b469da031928fb159d0c3b706f44d7}{}\label{classGenericStreamWrapper_a67b469da031928fb159d0c3b706f44d7}
+
+\item 
+Ch {\bfseries Take} ()\hypertarget{classGenericStreamWrapper_a1c0bc67a233e08ed89b4ff37455e7754}{}\label{classGenericStreamWrapper_a1c0bc67a233e08ed89b4ff37455e7754}
+
+\item 
+size\+\_\+t {\bfseries Tell} ()\hypertarget{classGenericStreamWrapper_a5068a627e0a2deffa985db39f89c5378}{}\label{classGenericStreamWrapper_a5068a627e0a2deffa985db39f89c5378}
+
+\item 
+Ch $\ast$ {\bfseries Put\+Begin} ()\hypertarget{classGenericStreamWrapper_a4b35b8e9b6feba4d7f1d99ffce17f83d}{}\label{classGenericStreamWrapper_a4b35b8e9b6feba4d7f1d99ffce17f83d}
+
+\item 
+void {\bfseries Put} (Ch ch)\hypertarget{classGenericStreamWrapper_a458b9f3e00ad41dadb069839ab53f0ba}{}\label{classGenericStreamWrapper_a458b9f3e00ad41dadb069839ab53f0ba}
+
+\item 
+void {\bfseries Flush} ()\hypertarget{classGenericStreamWrapper_a210c0864fbff3cc72f2f62ed461105fb}{}\label{classGenericStreamWrapper_a210c0864fbff3cc72f2f62ed461105fb}
+
+\item 
+size\+\_\+t {\bfseries Put\+End} (Ch $\ast$ch)\hypertarget{classGenericStreamWrapper_a84f8d6e1f95d53c4e8e22892d5113fd3}{}\label{classGenericStreamWrapper_a84f8d6e1f95d53c4e8e22892d5113fd3}
+
+\item 
+const Ch $\ast$ {\bfseries Peek4} () const \hypertarget{classGenericStreamWrapper_af3eb96763744e85075cc221b5840cda3}{}\label{classGenericStreamWrapper_af3eb96763744e85075cc221b5840cda3}
+
+\item 
+U\+T\+F\+Type {\bfseries Get\+Type} () const \hypertarget{classGenericStreamWrapper_aad72e81846f45d922f8f172b9842c7bb}{}\label{classGenericStreamWrapper_aad72e81846f45d922f8f172b9842c7bb}
+
+\item 
+bool {\bfseries Has\+B\+OM} () const \hypertarget{classGenericStreamWrapper_a6ebd59bda5fc5754d71731416a88906b}{}\label{classGenericStreamWrapper_a6ebd59bda5fc5754d71731416a88906b}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Input\+Stream \& {\bfseries is\+\_\+}\hypertarget{classGenericStreamWrapper_a2b44ae2c9460c2e18aca6ba25c537cc5}{}\label{classGenericStreamWrapper_a2b44ae2c9460c2e18aca6ba25c537cc5}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$typename Input\+Stream, typename Encoding = U\+T\+F8$<$$>$$>$\\*
+class Generic\+Stream\+Wrapper$<$ Input\+Stream, Encoding $>$}
+
+A Stream Wrapper. 
+
+string stream is a wrapper for any stream by just forwarding any  message to the origin stream. \begin{DoxyNote}{Note}
+implements Stream concept 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/mate/\+Documents/\+Programming/\+Research/\+Multilayer\+Network\+Model/\+Multilayer\+Network\+Model/src/external/rapidjson/stream.\+h\end{DoxyCompactItemize}

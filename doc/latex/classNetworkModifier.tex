@@ -1,0 +1,92 @@
+\hypertarget{classNetworkModifier}{}\section{Network\+Modifier Class Reference}
+\label{classNetworkModifier}\index{Network\+Modifier@{Network\+Modifier}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries modify\+Network} (\hyperlink{classNetwork}{Network} $\ast$network)\hypertarget{classNetworkModifier_a7d5af0b6aaa1a8365ff03749a7eb0376}{}\label{classNetworkModifier_a7d5af0b6aaa1a8365ff03749a7eb0376}
+
+\item 
+void {\bfseries copy\+Network} (\hyperlink{classNetwork}{Network} $\ast$old\+Network, \hyperlink{classNetwork}{Network} $\ast$new\+Network)\hypertarget{classNetworkModifier_a2ab956789ff4a954e0e3dd027512012b}{}\label{classNetworkModifier_a2ab956789ff4a954e0e3dd027512012b}
+
+\item 
+\hyperlink{classNode}{Node} $\ast$ {\bfseries choose\+Node} (\hyperlink{classNetwork}{Network} $\ast$network)\hypertarget{classNetworkModifier_a236ee2c417412e6333d4ed855bd9f88f}{}\label{classNetworkModifier_a236ee2c417412e6333d4ed855bd9f88f}
+
+\item 
+Modification\+Type {\bfseries choose\+Type} ()\hypertarget{classNetworkModifier_a11a4d6c3bb19cda4e9714ad296d72db1}{}\label{classNetworkModifier_a11a4d6c3bb19cda4e9714ad296d72db1}
+
+\item 
+void {\bfseries add\+Edge} (\hyperlink{classNetwork}{Network} $\ast$network, \hyperlink{classNode}{Node} $\ast$node)\hypertarget{classNetworkModifier_a7486df4a68343d65eb5bfb766d6959dd}{}\label{classNetworkModifier_a7486df4a68343d65eb5bfb766d6959dd}
+
+\item 
+void {\bfseries remove\+Edge} (\hyperlink{classNetwork}{Network} $\ast$network, \hyperlink{classNode}{Node} $\ast$node)\hypertarget{classNetworkModifier_a98de1cc69f96a312d823a18fb4e32125}{}\label{classNetworkModifier_a98de1cc69f96a312d823a18fb4e32125}
+
+\item 
+void {\bfseries add\+To\+Outer\+Block} (\hyperlink{classNetwork}{Network} $\ast$network, \hyperlink{classNode}{Node} $\ast$node)\hypertarget{classNetworkModifier_aa3003a2ca2ba2a64e3dfa52372befafe}{}\label{classNetworkModifier_aa3003a2ca2ba2a64e3dfa52372befafe}
+
+\item 
+void {\bfseries remove\+From\+Outer\+Block} (\hyperlink{classNetwork}{Network} $\ast$network, \hyperlink{classNode}{Node} $\ast$node)\hypertarget{classNetworkModifier_aa61381ec53af37a67753b95e162e2ee6}{}\label{classNetworkModifier_aa61381ec53af37a67753b95e162e2ee6}
+
+\item 
+void {\bfseries change\+Constant} (\hyperlink{classNetwork}{Network} $\ast$network, \hyperlink{classNode}{Node} $\ast$node)\hypertarget{classNetworkModifier_a574c45de40cd717c66412a821dec7720}{}\label{classNetworkModifier_a574c45de40cd717c66412a821dec7720}
+
+\item 
+void {\bfseries change\+Plus\+To\+Multiply} (\hyperlink{classNetwork}{Network} $\ast$network, \hyperlink{classNode}{Node} $\ast$node)\hypertarget{classNetworkModifier_af847b438d989b02336200e47f2059be5}{}\label{classNetworkModifier_af847b438d989b02336200e47f2059be5}
+
+\item 
+void {\bfseries change\+Multiply\+To\+Plus} (\hyperlink{classNetwork}{Network} $\ast$network, \hyperlink{classNode}{Node} $\ast$node)\hypertarget{classNetworkModifier_a50d862b93e5f37acaa073e5edaad9a2c}{}\label{classNetworkModifier_a50d862b93e5f37acaa073e5edaad9a2c}
+
+\item 
+\hyperlink{classNode}{Node} $\ast$ {\bfseries get\+Node\+\_\+add\+Edge} (\hyperlink{classNetwork}{Network} $\ast$network, \hyperlink{classNode}{Node} $\ast$node)\hypertarget{classNetworkModifier_a3ca48b0cbcc665ffadd0cebcc3a3e45b}{}\label{classNetworkModifier_a3ca48b0cbcc665ffadd0cebcc3a3e45b}
+
+\item 
+\hyperlink{classNode}{Node} $\ast$ {\bfseries get\+Node\+\_\+remove\+Edge} (\hyperlink{classNetwork}{Network} $\ast$network, \hyperlink{classNode}{Node} $\ast$node)\hypertarget{classNetworkModifier_a1519488c4c8787563bd37b8591f741bf}{}\label{classNetworkModifier_a1519488c4c8787563bd37b8591f741bf}
+
+\item 
+void {\bfseries get\+Locations\+\_\+add\+Edge} (\hyperlink{classCalculationNode}{Calculation\+Node} $\ast$calc\+Node, std\+::vector$<$ \hyperlink{classCalculationNode}{Calculation\+Node} $\ast$ $>$ \&locations)\hypertarget{classNetworkModifier_ac2e65c2e6985a1b6b8d90e0d5eac7b36}{}\label{classNetworkModifier_ac2e65c2e6985a1b6b8d90e0d5eac7b36}
+
+\item 
+void {\bfseries get\+Locations\+\_\+add\+To\+Outer\+Block} (\hyperlink{classCalculationNode}{Calculation\+Node} $\ast$calc\+Node, std\+::vector$<$ \hyperlink{classCalculationNode}{Calculation\+Node} $\ast$ $>$ \&locations)\hypertarget{classNetworkModifier_ac082b11da7cb452b9047eea94b0f1e37}{}\label{classNetworkModifier_ac082b11da7cb452b9047eea94b0f1e37}
+
+\item 
+void {\bfseries get\+Locations\+\_\+remove\+From\+Outer\+Block} (\hyperlink{classCalculationNode}{Calculation\+Node} $\ast$base\+Calc\+Node, \hyperlink{classCalculationNode}{Calculation\+Node} $\ast$calc\+Node, std\+::vector$<$ \hyperlink{classCalculationNode}{Calculation\+Node} $\ast$ $>$ \&locations)\hypertarget{classNetworkModifier_afe88d2366b6e5464b3e29a19fa1eeb1e}{}\label{classNetworkModifier_afe88d2366b6e5464b3e29a19fa1eeb1e}
+
+\item 
+void {\bfseries get\+Locations\+\_\+change\+Constant} (\hyperlink{classCalculationNode}{Calculation\+Node} $\ast$calc\+Node, std\+::vector$<$ \hyperlink{classCalculationNode}{Calculation\+Node} $\ast$ $>$ \&locations)\hypertarget{classNetworkModifier_a92f84a858a92dcd68e4ea252ea65f5a0}{}\label{classNetworkModifier_a92f84a858a92dcd68e4ea252ea65f5a0}
+
+\item 
+void {\bfseries get\+Locations\+\_\+change\+Plus\+To\+Multiply} (\hyperlink{classCalculationNode}{Calculation\+Node} $\ast$calc\+Node, std\+::vector$<$ \hyperlink{classCalculationNode}{Calculation\+Node} $\ast$ $>$ \&locations)\hypertarget{classNetworkModifier_a610cc380e39e047cdd2f716c75a657df}{}\label{classNetworkModifier_a610cc380e39e047cdd2f716c75a657df}
+
+\item 
+void {\bfseries get\+Locations\+\_\+change\+Multiply\+To\+Plus} (\hyperlink{classCalculationNode}{Calculation\+Node} $\ast$calc\+Node, std\+::vector$<$ \hyperlink{classCalculationNode}{Calculation\+Node} $\ast$ $>$ \&locations)\hypertarget{classNetworkModifier_ac396b8a961cd134496feb28b04f4a2ff}{}\label{classNetworkModifier_ac396b8a961cd134496feb28b04f4a2ff}
+
+\item 
+\hyperlink{classCalculationNode}{Calculation\+Node} $\ast$ {\bfseries specific\+\_\+add\+Edge} (\hyperlink{classCalculationNode}{Calculation\+Node} $\ast$base\+Calc\+Node, \hyperlink{classCalculationNode}{Calculation\+Node} $\ast$changing\+Calc\+Node, \hyperlink{classNode}{Node} $\ast$new\+Neighbor)\hypertarget{classNetworkModifier_a3e37a7d3d65e0162f2713da90a4a816a}{}\label{classNetworkModifier_a3e37a7d3d65e0162f2713da90a4a816a}
+
+\item 
+\hyperlink{classCalculationNode}{Calculation\+Node} $\ast$ {\bfseries specific\+\_\+remove\+Edge} (\hyperlink{classCalculationNode}{Calculation\+Node} $\ast$base\+Calc\+Node, \hyperlink{classCalculationNode}{Calculation\+Node} $\ast$changing\+Calc\+Node)\hypertarget{classNetworkModifier_a6f72ac88702c225e881964f178d63bd7}{}\label{classNetworkModifier_a6f72ac88702c225e881964f178d63bd7}
+
+\item 
+void {\bfseries specific\+\_\+change\+Constant} (\hyperlink{classCalculationNode}{Calculation\+Node} $\ast$changing\+Calc\+Node)\hypertarget{classNetworkModifier_a826ad8a3e5fd313e1f263a8088da55fe}{}\label{classNetworkModifier_a826ad8a3e5fd313e1f263a8088da55fe}
+
+\item 
+\hyperlink{classCalculationNode}{Calculation\+Node} $\ast$ {\bfseries specific\+\_\+change\+Plus\+To\+Multiply} (\hyperlink{classCalculationNode}{Calculation\+Node} $\ast$base\+Calc\+Node, \hyperlink{classCalculationNode}{Calculation\+Node} $\ast$changing\+Calc\+Node)\hypertarget{classNetworkModifier_aec5fb3ec5702d8ec879135ed9fd3fd59}{}\label{classNetworkModifier_aec5fb3ec5702d8ec879135ed9fd3fd59}
+
+\item 
+\hyperlink{classCalculationNode}{Calculation\+Node} $\ast$ {\bfseries specific\+\_\+change\+Multiply\+To\+Plus} (\hyperlink{classCalculationNode}{Calculation\+Node} $\ast$base\+Calc\+Node, \hyperlink{classCalculationNode}{Calculation\+Node} $\ast$changing\+Calc\+Node)\hypertarget{classNetworkModifier_a26e6b75e86ad045f64368add386aa2f8}{}\label{classNetworkModifier_a26e6b75e86ad045f64368add386aa2f8}
+
+\item 
+int {\bfseries number\+Of\+Type} (\hyperlink{classCalculationNode}{Calculation\+Node} $\ast$calc\+Node, Calc\+Node\+Types type)\hypertarget{classNetworkModifier_afecca95dfe9c898fd0fe3959f6846144}{}\label{classNetworkModifier_afecca95dfe9c898fd0fe3959f6846144}
+
+\item 
+\hyperlink{classCalculationNode}{Calculation\+Node} $\ast$ {\bfseries get\+Parent} (\hyperlink{classCalculationNode}{Calculation\+Node} $\ast$calc\+Node, \hyperlink{classCalculationNode}{Calculation\+Node} $\ast$child\+Calc\+Node)\hypertarget{classNetworkModifier_a8a8b86c2086a5c9102f123be773fc6f0}{}\label{classNetworkModifier_a8a8b86c2086a5c9102f123be773fc6f0}
+
+\item 
+void {\bfseries get\+Node\+Occurrences} (\hyperlink{classCalculationNode}{Calculation\+Node} $\ast$calc\+Node, std\+::vector$<$ \hyperlink{classCalculationNode}{Calculation\+Node} $\ast$ $>$ \&locations, int node\+Id)\hypertarget{classNetworkModifier_a2a8e14daebb6761624331a6c645cbe41}{}\label{classNetworkModifier_a2a8e14daebb6761624331a6c645cbe41}
+
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/mate/\+Documents/\+Programming/\+Research/\+Multilayer\+Network\+Model/\+Multilayer\+Network\+Model/src/core/include/Network\+Modifier.\+hh\item 
+/home/mate/\+Documents/\+Programming/\+Research/\+Multilayer\+Network\+Model/\+Multilayer\+Network\+Model/src/core/src/Network\+Modifier.\+cc\end{DoxyCompactItemize}
