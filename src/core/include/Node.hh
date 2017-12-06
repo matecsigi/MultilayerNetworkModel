@@ -57,6 +57,12 @@ public:
   double getCurrentState();
   double getPreviousState();
 
+  void setLastChangeByUpwardInfluence(double value);
+  void setLastChangeByDownwardInfluence(double value);
+
+  double getLastChangeByUpwardInfluence();
+  double getLastChangeByDownwardInfluence();
+
   //Simulation
   /**
      Performs one step on the node involving the ODE, 
@@ -98,5 +104,20 @@ private:
   IUpwardInfluence* mUpwardInfluence;
   IDownwardInfluence* mDownwardInfluence;
   IVectorFieldReconfiguration* mVectorFieldReconfiguration;
+
+  /**
+     Returns the change due to the last exectution of the 
+     UpwardInfluence function on the node. This is needed because 
+     these changes are only propagated to one direction to avoid 
+     oscillation between nodes on neighbor layers that would result in 
+     their values going to infinity.
+   */
+  double mLastChangeByUpwardInfluence;
+
+  /**
+     Returns the change due to the last exectution of the 
+     UpwardInfluence function on the node.
+   */
+  double mLastChangeByDownwardInfluence;
 };
 #endif

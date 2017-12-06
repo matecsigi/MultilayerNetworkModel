@@ -17,7 +17,10 @@ void DownwardInfluenceImpl::calculateDownwardInfluence()
       change += tmpBuffer[getIndexTMinusOne(t)]-tmpBuffer[getIndexTMinusTwo(t)];
     }
   }
+  change -= mNode->getLastChangeByUpwardInfluence();
+
   state_type x = {mNode->getCurrentState()+change};
+  mNode->setCurrentState(x);
 
   delete [] tmpBuffer;
 }

@@ -18,5 +18,9 @@ void UpwardInfluenceImpl::calculateUpwardInfluence()
     Node* currentLowerNode = (*itNode);
     currentLowerNode->getValues(tmpBuffer);
     change += tmpBuffer[getIndexTMinusOne(t)]-tmpBuffer[getIndexTMinusTwo(t)];
+    change -= currentLowerNode->getLastChangeByDownwardInfluence();
   }
+
+  state_type x = {mNode->getCurrentState()+change};
+  mNode->setCurrentState(x);
 }
