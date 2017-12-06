@@ -15,3 +15,8 @@ int getIndexTMinusTwo(int t)
 {
   return t%(bufferSize-2);
 }
+
+void loadNetworkFromJSON(Network* network, std::string filename)
+{
+  
+}
