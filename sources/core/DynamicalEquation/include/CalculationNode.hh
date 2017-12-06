@@ -28,6 +28,11 @@ public:
 
   virtual double evaluate() const = 0;
   virtual double evaluateAtState(std::map<int, double>) const = 0;
+
+  /**
+     Used only for testing puposes. Compared the ID type CalculationNode's 
+     id field to the assigned node's id.
+   */
   virtual bool testNodeIds() const = 0;
   virtual std::string toString() const = 0;
 
@@ -35,8 +40,21 @@ public:
   virtual void setValue(double value){};
 
   CalcNodeTypes getType(){return type;};
+
+  /**
+     This function is only relevant to the ID type and 
+     in that case return the ID of the assigned node.
+     @return for ID CalculationNodes the ID of the assigend node, 
+     -1 for other types of CalculationNodes
+   */
   virtual int getId(){return -1;};
 
+  /**
+     Set a node pointer to an ID type CalculationNode.
+     Only used for ID type.
+     Needed to access revious states of the node.
+     @param node: to pointer to the node to be set
+   */
   virtual void setNode(Node* node){};
 
   CalculationNode* left;

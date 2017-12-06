@@ -12,11 +12,9 @@ Inheritance diagram for C\+N\+Id\+:\begin{figure}[H]
 {\bfseries C\+N\+Id} (int \+\_\+id)\hypertarget{classCNId_ad36125d5115c0c75783a23e1e4ad55b2}{}\label{classCNId_ad36125d5115c0c75783a23e1e4ad55b2}
 
 \item 
-int {\bfseries get\+Id} ()\hypertarget{classCNId_ae0c2d402de892ef8783e6f5281ece008}{}\label{classCNId_ae0c2d402de892ef8783e6f5281ece008}
-
+int \hyperlink{classCNId_ae0c2d402de892ef8783e6f5281ece008}{get\+Id} ()
 \item 
-void {\bfseries set\+Node} (\hyperlink{classNode}{Node} $\ast$node)\hypertarget{classCNId_a25b7d25adf35e61b0d1b0e67862354f4}{}\label{classCNId_a25b7d25adf35e61b0d1b0e67862354f4}
-
+void \hyperlink{classCNId_a25b7d25adf35e61b0d1b0e67862354f4}{set\+Node} (\hyperlink{classNode}{Node} $\ast$node)
 \item 
 virtual double {\bfseries evaluate} () const \hypertarget{classCNId_a5f6b3bbc1a6daaef9a11cdc80aff920c}{}\label{classCNId_a5f6b3bbc1a6daaef9a11cdc80aff920c}
 
@@ -24,13 +22,56 @@ virtual double {\bfseries evaluate} () const \hypertarget{classCNId_a5f6b3bbc1a6
 virtual double {\bfseries evaluate\+At\+State} (std\+::map$<$ int, double $>$ starting\+State) const \hypertarget{classCNId_aacf48e3e3766cc1d54a9af8532d747ec}{}\label{classCNId_aacf48e3e3766cc1d54a9af8532d747ec}
 
 \item 
-virtual bool {\bfseries test\+Node\+Ids} () const \hypertarget{classCNId_a0bc1a04e94dfbb047ad53dd6682bf071}{}\label{classCNId_a0bc1a04e94dfbb047ad53dd6682bf071}
-
+virtual bool \hyperlink{classCNId_a0bc1a04e94dfbb047ad53dd6682bf071}{test\+Node\+Ids} () const 
 \item 
 virtual std\+::string {\bfseries to\+String} () const \hypertarget{classCNId_ae853b898d20c008bdddf799ed971f30a}{}\label{classCNId_ae853b898d20c008bdddf799ed971f30a}
 
 \end{DoxyCompactItemize}
 \subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\index{C\+N\+Id@{C\+N\+Id}!get\+Id@{get\+Id}}
+\index{get\+Id@{get\+Id}!C\+N\+Id@{C\+N\+Id}}
+\subsubsection[{\texorpdfstring{get\+Id()}{getId()}}]{\setlength{\rightskip}{0pt plus 5cm}int C\+N\+Id\+::get\+Id (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classCNId_ae0c2d402de892ef8783e6f5281ece008}{}\label{classCNId_ae0c2d402de892ef8783e6f5281ece008}
+This function is only relevant to the ID type and in that case return the ID of the assigned node. \begin{DoxyReturn}{Returns}
+for ID Calculation\+Nodes the ID of the assigend node, -\/1 for other types of Calculation\+Nodes 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{classCalculationNode_a57d514437cfc918ddb298d482358c82d}{Calculation\+Node}.
+
+\index{C\+N\+Id@{C\+N\+Id}!set\+Node@{set\+Node}}
+\index{set\+Node@{set\+Node}!C\+N\+Id@{C\+N\+Id}}
+\subsubsection[{\texorpdfstring{set\+Node(\+Node $\ast$node)}{setNode(Node *node)}}]{\setlength{\rightskip}{0pt plus 5cm}void C\+N\+Id\+::set\+Node (
+\begin{DoxyParamCaption}
+\item[{{\bf Node} $\ast$}]{node}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{classCNId_a25b7d25adf35e61b0d1b0e67862354f4}{}\label{classCNId_a25b7d25adf35e61b0d1b0e67862354f4}
+Set a node pointer to an ID type \hyperlink{classCalculationNode}{Calculation\+Node}. Only used for ID type. Needed to access revious states of the node. 
+\begin{DoxyParams}{Parameters}
+{\em node} & to pointer to the node to be set \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{classCalculationNode_a4097a8577ad76d94c32250d76988353c}{Calculation\+Node}.
+
+\index{C\+N\+Id@{C\+N\+Id}!test\+Node\+Ids@{test\+Node\+Ids}}
+\index{test\+Node\+Ids@{test\+Node\+Ids}!C\+N\+Id@{C\+N\+Id}}
+\subsubsection[{\texorpdfstring{test\+Node\+Ids() const }{testNodeIds() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool C\+N\+Id\+::test\+Node\+Ids (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classCNId_a0bc1a04e94dfbb047ad53dd6682bf071}{}\label{classCNId_a0bc1a04e94dfbb047ad53dd6682bf071}
+Used only for testing puposes. Compared the ID type \hyperlink{classCalculationNode}{Calculation\+Node}\textquotesingle{}s id field to the assigned node\textquotesingle{}s id. 
+
+Implements \hyperlink{classCalculationNode_a4089a2510d7c345a9632843a3fed4f0e}{Calculation\+Node}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

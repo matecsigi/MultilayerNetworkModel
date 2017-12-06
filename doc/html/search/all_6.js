@@ -25,7 +25,7 @@ var searchData=
   ['getcurrentstate',['getCurrentState',['../classNetwork.html#aa5727c4eb316f69edae5efee422d5c6a',1,'Network']]],
   ['getdirectionatstate',['getDirectionAtState',['../classNetwork.html#a140759419ddad1c7dea5537e90c52572',1,'Network']]],
   ['geterroroffset',['GetErrorOffset',['../classGenericDocument.html#a2db6ad11d157342f725470fb898b6712',1,'GenericDocument::GetErrorOffset()'],['../classGenericReader.html#a77399ac40cca1fb113a2d507f476b4e7',1,'GenericReader::GetErrorOffset()']]],
-  ['getid',['getId',['../classNetwork.html#ae30196d51c9db40feaf93cde5508d106',1,'Network']]],
+  ['getid',['getId',['../classCalculationNode.html#a57d514437cfc918ddb298d482358c82d',1,'CalculationNode::getId()'],['../classCNId.html#ae0c2d402de892ef8783e6f5281ece008',1,'CNId::getId()'],['../classNetwork.html#ae30196d51c9db40feaf93cde5508d106',1,'Network::getId()']]],
   ['getinvaliddocumentpointer',['GetInvalidDocumentPointer',['../classGenericSchemaValidator.html#ae65727ef84d82f3e31e1f57543e71320',1,'GenericSchemaValidator']]],
   ['getinvalidschemakeyword',['GetInvalidSchemaKeyword',['../classGenericSchemaValidator.html#a016b23047ed66bac570e378fbaaf839b',1,'GenericSchemaValidator']]],
   ['getinvalidschemapointer',['GetInvalidSchemaPointer',['../classGenericSchemaValidator.html#a39879de53c70fd5d3c018b61d1235681',1,'GenericSchemaValidator']]],

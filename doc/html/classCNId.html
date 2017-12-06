@@ -106,11 +106,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad36125d5115c0c75783a23e1e4ad55b2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad36125d5115c0c75783a23e1e4ad55b2"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>CNId</b> (int _id)</td></tr>
 <tr class="separator:ad36125d5115c0c75783a23e1e4ad55b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0c2d402de892ef8783e6f5281ece008"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae0c2d402de892ef8783e6f5281ece008"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getId</b> ()</td></tr>
+<tr class="memitem:ae0c2d402de892ef8783e6f5281ece008"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCNId.html#ae0c2d402de892ef8783e6f5281ece008">getId</a> ()</td></tr>
 <tr class="separator:ae0c2d402de892ef8783e6f5281ece008"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25b7d25adf35e61b0d1b0e67862354f4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a25b7d25adf35e61b0d1b0e67862354f4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setNode</b> (<a class="el" href="classNode.html">Node</a> *node)</td></tr>
+<tr class="memitem:a25b7d25adf35e61b0d1b0e67862354f4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCNId.html#a25b7d25adf35e61b0d1b0e67862354f4">setNode</a> (<a class="el" href="classNode.html">Node</a> *node)</td></tr>
 <tr class="separator:a25b7d25adf35e61b0d1b0e67862354f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f6b3bbc1a6daaef9a11cdc80aff920c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f6b3bbc1a6daaef9a11cdc80aff920c"></a>
 virtual double&#160;</td><td class="memItemRight" valign="bottom"><b>evaluate</b> () const </td></tr>
@@ -118,8 +116,7 @@ virtual double&#160;</td><td class="memItemRight" valign="bottom"><b>evaluate</b
 <tr class="memitem:aacf48e3e3766cc1d54a9af8532d747ec"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aacf48e3e3766cc1d54a9af8532d747ec"></a>
 virtual double&#160;</td><td class="memItemRight" valign="bottom"><b>evaluateAtState</b> (std::map&lt; int, double &gt; startingState) const </td></tr>
 <tr class="separator:aacf48e3e3766cc1d54a9af8532d747ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0bc1a04e94dfbb047ad53dd6682bf071"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0bc1a04e94dfbb047ad53dd6682bf071"></a>
-virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>testNodeIds</b> () const </td></tr>
+<tr class="memitem:a0bc1a04e94dfbb047ad53dd6682bf071"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classCNId.html#a0bc1a04e94dfbb047ad53dd6682bf071">testNodeIds</a> () const </td></tr>
 <tr class="separator:a0bc1a04e94dfbb047ad53dd6682bf071"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae853b898d20c008bdddf799ed971f30a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae853b898d20c008bdddf799ed971f30a"></a>
 virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><b>toString</b> () const </td></tr>
@@ -149,6 +146,91 @@ Additional Inherited Members</h2></td></tr>
 CalcNodeTypes&#160;</td><td class="memItemRight" valign="bottom"><b>type</b></td></tr>
 <tr class="separator:a9380df8305abde9a1e3a6a3f5fd6dea0 inherit pro_attribs_classCalculationNode"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="ae0c2d402de892ef8783e6f5281ece008"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CNId::getId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>This function is only relevant to the ID type and in that case return the ID of the assigned node. </p><dl class="section return"><dt>Returns</dt><dd>for ID CalculationNodes the ID of the assigend node, -1 for other types of CalculationNodes </dd></dl>
+
+<p>Reimplemented from <a class="el" href="classCalculationNode.html#a57d514437cfc918ddb298d482358c82d">CalculationNode</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a25b7d25adf35e61b0d1b0e67862354f4"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CNId::setNode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classNode.html">Node</a> *&#160;</td>
+          <td class="paramname"><em>node</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set a node pointer to an ID type <a class="el" href="classCalculationNode.html">CalculationNode</a>. Only used for ID type. Needed to access revious states of the node. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">node</td><td>to pointer to the node to be set </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented from <a class="el" href="classCalculationNode.html#a4097a8577ad76d94c32250d76988353c">CalculationNode</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0bc1a04e94dfbb047ad53dd6682bf071"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CNId::testNodeIds </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Used only for testing puposes. Compared the ID type <a class="el" href="classCalculationNode.html">CalculationNode</a>'s id field to the assigned node's id. </p>
+
+<p>Implements <a class="el" href="classCalculationNode.html#a4089a2510d7c345a9632843a3fed4f0e">CalculationNode</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/DynamicalEquation/include/<a class="el" href="CalculationNode_8hh_source.html">CalculationNode.hh</a></li>
 <li>/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/DynamicalEquation/src/CalculationNode.cc</li>

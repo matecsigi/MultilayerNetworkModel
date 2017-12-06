@@ -15,26 +15,19 @@ void {\bfseries copy\+Network} (\hyperlink{classNetwork}{Network} $\ast$old\+Net
 Modification\+Type {\bfseries choose\+Type} ()\hypertarget{classNetworkModifier_a11a4d6c3bb19cda4e9714ad296d72db1}{}\label{classNetworkModifier_a11a4d6c3bb19cda4e9714ad296d72db1}
 
 \item 
-void {\bfseries add\+Edge} (\hyperlink{classNetwork}{Network} $\ast$network, \hyperlink{classNode}{Node} $\ast$node)\hypertarget{classNetworkModifier_a7486df4a68343d65eb5bfb766d6959dd}{}\label{classNetworkModifier_a7486df4a68343d65eb5bfb766d6959dd}
-
+void \hyperlink{classNetworkModifier_a7486df4a68343d65eb5bfb766d6959dd}{add\+Edge} (\hyperlink{classNetwork}{Network} $\ast$network, \hyperlink{classNode}{Node} $\ast$node)
 \item 
-void {\bfseries remove\+Edge} (\hyperlink{classNetwork}{Network} $\ast$network, \hyperlink{classNode}{Node} $\ast$node)\hypertarget{classNetworkModifier_a98de1cc69f96a312d823a18fb4e32125}{}\label{classNetworkModifier_a98de1cc69f96a312d823a18fb4e32125}
-
+void \hyperlink{classNetworkModifier_a98de1cc69f96a312d823a18fb4e32125}{remove\+Edge} (\hyperlink{classNetwork}{Network} $\ast$network, \hyperlink{classNode}{Node} $\ast$node)
 \item 
-void {\bfseries add\+To\+Outer\+Block} (\hyperlink{classNetwork}{Network} $\ast$network, \hyperlink{classNode}{Node} $\ast$node)\hypertarget{classNetworkModifier_aa3003a2ca2ba2a64e3dfa52372befafe}{}\label{classNetworkModifier_aa3003a2ca2ba2a64e3dfa52372befafe}
-
+void \hyperlink{classNetworkModifier_aa3003a2ca2ba2a64e3dfa52372befafe}{add\+To\+Outer\+Block} (\hyperlink{classNetwork}{Network} $\ast$network, \hyperlink{classNode}{Node} $\ast$node)
 \item 
-void {\bfseries remove\+From\+Outer\+Block} (\hyperlink{classNetwork}{Network} $\ast$network, \hyperlink{classNode}{Node} $\ast$node)\hypertarget{classNetworkModifier_aa61381ec53af37a67753b95e162e2ee6}{}\label{classNetworkModifier_aa61381ec53af37a67753b95e162e2ee6}
-
+void \hyperlink{classNetworkModifier_aa61381ec53af37a67753b95e162e2ee6}{remove\+From\+Outer\+Block} (\hyperlink{classNetwork}{Network} $\ast$network, \hyperlink{classNode}{Node} $\ast$node)
 \item 
-void {\bfseries change\+Constant} (\hyperlink{classNetwork}{Network} $\ast$network, \hyperlink{classNode}{Node} $\ast$node)\hypertarget{classNetworkModifier_a574c45de40cd717c66412a821dec7720}{}\label{classNetworkModifier_a574c45de40cd717c66412a821dec7720}
-
+void \hyperlink{classNetworkModifier_a574c45de40cd717c66412a821dec7720}{change\+Constant} (\hyperlink{classNetwork}{Network} $\ast$network, \hyperlink{classNode}{Node} $\ast$node)
 \item 
-void {\bfseries change\+Plus\+To\+Multiply} (\hyperlink{classNetwork}{Network} $\ast$network, \hyperlink{classNode}{Node} $\ast$node)\hypertarget{classNetworkModifier_af847b438d989b02336200e47f2059be5}{}\label{classNetworkModifier_af847b438d989b02336200e47f2059be5}
-
+void \hyperlink{classNetworkModifier_af847b438d989b02336200e47f2059be5}{change\+Plus\+To\+Multiply} (\hyperlink{classNetwork}{Network} $\ast$network, \hyperlink{classNode}{Node} $\ast$node)
 \item 
-void {\bfseries change\+Multiply\+To\+Plus} (\hyperlink{classNetwork}{Network} $\ast$network, \hyperlink{classNode}{Node} $\ast$node)\hypertarget{classNetworkModifier_a50d862b93e5f37acaa073e5edaad9a2c}{}\label{classNetworkModifier_a50d862b93e5f37acaa073e5edaad9a2c}
-
+void \hyperlink{classNetworkModifier_a50d862b93e5f37acaa073e5edaad9a2c}{change\+Multiply\+To\+Plus} (\hyperlink{classNetwork}{Network} $\ast$network, \hyperlink{classNode}{Node} $\ast$node)
 \item 
 \hyperlink{classNode}{Node} $\ast$ {\bfseries get\+Node\+\_\+add\+Edge} (\hyperlink{classNetwork}{Network} $\ast$network, \hyperlink{classNode}{Node} $\ast$node)\hypertarget{classNetworkModifier_a3ca48b0cbcc665ffadd0cebcc3a3e45b}{}\label{classNetworkModifier_a3ca48b0cbcc665ffadd0cebcc3a3e45b}
 
@@ -85,6 +78,65 @@ void {\bfseries get\+Node\+Occurrences} (\hyperlink{classCalculationNode}{Calcul
 
 \end{DoxyCompactItemize}
 
+
+\subsection{Member Function Documentation}
+\index{Network\+Modifier@{Network\+Modifier}!add\+Edge@{add\+Edge}}
+\index{add\+Edge@{add\+Edge}!Network\+Modifier@{Network\+Modifier}}
+\subsubsection[{\texorpdfstring{add\+Edge(\+Network $\ast$network, Node $\ast$node)}{addEdge(Network *network, Node *node)}}]{\setlength{\rightskip}{0pt plus 5cm}void Network\+Modifier\+::add\+Edge (
+\begin{DoxyParamCaption}
+\item[{{\bf Network} $\ast$}]{network, }
+\item[{{\bf Node} $\ast$}]{node}
+\end{DoxyParamCaption}
+)}\hypertarget{classNetworkModifier_a7486df4a68343d65eb5bfb766d6959dd}{}\label{classNetworkModifier_a7486df4a68343d65eb5bfb766d6959dd}
+Adds a new edge to the node by connecting it to a node it the network it wasn\textquotesingle{}t connected before. The variable representing the new neighbor is inserted at a random location to the node\textquotesingle{}s equation. The variable is inserted with a constant variable. \index{Network\+Modifier@{Network\+Modifier}!add\+To\+Outer\+Block@{add\+To\+Outer\+Block}}
+\index{add\+To\+Outer\+Block@{add\+To\+Outer\+Block}!Network\+Modifier@{Network\+Modifier}}
+\subsubsection[{\texorpdfstring{add\+To\+Outer\+Block(\+Network $\ast$network, Node $\ast$node)}{addToOuterBlock(Network *network, Node *node)}}]{\setlength{\rightskip}{0pt plus 5cm}void Network\+Modifier\+::add\+To\+Outer\+Block (
+\begin{DoxyParamCaption}
+\item[{{\bf Network} $\ast$}]{network, }
+\item[{{\bf Node} $\ast$}]{node}
+\end{DoxyParamCaption}
+)}\hypertarget{classNetworkModifier_aa3003a2ca2ba2a64e3dfa52372befafe}{}\label{classNetworkModifier_aa3003a2ca2ba2a64e3dfa52372befafe}
+Chooses one of the neighbors of the node and adds its variable again to the equation. The variable together with a costant multiplier is inserted to the outer block of the equation. The outer block is where all entities are connected with + e.\+g. (I\+D1$\ast$\+I\+D2)+\+I\+D3, the entities in the outer block are (I\+D1+\+I\+D2) and I\+D3. Note that the structure of the netwotk doesn\textquotesingle{}t change i.\+e. no edge is added or removed, but it makes it possible to have multiple ocurences of a variable within the equation. \index{Network\+Modifier@{Network\+Modifier}!change\+Constant@{change\+Constant}}
+\index{change\+Constant@{change\+Constant}!Network\+Modifier@{Network\+Modifier}}
+\subsubsection[{\texorpdfstring{change\+Constant(\+Network $\ast$network, Node $\ast$node)}{changeConstant(Network *network, Node *node)}}]{\setlength{\rightskip}{0pt plus 5cm}void Network\+Modifier\+::change\+Constant (
+\begin{DoxyParamCaption}
+\item[{{\bf Network} $\ast$}]{network, }
+\item[{{\bf Node} $\ast$}]{node}
+\end{DoxyParamCaption}
+)}\hypertarget{classNetworkModifier_a574c45de40cd717c66412a821dec7720}{}\label{classNetworkModifier_a574c45de40cd717c66412a821dec7720}
+Randomly chooses a constant value in the equation and changes its value. The constant value is either a multiplier of one of the node variables or just stands in itself (there should be only one constant standing in itself in the equation). \index{Network\+Modifier@{Network\+Modifier}!change\+Multiply\+To\+Plus@{change\+Multiply\+To\+Plus}}
+\index{change\+Multiply\+To\+Plus@{change\+Multiply\+To\+Plus}!Network\+Modifier@{Network\+Modifier}}
+\subsubsection[{\texorpdfstring{change\+Multiply\+To\+Plus(\+Network $\ast$network, Node $\ast$node)}{changeMultiplyToPlus(Network *network, Node *node)}}]{\setlength{\rightskip}{0pt plus 5cm}void Network\+Modifier\+::change\+Multiply\+To\+Plus (
+\begin{DoxyParamCaption}
+\item[{{\bf Network} $\ast$}]{network, }
+\item[{{\bf Node} $\ast$}]{node}
+\end{DoxyParamCaption}
+)}\hypertarget{classNetworkModifier_a50d862b93e5f37acaa073e5edaad9a2c}{}\label{classNetworkModifier_a50d862b93e5f37acaa073e5edaad9a2c}
+The opposite of \hyperlink{classNetworkModifier_af847b438d989b02336200e47f2059be5}{change\+Plus\+To\+Multiply()}. Randomly chooses a multiplication operator in the equation and changes it to addition. The multiplication connecting a node variable to its constant multiplier cannot be changes to addition, because we want that each node variable would have a constant multiplier. \index{Network\+Modifier@{Network\+Modifier}!change\+Plus\+To\+Multiply@{change\+Plus\+To\+Multiply}}
+\index{change\+Plus\+To\+Multiply@{change\+Plus\+To\+Multiply}!Network\+Modifier@{Network\+Modifier}}
+\subsubsection[{\texorpdfstring{change\+Plus\+To\+Multiply(\+Network $\ast$network, Node $\ast$node)}{changePlusToMultiply(Network *network, Node *node)}}]{\setlength{\rightskip}{0pt plus 5cm}void Network\+Modifier\+::change\+Plus\+To\+Multiply (
+\begin{DoxyParamCaption}
+\item[{{\bf Network} $\ast$}]{network, }
+\item[{{\bf Node} $\ast$}]{node}
+\end{DoxyParamCaption}
+)}\hypertarget{classNetworkModifier_af847b438d989b02336200e47f2059be5}{}\label{classNetworkModifier_af847b438d989b02336200e47f2059be5}
+Randomly chooses an addition operator in the equation and changes it to multiplication. The addition of the constant that stands in itself cannot be changed to multiplication, because we would like to preserve a constant in the equation that stands in itself. \index{Network\+Modifier@{Network\+Modifier}!remove\+Edge@{remove\+Edge}}
+\index{remove\+Edge@{remove\+Edge}!Network\+Modifier@{Network\+Modifier}}
+\subsubsection[{\texorpdfstring{remove\+Edge(\+Network $\ast$network, Node $\ast$node)}{removeEdge(Network *network, Node *node)}}]{\setlength{\rightskip}{0pt plus 5cm}void Network\+Modifier\+::remove\+Edge (
+\begin{DoxyParamCaption}
+\item[{{\bf Network} $\ast$}]{network, }
+\item[{{\bf Node} $\ast$}]{node}
+\end{DoxyParamCaption}
+)}\hypertarget{classNetworkModifier_a98de1cc69f96a312d823a18fb4e32125}{}\label{classNetworkModifier_a98de1cc69f96a312d823a18fb4e32125}
+Removes an edge from the node. The occurences of the variable representing the old neighbor are all deleted from the equation along with thier constant multipliers. \index{Network\+Modifier@{Network\+Modifier}!remove\+From\+Outer\+Block@{remove\+From\+Outer\+Block}}
+\index{remove\+From\+Outer\+Block@{remove\+From\+Outer\+Block}!Network\+Modifier@{Network\+Modifier}}
+\subsubsection[{\texorpdfstring{remove\+From\+Outer\+Block(\+Network $\ast$network, Node $\ast$node)}{removeFromOuterBlock(Network *network, Node *node)}}]{\setlength{\rightskip}{0pt plus 5cm}void Network\+Modifier\+::remove\+From\+Outer\+Block (
+\begin{DoxyParamCaption}
+\item[{{\bf Network} $\ast$}]{network, }
+\item[{{\bf Node} $\ast$}]{node}
+\end{DoxyParamCaption}
+)}\hypertarget{classNetworkModifier_aa61381ec53af37a67753b95e162e2ee6}{}\label{classNetworkModifier_aa61381ec53af37a67753b95e162e2ee6}
+The opposite of \hyperlink{classNetworkModifier_aa3003a2ca2ba2a64e3dfa52372befafe}{add\+To\+Outer\+Block()}. A node variable together with its constant multiplier is removed from the outer block, but only if there are other occurences of that variable in the equation, so the edge between the two nodes doesn\textquotesingle{}t get removed. Note that the structure of the network doesn\textquotesingle{}t change i.\+e. no edge is addded or removed. 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

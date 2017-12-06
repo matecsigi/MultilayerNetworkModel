@@ -24,6 +24,11 @@ public:
   void ODEcalculator(const state_type &x, state_type &dxdt, double t);
   void ODEcalculatorAtState(const state_type &x, state_type &dxdt, double t, std::map<int, double> startingState);
 
+  /**
+     Used only for testing purposes.
+     For all ID type CalculationNodes in the equation compares the id field to the 
+     assignes node's id.
+   */
   bool testNodeIds(void) const;
 
   CalculationNode* getBaseCalculationNode(void);

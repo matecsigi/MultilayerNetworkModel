@@ -7,6 +7,7 @@ var searchData=
   ['setformatoptions',['SetFormatOptions',['../classPrettyWriter.html#a1ff9dbeff9b9c724080cb65987a41b73',1,'PrettyWriter']]],
   ['setindent',['SetIndent',['../classPrettyWriter.html#ad307b4c8d61af25042d0adcd0910c19a',1,'PrettyWriter']]],
   ['setmaxdecimalplaces',['SetMaxDecimalPlaces',['../classWriter.html#a58e3f94dc5af1432a8eace5ba427eca7',1,'Writer']]],
+  ['setnode',['setNode',['../classCalculationNode.html#a4097a8577ad76d94c32250d76988353c',1,'CalculationNode::setNode()'],['../classCNId.html#a25b7d25adf35e61b0d1b0e67862354f4',1,'CNId::setNode()']]],
   ['setobjectraw',['SetObjectRaw',['../classGenericValue.html#a26c8ec7d68858df1038506df7fcff22d',1,'GenericValue']]],
   ['setstringraw',['SetStringRaw',['../classGenericValue.html#a1451603922dcdf34976f125dc60f70ee',1,'GenericValue::SetStringRaw(StringRefType s) RAPIDJSON_NOEXCEPT'],['../classGenericValue.html#ad3d91db36dfdbfc1af40a79aae07723c',1,'GenericValue::SetStringRaw(StringRefType s, Allocator &amp;allocator)']]],
   ['setvalues',['setValues',['../classNode.html#a507e58ea4aa68188b159643fbd90e657',1,'Node']]],
