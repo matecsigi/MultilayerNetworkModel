@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['token',['token',['../structEzAquarii_1_1Parser_1_1token.html',1,'EzAquarii::Parser']]],
+  ['token',['token',['../structEquationParser_1_1Parser_1_1token.html',1,'EquationParser::Parser']]],
   ['token',['Token',['../structGenericPointer_1_1Token.html',1,'GenericPointer']]],
   ['tokenhelper',['TokenHelper',['../structinternal_1_1TokenHelper.html',1,'internal']]],
   ['tokenhelper_3c_20stack_2c_20char_20_3e',['TokenHelper&lt; Stack, char &gt;',['../structinternal_1_1TokenHelper_3_01Stack_00_01char_01_4.html',1,'internal']]],

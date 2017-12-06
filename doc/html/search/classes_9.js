@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['parser',['Parser',['../classEquationParser_1_1Parser.html',1,'EquationParser']]],
-  ['position',['position',['../classEquationParser_1_1position.html',1,'EquationParser']]]
+  ['layer',['Layer',['../classLayer.html',1,'']]],
+  ['level',['Level',['../structWriter_1_1Level.html',1,'Writer']]],
+  ['location',['location',['../classEquationParser_1_1location.html',1,'EquationParser']]]
 ];

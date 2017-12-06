@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kind_5ftype',['kind_type',['../structEquationParser_1_1Parser_1_1by__type.html#af198f005fea2f0213fff81e59c3d2635',1,'EquationParser::Parser::by_type']]]
+  ['booleantype',['BooleanType',['../structParseResult.html#a5fed32e2f2cbecd30550ae47c9a616c2',1,'ParseResult']]]
 ];

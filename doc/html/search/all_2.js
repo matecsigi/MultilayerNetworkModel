@@ -1,7 +1,9 @@
 var searchData=
 [
   ['calculationnode',['CalculationNode',['../classCalculationNode.html',1,'']]],
-  ['clear',['clear',['../structEquationParser_1_1Parser_1_1basic__symbol.html#a65fcb2cc134131325bef8088e2e34fff',1,'EquationParser::Parser::basic_symbol::clear()'],['../structEquationParser_1_1Parser_1_1by__type.html#ad3bb04dfea2662229852171462c013ea',1,'EquationParser::Parser::by_type::clear()']]],
+  ['capacity',['Capacity',['../classMemoryPoolAllocator.html#ac4738338f038d040641f23aa7955e2d3',1,'MemoryPoolAllocator']]],
+  ['ch',['Ch',['../structGenericStringRef.html#a16908c3fce41be380061330c14ba2140',1,'GenericStringRef::Ch()'],['../classGenericValue.html#ade0e0ce64ccd5d852da57a35e720bafb',1,'GenericValue::Ch()'],['../classGenericDocument.html#a6f5b0b7b6626508d094ae67490269700',1,'GenericDocument::Ch()'],['../classFileReadStream.html#ae1f83d9ca3c76d1d151af0b6c427f046',1,'FileReadStream::Ch()'],['../classFileWriteStream.html#abc16aeb69ad4176263ddfcb837fb7b49',1,'FileWriteStream::Ch()'],['../classGenericPointer.html#ab292356c11b4015c98d21b966b11f285',1,'GenericPointer::Ch()'],['../classGenericReader.html#ab39a92bb26d50aee6469df604622218a',1,'GenericReader::Ch()']]],
+  ['clear',['clear',['../structEquationParser_1_1Parser_1_1basic__symbol.html#a65fcb2cc134131325bef8088e2e34fff',1,'EquationParser::Parser::basic_symbol::clear()'],['../structEquationParser_1_1Parser_1_1by__type.html#ad3bb04dfea2662229852171462c013ea',1,'EquationParser::Parser::by_type::clear()'],['../classMemoryPoolAllocator.html#a57bbc80e570db6110901b9a7e36dbda0',1,'MemoryPoolAllocator::Clear()'],['../structParseResult.html#a88b6d44f052a19e6436ae6aadc2c40b4',1,'ParseResult::Clear()']]],
   ['cnadd',['CNAdd',['../classCNAdd.html',1,'']]],
   ['cnconstant',['CNConstant',['../classCNConstant.html',1,'']]],
   ['cndivide',['CNDivide',['../classCNDivide.html',1,'']]],
@@ -10,7 +12,13 @@ var searchData=
   ['cnnegate',['CNNegate',['../classCNNegate.html',1,'']]],
   ['cnpower',['CNPower',['../classCNPower.html',1,'']]],
   ['cnsubtract',['CNSubtract',['../classCNSubtract.html',1,'']]],
+  ['code',['Code',['../structParseResult.html#a1062b22f0d006e2f8a5b8c74385ff52d',1,'ParseResult']]],
   ['column',['column',['../classEquationParser_1_1position.html#a814bc54c59419fb7d2e82bb33b5c9aa8',1,'EquationParser::position']]],
   ['columns',['columns',['../classEquationParser_1_1location.html#aef9d17fbbfb8a0a98cd0bf3356008a72',1,'EquationParser::location::columns()'],['../classEquationParser_1_1position.html#a4e5d00a7adfd522555e43ecc42357ef0',1,'EquationParser::position::columns()']]],
-  ['copy',['copy',['../structEquationParser_1_1variant.html#a6a418207d721caaa7cb795f64da7769a',1,'EquationParser::variant']]]
+  ['constiterator',['ConstIterator',['../classGenericMemberIterator.html#ae5be27a73dce0be58ee2776db896d591',1,'GenericMemberIterator']]],
+  ['constmemberiterator',['ConstMemberIterator',['../classGenericValue.html#aac08c3e660a9036d3dcb8b10ff6c61f4',1,'GenericValue']]],
+  ['constvalueiterator',['ConstValueIterator',['../classGenericValue.html#a49010c6d6886f96ff0b0c51bccc7f6ea',1,'GenericValue']]],
+  ['copy',['copy',['../structEquationParser_1_1variant.html#a6a418207d721caaa7cb795f64da7769a',1,'EquationParser::variant']]],
+  ['crtallocator',['CrtAllocator',['../classCrtAllocator.html',1,'']]],
+  ['cursorstreamwrapper',['CursorStreamWrapper',['../classCursorStreamWrapper.html',1,'']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['debug_5flevel_5ftype',['debug_level_type',['../classEquationParser_1_1Parser.html#af424755ada4b3f8e2d6e70ff513242d9',1,'EquationParser::Parser']]]
+  ['allocatortype',['AllocatorType',['../classGenericValue.html#a7beb83860c1b8d2a0e2a7da9796b2fa1',1,'GenericValue::AllocatorType()'],['../classGenericDocument.html#a35155b912da66ced38d22e2551364c57',1,'GenericDocument::AllocatorType()']]]
 ];

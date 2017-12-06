@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['stack_2ehh',['stack.hh',['../stack_8hh.html',1,'']]]
+  ['location_2ehh',['location.hh',['../location_8hh.html',1,'']]]
 ];

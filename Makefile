@@ -149,845 +149,845 @@ test/fast:
 	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/build
 .PHONY : test/fast
 
-src/core/src/CalculationNode.o: src/core/src/CalculationNode.cc.o
+sources/core/DownwardInfluence/src/DownwardInfluenceImpl.o: sources/core/DownwardInfluence/src/DownwardInfluenceImpl.cc.o
 
-.PHONY : src/core/src/CalculationNode.o
-
-# target to build an object file
-src/core/src/CalculationNode.cc.o:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/CalculationNode.cc.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/CalculationNode.cc.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/CalculationNode.cc.o
-.PHONY : src/core/src/CalculationNode.cc.o
-
-src/core/src/CalculationNode.i: src/core/src/CalculationNode.cc.i
-
-.PHONY : src/core/src/CalculationNode.i
-
-# target to preprocess a source file
-src/core/src/CalculationNode.cc.i:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/CalculationNode.cc.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/CalculationNode.cc.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/CalculationNode.cc.i
-.PHONY : src/core/src/CalculationNode.cc.i
-
-src/core/src/CalculationNode.s: src/core/src/CalculationNode.cc.s
-
-.PHONY : src/core/src/CalculationNode.s
-
-# target to generate assembly for a file
-src/core/src/CalculationNode.cc.s:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/CalculationNode.cc.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/CalculationNode.cc.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/CalculationNode.cc.s
-.PHONY : src/core/src/CalculationNode.cc.s
-
-src/core/src/DownwardInfluenceImpl.o: src/core/src/DownwardInfluenceImpl.cc.o
-
-.PHONY : src/core/src/DownwardInfluenceImpl.o
+.PHONY : sources/core/DownwardInfluence/src/DownwardInfluenceImpl.o
 
 # target to build an object file
-src/core/src/DownwardInfluenceImpl.cc.o:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/DownwardInfluenceImpl.cc.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/DownwardInfluenceImpl.cc.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/DownwardInfluenceImpl.cc.o
-.PHONY : src/core/src/DownwardInfluenceImpl.cc.o
+sources/core/DownwardInfluence/src/DownwardInfluenceImpl.cc.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/DownwardInfluence/src/DownwardInfluenceImpl.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/DownwardInfluence/src/DownwardInfluenceImpl.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/DownwardInfluence/src/DownwardInfluenceImpl.cc.o
+.PHONY : sources/core/DownwardInfluence/src/DownwardInfluenceImpl.cc.o
 
-src/core/src/DownwardInfluenceImpl.i: src/core/src/DownwardInfluenceImpl.cc.i
+sources/core/DownwardInfluence/src/DownwardInfluenceImpl.i: sources/core/DownwardInfluence/src/DownwardInfluenceImpl.cc.i
 
-.PHONY : src/core/src/DownwardInfluenceImpl.i
+.PHONY : sources/core/DownwardInfluence/src/DownwardInfluenceImpl.i
 
 # target to preprocess a source file
-src/core/src/DownwardInfluenceImpl.cc.i:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/DownwardInfluenceImpl.cc.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/DownwardInfluenceImpl.cc.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/DownwardInfluenceImpl.cc.i
-.PHONY : src/core/src/DownwardInfluenceImpl.cc.i
+sources/core/DownwardInfluence/src/DownwardInfluenceImpl.cc.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/DownwardInfluence/src/DownwardInfluenceImpl.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/DownwardInfluence/src/DownwardInfluenceImpl.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/DownwardInfluence/src/DownwardInfluenceImpl.cc.i
+.PHONY : sources/core/DownwardInfluence/src/DownwardInfluenceImpl.cc.i
 
-src/core/src/DownwardInfluenceImpl.s: src/core/src/DownwardInfluenceImpl.cc.s
+sources/core/DownwardInfluence/src/DownwardInfluenceImpl.s: sources/core/DownwardInfluence/src/DownwardInfluenceImpl.cc.s
 
-.PHONY : src/core/src/DownwardInfluenceImpl.s
+.PHONY : sources/core/DownwardInfluence/src/DownwardInfluenceImpl.s
 
 # target to generate assembly for a file
-src/core/src/DownwardInfluenceImpl.cc.s:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/DownwardInfluenceImpl.cc.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/DownwardInfluenceImpl.cc.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/DownwardInfluenceImpl.cc.s
-.PHONY : src/core/src/DownwardInfluenceImpl.cc.s
+sources/core/DownwardInfluence/src/DownwardInfluenceImpl.cc.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/DownwardInfluence/src/DownwardInfluenceImpl.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/DownwardInfluence/src/DownwardInfluenceImpl.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/DownwardInfluence/src/DownwardInfluenceImpl.cc.s
+.PHONY : sources/core/DownwardInfluence/src/DownwardInfluenceImpl.cc.s
 
-src/core/src/DynamicalEquation.o: src/core/src/DynamicalEquation.cc.o
+sources/core/DynamicalEquation/src/CalculationNode.o: sources/core/DynamicalEquation/src/CalculationNode.cc.o
 
-.PHONY : src/core/src/DynamicalEquation.o
+.PHONY : sources/core/DynamicalEquation/src/CalculationNode.o
 
 # target to build an object file
-src/core/src/DynamicalEquation.cc.o:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/DynamicalEquation.cc.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/DynamicalEquation.cc.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/DynamicalEquation.cc.o
-.PHONY : src/core/src/DynamicalEquation.cc.o
+sources/core/DynamicalEquation/src/CalculationNode.cc.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/DynamicalEquation/src/CalculationNode.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/DynamicalEquation/src/CalculationNode.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/DynamicalEquation/src/CalculationNode.cc.o
+.PHONY : sources/core/DynamicalEquation/src/CalculationNode.cc.o
 
-src/core/src/DynamicalEquation.i: src/core/src/DynamicalEquation.cc.i
+sources/core/DynamicalEquation/src/CalculationNode.i: sources/core/DynamicalEquation/src/CalculationNode.cc.i
 
-.PHONY : src/core/src/DynamicalEquation.i
+.PHONY : sources/core/DynamicalEquation/src/CalculationNode.i
 
 # target to preprocess a source file
-src/core/src/DynamicalEquation.cc.i:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/DynamicalEquation.cc.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/DynamicalEquation.cc.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/DynamicalEquation.cc.i
-.PHONY : src/core/src/DynamicalEquation.cc.i
+sources/core/DynamicalEquation/src/CalculationNode.cc.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/DynamicalEquation/src/CalculationNode.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/DynamicalEquation/src/CalculationNode.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/DynamicalEquation/src/CalculationNode.cc.i
+.PHONY : sources/core/DynamicalEquation/src/CalculationNode.cc.i
 
-src/core/src/DynamicalEquation.s: src/core/src/DynamicalEquation.cc.s
+sources/core/DynamicalEquation/src/CalculationNode.s: sources/core/DynamicalEquation/src/CalculationNode.cc.s
 
-.PHONY : src/core/src/DynamicalEquation.s
+.PHONY : sources/core/DynamicalEquation/src/CalculationNode.s
 
 # target to generate assembly for a file
-src/core/src/DynamicalEquation.cc.s:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/DynamicalEquation.cc.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/DynamicalEquation.cc.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/DynamicalEquation.cc.s
-.PHONY : src/core/src/DynamicalEquation.cc.s
+sources/core/DynamicalEquation/src/CalculationNode.cc.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/DynamicalEquation/src/CalculationNode.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/DynamicalEquation/src/CalculationNode.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/DynamicalEquation/src/CalculationNode.cc.s
+.PHONY : sources/core/DynamicalEquation/src/CalculationNode.cc.s
 
-src/core/src/GeneticAlgorithmController.o: src/core/src/GeneticAlgorithmController.cc.o
+sources/core/DynamicalEquation/src/DynamicalEquation.o: sources/core/DynamicalEquation/src/DynamicalEquation.cc.o
 
-.PHONY : src/core/src/GeneticAlgorithmController.o
+.PHONY : sources/core/DynamicalEquation/src/DynamicalEquation.o
 
 # target to build an object file
-src/core/src/GeneticAlgorithmController.cc.o:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/GeneticAlgorithmController.cc.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/GeneticAlgorithmController.cc.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/GeneticAlgorithmController.cc.o
-.PHONY : src/core/src/GeneticAlgorithmController.cc.o
+sources/core/DynamicalEquation/src/DynamicalEquation.cc.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/DynamicalEquation/src/DynamicalEquation.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/DynamicalEquation/src/DynamicalEquation.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/DynamicalEquation/src/DynamicalEquation.cc.o
+.PHONY : sources/core/DynamicalEquation/src/DynamicalEquation.cc.o
 
-src/core/src/GeneticAlgorithmController.i: src/core/src/GeneticAlgorithmController.cc.i
+sources/core/DynamicalEquation/src/DynamicalEquation.i: sources/core/DynamicalEquation/src/DynamicalEquation.cc.i
 
-.PHONY : src/core/src/GeneticAlgorithmController.i
+.PHONY : sources/core/DynamicalEquation/src/DynamicalEquation.i
 
 # target to preprocess a source file
-src/core/src/GeneticAlgorithmController.cc.i:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/GeneticAlgorithmController.cc.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/GeneticAlgorithmController.cc.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/GeneticAlgorithmController.cc.i
-.PHONY : src/core/src/GeneticAlgorithmController.cc.i
+sources/core/DynamicalEquation/src/DynamicalEquation.cc.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/DynamicalEquation/src/DynamicalEquation.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/DynamicalEquation/src/DynamicalEquation.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/DynamicalEquation/src/DynamicalEquation.cc.i
+.PHONY : sources/core/DynamicalEquation/src/DynamicalEquation.cc.i
 
-src/core/src/GeneticAlgorithmController.s: src/core/src/GeneticAlgorithmController.cc.s
+sources/core/DynamicalEquation/src/DynamicalEquation.s: sources/core/DynamicalEquation/src/DynamicalEquation.cc.s
 
-.PHONY : src/core/src/GeneticAlgorithmController.s
+.PHONY : sources/core/DynamicalEquation/src/DynamicalEquation.s
 
 # target to generate assembly for a file
-src/core/src/GeneticAlgorithmController.cc.s:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/GeneticAlgorithmController.cc.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/GeneticAlgorithmController.cc.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/GeneticAlgorithmController.cc.s
-.PHONY : src/core/src/GeneticAlgorithmController.cc.s
+sources/core/DynamicalEquation/src/DynamicalEquation.cc.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/DynamicalEquation/src/DynamicalEquation.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/DynamicalEquation/src/DynamicalEquation.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/DynamicalEquation/src/DynamicalEquation.cc.s
+.PHONY : sources/core/DynamicalEquation/src/DynamicalEquation.cc.s
 
-src/core/src/GlobalVariables.o: src/core/src/GlobalVariables.cc.o
+sources/core/StructuralElements/src/Layer.o: sources/core/StructuralElements/src/Layer.cc.o
 
-.PHONY : src/core/src/GlobalVariables.o
+.PHONY : sources/core/StructuralElements/src/Layer.o
 
 # target to build an object file
-src/core/src/GlobalVariables.cc.o:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/GlobalVariables.cc.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/GlobalVariables.cc.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/GlobalVariables.cc.o
-.PHONY : src/core/src/GlobalVariables.cc.o
+sources/core/StructuralElements/src/Layer.cc.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/StructuralElements/src/Layer.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/StructuralElements/src/Layer.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/StructuralElements/src/Layer.cc.o
+.PHONY : sources/core/StructuralElements/src/Layer.cc.o
 
-src/core/src/GlobalVariables.i: src/core/src/GlobalVariables.cc.i
+sources/core/StructuralElements/src/Layer.i: sources/core/StructuralElements/src/Layer.cc.i
 
-.PHONY : src/core/src/GlobalVariables.i
+.PHONY : sources/core/StructuralElements/src/Layer.i
 
 # target to preprocess a source file
-src/core/src/GlobalVariables.cc.i:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/GlobalVariables.cc.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/GlobalVariables.cc.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/GlobalVariables.cc.i
-.PHONY : src/core/src/GlobalVariables.cc.i
+sources/core/StructuralElements/src/Layer.cc.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/StructuralElements/src/Layer.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/StructuralElements/src/Layer.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/StructuralElements/src/Layer.cc.i
+.PHONY : sources/core/StructuralElements/src/Layer.cc.i
 
-src/core/src/GlobalVariables.s: src/core/src/GlobalVariables.cc.s
+sources/core/StructuralElements/src/Layer.s: sources/core/StructuralElements/src/Layer.cc.s
 
-.PHONY : src/core/src/GlobalVariables.s
+.PHONY : sources/core/StructuralElements/src/Layer.s
 
 # target to generate assembly for a file
-src/core/src/GlobalVariables.cc.s:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/GlobalVariables.cc.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/GlobalVariables.cc.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/GlobalVariables.cc.s
-.PHONY : src/core/src/GlobalVariables.cc.s
+sources/core/StructuralElements/src/Layer.cc.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/StructuralElements/src/Layer.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/StructuralElements/src/Layer.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/StructuralElements/src/Layer.cc.s
+.PHONY : sources/core/StructuralElements/src/Layer.cc.s
 
-src/core/src/Layer.o: src/core/src/Layer.cc.o
+sources/core/StructuralElements/src/MultilayerNetwork.o: sources/core/StructuralElements/src/MultilayerNetwork.cc.o
 
-.PHONY : src/core/src/Layer.o
+.PHONY : sources/core/StructuralElements/src/MultilayerNetwork.o
 
 # target to build an object file
-src/core/src/Layer.cc.o:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/Layer.cc.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/Layer.cc.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/Layer.cc.o
-.PHONY : src/core/src/Layer.cc.o
+sources/core/StructuralElements/src/MultilayerNetwork.cc.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/StructuralElements/src/MultilayerNetwork.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/StructuralElements/src/MultilayerNetwork.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/StructuralElements/src/MultilayerNetwork.cc.o
+.PHONY : sources/core/StructuralElements/src/MultilayerNetwork.cc.o
 
-src/core/src/Layer.i: src/core/src/Layer.cc.i
+sources/core/StructuralElements/src/MultilayerNetwork.i: sources/core/StructuralElements/src/MultilayerNetwork.cc.i
 
-.PHONY : src/core/src/Layer.i
+.PHONY : sources/core/StructuralElements/src/MultilayerNetwork.i
 
 # target to preprocess a source file
-src/core/src/Layer.cc.i:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/Layer.cc.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/Layer.cc.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/Layer.cc.i
-.PHONY : src/core/src/Layer.cc.i
+sources/core/StructuralElements/src/MultilayerNetwork.cc.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/StructuralElements/src/MultilayerNetwork.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/StructuralElements/src/MultilayerNetwork.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/StructuralElements/src/MultilayerNetwork.cc.i
+.PHONY : sources/core/StructuralElements/src/MultilayerNetwork.cc.i
 
-src/core/src/Layer.s: src/core/src/Layer.cc.s
+sources/core/StructuralElements/src/MultilayerNetwork.s: sources/core/StructuralElements/src/MultilayerNetwork.cc.s
 
-.PHONY : src/core/src/Layer.s
+.PHONY : sources/core/StructuralElements/src/MultilayerNetwork.s
 
 # target to generate assembly for a file
-src/core/src/Layer.cc.s:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/Layer.cc.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/Layer.cc.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/Layer.cc.s
-.PHONY : src/core/src/Layer.cc.s
+sources/core/StructuralElements/src/MultilayerNetwork.cc.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/StructuralElements/src/MultilayerNetwork.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/StructuralElements/src/MultilayerNetwork.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/StructuralElements/src/MultilayerNetwork.cc.s
+.PHONY : sources/core/StructuralElements/src/MultilayerNetwork.cc.s
 
-src/core/src/MultilayerNetwork.o: src/core/src/MultilayerNetwork.cc.o
+sources/core/StructuralElements/src/Network.o: sources/core/StructuralElements/src/Network.cc.o
 
-.PHONY : src/core/src/MultilayerNetwork.o
+.PHONY : sources/core/StructuralElements/src/Network.o
 
 # target to build an object file
-src/core/src/MultilayerNetwork.cc.o:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/MultilayerNetwork.cc.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/MultilayerNetwork.cc.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/MultilayerNetwork.cc.o
-.PHONY : src/core/src/MultilayerNetwork.cc.o
+sources/core/StructuralElements/src/Network.cc.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/StructuralElements/src/Network.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/StructuralElements/src/Network.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/StructuralElements/src/Network.cc.o
+.PHONY : sources/core/StructuralElements/src/Network.cc.o
 
-src/core/src/MultilayerNetwork.i: src/core/src/MultilayerNetwork.cc.i
+sources/core/StructuralElements/src/Network.i: sources/core/StructuralElements/src/Network.cc.i
 
-.PHONY : src/core/src/MultilayerNetwork.i
+.PHONY : sources/core/StructuralElements/src/Network.i
 
 # target to preprocess a source file
-src/core/src/MultilayerNetwork.cc.i:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/MultilayerNetwork.cc.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/MultilayerNetwork.cc.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/MultilayerNetwork.cc.i
-.PHONY : src/core/src/MultilayerNetwork.cc.i
+sources/core/StructuralElements/src/Network.cc.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/StructuralElements/src/Network.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/StructuralElements/src/Network.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/StructuralElements/src/Network.cc.i
+.PHONY : sources/core/StructuralElements/src/Network.cc.i
 
-src/core/src/MultilayerNetwork.s: src/core/src/MultilayerNetwork.cc.s
+sources/core/StructuralElements/src/Network.s: sources/core/StructuralElements/src/Network.cc.s
 
-.PHONY : src/core/src/MultilayerNetwork.s
+.PHONY : sources/core/StructuralElements/src/Network.s
 
 # target to generate assembly for a file
-src/core/src/MultilayerNetwork.cc.s:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/MultilayerNetwork.cc.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/MultilayerNetwork.cc.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/MultilayerNetwork.cc.s
-.PHONY : src/core/src/MultilayerNetwork.cc.s
+sources/core/StructuralElements/src/Network.cc.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/StructuralElements/src/Network.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/StructuralElements/src/Network.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/StructuralElements/src/Network.cc.s
+.PHONY : sources/core/StructuralElements/src/Network.cc.s
 
-src/core/src/Network.o: src/core/src/Network.cc.o
+sources/core/StructuralElements/src/Node.o: sources/core/StructuralElements/src/Node.cc.o
 
-.PHONY : src/core/src/Network.o
+.PHONY : sources/core/StructuralElements/src/Node.o
 
 # target to build an object file
-src/core/src/Network.cc.o:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/Network.cc.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/Network.cc.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/Network.cc.o
-.PHONY : src/core/src/Network.cc.o
+sources/core/StructuralElements/src/Node.cc.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/StructuralElements/src/Node.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/StructuralElements/src/Node.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/StructuralElements/src/Node.cc.o
+.PHONY : sources/core/StructuralElements/src/Node.cc.o
 
-src/core/src/Network.i: src/core/src/Network.cc.i
+sources/core/StructuralElements/src/Node.i: sources/core/StructuralElements/src/Node.cc.i
 
-.PHONY : src/core/src/Network.i
+.PHONY : sources/core/StructuralElements/src/Node.i
 
 # target to preprocess a source file
-src/core/src/Network.cc.i:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/Network.cc.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/Network.cc.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/Network.cc.i
-.PHONY : src/core/src/Network.cc.i
+sources/core/StructuralElements/src/Node.cc.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/StructuralElements/src/Node.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/StructuralElements/src/Node.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/StructuralElements/src/Node.cc.i
+.PHONY : sources/core/StructuralElements/src/Node.cc.i
 
-src/core/src/Network.s: src/core/src/Network.cc.s
+sources/core/StructuralElements/src/Node.s: sources/core/StructuralElements/src/Node.cc.s
 
-.PHONY : src/core/src/Network.s
+.PHONY : sources/core/StructuralElements/src/Node.s
 
 # target to generate assembly for a file
-src/core/src/Network.cc.s:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/Network.cc.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/Network.cc.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/Network.cc.s
-.PHONY : src/core/src/Network.cc.s
+sources/core/StructuralElements/src/Node.cc.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/StructuralElements/src/Node.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/StructuralElements/src/Node.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/StructuralElements/src/Node.cc.s
+.PHONY : sources/core/StructuralElements/src/Node.cc.s
 
-src/core/src/NetworkModifier.o: src/core/src/NetworkModifier.cc.o
+sources/core/UpwardInfluence/src/UpwardInfluenceImpl.o: sources/core/UpwardInfluence/src/UpwardInfluenceImpl.cc.o
 
-.PHONY : src/core/src/NetworkModifier.o
+.PHONY : sources/core/UpwardInfluence/src/UpwardInfluenceImpl.o
 
 # target to build an object file
-src/core/src/NetworkModifier.cc.o:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/NetworkModifier.cc.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/NetworkModifier.cc.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/NetworkModifier.cc.o
-.PHONY : src/core/src/NetworkModifier.cc.o
+sources/core/UpwardInfluence/src/UpwardInfluenceImpl.cc.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/UpwardInfluence/src/UpwardInfluenceImpl.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/UpwardInfluence/src/UpwardInfluenceImpl.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/UpwardInfluence/src/UpwardInfluenceImpl.cc.o
+.PHONY : sources/core/UpwardInfluence/src/UpwardInfluenceImpl.cc.o
 
-src/core/src/NetworkModifier.i: src/core/src/NetworkModifier.cc.i
+sources/core/UpwardInfluence/src/UpwardInfluenceImpl.i: sources/core/UpwardInfluence/src/UpwardInfluenceImpl.cc.i
 
-.PHONY : src/core/src/NetworkModifier.i
+.PHONY : sources/core/UpwardInfluence/src/UpwardInfluenceImpl.i
 
 # target to preprocess a source file
-src/core/src/NetworkModifier.cc.i:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/NetworkModifier.cc.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/NetworkModifier.cc.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/NetworkModifier.cc.i
-.PHONY : src/core/src/NetworkModifier.cc.i
+sources/core/UpwardInfluence/src/UpwardInfluenceImpl.cc.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/UpwardInfluence/src/UpwardInfluenceImpl.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/UpwardInfluence/src/UpwardInfluenceImpl.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/UpwardInfluence/src/UpwardInfluenceImpl.cc.i
+.PHONY : sources/core/UpwardInfluence/src/UpwardInfluenceImpl.cc.i
 
-src/core/src/NetworkModifier.s: src/core/src/NetworkModifier.cc.s
+sources/core/UpwardInfluence/src/UpwardInfluenceImpl.s: sources/core/UpwardInfluence/src/UpwardInfluenceImpl.cc.s
 
-.PHONY : src/core/src/NetworkModifier.s
+.PHONY : sources/core/UpwardInfluence/src/UpwardInfluenceImpl.s
 
 # target to generate assembly for a file
-src/core/src/NetworkModifier.cc.s:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/NetworkModifier.cc.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/NetworkModifier.cc.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/NetworkModifier.cc.s
-.PHONY : src/core/src/NetworkModifier.cc.s
+sources/core/UpwardInfluence/src/UpwardInfluenceImpl.cc.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/UpwardInfluence/src/UpwardInfluenceImpl.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/UpwardInfluence/src/UpwardInfluenceImpl.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/UpwardInfluence/src/UpwardInfluenceImpl.cc.s
+.PHONY : sources/core/UpwardInfluence/src/UpwardInfluenceImpl.cc.s
 
-src/core/src/NetworkPopulationElement.o: src/core/src/NetworkPopulationElement.cc.o
+sources/core/Utility/src/GlobalVariables.o: sources/core/Utility/src/GlobalVariables.cc.o
 
-.PHONY : src/core/src/NetworkPopulationElement.o
+.PHONY : sources/core/Utility/src/GlobalVariables.o
 
 # target to build an object file
-src/core/src/NetworkPopulationElement.cc.o:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/NetworkPopulationElement.cc.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/NetworkPopulationElement.cc.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/NetworkPopulationElement.cc.o
-.PHONY : src/core/src/NetworkPopulationElement.cc.o
+sources/core/Utility/src/GlobalVariables.cc.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/Utility/src/GlobalVariables.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/Utility/src/GlobalVariables.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/Utility/src/GlobalVariables.cc.o
+.PHONY : sources/core/Utility/src/GlobalVariables.cc.o
 
-src/core/src/NetworkPopulationElement.i: src/core/src/NetworkPopulationElement.cc.i
+sources/core/Utility/src/GlobalVariables.i: sources/core/Utility/src/GlobalVariables.cc.i
 
-.PHONY : src/core/src/NetworkPopulationElement.i
+.PHONY : sources/core/Utility/src/GlobalVariables.i
 
 # target to preprocess a source file
-src/core/src/NetworkPopulationElement.cc.i:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/NetworkPopulationElement.cc.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/NetworkPopulationElement.cc.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/NetworkPopulationElement.cc.i
-.PHONY : src/core/src/NetworkPopulationElement.cc.i
+sources/core/Utility/src/GlobalVariables.cc.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/Utility/src/GlobalVariables.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/Utility/src/GlobalVariables.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/Utility/src/GlobalVariables.cc.i
+.PHONY : sources/core/Utility/src/GlobalVariables.cc.i
 
-src/core/src/NetworkPopulationElement.s: src/core/src/NetworkPopulationElement.cc.s
+sources/core/Utility/src/GlobalVariables.s: sources/core/Utility/src/GlobalVariables.cc.s
 
-.PHONY : src/core/src/NetworkPopulationElement.s
+.PHONY : sources/core/Utility/src/GlobalVariables.s
 
 # target to generate assembly for a file
-src/core/src/NetworkPopulationElement.cc.s:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/NetworkPopulationElement.cc.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/NetworkPopulationElement.cc.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/NetworkPopulationElement.cc.s
-.PHONY : src/core/src/NetworkPopulationElement.cc.s
+sources/core/Utility/src/GlobalVariables.cc.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/Utility/src/GlobalVariables.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/Utility/src/GlobalVariables.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/Utility/src/GlobalVariables.cc.s
+.PHONY : sources/core/Utility/src/GlobalVariables.cc.s
 
-src/core/src/Node.o: src/core/src/Node.cc.o
+sources/core/Utility/src/UtilityFunctions.o: sources/core/Utility/src/UtilityFunctions.cc.o
 
-.PHONY : src/core/src/Node.o
+.PHONY : sources/core/Utility/src/UtilityFunctions.o
 
 # target to build an object file
-src/core/src/Node.cc.o:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/Node.cc.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/Node.cc.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/Node.cc.o
-.PHONY : src/core/src/Node.cc.o
+sources/core/Utility/src/UtilityFunctions.cc.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/Utility/src/UtilityFunctions.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/Utility/src/UtilityFunctions.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/Utility/src/UtilityFunctions.cc.o
+.PHONY : sources/core/Utility/src/UtilityFunctions.cc.o
 
-src/core/src/Node.i: src/core/src/Node.cc.i
+sources/core/Utility/src/UtilityFunctions.i: sources/core/Utility/src/UtilityFunctions.cc.i
 
-.PHONY : src/core/src/Node.i
+.PHONY : sources/core/Utility/src/UtilityFunctions.i
 
 # target to preprocess a source file
-src/core/src/Node.cc.i:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/Node.cc.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/Node.cc.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/Node.cc.i
-.PHONY : src/core/src/Node.cc.i
+sources/core/Utility/src/UtilityFunctions.cc.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/Utility/src/UtilityFunctions.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/Utility/src/UtilityFunctions.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/Utility/src/UtilityFunctions.cc.i
+.PHONY : sources/core/Utility/src/UtilityFunctions.cc.i
 
-src/core/src/Node.s: src/core/src/Node.cc.s
+sources/core/Utility/src/UtilityFunctions.s: sources/core/Utility/src/UtilityFunctions.cc.s
 
-.PHONY : src/core/src/Node.s
+.PHONY : sources/core/Utility/src/UtilityFunctions.s
 
 # target to generate assembly for a file
-src/core/src/Node.cc.s:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/Node.cc.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/Node.cc.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/Node.cc.s
-.PHONY : src/core/src/Node.cc.s
+sources/core/Utility/src/UtilityFunctions.cc.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/Utility/src/UtilityFunctions.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/Utility/src/UtilityFunctions.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/Utility/src/UtilityFunctions.cc.s
+.PHONY : sources/core/Utility/src/UtilityFunctions.cc.s
 
-src/core/src/UpwardInfluenceImpl.o: src/core/src/UpwardInfluenceImpl.cc.o
+sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.o: sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.cc.o
 
-.PHONY : src/core/src/UpwardInfluenceImpl.o
+.PHONY : sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.o
 
 # target to build an object file
-src/core/src/UpwardInfluenceImpl.cc.o:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/UpwardInfluenceImpl.cc.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/UpwardInfluenceImpl.cc.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/UpwardInfluenceImpl.cc.o
-.PHONY : src/core/src/UpwardInfluenceImpl.cc.o
+sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.cc.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.cc.o
+.PHONY : sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.cc.o
 
-src/core/src/UpwardInfluenceImpl.i: src/core/src/UpwardInfluenceImpl.cc.i
+sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.i: sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.cc.i
 
-.PHONY : src/core/src/UpwardInfluenceImpl.i
+.PHONY : sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.i
 
 # target to preprocess a source file
-src/core/src/UpwardInfluenceImpl.cc.i:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/UpwardInfluenceImpl.cc.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/UpwardInfluenceImpl.cc.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/UpwardInfluenceImpl.cc.i
-.PHONY : src/core/src/UpwardInfluenceImpl.cc.i
+sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.cc.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.cc.i
+.PHONY : sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.cc.i
 
-src/core/src/UpwardInfluenceImpl.s: src/core/src/UpwardInfluenceImpl.cc.s
+sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.s: sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.cc.s
 
-.PHONY : src/core/src/UpwardInfluenceImpl.s
+.PHONY : sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.s
 
 # target to generate assembly for a file
-src/core/src/UpwardInfluenceImpl.cc.s:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/UpwardInfluenceImpl.cc.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/UpwardInfluenceImpl.cc.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/UpwardInfluenceImpl.cc.s
-.PHONY : src/core/src/UpwardInfluenceImpl.cc.s
+sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.cc.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.cc.s
+.PHONY : sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.cc.s
 
-src/core/src/UtilityFunctions.o: src/core/src/UtilityFunctions.cc.o
+sources/core/VectorFieldReconfiguration/src/NetworkModifier.o: sources/core/VectorFieldReconfiguration/src/NetworkModifier.cc.o
 
-.PHONY : src/core/src/UtilityFunctions.o
+.PHONY : sources/core/VectorFieldReconfiguration/src/NetworkModifier.o
 
 # target to build an object file
-src/core/src/UtilityFunctions.cc.o:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/UtilityFunctions.cc.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/UtilityFunctions.cc.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/UtilityFunctions.cc.o
-.PHONY : src/core/src/UtilityFunctions.cc.o
+sources/core/VectorFieldReconfiguration/src/NetworkModifier.cc.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/VectorFieldReconfiguration/src/NetworkModifier.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/VectorFieldReconfiguration/src/NetworkModifier.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/VectorFieldReconfiguration/src/NetworkModifier.cc.o
+.PHONY : sources/core/VectorFieldReconfiguration/src/NetworkModifier.cc.o
 
-src/core/src/UtilityFunctions.i: src/core/src/UtilityFunctions.cc.i
+sources/core/VectorFieldReconfiguration/src/NetworkModifier.i: sources/core/VectorFieldReconfiguration/src/NetworkModifier.cc.i
 
-.PHONY : src/core/src/UtilityFunctions.i
+.PHONY : sources/core/VectorFieldReconfiguration/src/NetworkModifier.i
 
 # target to preprocess a source file
-src/core/src/UtilityFunctions.cc.i:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/UtilityFunctions.cc.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/UtilityFunctions.cc.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/UtilityFunctions.cc.i
-.PHONY : src/core/src/UtilityFunctions.cc.i
+sources/core/VectorFieldReconfiguration/src/NetworkModifier.cc.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/VectorFieldReconfiguration/src/NetworkModifier.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/VectorFieldReconfiguration/src/NetworkModifier.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/VectorFieldReconfiguration/src/NetworkModifier.cc.i
+.PHONY : sources/core/VectorFieldReconfiguration/src/NetworkModifier.cc.i
 
-src/core/src/UtilityFunctions.s: src/core/src/UtilityFunctions.cc.s
+sources/core/VectorFieldReconfiguration/src/NetworkModifier.s: sources/core/VectorFieldReconfiguration/src/NetworkModifier.cc.s
 
-.PHONY : src/core/src/UtilityFunctions.s
+.PHONY : sources/core/VectorFieldReconfiguration/src/NetworkModifier.s
 
 # target to generate assembly for a file
-src/core/src/UtilityFunctions.cc.s:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/UtilityFunctions.cc.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/UtilityFunctions.cc.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/UtilityFunctions.cc.s
-.PHONY : src/core/src/UtilityFunctions.cc.s
+sources/core/VectorFieldReconfiguration/src/NetworkModifier.cc.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/VectorFieldReconfiguration/src/NetworkModifier.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/VectorFieldReconfiguration/src/NetworkModifier.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/VectorFieldReconfiguration/src/NetworkModifier.cc.s
+.PHONY : sources/core/VectorFieldReconfiguration/src/NetworkModifier.cc.s
 
-src/core/src/VectorField.o: src/core/src/VectorField.cc.o
+sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.o: sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.cc.o
 
-.PHONY : src/core/src/VectorField.o
+.PHONY : sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.o
 
 # target to build an object file
-src/core/src/VectorField.cc.o:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/VectorField.cc.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/VectorField.cc.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/VectorField.cc.o
-.PHONY : src/core/src/VectorField.cc.o
+sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.cc.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.cc.o
+.PHONY : sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.cc.o
 
-src/core/src/VectorField.i: src/core/src/VectorField.cc.i
+sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.i: sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.cc.i
 
-.PHONY : src/core/src/VectorField.i
+.PHONY : sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.i
 
 # target to preprocess a source file
-src/core/src/VectorField.cc.i:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/VectorField.cc.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/VectorField.cc.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/VectorField.cc.i
-.PHONY : src/core/src/VectorField.cc.i
+sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.cc.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.cc.i
+.PHONY : sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.cc.i
 
-src/core/src/VectorField.s: src/core/src/VectorField.cc.s
+sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.s: sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.cc.s
 
-.PHONY : src/core/src/VectorField.s
+.PHONY : sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.s
 
 # target to generate assembly for a file
-src/core/src/VectorField.cc.s:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/VectorField.cc.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/VectorField.cc.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/VectorField.cc.s
-.PHONY : src/core/src/VectorField.cc.s
+sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.cc.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.cc.s
+.PHONY : sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.cc.s
 
-src/core/src/VectorFieldPoint.o: src/core/src/VectorFieldPoint.cc.o
+sources/core/VectorFieldReconfiguration/src/VectorField.o: sources/core/VectorFieldReconfiguration/src/VectorField.cc.o
 
-.PHONY : src/core/src/VectorFieldPoint.o
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorField.o
 
 # target to build an object file
-src/core/src/VectorFieldPoint.cc.o:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/VectorFieldPoint.cc.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/VectorFieldPoint.cc.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/VectorFieldPoint.cc.o
-.PHONY : src/core/src/VectorFieldPoint.cc.o
+sources/core/VectorFieldReconfiguration/src/VectorField.cc.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/VectorFieldReconfiguration/src/VectorField.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/VectorFieldReconfiguration/src/VectorField.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/VectorFieldReconfiguration/src/VectorField.cc.o
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorField.cc.o
 
-src/core/src/VectorFieldPoint.i: src/core/src/VectorFieldPoint.cc.i
+sources/core/VectorFieldReconfiguration/src/VectorField.i: sources/core/VectorFieldReconfiguration/src/VectorField.cc.i
 
-.PHONY : src/core/src/VectorFieldPoint.i
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorField.i
 
 # target to preprocess a source file
-src/core/src/VectorFieldPoint.cc.i:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/VectorFieldPoint.cc.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/VectorFieldPoint.cc.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/VectorFieldPoint.cc.i
-.PHONY : src/core/src/VectorFieldPoint.cc.i
+sources/core/VectorFieldReconfiguration/src/VectorField.cc.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/VectorFieldReconfiguration/src/VectorField.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/VectorFieldReconfiguration/src/VectorField.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/VectorFieldReconfiguration/src/VectorField.cc.i
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorField.cc.i
 
-src/core/src/VectorFieldPoint.s: src/core/src/VectorFieldPoint.cc.s
+sources/core/VectorFieldReconfiguration/src/VectorField.s: sources/core/VectorFieldReconfiguration/src/VectorField.cc.s
 
-.PHONY : src/core/src/VectorFieldPoint.s
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorField.s
 
 # target to generate assembly for a file
-src/core/src/VectorFieldPoint.cc.s:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/VectorFieldPoint.cc.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/VectorFieldPoint.cc.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/VectorFieldPoint.cc.s
-.PHONY : src/core/src/VectorFieldPoint.cc.s
+sources/core/VectorFieldReconfiguration/src/VectorField.cc.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/VectorFieldReconfiguration/src/VectorField.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/VectorFieldReconfiguration/src/VectorField.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/VectorFieldReconfiguration/src/VectorField.cc.s
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorField.cc.s
 
-src/core/src/VectorFieldReconfigurationImpl.o: src/core/src/VectorFieldReconfigurationImpl.cc.o
+sources/core/VectorFieldReconfiguration/src/VectorFieldPoint.o: sources/core/VectorFieldReconfiguration/src/VectorFieldPoint.cc.o
 
-.PHONY : src/core/src/VectorFieldReconfigurationImpl.o
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorFieldPoint.o
 
 # target to build an object file
-src/core/src/VectorFieldReconfigurationImpl.cc.o:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/VectorFieldReconfigurationImpl.cc.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/VectorFieldReconfigurationImpl.cc.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/VectorFieldReconfigurationImpl.cc.o
-.PHONY : src/core/src/VectorFieldReconfigurationImpl.cc.o
+sources/core/VectorFieldReconfiguration/src/VectorFieldPoint.cc.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldPoint.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldPoint.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldPoint.cc.o
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorFieldPoint.cc.o
 
-src/core/src/VectorFieldReconfigurationImpl.i: src/core/src/VectorFieldReconfigurationImpl.cc.i
+sources/core/VectorFieldReconfiguration/src/VectorFieldPoint.i: sources/core/VectorFieldReconfiguration/src/VectorFieldPoint.cc.i
 
-.PHONY : src/core/src/VectorFieldReconfigurationImpl.i
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorFieldPoint.i
 
 # target to preprocess a source file
-src/core/src/VectorFieldReconfigurationImpl.cc.i:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/VectorFieldReconfigurationImpl.cc.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/VectorFieldReconfigurationImpl.cc.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/VectorFieldReconfigurationImpl.cc.i
-.PHONY : src/core/src/VectorFieldReconfigurationImpl.cc.i
+sources/core/VectorFieldReconfiguration/src/VectorFieldPoint.cc.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldPoint.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldPoint.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldPoint.cc.i
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorFieldPoint.cc.i
 
-src/core/src/VectorFieldReconfigurationImpl.s: src/core/src/VectorFieldReconfigurationImpl.cc.s
+sources/core/VectorFieldReconfiguration/src/VectorFieldPoint.s: sources/core/VectorFieldReconfiguration/src/VectorFieldPoint.cc.s
 
-.PHONY : src/core/src/VectorFieldReconfigurationImpl.s
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorFieldPoint.s
 
 # target to generate assembly for a file
-src/core/src/VectorFieldReconfigurationImpl.cc.s:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/VectorFieldReconfigurationImpl.cc.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/VectorFieldReconfigurationImpl.cc.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/VectorFieldReconfigurationImpl.cc.s
-.PHONY : src/core/src/VectorFieldReconfigurationImpl.cc.s
+sources/core/VectorFieldReconfiguration/src/VectorFieldPoint.cc.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldPoint.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldPoint.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldPoint.cc.s
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorFieldPoint.cc.s
 
-src/core/src/VectorFieldSchemes.o: src/core/src/VectorFieldSchemes.cc.o
+sources/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.o: sources/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.cc.o
 
-.PHONY : src/core/src/VectorFieldSchemes.o
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.o
 
 # target to build an object file
-src/core/src/VectorFieldSchemes.cc.o:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/VectorFieldSchemes.cc.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/VectorFieldSchemes.cc.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/VectorFieldSchemes.cc.o
-.PHONY : src/core/src/VectorFieldSchemes.cc.o
+sources/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.cc.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.cc.o
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.cc.o
 
-src/core/src/VectorFieldSchemes.i: src/core/src/VectorFieldSchemes.cc.i
+sources/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.i: sources/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.cc.i
 
-.PHONY : src/core/src/VectorFieldSchemes.i
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.i
 
 # target to preprocess a source file
-src/core/src/VectorFieldSchemes.cc.i:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/VectorFieldSchemes.cc.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/VectorFieldSchemes.cc.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/VectorFieldSchemes.cc.i
-.PHONY : src/core/src/VectorFieldSchemes.cc.i
+sources/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.cc.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.cc.i
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.cc.i
 
-src/core/src/VectorFieldSchemes.s: src/core/src/VectorFieldSchemes.cc.s
+sources/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.s: sources/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.cc.s
 
-.PHONY : src/core/src/VectorFieldSchemes.s
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.s
 
 # target to generate assembly for a file
-src/core/src/VectorFieldSchemes.cc.s:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/VectorFieldSchemes.cc.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/VectorFieldSchemes.cc.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/VectorFieldSchemes.cc.s
-.PHONY : src/core/src/VectorFieldSchemes.cc.s
+sources/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.cc.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.cc.s
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.cc.s
 
-src/generators/src/DynamicalEquationGeneratorSimpleImpl.o: src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
+sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.o: sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.cc.o
 
-.PHONY : src/generators/src/DynamicalEquationGeneratorSimpleImpl.o
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.o
 
 # target to build an object file
-src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
-.PHONY : src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
+sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.cc.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.cc.o
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.cc.o
 
-src/generators/src/DynamicalEquationGeneratorSimpleImpl.i: src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.i
+sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.i: sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.cc.i
 
-.PHONY : src/generators/src/DynamicalEquationGeneratorSimpleImpl.i
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.i
 
 # target to preprocess a source file
-src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.i:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.i
-.PHONY : src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.i
+sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.cc.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.cc.i
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.cc.i
 
-src/generators/src/DynamicalEquationGeneratorSimpleImpl.s: src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.s
+sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.s: sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.cc.s
 
-.PHONY : src/generators/src/DynamicalEquationGeneratorSimpleImpl.s
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.s
 
 # target to generate assembly for a file
-src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.s:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.s
-.PHONY : src/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.s
+sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.cc.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.cc.s
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.cc.s
 
-src/generators/src/InitialConditionGeneratorImpl.o: src/generators/src/InitialConditionGeneratorImpl.cc.o
+sources/generators/src/DynamicalEquationGeneratorSimpleImpl.o: sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
 
-.PHONY : src/generators/src/InitialConditionGeneratorImpl.o
+.PHONY : sources/generators/src/DynamicalEquationGeneratorSimpleImpl.o
 
 # target to build an object file
-src/generators/src/InitialConditionGeneratorImpl.cc.o:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/generators/src/InitialConditionGeneratorImpl.cc.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/generators/src/InitialConditionGeneratorImpl.cc.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/generators/src/InitialConditionGeneratorImpl.cc.o
-.PHONY : src/generators/src/InitialConditionGeneratorImpl.cc.o
+sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
+.PHONY : sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
 
-src/generators/src/InitialConditionGeneratorImpl.i: src/generators/src/InitialConditionGeneratorImpl.cc.i
+sources/generators/src/DynamicalEquationGeneratorSimpleImpl.i: sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.i
 
-.PHONY : src/generators/src/InitialConditionGeneratorImpl.i
+.PHONY : sources/generators/src/DynamicalEquationGeneratorSimpleImpl.i
 
 # target to preprocess a source file
-src/generators/src/InitialConditionGeneratorImpl.cc.i:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/generators/src/InitialConditionGeneratorImpl.cc.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/generators/src/InitialConditionGeneratorImpl.cc.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/generators/src/InitialConditionGeneratorImpl.cc.i
-.PHONY : src/generators/src/InitialConditionGeneratorImpl.cc.i
+sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.i
+.PHONY : sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.i
 
-src/generators/src/InitialConditionGeneratorImpl.s: src/generators/src/InitialConditionGeneratorImpl.cc.s
+sources/generators/src/DynamicalEquationGeneratorSimpleImpl.s: sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.s
 
-.PHONY : src/generators/src/InitialConditionGeneratorImpl.s
+.PHONY : sources/generators/src/DynamicalEquationGeneratorSimpleImpl.s
 
 # target to generate assembly for a file
-src/generators/src/InitialConditionGeneratorImpl.cc.s:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/generators/src/InitialConditionGeneratorImpl.cc.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/generators/src/InitialConditionGeneratorImpl.cc.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/generators/src/InitialConditionGeneratorImpl.cc.s
-.PHONY : src/generators/src/InitialConditionGeneratorImpl.cc.s
+sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.s
+.PHONY : sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.s
 
-src/generators/src/StructureGeneratorImpl.o: src/generators/src/StructureGeneratorImpl.cc.o
+sources/generators/src/InitialConditionGeneratorImpl.o: sources/generators/src/InitialConditionGeneratorImpl.cc.o
 
-.PHONY : src/generators/src/StructureGeneratorImpl.o
+.PHONY : sources/generators/src/InitialConditionGeneratorImpl.o
 
 # target to build an object file
-src/generators/src/StructureGeneratorImpl.cc.o:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/generators/src/StructureGeneratorImpl.cc.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/generators/src/StructureGeneratorImpl.cc.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/generators/src/StructureGeneratorImpl.cc.o
-.PHONY : src/generators/src/StructureGeneratorImpl.cc.o
+sources/generators/src/InitialConditionGeneratorImpl.cc.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/src/InitialConditionGeneratorImpl.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/src/InitialConditionGeneratorImpl.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/src/InitialConditionGeneratorImpl.cc.o
+.PHONY : sources/generators/src/InitialConditionGeneratorImpl.cc.o
 
-src/generators/src/StructureGeneratorImpl.i: src/generators/src/StructureGeneratorImpl.cc.i
+sources/generators/src/InitialConditionGeneratorImpl.i: sources/generators/src/InitialConditionGeneratorImpl.cc.i
 
-.PHONY : src/generators/src/StructureGeneratorImpl.i
+.PHONY : sources/generators/src/InitialConditionGeneratorImpl.i
 
 # target to preprocess a source file
-src/generators/src/StructureGeneratorImpl.cc.i:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/generators/src/StructureGeneratorImpl.cc.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/generators/src/StructureGeneratorImpl.cc.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/generators/src/StructureGeneratorImpl.cc.i
-.PHONY : src/generators/src/StructureGeneratorImpl.cc.i
+sources/generators/src/InitialConditionGeneratorImpl.cc.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/src/InitialConditionGeneratorImpl.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/src/InitialConditionGeneratorImpl.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/src/InitialConditionGeneratorImpl.cc.i
+.PHONY : sources/generators/src/InitialConditionGeneratorImpl.cc.i
 
-src/generators/src/StructureGeneratorImpl.s: src/generators/src/StructureGeneratorImpl.cc.s
+sources/generators/src/InitialConditionGeneratorImpl.s: sources/generators/src/InitialConditionGeneratorImpl.cc.s
 
-.PHONY : src/generators/src/StructureGeneratorImpl.s
+.PHONY : sources/generators/src/InitialConditionGeneratorImpl.s
 
 # target to generate assembly for a file
-src/generators/src/StructureGeneratorImpl.cc.s:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/generators/src/StructureGeneratorImpl.cc.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/generators/src/StructureGeneratorImpl.cc.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/generators/src/StructureGeneratorImpl.cc.s
-.PHONY : src/generators/src/StructureGeneratorImpl.cc.s
+sources/generators/src/InitialConditionGeneratorImpl.cc.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/src/InitialConditionGeneratorImpl.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/src/InitialConditionGeneratorImpl.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/src/InitialConditionGeneratorImpl.cc.s
+.PHONY : sources/generators/src/InitialConditionGeneratorImpl.cc.s
 
-src/parser/src/interpreter.o: src/parser/src/interpreter.cpp.o
+sources/generators/src/StructureGeneratorImpl.o: sources/generators/src/StructureGeneratorImpl.cc.o
 
-.PHONY : src/parser/src/interpreter.o
+.PHONY : sources/generators/src/StructureGeneratorImpl.o
 
 # target to build an object file
-src/parser/src/interpreter.cpp.o:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/parser/src/interpreter.cpp.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/parser/src/interpreter.cpp.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/parser/src/interpreter.cpp.o
-.PHONY : src/parser/src/interpreter.cpp.o
+sources/generators/src/StructureGeneratorImpl.cc.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/src/StructureGeneratorImpl.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/src/StructureGeneratorImpl.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/src/StructureGeneratorImpl.cc.o
+.PHONY : sources/generators/src/StructureGeneratorImpl.cc.o
 
-src/parser/src/interpreter.i: src/parser/src/interpreter.cpp.i
+sources/generators/src/StructureGeneratorImpl.i: sources/generators/src/StructureGeneratorImpl.cc.i
 
-.PHONY : src/parser/src/interpreter.i
+.PHONY : sources/generators/src/StructureGeneratorImpl.i
 
 # target to preprocess a source file
-src/parser/src/interpreter.cpp.i:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/parser/src/interpreter.cpp.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/parser/src/interpreter.cpp.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/parser/src/interpreter.cpp.i
-.PHONY : src/parser/src/interpreter.cpp.i
+sources/generators/src/StructureGeneratorImpl.cc.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/src/StructureGeneratorImpl.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/src/StructureGeneratorImpl.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/src/StructureGeneratorImpl.cc.i
+.PHONY : sources/generators/src/StructureGeneratorImpl.cc.i
 
-src/parser/src/interpreter.s: src/parser/src/interpreter.cpp.s
+sources/generators/src/StructureGeneratorImpl.s: sources/generators/src/StructureGeneratorImpl.cc.s
 
-.PHONY : src/parser/src/interpreter.s
+.PHONY : sources/generators/src/StructureGeneratorImpl.s
 
 # target to generate assembly for a file
-src/parser/src/interpreter.cpp.s:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/parser/src/interpreter.cpp.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/parser/src/interpreter.cpp.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/parser/src/interpreter.cpp.s
-.PHONY : src/parser/src/interpreter.cpp.s
+sources/generators/src/StructureGeneratorImpl.cc.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/src/StructureGeneratorImpl.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/src/StructureGeneratorImpl.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/src/StructureGeneratorImpl.cc.s
+.PHONY : sources/generators/src/StructureGeneratorImpl.cc.s
 
-src/parser/src/parser.o: src/parser/src/parser.cpp.o
+sources/parser/src/interpreter.o: sources/parser/src/interpreter.cpp.o
 
-.PHONY : src/parser/src/parser.o
+.PHONY : sources/parser/src/interpreter.o
 
 # target to build an object file
-src/parser/src/parser.cpp.o:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/parser/src/parser.cpp.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/parser/src/parser.cpp.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/parser/src/parser.cpp.o
-.PHONY : src/parser/src/parser.cpp.o
+sources/parser/src/interpreter.cpp.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/parser/src/interpreter.cpp.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/parser/src/interpreter.cpp.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/parser/src/interpreter.cpp.o
+.PHONY : sources/parser/src/interpreter.cpp.o
 
-src/parser/src/parser.i: src/parser/src/parser.cpp.i
+sources/parser/src/interpreter.i: sources/parser/src/interpreter.cpp.i
 
-.PHONY : src/parser/src/parser.i
+.PHONY : sources/parser/src/interpreter.i
 
 # target to preprocess a source file
-src/parser/src/parser.cpp.i:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/parser/src/parser.cpp.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/parser/src/parser.cpp.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/parser/src/parser.cpp.i
-.PHONY : src/parser/src/parser.cpp.i
+sources/parser/src/interpreter.cpp.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/parser/src/interpreter.cpp.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/parser/src/interpreter.cpp.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/parser/src/interpreter.cpp.i
+.PHONY : sources/parser/src/interpreter.cpp.i
 
-src/parser/src/parser.s: src/parser/src/parser.cpp.s
+sources/parser/src/interpreter.s: sources/parser/src/interpreter.cpp.s
 
-.PHONY : src/parser/src/parser.s
+.PHONY : sources/parser/src/interpreter.s
 
 # target to generate assembly for a file
-src/parser/src/parser.cpp.s:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/parser/src/parser.cpp.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/parser/src/parser.cpp.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/parser/src/parser.cpp.s
-.PHONY : src/parser/src/parser.cpp.s
+sources/parser/src/interpreter.cpp.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/parser/src/interpreter.cpp.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/parser/src/interpreter.cpp.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/parser/src/interpreter.cpp.s
+.PHONY : sources/parser/src/interpreter.cpp.s
 
-src/parser/src/scanner.o: src/parser/src/scanner.cpp.o
+sources/parser/src/parser.o: sources/parser/src/parser.cpp.o
 
-.PHONY : src/parser/src/scanner.o
+.PHONY : sources/parser/src/parser.o
 
 # target to build an object file
-src/parser/src/scanner.cpp.o:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/parser/src/scanner.cpp.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/parser/src/scanner.cpp.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/parser/src/scanner.cpp.o
-.PHONY : src/parser/src/scanner.cpp.o
+sources/parser/src/parser.cpp.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/parser/src/parser.cpp.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/parser/src/parser.cpp.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/parser/src/parser.cpp.o
+.PHONY : sources/parser/src/parser.cpp.o
 
-src/parser/src/scanner.i: src/parser/src/scanner.cpp.i
+sources/parser/src/parser.i: sources/parser/src/parser.cpp.i
 
-.PHONY : src/parser/src/scanner.i
+.PHONY : sources/parser/src/parser.i
 
 # target to preprocess a source file
-src/parser/src/scanner.cpp.i:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/parser/src/scanner.cpp.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/parser/src/scanner.cpp.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/parser/src/scanner.cpp.i
-.PHONY : src/parser/src/scanner.cpp.i
+sources/parser/src/parser.cpp.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/parser/src/parser.cpp.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/parser/src/parser.cpp.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/parser/src/parser.cpp.i
+.PHONY : sources/parser/src/parser.cpp.i
 
-src/parser/src/scanner.s: src/parser/src/scanner.cpp.s
+sources/parser/src/parser.s: sources/parser/src/parser.cpp.s
 
-.PHONY : src/parser/src/scanner.s
+.PHONY : sources/parser/src/parser.s
 
 # target to generate assembly for a file
-src/parser/src/scanner.cpp.s:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/parser/src/scanner.cpp.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/parser/src/scanner.cpp.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/parser/src/scanner.cpp.s
-.PHONY : src/parser/src/scanner.cpp.s
+sources/parser/src/parser.cpp.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/parser/src/parser.cpp.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/parser/src/parser.cpp.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/parser/src/parser.cpp.s
+.PHONY : sources/parser/src/parser.cpp.s
 
-src/runners/GenerateMain.o: src/runners/GenerateMain.cc.o
+sources/parser/src/scanner.o: sources/parser/src/scanner.cpp.o
 
-.PHONY : src/runners/GenerateMain.o
+.PHONY : sources/parser/src/scanner.o
 
 # target to build an object file
-src/runners/GenerateMain.cc.o:
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/runners/GenerateMain.cc.o
-.PHONY : src/runners/GenerateMain.cc.o
+sources/parser/src/scanner.cpp.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/parser/src/scanner.cpp.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/parser/src/scanner.cpp.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/parser/src/scanner.cpp.o
+.PHONY : sources/parser/src/scanner.cpp.o
 
-src/runners/GenerateMain.i: src/runners/GenerateMain.cc.i
+sources/parser/src/scanner.i: sources/parser/src/scanner.cpp.i
 
-.PHONY : src/runners/GenerateMain.i
+.PHONY : sources/parser/src/scanner.i
 
 # target to preprocess a source file
-src/runners/GenerateMain.cc.i:
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/runners/GenerateMain.cc.i
-.PHONY : src/runners/GenerateMain.cc.i
+sources/parser/src/scanner.cpp.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/parser/src/scanner.cpp.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/parser/src/scanner.cpp.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/parser/src/scanner.cpp.i
+.PHONY : sources/parser/src/scanner.cpp.i
 
-src/runners/GenerateMain.s: src/runners/GenerateMain.cc.s
+sources/parser/src/scanner.s: sources/parser/src/scanner.cpp.s
 
-.PHONY : src/runners/GenerateMain.s
+.PHONY : sources/parser/src/scanner.s
 
 # target to generate assembly for a file
-src/runners/GenerateMain.cc.s:
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/runners/GenerateMain.cc.s
-.PHONY : src/runners/GenerateMain.cc.s
+sources/parser/src/scanner.cpp.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/parser/src/scanner.cpp.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/parser/src/scanner.cpp.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/parser/src/scanner.cpp.s
+.PHONY : sources/parser/src/scanner.cpp.s
 
-src/runners/SimulateMain.o: src/runners/SimulateMain.cc.o
+sources/runners/GenerateMain.o: sources/runners/GenerateMain.cc.o
 
-.PHONY : src/runners/SimulateMain.o
+.PHONY : sources/runners/GenerateMain.o
 
 # target to build an object file
-src/runners/SimulateMain.cc.o:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/runners/SimulateMain.cc.o
-.PHONY : src/runners/SimulateMain.cc.o
+sources/runners/GenerateMain.cc.o:
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/runners/GenerateMain.cc.o
+.PHONY : sources/runners/GenerateMain.cc.o
 
-src/runners/SimulateMain.i: src/runners/SimulateMain.cc.i
+sources/runners/GenerateMain.i: sources/runners/GenerateMain.cc.i
 
-.PHONY : src/runners/SimulateMain.i
+.PHONY : sources/runners/GenerateMain.i
 
 # target to preprocess a source file
-src/runners/SimulateMain.cc.i:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/runners/SimulateMain.cc.i
-.PHONY : src/runners/SimulateMain.cc.i
+sources/runners/GenerateMain.cc.i:
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/runners/GenerateMain.cc.i
+.PHONY : sources/runners/GenerateMain.cc.i
 
-src/runners/SimulateMain.s: src/runners/SimulateMain.cc.s
+sources/runners/GenerateMain.s: sources/runners/GenerateMain.cc.s
 
-.PHONY : src/runners/SimulateMain.s
+.PHONY : sources/runners/GenerateMain.s
 
 # target to generate assembly for a file
-src/runners/SimulateMain.cc.s:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/runners/SimulateMain.cc.s
-.PHONY : src/runners/SimulateMain.cc.s
+sources/runners/GenerateMain.cc.s:
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/runners/GenerateMain.cc.s
+.PHONY : sources/runners/GenerateMain.cc.s
 
-src/test/test_StructureGeneration.o: src/test/test_StructureGeneration.cc.o
+sources/runners/SimulateMain.o: sources/runners/SimulateMain.cc.o
 
-.PHONY : src/test/test_StructureGeneration.o
+.PHONY : sources/runners/SimulateMain.o
 
 # target to build an object file
-src/test/test_StructureGeneration.cc.o:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/test/test_StructureGeneration.cc.o
-.PHONY : src/test/test_StructureGeneration.cc.o
+sources/runners/SimulateMain.cc.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/runners/SimulateMain.cc.o
+.PHONY : sources/runners/SimulateMain.cc.o
 
-src/test/test_StructureGeneration.i: src/test/test_StructureGeneration.cc.i
+sources/runners/SimulateMain.i: sources/runners/SimulateMain.cc.i
 
-.PHONY : src/test/test_StructureGeneration.i
+.PHONY : sources/runners/SimulateMain.i
 
 # target to preprocess a source file
-src/test/test_StructureGeneration.cc.i:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/test/test_StructureGeneration.cc.i
-.PHONY : src/test/test_StructureGeneration.cc.i
+sources/runners/SimulateMain.cc.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/runners/SimulateMain.cc.i
+.PHONY : sources/runners/SimulateMain.cc.i
 
-src/test/test_StructureGeneration.s: src/test/test_StructureGeneration.cc.s
+sources/runners/SimulateMain.s: sources/runners/SimulateMain.cc.s
 
-.PHONY : src/test/test_StructureGeneration.s
+.PHONY : sources/runners/SimulateMain.s
 
 # target to generate assembly for a file
-src/test/test_StructureGeneration.cc.s:
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/test/test_StructureGeneration.cc.s
-.PHONY : src/test/test_StructureGeneration.cc.s
+sources/runners/SimulateMain.cc.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/runners/SimulateMain.cc.s
+.PHONY : sources/runners/SimulateMain.cc.s
+
+sources/test/test_StructureGeneration.o: sources/test/test_StructureGeneration.cc.o
+
+.PHONY : sources/test/test_StructureGeneration.o
+
+# target to build an object file
+sources/test/test_StructureGeneration.cc.o:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/test/test_StructureGeneration.cc.o
+.PHONY : sources/test/test_StructureGeneration.cc.o
+
+sources/test/test_StructureGeneration.i: sources/test/test_StructureGeneration.cc.i
+
+.PHONY : sources/test/test_StructureGeneration.i
+
+# target to preprocess a source file
+sources/test/test_StructureGeneration.cc.i:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/test/test_StructureGeneration.cc.i
+.PHONY : sources/test/test_StructureGeneration.cc.i
+
+sources/test/test_StructureGeneration.s: sources/test/test_StructureGeneration.cc.s
+
+.PHONY : sources/test/test_StructureGeneration.s
+
+# target to generate assembly for a file
+sources/test/test_StructureGeneration.cc.s:
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/test/test_StructureGeneration.cc.s
+.PHONY : sources/test/test_StructureGeneration.cc.s
 
 # Help Target
 help:
@@ -1000,84 +1000,84 @@ help:
 	@echo "... simulate"
 	@echo "... generate"
 	@echo "... test"
-	@echo "... src/core/src/CalculationNode.o"
-	@echo "... src/core/src/CalculationNode.i"
-	@echo "... src/core/src/CalculationNode.s"
-	@echo "... src/core/src/DownwardInfluenceImpl.o"
-	@echo "... src/core/src/DownwardInfluenceImpl.i"
-	@echo "... src/core/src/DownwardInfluenceImpl.s"
-	@echo "... src/core/src/DynamicalEquation.o"
-	@echo "... src/core/src/DynamicalEquation.i"
-	@echo "... src/core/src/DynamicalEquation.s"
-	@echo "... src/core/src/GeneticAlgorithmController.o"
-	@echo "... src/core/src/GeneticAlgorithmController.i"
-	@echo "... src/core/src/GeneticAlgorithmController.s"
-	@echo "... src/core/src/GlobalVariables.o"
-	@echo "... src/core/src/GlobalVariables.i"
-	@echo "... src/core/src/GlobalVariables.s"
-	@echo "... src/core/src/Layer.o"
-	@echo "... src/core/src/Layer.i"
-	@echo "... src/core/src/Layer.s"
-	@echo "... src/core/src/MultilayerNetwork.o"
-	@echo "... src/core/src/MultilayerNetwork.i"
-	@echo "... src/core/src/MultilayerNetwork.s"
-	@echo "... src/core/src/Network.o"
-	@echo "... src/core/src/Network.i"
-	@echo "... src/core/src/Network.s"
-	@echo "... src/core/src/NetworkModifier.o"
-	@echo "... src/core/src/NetworkModifier.i"
-	@echo "... src/core/src/NetworkModifier.s"
-	@echo "... src/core/src/NetworkPopulationElement.o"
-	@echo "... src/core/src/NetworkPopulationElement.i"
-	@echo "... src/core/src/NetworkPopulationElement.s"
-	@echo "... src/core/src/Node.o"
-	@echo "... src/core/src/Node.i"
-	@echo "... src/core/src/Node.s"
-	@echo "... src/core/src/UpwardInfluenceImpl.o"
-	@echo "... src/core/src/UpwardInfluenceImpl.i"
-	@echo "... src/core/src/UpwardInfluenceImpl.s"
-	@echo "... src/core/src/UtilityFunctions.o"
-	@echo "... src/core/src/UtilityFunctions.i"
-	@echo "... src/core/src/UtilityFunctions.s"
-	@echo "... src/core/src/VectorField.o"
-	@echo "... src/core/src/VectorField.i"
-	@echo "... src/core/src/VectorField.s"
-	@echo "... src/core/src/VectorFieldPoint.o"
-	@echo "... src/core/src/VectorFieldPoint.i"
-	@echo "... src/core/src/VectorFieldPoint.s"
-	@echo "... src/core/src/VectorFieldReconfigurationImpl.o"
-	@echo "... src/core/src/VectorFieldReconfigurationImpl.i"
-	@echo "... src/core/src/VectorFieldReconfigurationImpl.s"
-	@echo "... src/core/src/VectorFieldSchemes.o"
-	@echo "... src/core/src/VectorFieldSchemes.i"
-	@echo "... src/core/src/VectorFieldSchemes.s"
-	@echo "... src/generators/src/DynamicalEquationGeneratorSimpleImpl.o"
-	@echo "... src/generators/src/DynamicalEquationGeneratorSimpleImpl.i"
-	@echo "... src/generators/src/DynamicalEquationGeneratorSimpleImpl.s"
-	@echo "... src/generators/src/InitialConditionGeneratorImpl.o"
-	@echo "... src/generators/src/InitialConditionGeneratorImpl.i"
-	@echo "... src/generators/src/InitialConditionGeneratorImpl.s"
-	@echo "... src/generators/src/StructureGeneratorImpl.o"
-	@echo "... src/generators/src/StructureGeneratorImpl.i"
-	@echo "... src/generators/src/StructureGeneratorImpl.s"
-	@echo "... src/parser/src/interpreter.o"
-	@echo "... src/parser/src/interpreter.i"
-	@echo "... src/parser/src/interpreter.s"
-	@echo "... src/parser/src/parser.o"
-	@echo "... src/parser/src/parser.i"
-	@echo "... src/parser/src/parser.s"
-	@echo "... src/parser/src/scanner.o"
-	@echo "... src/parser/src/scanner.i"
-	@echo "... src/parser/src/scanner.s"
-	@echo "... src/runners/GenerateMain.o"
-	@echo "... src/runners/GenerateMain.i"
-	@echo "... src/runners/GenerateMain.s"
-	@echo "... src/runners/SimulateMain.o"
-	@echo "... src/runners/SimulateMain.i"
-	@echo "... src/runners/SimulateMain.s"
-	@echo "... src/test/test_StructureGeneration.o"
-	@echo "... src/test/test_StructureGeneration.i"
-	@echo "... src/test/test_StructureGeneration.s"
+	@echo "... sources/core/DownwardInfluence/src/DownwardInfluenceImpl.o"
+	@echo "... sources/core/DownwardInfluence/src/DownwardInfluenceImpl.i"
+	@echo "... sources/core/DownwardInfluence/src/DownwardInfluenceImpl.s"
+	@echo "... sources/core/DynamicalEquation/src/CalculationNode.o"
+	@echo "... sources/core/DynamicalEquation/src/CalculationNode.i"
+	@echo "... sources/core/DynamicalEquation/src/CalculationNode.s"
+	@echo "... sources/core/DynamicalEquation/src/DynamicalEquation.o"
+	@echo "... sources/core/DynamicalEquation/src/DynamicalEquation.i"
+	@echo "... sources/core/DynamicalEquation/src/DynamicalEquation.s"
+	@echo "... sources/core/StructuralElements/src/Layer.o"
+	@echo "... sources/core/StructuralElements/src/Layer.i"
+	@echo "... sources/core/StructuralElements/src/Layer.s"
+	@echo "... sources/core/StructuralElements/src/MultilayerNetwork.o"
+	@echo "... sources/core/StructuralElements/src/MultilayerNetwork.i"
+	@echo "... sources/core/StructuralElements/src/MultilayerNetwork.s"
+	@echo "... sources/core/StructuralElements/src/Network.o"
+	@echo "... sources/core/StructuralElements/src/Network.i"
+	@echo "... sources/core/StructuralElements/src/Network.s"
+	@echo "... sources/core/StructuralElements/src/Node.o"
+	@echo "... sources/core/StructuralElements/src/Node.i"
+	@echo "... sources/core/StructuralElements/src/Node.s"
+	@echo "... sources/core/UpwardInfluence/src/UpwardInfluenceImpl.o"
+	@echo "... sources/core/UpwardInfluence/src/UpwardInfluenceImpl.i"
+	@echo "... sources/core/UpwardInfluence/src/UpwardInfluenceImpl.s"
+	@echo "... sources/core/Utility/src/GlobalVariables.o"
+	@echo "... sources/core/Utility/src/GlobalVariables.i"
+	@echo "... sources/core/Utility/src/GlobalVariables.s"
+	@echo "... sources/core/Utility/src/UtilityFunctions.o"
+	@echo "... sources/core/Utility/src/UtilityFunctions.i"
+	@echo "... sources/core/Utility/src/UtilityFunctions.s"
+	@echo "... sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.o"
+	@echo "... sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.i"
+	@echo "... sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.s"
+	@echo "... sources/core/VectorFieldReconfiguration/src/NetworkModifier.o"
+	@echo "... sources/core/VectorFieldReconfiguration/src/NetworkModifier.i"
+	@echo "... sources/core/VectorFieldReconfiguration/src/NetworkModifier.s"
+	@echo "... sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.o"
+	@echo "... sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.i"
+	@echo "... sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.s"
+	@echo "... sources/core/VectorFieldReconfiguration/src/VectorField.o"
+	@echo "... sources/core/VectorFieldReconfiguration/src/VectorField.i"
+	@echo "... sources/core/VectorFieldReconfiguration/src/VectorField.s"
+	@echo "... sources/core/VectorFieldReconfiguration/src/VectorFieldPoint.o"
+	@echo "... sources/core/VectorFieldReconfiguration/src/VectorFieldPoint.i"
+	@echo "... sources/core/VectorFieldReconfiguration/src/VectorFieldPoint.s"
+	@echo "... sources/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.o"
+	@echo "... sources/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.i"
+	@echo "... sources/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.s"
+	@echo "... sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.o"
+	@echo "... sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.i"
+	@echo "... sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.s"
+	@echo "... sources/generators/src/DynamicalEquationGeneratorSimpleImpl.o"
+	@echo "... sources/generators/src/DynamicalEquationGeneratorSimpleImpl.i"
+	@echo "... sources/generators/src/DynamicalEquationGeneratorSimpleImpl.s"
+	@echo "... sources/generators/src/InitialConditionGeneratorImpl.o"
+	@echo "... sources/generators/src/InitialConditionGeneratorImpl.i"
+	@echo "... sources/generators/src/InitialConditionGeneratorImpl.s"
+	@echo "... sources/generators/src/StructureGeneratorImpl.o"
+	@echo "... sources/generators/src/StructureGeneratorImpl.i"
+	@echo "... sources/generators/src/StructureGeneratorImpl.s"
+	@echo "... sources/parser/src/interpreter.o"
+	@echo "... sources/parser/src/interpreter.i"
+	@echo "... sources/parser/src/interpreter.s"
+	@echo "... sources/parser/src/parser.o"
+	@echo "... sources/parser/src/parser.i"
+	@echo "... sources/parser/src/parser.s"
+	@echo "... sources/parser/src/scanner.o"
+	@echo "... sources/parser/src/scanner.i"
+	@echo "... sources/parser/src/scanner.s"
+	@echo "... sources/runners/GenerateMain.o"
+	@echo "... sources/runners/GenerateMain.i"
+	@echo "... sources/runners/GenerateMain.s"
+	@echo "... sources/runners/SimulateMain.o"
+	@echo "... sources/runners/SimulateMain.i"
+	@echo "... sources/runners/SimulateMain.s"
+	@echo "... sources/test/test_StructureGeneration.o"
+	@echo "... sources/test/test_StructureGeneration.i"
+	@echo "... sources/test/test_StructureGeneration.s"
 .PHONY : help
 
 

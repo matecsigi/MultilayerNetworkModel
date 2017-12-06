@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['token_5fnumber_5ftype',['token_number_type',['../classEzAquarii_1_1Parser.html#a8534ae67ef531c12ceffacd8d9f18f5f',1,'EzAquarii::Parser']]],
-  ['token_5ftype',['token_type',['../classEzAquarii_1_1Parser.html#a56291d58866809533c2eb3f54911674c',1,'EzAquarii::Parser']]]
+  ['token_5fnumber_5ftype',['token_number_type',['../classEquationParser_1_1Parser.html#a6430d28bfb6b8ac0a7f521ea5dd0d554',1,'EquationParser::Parser']]],
+  ['token_5ftype',['token_type',['../classEquationParser_1_1Parser.html#aa29d1fb4fbd9ec112dcb2acd504dc2f1',1,'EquationParser::Parser']]]
 ];
