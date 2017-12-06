@@ -6,6 +6,7 @@
 #include "IDownwardInfluence.hh"
 #include "IVectorFieldReconfiguration.hh"
 #include "GlobalVariables.hh"
+#include "UtilityFunctions.hh"
 #include <vector>
 
 class IUpwardInfluence;

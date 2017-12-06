@@ -17,6 +17,6 @@ void UpwardInfluenceImpl::calculateUpwardInfluence()
   {
     Node* currentLowerNode = (*itNode);
     currentLowerNode->getValues(tmpBuffer);
-    change += tmpBuffer[(t%(bufferSize-2))+1]-tmpBuffer[(t%(bufferSize-2))];
+    change += tmpBuffer[getIndexTMinusOne(t)]-tmpBuffer[getIndexTMinusTwo(t)];
   }
 }

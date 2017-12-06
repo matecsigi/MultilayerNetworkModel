@@ -83,7 +83,7 @@ void Node::setValues(double* values)
 
 void Node::setCurrentState(state_type state)
 {
-  mValues[(t%(bufferSize-2))+2] = state[0];
+  mValues[getIndexT(t)] = state[0];
 }
 
 void Node::getValues(double* values)
@@ -96,12 +96,12 @@ void Node::getValues(double* values)
 
 double Node::getCurrentState()
 {
-  return mValues[(t%(bufferSize-2))+2];
+  return mValues[getIndexT(t)];
 }
 
 double Node::getPreviousState()
 {
-  return mValues[(t%(bufferSize-2))+1];
+  return mValues[getIndexTMinusOne(t)];
 }
 
 void Node::step(void)

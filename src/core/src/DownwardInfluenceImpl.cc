@@ -14,8 +14,7 @@ void DownwardInfluenceImpl::calculateDownwardInfluence()
     if(nodeHigher != NULL)
     {
       nodeHigher->getValues(tmpBuffer);
-      change += tmpBuffer[(t%(bufferSize-2))+1]-tmpBuffer[(t%(bufferSize-2))];
-      // std::cout<<tmpBuffer[(t+1)%bufferSize]<<"-"<<tmpBuffer[(t)%bufferSize]<<"="<<change<<std::endl;
+      change += tmpBuffer[getIndexTMinusOne(t)]-tmpBuffer[getIndexTMinusTwo(t)];
     }
   }
   state_type x = {mNode->getCurrentState()+change};

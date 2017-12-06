@@ -545,6 +545,39 @@ src/core/src/UpwardInfluenceImpl.cc.s:
 	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/UpwardInfluenceImpl.cc.s
 .PHONY : src/core/src/UpwardInfluenceImpl.cc.s
 
+src/core/src/UtilityFunctions.o: src/core/src/UtilityFunctions.cc.o
+
+.PHONY : src/core/src/UtilityFunctions.o
+
+# target to build an object file
+src/core/src/UtilityFunctions.cc.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/UtilityFunctions.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/UtilityFunctions.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/UtilityFunctions.cc.o
+.PHONY : src/core/src/UtilityFunctions.cc.o
+
+src/core/src/UtilityFunctions.i: src/core/src/UtilityFunctions.cc.i
+
+.PHONY : src/core/src/UtilityFunctions.i
+
+# target to preprocess a source file
+src/core/src/UtilityFunctions.cc.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/UtilityFunctions.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/UtilityFunctions.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/UtilityFunctions.cc.i
+.PHONY : src/core/src/UtilityFunctions.cc.i
+
+src/core/src/UtilityFunctions.s: src/core/src/UtilityFunctions.cc.s
+
+.PHONY : src/core/src/UtilityFunctions.s
+
+# target to generate assembly for a file
+src/core/src/UtilityFunctions.cc.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/src/core/src/UtilityFunctions.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/src/core/src/UtilityFunctions.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/src/core/src/UtilityFunctions.cc.s
+.PHONY : src/core/src/UtilityFunctions.cc.s
+
 src/core/src/VectorField.o: src/core/src/VectorField.cc.o
 
 .PHONY : src/core/src/VectorField.o
@@ -1003,6 +1036,9 @@ help:
 	@echo "... src/core/src/UpwardInfluenceImpl.o"
 	@echo "... src/core/src/UpwardInfluenceImpl.i"
 	@echo "... src/core/src/UpwardInfluenceImpl.s"
+	@echo "... src/core/src/UtilityFunctions.o"
+	@echo "... src/core/src/UtilityFunctions.i"
+	@echo "... src/core/src/UtilityFunctions.s"
 	@echo "... src/core/src/VectorField.o"
 	@echo "... src/core/src/VectorField.i"
 	@echo "... src/core/src/VectorField.s"
