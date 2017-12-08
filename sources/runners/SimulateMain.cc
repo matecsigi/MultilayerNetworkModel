@@ -10,7 +10,6 @@ using namespace std;
 int main(void)
 {
   cout<<"Start simulation"<<endl;
-  cout<<"bufferSize="<<bufferSize<<endl;
 
   int simulationTime = 30;
 

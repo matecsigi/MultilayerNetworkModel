@@ -35,14 +35,12 @@ void StructureGeneratorBarabasiImpl::addNetworks(void)
     int layerIndex = std::distance(layers.begin(), itLay);
     if(layerIndex == 0)
     {
-      std::cout<<"layer="<<(*itLay)->getId()<<" net="<<networkIdCounter+1<<std::endl;
       (*itLay)->addNetwork(networkIdCounter+1);
       ++networkIdCounter;
       continue;
     }
     for(int i=0; i<pow(mNumberOfNodesInANetwork, layerIndex-1)*mNumberOfNodesOnTopLayer; ++i)
     {
-      std::cout<<"layer="<<(*itLay)->getId()<<" net="<<networkIdCounter+1<<std::endl;
       (*itLay)->addNetwork(networkIdCounter+1);
       ++networkIdCounter;
     }
@@ -51,6 +49,7 @@ void StructureGeneratorBarabasiImpl::addNetworks(void)
 
 void StructureGeneratorBarabasiImpl::generateNetworks()
 {
+  int nodeIdCounter = 1;
   std::vector<Layer*> layers = mMultilayerNetwork->getLayers();
   for(std::vector<Layer*>::iterator itLay=layers.begin(); itLay != layers.end(); ++itLay)
   {
@@ -60,7 +59,7 @@ void StructureGeneratorBarabasiImpl::generateNetworks()
     {
       int networkId =(*itNet)->getId();
       std::string filename = pythonBarabasiGenerator(layerId, networkId);
-      loadNetworkFromJSON((*itNet), filename);
+      loadNetworkFromJSON((*itNet), filename, nodeIdCounter);
     }
   }
 }

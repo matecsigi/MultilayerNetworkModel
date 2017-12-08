@@ -15,23 +15,23 @@ int main()
   std::cout<<"Starting generation"<<std::endl;
 
   const char *filename="sources/projects/BarabasiMultilayer/generated/structure.json";
-  // const char *filenameInitialCond="sources/projects/BarabasiMultilayer/generated/InitialConditions.bin";
+  const char *filenameInitialCond="sources/projects/BarabasiMultilayer/generated/InitialConditions.bin";
 
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
 
   IStructureGenerator* structureGenerator = new StructureGeneratorBarabasiImpl(multilayerNetwork);
   structureGenerator->generateStructure();
 
-  // IDynamicalEquationGenerator* dynamicalEquationGenerator = new DynamicalEquationGeneratorSimpleImpl(multilayerNetwork);
-  // dynamicalEquationGenerator->generateDynamicalEquations();
+  IDynamicalEquationGenerator* dynamicalEquationGenerator = new DynamicalEquationGeneratorSimpleImpl(multilayerNetwork);
+  dynamicalEquationGenerator->generateDynamicalEquations();
 
   multilayerNetwork->save(filename);
 
-  // IInitialConditionGenerator* initialConditionGenerator = new InitialConditionGeneratorImpl(multilayerNetwork);
-  // initialConditionGenerator->generateInitialCondition();
-  // multilayerNetwork->saveState(filenameInitialCond);
+  IInitialConditionGenerator* initialConditionGenerator = new InitialConditionGeneratorImpl(multilayerNetwork);
+  initialConditionGenerator->generateInitialCondition();
+  multilayerNetwork->saveState(filenameInitialCond);
 
-  // cout<<*multilayerNetwork<<endl;
+  cout<<*multilayerNetwork<<endl;
 
   delete multilayerNetwork;
 

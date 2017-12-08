@@ -5,7 +5,7 @@
 
 void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration()
 {
-  std::cout<<"VectorFieldReconfig node="<<mNode->getId()<<std::endl;
+  // std::cout<<"VectorFieldReconfig node="<<mNode->getId()<<std::endl;
   Network* networkAssigned = mNode->getNetworkAssigned();
   if(networkAssigned == NULL)
   {

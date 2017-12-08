@@ -7,6 +7,6 @@ int getIndexT(int t);
 int getIndexTMinusOne(int t);
 int getIndexTMinusTwo(int t);
 
-void loadNetworkFromJSON(Network* network, std::string filename);
+void loadNetworkFromJSON(Network* network, std::string filename, int& nodeIdCounter);
 
 #endif
