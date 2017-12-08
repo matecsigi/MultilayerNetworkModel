@@ -4,6 +4,8 @@ lib/*
 generated/*
 CMakeFiles/*
 
+sources/projects/BarabasiMultilayer/generated/*
+
 *.json
 
 #Ignore any executables

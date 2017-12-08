@@ -31,7 +31,7 @@ int main()
   initialConditionGenerator->generateInitialCondition();
   multilayerNetwork->saveState(filenameInitialCond);
 
-  cout<<*multilayerNetwork<<endl;
+  // cout<<*multilayerNetwork<<endl;
 
   delete multilayerNetwork;
 

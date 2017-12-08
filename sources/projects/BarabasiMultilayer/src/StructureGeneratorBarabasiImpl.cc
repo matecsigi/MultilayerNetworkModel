@@ -7,7 +7,7 @@ StructureGeneratorBarabasiImpl::StructureGeneratorBarabasiImpl(MultilayerNetwork
 {
   mMultilayerNetwork = multilayerNetwork;
   mNumberOfNodesOnTopLayer = 10;
-  mNumberOfNodesInANetwork = 10;
+  mNumberOfNodesInANetwork = 100;
 }
 
 void StructureGeneratorBarabasiImpl::generateStructure()
