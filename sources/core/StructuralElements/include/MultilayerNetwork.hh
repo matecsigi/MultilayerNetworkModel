@@ -1,4 +1,3 @@
-
 #ifndef MULTILAYERNETWORK_HH
 #define MULTILAYERNETWORK_HH
 
@@ -63,4 +62,8 @@ public:
 private:
   std::vector<Layer*> mLayers;
 };
+
+void executeStepsInThread(std::vector<Node*> &nodes);
+
+
 #endif

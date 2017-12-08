@@ -1,6 +1,8 @@
 #ifndef GLOBALVARIABLES_HH
 #define GLOBALVARIABLES_HH
 
+extern int numberOfCores;
+
 extern int bufferSize;
 extern int initialConditionsSize;
 extern int t;

@@ -4,12 +4,15 @@
 #include "Network.hh"
 #include "Node.hh"
 #include "GlobalVariables.hh"
+#include <ctime>
 
 int main()
 {
+  clock_t begin = clock();
+
   std::cout<<"Starting simulation"<<std::endl;
 
-  int simulationTime = 30;
+  int simulationTime = 10;
 
   const char *filename="sources/projects/BarabasiMultilayer/generated/structure.json";
   std::string filenameInitialCond = "sources/projects/BarabasiMultilayer/generated/InitialConditions.bin";
@@ -35,6 +38,10 @@ int main()
   // std::cout<<*multilayerNetwork<<std::endl;
 
   delete multilayerNetwork;
+
+  clock_t end = clock();
+  double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+  std::cout<<"run time="<<elapsed_secs<<std::endl;
 
   return 0;
 }

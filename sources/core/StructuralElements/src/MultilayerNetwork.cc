@@ -8,6 +8,7 @@
 #include <rapidjson/stringbuffer.h>
 #include <rapidjson/prettywriter.h>
 #include <system_error>
+#include <thread>
 
 using namespace std;
 using namespace rapidjson;
@@ -34,6 +35,14 @@ std::vector<Layer*> MultilayerNetwork::getLayers(void) const
   return mLayers;
 }
 
+void executeStepsInThread(std::vector<Node*> &nodes)
+{
+  for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
+  {
+    (*itNode)->step();
+  }
+}
+
 void MultilayerNetwork::step(void)
 {
   /* This is needed so that each node is stepped only once,
@@ -44,10 +53,28 @@ void MultilayerNetwork::step(void)
   std::sort(nodeIds.begin(), nodeIds.end());
   nodeIds.erase(unique(nodeIds.begin(), nodeIds.end()), nodeIds.end());
 
+  std::vector<std::vector<Node*>> nodeThreadPartition(numberOfCores);
+
   for(std::vector<int>::iterator itId=nodeIds.begin(); itId != nodeIds.end(); ++itId)
   {
-    Node* node = nodesMap[(*itId)];
-    node->step();
+    // Node* node = nodesMap[(*itId)];
+    // node->step();
+    int id = (*itId);
+    int partitionSize = nodeIds.size()/numberOfCores;
+    int index = min(numberOfCores-1,id/partitionSize);
+    // std::cout<<"index="<<index<<std::endl;
+    nodeThreadPartition[index].push_back(nodesMap[id]);
+  }
+
+  std::thread stepThreads[numberOfCores];
+  for(int i=0; i < numberOfCores; ++i)
+  {
+    stepThreads[i] = std::thread(executeStepsInThread, std::ref(nodeThreadPartition[i]));
+  }
+
+  for(int i=0; i < numberOfCores; ++i)
+  {
+    stepThreads[i].join();
   }
 }
 

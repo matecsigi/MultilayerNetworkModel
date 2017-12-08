@@ -12,7 +12,6 @@ StructureGeneratorBarabasiImpl::StructureGeneratorBarabasiImpl(MultilayerNetwork
 
 void StructureGeneratorBarabasiImpl::generateStructure()
 {
-  std::cout<<"generating structure"<<std::endl;
   addLayers();
   addNetworks();
   generateNetworks();
@@ -59,6 +58,7 @@ void StructureGeneratorBarabasiImpl::generateNetworks()
     {
       int networkId =(*itNet)->getId();
       std::string filename = pythonBarabasiGenerator(layerId, networkId);
+      std::cout<<"layer="<<layerId<<" network="<<networkId<<std::endl;
       loadNetworkFromJSON((*itNet), filename, nodeIdCounter);
     }
   }
