@@ -16,19 +16,22 @@ GeneticAlgorithmController::~GeneticAlgorithmController()
 
 void GeneticAlgorithmController::fitToVectorField(Network* network, VectorField* targetVectorField)
 {
+  std::cout<<"------------------"<<std::endl;
+
   mTargetVectorField = targetVectorField;
 
   createInitialPopulation(network);
-  for(mGeneration=1; mGeneration<numberOfGenerations; ++mGeneration)
+  for(mGeneration=1; mGeneration<numberOfGenerations+1; ++mGeneration)
   {
+    std::cout<<"generation="<<mGeneration<<std::endl;
     mutation();
     crossover();
     death();
-    // chooseBestNetwork();
+    chooseBestNetwork();
+    std::cout<<"  --avg="<<calculateAverageFitness()<<std::endl;
   }
 
   Network* bestNetwork = chooseBestNetwork();
-  // std::cout<<"END"<<std::endl;
   NetworkModifier networkModifier;
   networkModifier.copyNetwork(bestNetwork, network);
 }
@@ -43,6 +46,7 @@ void GeneticAlgorithmController::mutation()
     NetworkModifier networkModifier;
     networkModifier.modifyNetwork(network);
     networkElement->setNetwork(network);
+    networkElement->setGeneration(mGeneration);
   }
 }
 
@@ -61,12 +65,15 @@ void GeneticAlgorithmController::crossover()
     NetworkPopulationElement* childElement = new NetworkPopulationElement(childNetwork, mTargetVectorField);
     childElement->setGeneration(mGeneration);
     mPopulation.push_back(childElement);
+
+    // std::cout<<"    -parent="<<networkElement1->getFitness()<<", "<<networkElement2->getFitness()<<"->"<<childElement->getFitness()<<std::endl;
   }
 }
 
 void GeneticAlgorithmController::death()
 {
-  int numberOfDeaths = mPopulation.size()*deathRatio;
+  // int numberOfDeaths = mPopulation.size()*deathRatio;
+  int numberOfDeaths = mPopulation.size()-initialPopulationSize;
   // std::cout<<"death="<<numberOfDeaths<<std::endl;
   for(int i=0; i<numberOfDeaths; ++i)
   {
@@ -83,7 +90,7 @@ void GeneticAlgorithmController::createInitialPopulation(Network* network)
   {
     Network* networkModified = new Network;
     networkModifier.copyNetwork(network, networkModified);
-    networkModifier.modifyNetwork(networkModified);
+    networkModifier.modifyNetwork(networkModified, 4);
     NetworkPopulationElement* populationElement = new NetworkPopulationElement(networkModified, mTargetVectorField);
     populationElement->setGeneration(0);
     mPopulation.push_back(populationElement);
@@ -100,12 +107,42 @@ NetworkPopulationElement* GeneticAlgorithmController::chooseForMutation()
 
 NetworkPopulationElement* GeneticAlgorithmController::chooseForCrossover()
 {
-  int randomIndex = rand()%static_cast<int>(mPopulation.size());
-  return mPopulation[randomIndex];
+  double sumFitness = 0;
+  for(std::vector<NetworkPopulationElement*>::iterator itNet=mPopulation.begin(); itNet != mPopulation.end(); ++itNet)
+  {
+    sumFitness += pow(2, (*itNet)->getFitness());
+  }
+
+  double random = (static_cast<double>(rand())/RAND_MAX)*sumFitness;
+  double counter = 0;
+  for(std::vector<NetworkPopulationElement*>::iterator itNet=mPopulation.begin(); itNet != mPopulation.end(); ++itNet)
+  {
+    counter += pow(2, (*itNet)->getFitness());
+    if(counter >= random)
+    {
+      return (*itNet);
+    }
+  }
+
+  return mPopulation[0];
+  // int randomIndex = rand()%static_cast<int>(mPopulation.size());
+  // return mPopulation[randomIndex];
 }
 
 NetworkPopulationElement* GeneticAlgorithmController::chooseForDeath()
 {
+  for(int i=2; i>=0; --i)
+  {
+    for(std::vector<NetworkPopulationElement*>::iterator itNet=mPopulation.begin(); itNet != mPopulation.end(); ++itNet)
+    {
+      int generation = (*itNet)->getGeneration();
+      if(generation <= mGeneration-i)
+      {
+  	return (*itNet);
+      }
+    }
+  }
+
   int randomIndex = rand()%static_cast<int>(mPopulation.size());
   return mPopulation[randomIndex];
 }
@@ -131,7 +168,7 @@ void GeneticAlgorithmController::createMixedNetwork(Network* parentNetwork1, Net
   {
     Network* parentNetwork;
     Node* parentNode;
-    double random = rand()/RAND_MAX;
+    double random = static_cast<double>(rand())/RAND_MAX;
     if(random < 0.5)
     {
       parentNetwork = parentNetwork1;
@@ -157,6 +194,7 @@ void GeneticAlgorithmController::createMixedNetwork(Network* parentNetwork1, Net
     childNetwork->setDynamicalEquation(childNode->getId(), strEquation);
     DynamicalEquation* nodeEquation = childNetwork->getNodeDynamicalEquation(childNode->getId());
     std::vector<Node*> nodes = childNetwork->getNodeNeighbors(childNode->getId());
+    nodes.push_back(childNode);
     std::map<int, Node*> nodesMap;
     for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
     {
@@ -177,6 +215,17 @@ Network* GeneticAlgorithmController::chooseBestNetwork()
       bestPopulationElement = currentElement;
     }
   }
-  std::cout<<"fitness="<<bestPopulationElement->getFitness()<<std::endl;
+  std::cout<<"  -fitness="<<bestPopulationElement->getFitness()<<std::endl;
   return bestPopulationElement->getNetwork();
+}
+
+double GeneticAlgorithmController::calculateAverageFitness()
+{
+  double sumFitness = 0;
+  for(std::vector<NetworkPopulationElement*>::iterator itNet=mPopulation.begin(); itNet != mPopulation.end(); ++itNet)
+  {
+    sumFitness += (*itNet)->getFitness();
+  }
+
+  return sumFitness/mPopulation.size();
 }

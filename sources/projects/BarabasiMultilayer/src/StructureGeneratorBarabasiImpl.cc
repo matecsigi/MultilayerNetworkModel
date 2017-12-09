@@ -6,8 +6,8 @@
 StructureGeneratorBarabasiImpl::StructureGeneratorBarabasiImpl(MultilayerNetwork* multilayerNetwork)
 {
   mMultilayerNetwork = multilayerNetwork;
-  mNumberOfNodesOnTopLayer = 10;
-  mNumberOfNodesInANetwork = 100;
+  mNumberOfNodesOnTopLayer = 30;
+  mNumberOfNodesInANetwork = 30;
 }
 
 void StructureGeneratorBarabasiImpl::generateStructure()
@@ -15,6 +15,7 @@ void StructureGeneratorBarabasiImpl::generateStructure()
   addLayers();
   addNetworks();
   generateNetworks();
+  assignNetworksToNodes();
 }
 
 void StructureGeneratorBarabasiImpl::addLayers(void)
@@ -82,4 +83,24 @@ std::string StructureGeneratorBarabasiImpl::pythonBarabasiGenerator(int layerId,
   system(command.c_str());
 
   return filename;
+}
+
+void StructureGeneratorBarabasiImpl::assignNetworksToNodes()
+{
+  std::vector<Layer*> layers = mMultilayerNetwork->getLayers();
+  for(unsigned i=0; i<layers.size()-1; ++i)
+  {
+    std::vector<Network*> networksUp = layers[i]->getNetworks();
+    std::vector<Network*> networksDown = layers[i+1]->getNetworks();
+    int nodeCounter = 0;
+    for(std::vector<Network*>::iterator itNet=networksUp.begin(); itNet != networksUp.end(); ++itNet)
+    {
+      std::vector<Node*> nodesInNetwork = (*itNet)->getNodes();
+      for(std::vector<Node*>::iterator itNode=nodesInNetwork.begin(); itNode != nodesInNetwork.end(); ++itNode)
+      {
+	(*itNode)->setNetworkAssigned(networksDown[nodeCounter]);
+  	 ++nodeCounter;
+      }
+    }
+  }
 }

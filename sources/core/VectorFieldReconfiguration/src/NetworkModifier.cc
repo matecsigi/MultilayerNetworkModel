@@ -10,39 +10,42 @@ NetworkModifier::~NetworkModifier()
 {
 }
 
-void NetworkModifier::modifyNetwork(Network* network)
+void NetworkModifier::modifyNetwork(Network* network, int numberOfChanges)
 {
-  Node* nodeToChange = chooseNode(network);
-  ModificationType type = chooseType();
-
-  // DynamicalEquation* nodeEquation = network->getNodeDynamicalEquation(nodeToChange->getId());
-  // std::cout<<nodeEquation->toString()<<std::endl;
-
-  switch(type)
+  for(int i=0; i<numberOfChanges; ++i)
   {
-  case ADD_EDGE:
-    addEdge(network, nodeToChange);
-    break;
-  case REMOVE_EDGE:
-    removeEdge(network, nodeToChange);
-    break;
-  case ADD_TO_OUTER_BLOCK:
-    addToOuterBlock(network, nodeToChange);
-    break;
-  case REMOVE_FROM_OUTER_BLOCK:
-    removeFromOuterBlock(network, nodeToChange);
-    break;
-  case CHANGE_CONSTANT:
-    changeConstant(network, nodeToChange);
-    break;
-  case CHANGE_PLUS_TO_MULTIPLY:
-    changePlusToMultiply(network, nodeToChange);
-    break;
-  case CHANGE_MULTIPLY_TO_PLUS:
-    changeMultiplyToPlus(network, nodeToChange);
-    break;
-  default:
-    std::cout<<"Default"<<std::endl;
+    Node* nodeToChange = chooseNode(network);
+    ModificationType type = chooseType();
+
+    // DynamicalEquation* nodeEquation = network->getNodeDynamicalEquation(nodeToChange->getId());
+    // std::cout<<nodeEquation->toString()<<std::endl;
+
+    switch(type)
+    {
+    case ADD_EDGE:
+      addEdge(network, nodeToChange);
+      break;
+    case REMOVE_EDGE:
+      removeEdge(network, nodeToChange);
+      break;
+    case ADD_TO_OUTER_BLOCK:
+      addToOuterBlock(network, nodeToChange);
+      break;
+    case REMOVE_FROM_OUTER_BLOCK:
+      removeFromOuterBlock(network, nodeToChange);
+      break;
+    case CHANGE_CONSTANT:
+      changeConstant(network, nodeToChange);
+      break;
+    case CHANGE_PLUS_TO_MULTIPLY:
+      changePlusToMultiply(network, nodeToChange);
+      break;
+    case CHANGE_MULTIPLY_TO_PLUS:
+      changeMultiplyToPlus(network, nodeToChange);
+      break;
+    default:
+      std::cout<<"Default"<<std::endl;
+    }
   }
 }
 
@@ -79,6 +82,7 @@ void NetworkModifier::copyNetwork(Network* oldNetwork, Network* newNetwork)
     newNetwork->setDynamicalEquation(oldNode->getId(), strEquation);
     DynamicalEquation* nodeEquation = newNetwork->getNodeDynamicalEquation(newNode->getId());
     std::vector<Node*> nodes = newNetwork->getNodeNeighbors(newNode->getId());
+    nodes.push_back(newNode);
     std::map<int, Node*> nodesMap;
     for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
     {

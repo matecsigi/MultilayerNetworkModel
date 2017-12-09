@@ -25,6 +25,7 @@ public:
   //Helper functions
   void createMixedNetwork(Network* parentNetwork1, Network* parentNetwork2, Network* childNetwork);
   Network* chooseBestNetwork();
+  double calculateAverageFitness();
 private:
   int mGeneration;
   VectorField* mTargetVectorField;

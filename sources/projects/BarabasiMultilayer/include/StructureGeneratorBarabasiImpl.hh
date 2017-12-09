@@ -15,6 +15,7 @@ private:
   void addLayers();
   void addNetworks();
   void generateNetworks();
+  void assignNetworksToNodes();
 
   std::string pythonBarabasiGenerator(int layerId, int networkId);
 

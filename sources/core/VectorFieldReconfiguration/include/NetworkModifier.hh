@@ -22,7 +22,7 @@ public:
   NetworkModifier();
   ~NetworkModifier();
 
-  void modifyNetwork(Network* network);
+  void modifyNetwork(Network* network, int numberOfChanges=1);
   void copyNetwork(Network* oldNetwork, Network* newNetwork);
 
   //Chooser functions

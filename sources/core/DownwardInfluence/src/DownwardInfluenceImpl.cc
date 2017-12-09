@@ -13,8 +13,15 @@ void DownwardInfluenceImpl::calculateDownwardInfluence()
     Node* nodeHigher = (*itNet)->getNodeAssigned();
     if(nodeHigher != NULL)
     {
+      std::vector<Node*> nodes = (*itNet)->getNodes();
       nodeHigher->getValues(tmpBuffer);
-      change += tmpBuffer[getIndexTMinusOne(t)]-tmpBuffer[getIndexTMinusTwo(t)];
+      double changeLocal = tmpBuffer[getIndexTMinusOne(t)]-tmpBuffer[getIndexTMinusTwo(t)];
+
+      /**
+	 The change coming from the upper node through downward influence is distributed equally 
+	 among the nodes of the lower network.
+       // */
+      change += changeLocal/nodes.size();
     }
   }
   change -= mNode->getLastChangeByUpwardInfluence();
