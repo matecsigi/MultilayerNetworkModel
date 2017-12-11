@@ -76,7 +76,7 @@ public:
      secodn value is the change along the node's axis i.e. partial 
      derivative.
    */
-  std::map<int, double> getDirectionAtState(std::map<int, double> basePointCoordinates) const;
+  std::map<int, double> getDirectionAtState(std::map<int, double>& basePointCoordinates) const;
 
   friend bool operator==(const Network& network1, const Network& network2);
 

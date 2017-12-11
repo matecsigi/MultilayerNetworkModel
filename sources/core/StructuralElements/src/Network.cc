@@ -147,7 +147,7 @@ std::map<int, double> Network::getCurrentState(void) const
   return currentState;
 }
 
-std::map<int, double> Network::getDirectionAtState(std::map<int, double> basePointCoordinates) const
+std::map<int, double> Network::getDirectionAtState(std::map<int, double>& basePointCoordinates) const
 {
   std::map<int, double> directions;
   std::map<int, double> finalState;

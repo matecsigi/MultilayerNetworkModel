@@ -11,8 +11,8 @@ double odeTime = 1;
 double odeStepSize = 0.1;
 
 //Genetic algorithm parameters
-int initialPopulationSize = 50;
-int numberOfGenerations = 20;
+int initialPopulationSize = 20;
+int numberOfGenerations = 5;
 double mutationRatio = 0.15;
 double crossoverRatio = 0.3;
 double deathRatio = 0.3;

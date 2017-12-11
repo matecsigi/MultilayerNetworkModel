@@ -2,8 +2,6 @@
 
 void gridAroundPointScheme(VectorField* vectorField, Network* network, std::map<int, double> basePointCoordinates)
 {
-  std::map<int, double> tmpCoordinate;
-
   vectorField->addPoint(basePointCoordinates, network->getDirectionAtState(basePointCoordinates));
   
   for(std::map<int, double>::iterator itCor=basePointCoordinates.begin(); itCor != basePointCoordinates.end(); ++itCor)
@@ -11,17 +9,17 @@ void gridAroundPointScheme(VectorField* vectorField, Network* network, std::map<
     int id = itCor->first;
     for(int i=1; i<3; ++i)
     {
-      tmpCoordinate = basePointCoordinates;
-      tmpCoordinate[id] = tmpCoordinate[id]-i;
-      std::map<int, double> direction = network->getDirectionAtState(tmpCoordinate);
-      vectorField->addPoint(tmpCoordinate, direction);
+      std::map<int, double> coordinate = basePointCoordinates;
+      coordinate[id] = coordinate[id]-i;
+      std::map<int, double> direction = network->getDirectionAtState(coordinate);
+      vectorField->addPoint(coordinate, direction);
     }
     for(int i=1; i<3; ++i)
     {
-      tmpCoordinate = basePointCoordinates;
-      tmpCoordinate[id] = tmpCoordinate[id]+i;
-      std::map<int, double> direction = network->getDirectionAtState(tmpCoordinate);
-      vectorField->addPoint(tmpCoordinate, direction);
+      std::map<int, double> coordinate = basePointCoordinates;
+      coordinate[id] = coordinate[id]+i;
+      std::map<int, double> direction = network->getDirectionAtState(coordinate);
+      vectorField->addPoint(coordinate, direction);
     }
   }
 }
