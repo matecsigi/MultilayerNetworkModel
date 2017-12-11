@@ -30,7 +30,7 @@ void DynamicalEquation::ODEcalculator(const state_type &x, state_type &dxdt, dou
   dxdt[0] = evaluate();
 }
 
-void DynamicalEquation::ODEcalculatorAtState(const state_type &x, state_type &dxdt, double t, std::map<int, double> startingState)
+void DynamicalEquation::ODEcalculatorAtState(const state_type &x, state_type &dxdt, double t, std::map<int, double>& startingState)
 {
   dxdt[0] = evaluateAtState(startingState);
 }

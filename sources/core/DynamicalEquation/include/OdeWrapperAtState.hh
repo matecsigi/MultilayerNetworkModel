@@ -6,7 +6,7 @@
 class OdeWrapperAtState
 {
 public:
-  OdeWrapperAtState(DynamicalEquation* dynamicalEquation, std::map<int, double> startingState)
+  OdeWrapperAtState(DynamicalEquation* dynamicalEquation, std::map<int, double>& startingState)
   {
     mDynamicalEquation = dynamicalEquation;
     mStartingState = startingState;
@@ -15,7 +15,7 @@ public:
 
   void operator() (const state_type &x, state_type &dxdt, double t)
   {
-    mDynamicalEquation->ODEcalculator(x, dxdt, t);
+    mDynamicalEquation->ODEcalculatorAtState(x, dxdt, t, mStartingState);
   }
 private:
   DynamicalEquation* mDynamicalEquation;

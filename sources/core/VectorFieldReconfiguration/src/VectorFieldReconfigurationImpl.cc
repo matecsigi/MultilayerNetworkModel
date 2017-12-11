@@ -29,7 +29,7 @@ void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration()
   // NetworkModifier modifier;
   // modifier.copyNetwork(networkAssigned, testNetwork);
 
-  std::cout<<"DISTANCE="<<targetVectorField->getDistanceFrom(currentVectorField)<<std::endl;
+  // std::cout<<"DISTANCE="<<targetVectorField->getDistanceFrom(currentVectorField)<<std::endl;
 
   GeneticAlgorithmController geneticController;
   geneticController.fitToVectorField(networkAssigned, targetVectorField);

@@ -4,14 +4,17 @@
 #include "Network.hh"
 #include "Node.hh"
 #include "GlobalVariables.hh"
+#include <ctime>
 
 using namespace std;
 
 int main(void)
 {
+  clock_t begin = clock();
+
   cout<<"Start simulation"<<endl;
 
-  int simulationTime = 30;
+  int simulationTime = 5;
 
   const char *filename="generated/multilayerStructure_0.json";
   std::string filenameInitialCond = "generated/InitialCondition-1.bin";
@@ -37,6 +40,10 @@ int main(void)
   // std::cout<<*multilayerNetwork<<std::endl;
 
   delete multilayerNetwork;
+
+  clock_t end = clock();
+  double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
+  std::cout<<"run time="<<elapsed_secs<<std::endl;
 
   return 0;
 }
