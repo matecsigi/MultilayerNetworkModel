@@ -23,7 +23,7 @@ int getIndexTMinusTwo(int t)
   return t%(bufferSize-2);
 }
 
-double getValueForId(std::vector<IdValuePair> pairVector, int id)
+double getValueForId(std::vector<IdValuePair> &pairVector, int id)
 {
   for(std::vector<IdValuePair>::iterator itPair=pairVector.begin(); itPair != pairVector.end(); ++itPair)
   {

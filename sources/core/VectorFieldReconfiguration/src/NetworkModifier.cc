@@ -79,7 +79,7 @@ void NetworkModifier::copyNetwork(Network* oldNetwork, Network* newNetwork)
     delete [] tmpBuffer;
 
     std::string strEquation = oldNetwork->getNodeDynamicalEquationString(oldNode->getId());
-    newNetwork->setDynamicalEquation(oldNode->getId(), strEquation);
+    newNetwork->setDynamicalEquationString(oldNode->getId(), strEquation);
     DynamicalEquation* nodeEquation = newNetwork->getNodeDynamicalEquation(newNode->getId());
     std::vector<Node*> nodes = newNetwork->getNodeNeighbors(newNode->getId());
     nodes.push_back(newNode);

@@ -27,7 +27,7 @@ void DynamicalEquationGeneratorSimpleImpl::generateDynamicalEquations()
 	  myString.append("ID");
 	  myString.append((std::to_string((*itNei)->getId())));
 	}
-	currentNetwork->setDynamicalEquation(currentNode->getId(), myString);
+	currentNetwork->setDynamicalEquationString(currentNode->getId(), myString);
       }
     }
   }

@@ -18,8 +18,9 @@ public:
   void removeEdge(int nodeId1, int nodeId2);
   void removeAllEdges();
 
-  void assignToNode(Node *node);  
-  void setDynamicalEquation(int nodeId, std::string strEquation);
+  void assignToNode(Node *node);
+  void setDynamicalEquation(int nodeId, DynamicalEquation* nodeEquation);
+  void setDynamicalEquationString(int nodeId, std::string strEquation);
 
   /**
      Return the unique ID of the network.

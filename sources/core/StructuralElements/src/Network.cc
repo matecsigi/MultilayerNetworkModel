@@ -81,10 +81,16 @@ void Network::assignToNode(Node* node)
   mNodeAssigned = node;
 }
 
-void Network::setDynamicalEquation(int nodeId, std::string strEquation)
+void Network::setDynamicalEquation(int nodeId, DynamicalEquation* nodeEquation)
 {
   int localId = getLocalId(nodeId);
-  mDynamicalEquations[localId]->loadEquation(strEquation);
+  mDynamicalEquations[localId]->loadEquation(nodeEquation);
+}
+
+void Network::setDynamicalEquationString(int nodeId, std::string strEquation)
+{
+  int localId = getLocalId(nodeId);
+  mDynamicalEquations[localId]->loadEquationString(strEquation);
 }
 
 int Network::getId(void) const

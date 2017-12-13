@@ -54,7 +54,58 @@ void DynamicalEquation::setBaseCalculationNode(CalculationNode* baseCalcNode)
   mBaseCalculationNode = baseCalcNode;
 }
 
-void DynamicalEquation::loadEquation(std::string strEquation)
+void DynamicalEquation::loadEquation(DynamicalEquation* dynamicalEquation)
+{
+  mBaseCalculationNode = copyEquation(dynamicalEquation->getBaseCalculationNode(), mBaseCalculationNode);
+}
+
+CalculationNode* DynamicalEquation::copyEquation(CalculationNode* originalCalcNode, CalculationNode* newCalcNode)
+{
+  CalculationNode* left = NULL;
+  CalculationNode* right = NULL;
+
+  if(originalCalcNode->left != NULL)
+  {
+    left = copyEquation(originalCalcNode->left, left);
+  }
+
+  if(originalCalcNode->right != NULL)
+  {
+    right = copyEquation(originalCalcNode->right, right);
+  }
+
+  newCalcNode = copyCalcNode(originalCalcNode, left, right);
+
+  return newCalcNode;
+}
+
+CalculationNode* DynamicalEquation::copyCalcNode(CalculationNode* calcNode, CalculationNode* left, CalculationNode* right)
+{
+  switch(calcNode->getType())
+  {
+  case CONSTANT:
+    return new CNConstant(calcNode->evaluate());
+  case ID:
+    return new CNId(calcNode->getId());
+  case NEGATE:
+    return new CNNegate(right);
+  case ADD:
+    return new CNAdd(left, right);
+  case SUBSTRACT:
+    return new CNSubtract(left, right);
+  case MULTIPLY:
+    return new CNMultiply(left, right);
+  case DIVIDE:
+    return new CNDivide(left, right);
+  case POWER:
+    return new CNPower(left, right);
+  default:
+    return NULL;
+  }
+  return NULL;
+}
+
+void DynamicalEquation::loadEquationString(std::string strEquation)
 {
   if(strEquation.empty())
   {
@@ -62,8 +113,6 @@ void DynamicalEquation::loadEquation(std::string strEquation)
     return;
   }
   EquationParser::Interpreter i;
-  // std::string myString = "1+(1+ID1)";
-  // std::istringstream myStream(myString);
   std::istringstream myStream(strEquation);
   i.switchInputStream(&myStream);
   i.parse();

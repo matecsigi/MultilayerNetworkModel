@@ -190,8 +190,12 @@ void GeneticAlgorithmController::createMixedNetwork(Network* parentNetwork1, Net
       childNetwork->addEdge(nodeId1, nodeId2);
     }
 
-    std::string strEquation = parentNetwork->getNodeDynamicalEquationString(parentNode->getId());
-    childNetwork->setDynamicalEquation(childNode->getId(), strEquation);
+    // std::string strEquation = parentNetwork->getNodeDynamicalEquationString(parentNode->getId());
+    // childNetwork->setDynamicalEquation(childNode->getId(), strEquation);
+
+    DynamicalEquation* dynamicalEquation = parentNetwork->getNodeDynamicalEquation(parentNode->getId());
+    childNetwork->setDynamicalEquation(childNode->getId(), dynamicalEquation);
+
     DynamicalEquation* nodeEquation = childNetwork->getNodeDynamicalEquation(childNode->getId());
     std::vector<Node*> nodes = childNetwork->getNodeNeighbors(childNode->getId());
     nodes.push_back(childNode);

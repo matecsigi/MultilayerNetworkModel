@@ -34,7 +34,10 @@ public:
   CalculationNode* getBaseCalculationNode(void);
   void setBaseCalculationNode(CalculationNode* baseCalcNode);
 
-  void loadEquation(std::string strEquation);
+  void loadEquation(DynamicalEquation* nodeEquation);
+  CalculationNode* copyEquation(CalculationNode* originalCalcNode, CalculationNode* newCalcNode);
+  CalculationNode* copyCalcNode(CalculationNode* calcNode, CalculationNode* left, CalculationNode* right);
+  void loadEquationString(std::string strEquation);
   void loadNodesToEquation(CalculationNode* calcPtr, std::map<int, Node*>& nodesMap);
   std::string toString() const;
 private:

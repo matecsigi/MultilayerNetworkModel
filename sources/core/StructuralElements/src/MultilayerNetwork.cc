@@ -13,6 +13,10 @@
 using namespace std;
 using namespace rapidjson;
 
+/**
+   \todo Handle new nodes. The VectorFieldReconfiguration could add new nodes as well and managing new nodes requires some reconsideration.
+ */
+
 MultilayerNetwork::MultilayerNetwork(void)
 {
 }
@@ -189,7 +193,7 @@ void MultilayerNetwork::load(const char* filename)
       {
 	Value& nodeObject = nodeArray[iii];
 	network->addNode(nodeObject["id"].GetInt());
-	network->setDynamicalEquation(nodeObject["id"].GetInt(), nodeObject["DynamicalEquation"].GetString());
+	network->setDynamicalEquationString(nodeObject["id"].GetInt(), nodeObject["DynamicalEquation"].GetString());
       }
     }
   }
