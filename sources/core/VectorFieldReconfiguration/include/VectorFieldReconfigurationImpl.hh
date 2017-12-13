@@ -11,10 +11,10 @@ public:
   ~VectorFieldReconfigurationImpl(void){};
 
   void calculateVectorFieldReconfiguration();
-  void calculateTargetVectorField(VectorField* targetVectorField, VectorField* currentVectorField, std::map<int, double> directionInLowerNetwork, std::map<int, double> directionInHigherNetworks);
+  void calculateTargetVectorField(VectorField* targetVectorField, VectorField* currentVectorField, std::vector<IdValuePair> directionInLowerNetwork, std::vector<IdValuePair> directionInHigherNetworks);
 
-  std::map<int, double> calculateLowerNetworkDirection();
-  std::map<int, double> calculateHigherNetworksDirection();
+  std::vector<IdValuePair> calculateLowerNetworkDirection();
+  std::vector<IdValuePair> calculateHigherNetworksDirection();
 };
 
 #endif

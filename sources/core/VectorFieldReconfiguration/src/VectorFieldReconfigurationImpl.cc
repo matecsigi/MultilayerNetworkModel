@@ -12,12 +12,12 @@ void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration()
     return;
   }
   VectorField* currentVectorField = new VectorField();
-  std::map<int, double> currentState = networkAssigned->getCurrentState();
+  std::vector<IdValuePair> currentState = networkAssigned->getCurrentState();
   gridAroundPointScheme(currentVectorField, networkAssigned, currentState);
 
   VectorField* targetVectorField = new VectorField();
-  std::map<int, double> directionInLowerNetwork = calculateLowerNetworkDirection();
-  std::map<int, double> directionInHigherNetworks = calculateHigherNetworksDirection();
+  std::vector<IdValuePair> directionInLowerNetwork = calculateLowerNetworkDirection();
+  std::vector<IdValuePair> directionInHigherNetworks = calculateHigherNetworksDirection();
   calculateTargetVectorField(targetVectorField, currentVectorField, directionInLowerNetwork, directionInHigherNetworks);
 
   // std::cout<<"--------Current---------"<<std::endl;;
@@ -47,56 +47,56 @@ void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration()
   delete targetVectorField;
 }
 
-void VectorFieldReconfigurationImpl::calculateTargetVectorField(VectorField* targetVectorField, VectorField* currentVectorField, std::map<int, double> directionInLowerNetwork, std::map<int, double> directionInHigherNetworks)
+void VectorFieldReconfigurationImpl::calculateTargetVectorField(VectorField* targetVectorField, VectorField* currentVectorField, std::vector<IdValuePair> directionInLowerNetwork, std::vector<IdValuePair> directionInHigherNetworks)
 {
   //could by some more complicated expression
-  double assignedNodeChange = directionInHigherNetworks[mNode->getId()];
+  double assignedNodeChange = getValueForId(directionInHigherNetworks, mNode->getId());
 
   std::vector<VectorFieldPoint*> vectorFieldPoints = currentVectorField->getVectorFieldPoints();
   for(std::vector<VectorFieldPoint*>::iterator itPoint=vectorFieldPoints.begin(); itPoint != vectorFieldPoints.end(); ++itPoint)
   {
     VectorFieldPoint* currentPoint = (*itPoint);
-    std::map<int, double> coordinate = currentPoint->getCoordinate();
-    std::map<int, double> direction = currentPoint->getDirection();
-    std::map<int, double> newDirection;
-    for(std::map<int, double>::iterator itDir=direction.begin(); itDir != direction.end(); itDir++)
+    std::vector<IdValuePair> coordinate = currentPoint->getCoordinate();
+    std::vector<IdValuePair> direction = currentPoint->getDirection();
+    std::vector<IdValuePair> newDirection;
+    for(std::vector<IdValuePair>::iterator itDir=direction.begin(); itDir != direction.end(); itDir++)
     {
-      int key = itDir->first;
-      double currentDirectionValue = itDir->second;
+      int key = itDir->mId;
+      double currentDirectionValue = itDir->mValue;
       // std::cout<<"Multiply="<<directionInLowerNetwork[key]<<" "<<assignedNodeChange<<std::endl;
-      double value = currentDirectionValue*directionInLowerNetwork[key]*assignedNodeChange;
-      newDirection[key] = value;
+      double value = currentDirectionValue*getValueForId(directionInLowerNetwork, key)*assignedNodeChange;
+      setValueForId(newDirection, key, value);
     }
     targetVectorField->addPoint(coordinate, newDirection);
   }
 }
 
-std::map<int, double> VectorFieldReconfigurationImpl::calculateLowerNetworkDirection()
+std::vector<IdValuePair> VectorFieldReconfigurationImpl::calculateLowerNetworkDirection()
 {
   Network* networkAssigned = mNode->getNetworkAssigned();
-  std::map<int, double> currentState = networkAssigned->getCurrentState();
+  std::vector<IdValuePair> currentState = networkAssigned->getCurrentState();
   return  networkAssigned->getDirectionAtState(currentState);
 }
 
-std::map<int, double> VectorFieldReconfigurationImpl::calculateHigherNetworksDirection()
+std::vector<IdValuePair> VectorFieldReconfigurationImpl::calculateHigherNetworksDirection()
 {
-  std::vector<std::map<int, double> > directionsInAllHigherNetworks;
+  std::vector<std::vector<IdValuePair>> directionsInAllHigherNetworks;
   std::vector<Network*> networks = mNode->getNetworks();
   for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
   {
-    std::map<int, double> currentState = (*itNet)->getCurrentState();
+    std::vector<IdValuePair> currentState = (*itNet)->getCurrentState();
     directionsInAllHigherNetworks.push_back((*itNet)->getDirectionAtState(currentState));
   }
-  std::map<int, double> sumDirectionInHigherNetworks;
-  for(std::map<int, double>::iterator itDir=directionsInAllHigherNetworks[0].begin(); itDir != directionsInAllHigherNetworks[0].end(); ++itDir)
+  std::vector<IdValuePair> sumDirectionInHigherNetworks;
+  for(std::vector<IdValuePair>::iterator itDir=directionsInAllHigherNetworks[0].begin(); itDir != directionsInAllHigherNetworks[0].end(); ++itDir)
   {
-    int key = itDir->first;
+    int key = itDir->mValue;
     double sumDir = 0;
-    for(std::vector<std::map<int, double> >::iterator itNetD=directionsInAllHigherNetworks.begin(); itNetD != directionsInAllHigherNetworks.end(); ++itNetD)
+    for(std::vector<std::vector<IdValuePair>>::iterator itNetD=directionsInAllHigherNetworks.begin(); itNetD != directionsInAllHigherNetworks.end(); ++itNetD)
     {
-      sumDir += (*itNetD)[key];
+      sumDir += getValueForId((*itNetD), key);
     }
-    sumDirectionInHigherNetworks[key] = sumDir;
+    setValueForId(sumDirectionInHigherNetworks, key, sumDir);
   }
   return sumDirectionInHigherNetworks;
 }

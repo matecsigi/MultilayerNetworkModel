@@ -45,7 +45,7 @@ double NetworkPopulationElement::getFitness()
 void NetworkPopulationElement::updateFitness()
 {
   VectorField* currentVectorField = new VectorField();
-  std::map<int, double> currentState = mNetwork->getCurrentState();
+  std::vector<IdValuePair> currentState = mNetwork->getCurrentState();
   std::vector<Node*> nodes = mNetwork->getNodes();
   gridAroundPointScheme(currentVectorField, mNetwork, currentState);
   double distance = mTargetVectorField->getDistanceFrom(currentVectorField);

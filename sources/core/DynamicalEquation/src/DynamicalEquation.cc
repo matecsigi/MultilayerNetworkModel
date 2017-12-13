@@ -20,7 +20,7 @@ double DynamicalEquation::evaluate()
   return mBaseCalculationNode->evaluate();
 }
 
-double DynamicalEquation::evaluateAtState(std::map<int, double> startingState)
+double DynamicalEquation::evaluateAtState(std::vector<IdValuePair> startingState)
 {
   return mBaseCalculationNode->evaluateAtState(startingState);
 }
@@ -30,7 +30,7 @@ void DynamicalEquation::ODEcalculator(const state_type &x, state_type &dxdt, dou
   dxdt[0] = evaluate();
 }
 
-void DynamicalEquation::ODEcalculatorAtState(const state_type &x, state_type &dxdt, double t, std::map<int, double>& startingState)
+void DynamicalEquation::ODEcalculatorAtState(const state_type &x, state_type &dxdt, double t, std::vector<IdValuePair> &startingState)
 {
   dxdt[0] = evaluateAtState(startingState);
 }
@@ -70,7 +70,7 @@ void DynamicalEquation::loadEquation(std::string strEquation)
   mBaseCalculationNode = i.getBaseCalculationNode();
 }
 
-void DynamicalEquation::loadNodesToEquation(CalculationNode* calcPtr, std::map<int, Node*>& nodesMap)
+void DynamicalEquation::loadNodesToEquation(CalculationNode* calcPtr, std::map<int, Node*> &nodesMap)
 {
   if(calcPtr == NULL)
   {

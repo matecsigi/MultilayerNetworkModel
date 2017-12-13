@@ -4,6 +4,6 @@
 #include "VectorField.hh"
 #include "Network.hh"
 
-void gridAroundPointScheme(VectorField* vectorField, Network* network, std::map<int, double> basePointCoordinates);
+void gridAroundPointScheme(VectorField* vectorField, Network* network, std::vector<IdValuePair> basePointCoordinates);
 
 #endif

@@ -3,7 +3,8 @@
 
 #include <cmath>
 #include <iostream>
-#include <map>
+#include "IdValuePair.hh"
+#include <vector>
 
 using namespace std;
 
@@ -27,7 +28,7 @@ public:
   virtual ~CalculationNode(){};
 
   virtual double evaluate() const = 0;
-  virtual double evaluateAtState(std::map<int, double>&) const = 0;
+  virtual double evaluateAtState(std::vector<IdValuePair>&) const = 0;
 
   /**
      Used only for testing puposes. Compared the ID type CalculationNode's 
@@ -78,7 +79,7 @@ public:
     return mValue;
   }
 
-  virtual double evaluateAtState(std::map<int, double>& startingState) const
+  virtual double evaluateAtState(std::vector<IdValuePair> &startingState) const
   {
     return mValue;
   }
@@ -132,7 +133,7 @@ public:
   }
 
   virtual double evaluate() const;
-  virtual double evaluateAtState(std::map<int, double>& startingState) const;
+  virtual double evaluateAtState(std::vector<IdValuePair> &startingState) const;
 
   virtual bool testNodeIds() const;
 
@@ -169,7 +170,7 @@ public:
     return - right->evaluate();
   }
 
-  virtual double evaluateAtState(std::map<int, double>& startingState) const
+  virtual double evaluateAtState(std::vector<IdValuePair> &startingState) const
   {
     return - right->evaluateAtState(startingState);
   }
@@ -212,7 +213,7 @@ public:
     return left->evaluate() + right->evaluate();
   }
 
-  virtual double evaluateAtState(std::map<int, double>& startingState) const
+  virtual double evaluateAtState(std::vector<IdValuePair> &startingState) const
   {
     return left->evaluateAtState(startingState) + right->evaluateAtState(startingState);
   }
@@ -256,7 +257,7 @@ public:
     return left->evaluate() - right->evaluate();
   }
 
-  virtual double evaluateAtState(std::map<int, double>& startingState) const
+  virtual double evaluateAtState(std::vector<IdValuePair> &startingState) const
   {
     return left->evaluateAtState(startingState) - right->evaluateAtState(startingState);
   }
@@ -300,7 +301,7 @@ public:
     return left->evaluate() * right->evaluate();
   }
 
-  virtual double evaluateAtState(std::map<int, double>& startingState) const
+  virtual double evaluateAtState(std::vector<IdValuePair> &startingState) const
   {
     return left->evaluateAtState(startingState) * right->evaluateAtState(startingState);
   }
@@ -344,7 +345,7 @@ public:
     return left->evaluate() / right->evaluate();
   }
 
-  virtual double evaluateAtState(std::map<int, double>& startingState) const
+  virtual double evaluateAtState(std::vector<IdValuePair> &startingState) const
   {
     return left->evaluateAtState(startingState) / right->evaluateAtState(startingState);
   }
@@ -388,7 +389,7 @@ public:
     return std::pow(left->evaluate(), right->evaluate());
   }
 
-  virtual double evaluateAtState(std::map<int, double>& startingState) const
+  virtual double evaluateAtState(std::vector<IdValuePair> &startingState) const
   {
     return std::pow(left->evaluateAtState(startingState), right->evaluateAtState(startingState));
   }

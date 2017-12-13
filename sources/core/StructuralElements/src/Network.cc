@@ -1,10 +1,10 @@
+#include "Node.hh"
 #include "Network.hh"
 #include <iostream>
 #include <algorithm>
 #include <assert.h>
 #include <map>
 
-#include "Node.hh"
 using namespace std;
 
 Network::Network(void)
@@ -136,33 +136,35 @@ DynamicalEquation* Network::getNodeDynamicalEquation(int nodeId) const
   return NULL;
 }
 
-std::map<int, double> Network::getCurrentState(void) const
+std::vector<IdValuePair> Network::getCurrentState(void) const
 {
-  std::map<int, double> currentState;
+  std::vector<IdValuePair> currentState;
   for(std::vector<Node*>::const_iterator itNode=mNodes.begin(); itNode != mNodes.end(); ++itNode)
   {
-    currentState[(*itNode)->getId()] = (*itNode)->getPreviousState();
+    int nodeId = (*itNode)->getId();
+    int nodeState = (*itNode)->getPreviousState();
+    currentState.push_back(IdValuePair(nodeId, nodeState));
   }
 
   return currentState;
 }
 
-std::map<int, double> Network::getDirectionAtState(std::map<int, double>& basePointCoordinates) const
+std::vector<IdValuePair> Network::getDirectionAtState(std::vector<IdValuePair> &basePointCoordinates) const
 {
-  std::map<int, double> directions;
-  std::map<int, double> finalState;
+  std::vector<IdValuePair> directions;
+  std::vector<IdValuePair> finalState;
   for(std::vector<Node*>::const_iterator itNode=mNodes.begin(); itNode != mNodes.end(); ++itNode)
   {
     DynamicalEquation* nodeEquation = getNodeDynamicalEquation((*itNode)->getId());
     (*itNode)->stepOdeAtState(nodeEquation, basePointCoordinates, finalState);
   }
   
-  for(std::map<int, double>::iterator itState=basePointCoordinates.begin(); itState != basePointCoordinates.end(); ++itState)
+  for(std::vector<IdValuePair>::iterator itState=basePointCoordinates.begin(); itState != basePointCoordinates.end(); ++itState)
    {
-     int id = itState->first;
-     double startValue = basePointCoordinates[id];
-     double finalValue = finalState[id];
-     directions[id] = finalValue-startValue;
+     int id = itState->mId;
+     double startValue = getValueForId(basePointCoordinates, id);
+     double finalValue = getValueForId(finalState, id);
+     setValueForId(directions, id, finalValue-startValue);
    }
 
   return directions;

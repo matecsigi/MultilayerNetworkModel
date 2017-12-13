@@ -1,32 +1,34 @@
 #ifndef VECTORFIELDPOINT_HH
 #define VECTORFIELDPOINT_HH
 
-#include <map>
+#include "IdValuePair.hh"
+#include <iostream>
+#include <vector>
 
 class VectorFieldPoint
 {
 public:
-  VectorFieldPoint(std::map<int, double> coordinate, std::map<int, double> direction)
+  VectorFieldPoint(std::vector<IdValuePair> coordinate, std::vector<IdValuePair> direction)
   {
     mCoordinate = coordinate;
     mDirection = direction;
   }
   ~VectorFieldPoint(){};
 
-  std::map<int, double> getCoordinate()
+  std::vector<IdValuePair> getCoordinate()
   {
     return mCoordinate;
   }
   
-  std::map<int, double> getDirection()
+  std::vector<IdValuePair> getDirection()
   {
     return mDirection;
   }
 
   friend std::ostream& operator<<(std::ostream& os, const VectorFieldPoint &vectorFieldPoint);
 private:
-  std::map<int, double> mCoordinate;
-  std::map<int, double> mDirection;
+  std::vector<IdValuePair> mCoordinate;
+  std::vector<IdValuePair> mDirection;
 };
 
 #endif

@@ -6,7 +6,7 @@
 class OdeWrapperAtState
 {
 public:
-  OdeWrapperAtState(DynamicalEquation* dynamicalEquation, std::map<int, double>& startingState)
+  OdeWrapperAtState(DynamicalEquation* dynamicalEquation, std::vector<IdValuePair> &startingState)
   {
     mDynamicalEquation = dynamicalEquation;
     mStartingState = startingState;
@@ -19,7 +19,7 @@ public:
   }
 private:
   DynamicalEquation* mDynamicalEquation;
-  std::map<int, double> mStartingState;
+  std::vector<IdValuePair> mStartingState;
 };
 
 #endif

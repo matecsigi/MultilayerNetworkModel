@@ -151,12 +151,12 @@ void Node::stepODE(DynamicalEquation* dynamicalEquation)
   setCurrentState(x);
 }
 
-void Node::stepOdeAtState(DynamicalEquation* dynamicalEquation, std::map<int, double>& startingState, std::map<int, double>& finalState)
+void Node::stepOdeAtState(DynamicalEquation* dynamicalEquation, std::vector<IdValuePair> &startingState, std::vector<IdValuePair> &finalState)
 {
-  state_type x = {startingState[getId()]};
+  state_type x = {getValueForId(startingState, getId())};
   OdeWrapperAtState wrapper(dynamicalEquation, startingState);
   integrate(wrapper, x, 0.0, odeTime, odeStepSize);  
-  finalState[getId()] = x[0];
+  setValueForId(finalState, getId(), x[0]);
 }
 
 void Node::setUpwardInfluence()

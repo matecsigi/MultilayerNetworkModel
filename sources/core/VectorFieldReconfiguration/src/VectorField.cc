@@ -1,4 +1,5 @@
 #include "VectorField.hh"
+#include "UtilityFunctions.hh"
 #include <math.h>
 #include <iostream>
 
@@ -14,7 +15,7 @@ VectorField::~VectorField()
   }
 }
 
-void VectorField::addPoint(std::map<int, double> coordinate, std::map<int, double> direction)
+void VectorField::addPoint(std::vector<IdValuePair> coordinate, std::vector<IdValuePair> direction)
 {
   mVectorFieldPoints.push_back(new VectorFieldPoint(coordinate, direction));
 }
@@ -35,14 +36,14 @@ double VectorField::getDistanceFrom(VectorField* vectorField)
   for(std::vector<VectorFieldPoint*>::iterator itPoint=vectorFieldPoints1.begin(); itPoint != vectorFieldPoints1.end(); ++itPoint)
   {
     VectorFieldPoint* currentPoint = (*itPoint);
-    std::map<int, double> coordinate = currentPoint->getCoordinate();
-    std::map<int, double> direction1 = currentPoint->getDirection();
-    std::map<int, double> direction2 = vectorField->getDirectionForCoordinate(coordinate);
-    for(std::map<int, double>::iterator itDir=direction1.begin(); itDir != direction1.end(); ++itDir)
+    std::vector<IdValuePair> coordinate = currentPoint->getCoordinate();
+    std::vector<IdValuePair> direction1 = currentPoint->getDirection();
+    std::vector<IdValuePair> direction2 = vectorField->getDirectionForCoordinate(coordinate);
+    for(std::vector<IdValuePair>::iterator itDir=direction1.begin(); itDir != direction1.end(); ++itDir)
     {
-      int key = itDir->first;
-      double value1 = itDir->second;
-      double value2 = direction2[key];
+      int key = itDir->mId;
+      double value1 = itDir->mValue;
+      double value2 = getValueForId(direction2, key);
       double localDifference = fabs(value1-value2);
       //std::cout<<"  -localDiff="<<value1<<"-"<<value2<<std::endl;
       distance += localDifference;
@@ -53,17 +54,17 @@ double VectorField::getDistanceFrom(VectorField* vectorField)
   return distance;
 }
 
-std::map<int, double> VectorField::getDirectionForCoordinate(std::map<int, double> coordinate)
+std::vector<IdValuePair> VectorField::getDirectionForCoordinate(std::vector<IdValuePair> coordinate)
 {
   for(std::vector<VectorFieldPoint*>::iterator itPoint=mVectorFieldPoints.begin(); itPoint != mVectorFieldPoints.end(); ++itPoint)
   {
     bool equal = true;
-    std::map<int, double> currentCoordinate = (*itPoint)->getCoordinate();
-    for(std::map<int, double>::iterator itCord=coordinate.begin(); itCord != coordinate.end(); ++itCord)
+    std::vector<IdValuePair> currentCoordinate = (*itPoint)->getCoordinate();
+    for(std::vector<IdValuePair>::iterator itCor=coordinate.begin(); itCor != coordinate.end(); ++itCor)
     {
-      int key = itCord->first;
-      double value = itCord->second;
-      if(currentCoordinate[key] != value)
+      int key = itCor->mId;
+      double value = itCor->mValue;
+      if(getValueForId(currentCoordinate, key) != value)
       {
 	equal = false;
       }
@@ -73,7 +74,7 @@ std::map<int, double> VectorField::getDirectionForCoordinate(std::map<int, doubl
       return (*itPoint)->getDirection();
     }
   }
-  std::map<int, double> defaultReturn;
+  std::vector<IdValuePair> defaultReturn;
   return defaultReturn;
 }
 

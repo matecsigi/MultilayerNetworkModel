@@ -14,7 +14,7 @@ int main(void)
 
   cout<<"Start simulation"<<endl;
 
-  int simulationTime = 2;
+  int simulationTime = 6;
 
   const char *filename="generated/multilayerStructure_0.json";
   std::string filenameInitialCond = "generated/InitialCondition-1.bin";

@@ -60,10 +60,10 @@ public:
   /**
      Return the actual state of the network i.e. the actual 
      value of all the nodes in the network.
-     @return map where the first value is the ID of the node 
+     @return vector of IDValuePair elements  where the first value is the ID of the node 
      and the second value is the actual value of that node
    */
-  std::map<int, double> getCurrentState(void) const;
+  std::vector<IdValuePair> getCurrentState(void) const;
 
   /**
      Return the direction in which the network is currently moving 
@@ -72,11 +72,11 @@ public:
      changes in the axis directions.
      @param basePointCoordinates: the coordinates of the current state 
      in the phase space
-     @return map where first value is the ID of the node and the 
+     @return vector of IdValuePairelements where first value is the ID of the node and the 
      secodn value is the change along the node's axis i.e. partial 
      derivative.
    */
-  std::map<int, double> getDirectionAtState(std::map<int, double>& basePointCoordinates) const;
+  std::vector<IdValuePair> getDirectionAtState(std::vector<IdValuePair> &basePointCoordinates) const;
 
   friend bool operator==(const Network& network1, const Network& network2);
 

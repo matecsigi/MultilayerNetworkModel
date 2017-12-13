@@ -6,9 +6,9 @@ double CNId::evaluate() const
   return mNode->getPreviousState();
 }
 
-double CNId::evaluateAtState(std::map<int, double>& startingState) const
+double CNId::evaluateAtState(std::vector<IdValuePair> &startingState) const
 {
-  return startingState[mNode->getId()];
+  return getValueForId(startingState, mNode->getId());
 }
 
 bool CNId::testNodeIds() const

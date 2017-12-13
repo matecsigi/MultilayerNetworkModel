@@ -23,6 +23,30 @@ int getIndexTMinusTwo(int t)
   return t%(bufferSize-2);
 }
 
+double getValueForId(std::vector<IdValuePair> pairVector, int id)
+{
+  for(std::vector<IdValuePair>::iterator itPair=pairVector.begin(); itPair != pairVector.end(); ++itPair)
+  {
+    if(itPair->mId == id)
+    {
+      return itPair->mValue;
+    }
+  }
+  return 0;
+}
+
+void setValueForId(std::vector<IdValuePair> &pairVector, int id, double value)
+{
+  for(std::vector<IdValuePair>::iterator itPair=pairVector.begin(); itPair != pairVector.end(); ++itPair)
+  {
+    if(itPair->mId == id)
+    {
+      itPair->mValue = value;
+    }
+  }
+}
+
+
 void loadNetworkFromJSON(Network* network, std::string filename, int& nodeIdCounter)
 {
   std::ifstream file(filename);
