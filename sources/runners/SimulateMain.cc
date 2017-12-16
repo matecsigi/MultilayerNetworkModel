@@ -7,15 +7,13 @@
 #include <ctime>
 #include <chrono>
 
-using namespace std;
-
 int main(void)
 {
   std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
 
-  cout<<"Start simulation"<<endl;
+  std::cout<<"Start simulation"<<std::endl;
 
-  int simulationTime = 20;
+  int simulationTime = 5;
 
   const char *filename="generated/multilayerStructure_0.json";
   std::string filenameInitialCond = "generated/InitialCondition-1.bin";
@@ -26,12 +24,12 @@ int main(void)
 
   for(t=0; t<simulationTime; ++t)
   {
-    cout<<"t="<<t<<endl;
+    std::cout<<"t="<<t<<std::endl;
     multilayerNetwork->step();
 
     if((t % (bufferSize-2)) == (bufferSize-2-1))
     {
-      cout<<"Changing t="<<t<<endl;
+      std::cout<<"Changing t="<<t<<std::endl;
       multilayerNetwork->save();
       multilayerNetwork->saveState();
       multilayerNetwork->shiftBuffers();

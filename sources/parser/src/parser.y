@@ -21,8 +21,6 @@
     #include <stdint.h>
     #include "CalculationNode.hh"
 
-    using namespace std;
-
     namespace EquationParser {
         class Scanner;
         class Interpreter;
@@ -41,7 +39,7 @@
     static EquationParser::Parser::symbol_type yylex(EquationParser::Scanner &scanner, EquationParser::Interpreter &driver) {
         return scanner.get_next_token();
     }
-        
+    using namespace std;        
     using namespace EquationParser;
 }
 
@@ -195,5 +193,5 @@ start	: /* empty */
 
 void EquationParser::Parser::error(const location &loc , const std::string &message) {
         
-        cout << "Error: " << message << endl << "Error location: " << driver.location() << endl;
+  std::cout << "Error: " << message << std::endl << "Error location: " << driver.location() << std::endl;
 }

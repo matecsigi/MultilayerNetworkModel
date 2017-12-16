@@ -2,8 +2,6 @@
 #include <iostream>
 #include <map>
 
-using namespace std;
-
 Layer::Layer(void)
 {
 }

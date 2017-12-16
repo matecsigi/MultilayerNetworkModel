@@ -10,7 +10,6 @@
 #include <system_error>
 #include <thread>
 
-using namespace std;
 using namespace rapidjson;
 
 /**
@@ -53,12 +52,9 @@ void MultilayerNetwork::step(void)
 
   for(std::vector<int>::iterator itId=mNodeIds.begin(); itId != mNodeIds.end(); ++itId)
   {
-    // Node* node = nodesMap[(*itId)];
-    // node->step();
     int id = (*itId);
     int partitionSize = mNodeIds.size()/numberOfCores;
-    int index = min(numberOfCores-1,id/partitionSize);
-    // std::cout<<"index="<<index<<std::endl;
+    int index = std::min(numberOfCores-1,id/partitionSize);
     nodeThreadPartition[index].push_back(mNodesMap[id]);
   }
 
@@ -259,7 +255,7 @@ void MultilayerNetwork::saveState(std::string filename)
     ++indexCounter;
   }
 
-  ofstream out(filename.c_str(), ios::binary);
+  std::ofstream out(filename.c_str(), std::ios::binary);
   if(out.is_open())
   {
     for(unsigned i=0; i<nodeIds.size(); ++i)
@@ -299,7 +295,7 @@ void MultilayerNetwork::loadState(const char* filename)
     buffer[i] = new double[bufferSize];
   }
 
-  ifstream input(filename, ios::binary);
+  std::ifstream input(filename, std::ios::binary);
   for(unsigned i=0; i<nodeIds.size(); ++i)
     {
       for(int j=0; j<bufferSize; ++j)
@@ -508,19 +504,19 @@ void MultilayerNetwork::shiftBuffers(void)
   delete [] tmpBufferNew;
 }
 
-ostream& operator<<(ostream& os, const MultilayerNetwork& multilayerNetwork)
+std::ostream& operator<<(std::ostream& os, const MultilayerNetwork& multilayerNetwork)
 {
-  os<<"<< operator"<<endl;
+  os<<"<< operator"<<std::endl;
   std::vector<Layer*> layers = multilayerNetwork.getLayers();
   for(std::vector<Layer*>::iterator itLay=layers.begin(); itLay != layers.end(); ++itLay)
   {
     Layer* currentLayer = (*itLay);
-    os<<"-Layer "<<currentLayer->getId()<<endl;
+    os<<"-Layer "<<currentLayer->getId()<<std::endl;
     std::vector<Network*> networks = currentLayer->getNetworks();
     for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
     {
       Network* currentNetwork = (*itNet);
-      os<<"  --Network "<<currentNetwork->getId()<<endl;
+      os<<"  --Network "<<currentNetwork->getId()<<std::endl;
       std::vector<Node*> nodes = currentNetwork->getNodes();
       for(std::vector<Node*>::iterator itNode = nodes.begin(); itNode != nodes.end(); ++itNode)
       {
@@ -536,7 +532,7 @@ ostream& operator<<(ostream& os, const MultilayerNetwork& multilayerNetwork)
 	DynamicalEquation* currentDynamicalEquation = currentNetwork->getNodeDynamicalEquation(currentNode->getId());
 	if(currentDynamicalEquation != NULL)
 	{
-	  os<<"       dyn="<<currentDynamicalEquation->evaluate()<<" "<<currentDynamicalEquation->toString()<<endl;
+	  os<<"       dyn="<<currentDynamicalEquation->evaluate()<<" "<<currentDynamicalEquation->toString()<<std::endl;
 	}
 	//uncomment to check if the correct networks are assigned to nodes
 	std::vector<Network*> networksToNode = currentNode->getNetworks();
@@ -545,12 +541,12 @@ ostream& operator<<(ostream& os, const MultilayerNetwork& multilayerNetwork)
 	  std::vector<Node*> neighbors = networksToNode[0]->getNodeNeighbors(currentNode->getId());
 	  for(std::vector<Node*>::iterator itNei=neighbors.begin(); itNei != neighbors.end(); ++itNei)
 	  {
-	    os<<"       "<<(*itNei)->getId()<<endl;
+	    os<<"       "<<(*itNei)->getId()<<std::endl;
 	  }
 	}
 	else
 	{
-	  os<<"       /no net assigned"<<endl;
+	  os<<"       /no net assigned"<<std::endl;
 	}
       }
     }

@@ -6,8 +6,6 @@
 #include "IdValuePair.hh"
 #include <vector>
 
-using namespace std;
-
 class Node;
 
 enum CalcNodeTypes {

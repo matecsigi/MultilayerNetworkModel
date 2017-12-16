@@ -10,11 +10,9 @@
 #include "IInitialConditionGenerator.hh"
 #include "InitialConditionGeneratorImpl.hh"
 
-using namespace std;
-
 int main(void)
 {
-  cout<<"Start generation"<<endl;
+  std::cout<<"Start generation"<<std::endl;
 
   const char *filename="generated/multilayerStructure_0.json";
   const char *filenameInitialCond="generated/InitialCondition-1.bin";
@@ -33,7 +31,7 @@ int main(void)
   initialConditionGenerator->generateInitialCondition();
   multilayerNetwork->saveState(filenameInitialCond);
 
-  cout<<*multilayerNetwork<<endl;
+  std::cout<<*multilayerNetwork<<std::endl;
 
   delete multilayerNetwork;
 

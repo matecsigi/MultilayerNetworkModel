@@ -24,12 +24,12 @@ int main()
 
   for(t=0; t<simulationTime; ++t)
   {
-    cout<<"t="<<t<<endl;
+    std::cout<<"t="<<t<<std::endl;
     multilayerNetwork->step();
 
     if((t % (bufferSize-2)) == (bufferSize-2-1))
     {
-      cout<<"Changing t="<<t<<endl;
+      std::cout<<"Changing t="<<t<<std::endl;
       multilayerNetwork->save();
       multilayerNetwork->saveState();
       multilayerNetwork->shiftBuffers();

@@ -7,8 +7,6 @@
 #include "OdeWrapperAtState.hh"
 #include <boost/numeric/odeint.hpp>
 
-
-using namespace std;
 using namespace boost::numeric::odeint;
 
 Node::Node(void)

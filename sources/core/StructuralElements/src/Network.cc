@@ -5,8 +5,6 @@
 #include <assert.h>
 #include <map>
 
-using namespace std;
-
 Network::Network(void)
 {
   mNodeAssigned = NULL;
