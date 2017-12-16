@@ -109,14 +109,16 @@ NetworkPopulationElement* GeneticAlgorithmController::chooseForCrossover()
   double sumFitness = 0;
   for(std::vector<NetworkPopulationElement*>::iterator itNet=mPopulation.begin(); itNet != mPopulation.end(); ++itNet)
   {
-    sumFitness += pow(2, (*itNet)->getFitness());
+    // sumFitness += pow(2, (*itNet)->getFitness());
+    sumFitness += (*itNet)->getFitness()*(*itNet)->getFitness();
   }
 
   double random = (static_cast<double>(rand())/RAND_MAX)*sumFitness;
   double counter = 0;
   for(std::vector<NetworkPopulationElement*>::iterator itNet=mPopulation.begin(); itNet != mPopulation.end(); ++itNet)
   {
-    counter += pow(2, (*itNet)->getFitness());
+    // counter += pow(2, (*itNet)->getFitness());
+    counter += (*itNet)->getFitness()*(*itNet)->getFitness();
     if(counter >= random)
     {
       return (*itNet);

@@ -67,6 +67,7 @@ std::vector<IdValuePair> VectorField::getDirectionForCoordinate(std::vector<IdVa
       if(getValueForId(currentCoordinate, key) != value)
       {
 	equal = false;
+	break;
       }
     }
     if(equal == true)
