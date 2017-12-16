@@ -15,7 +15,7 @@ VectorField::~VectorField()
   }
 }
 
-void VectorField::addPoint(std::vector<IdValuePair> coordinate, std::vector<IdValuePair> direction)
+void VectorField::addPoint(std::vector<IdValuePair> &coordinate, std::vector<IdValuePair> &direction)
 {
   mVectorFieldPoints.push_back(new VectorFieldPoint(coordinate, direction));
 }
@@ -54,7 +54,7 @@ double VectorField::getDistanceFrom(VectorField* vectorField)
   return distance;
 }
 
-std::vector<IdValuePair> VectorField::getDirectionForCoordinate(std::vector<IdValuePair> coordinate)
+std::vector<IdValuePair> VectorField::getDirectionForCoordinate(std::vector<IdValuePair> &coordinate)
 {
   for(std::vector<VectorFieldPoint*>::iterator itPoint=mVectorFieldPoints.begin(); itPoint != mVectorFieldPoints.end(); ++itPoint)
   {

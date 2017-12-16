@@ -2,9 +2,10 @@
 #include "IdValuePair.hh"
 #include "UtilityFunctions.hh"
 
-void gridAroundPointScheme(VectorField* vectorField, Network* network, std::vector<IdValuePair> basePointCoordinates)
+void gridAroundPointScheme(VectorField* vectorField, Network* network, std::vector<IdValuePair> &basePointCoordinates)
 {
-  vectorField->addPoint(basePointCoordinates, network->getDirectionAtState(basePointCoordinates));
+  std::vector<IdValuePair> directionAtState = network->getDirectionAtState(basePointCoordinates);
+  vectorField->addPoint(basePointCoordinates, directionAtState);
   
   for(std::vector<IdValuePair>::iterator itCor=basePointCoordinates.begin(); itCor != basePointCoordinates.end(); ++itCor)
   {
