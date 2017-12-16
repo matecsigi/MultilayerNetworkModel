@@ -42,8 +42,10 @@ void setValueForId(std::vector<IdValuePair> &pairVector, int id, double value)
     if(itPair->mId == id)
     {
       itPair->mValue = value;
+      return;
     }
   }
+  pairVector.push_back(IdValuePair(id, value));
 }
 
 

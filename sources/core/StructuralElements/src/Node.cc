@@ -155,7 +155,7 @@ void Node::stepOdeAtState(DynamicalEquation* dynamicalEquation, std::vector<IdVa
 {
   state_type x = {getValueForId(startingState, getId())};
   OdeWrapperAtState wrapper(dynamicalEquation, startingState);
-  integrate(wrapper, x, 0.0, odeTime, odeStepSize);  
+  integrate(wrapper, x, 0.0, odeTime, odeStepSize);
   setValueForId(finalState, getId(), x[0]);
 }
 

@@ -42,6 +42,8 @@ public:
    */
   void loadNodesToAllEquations(void);
 
+  void updateNodesMap();
+
   /**
      When the end of buffers is reached i.e. they are filled 
      with the previous values of the nodes, the contents of the 
@@ -61,6 +63,13 @@ public:
 
 private:
   std::vector<Layer*> mLayers;
+
+  /**
+     Contains all the nodes in id, pointer pairs.
+     Used for executing the steps for the nodes.
+   */
+  std::map<int, Node*> mNodesMap;
+  std::vector<int> mNodeIds;
 };
 
 void executeStepsInThread(std::vector<Node*> &nodes);

@@ -23,4 +23,6 @@ void UpwardInfluenceImpl::calculateUpwardInfluence()
 
   state_type x = {mNode->getCurrentState()+change};
   mNode->setCurrentState(x);
+
+  delete [] tmpBuffer;
 }

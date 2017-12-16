@@ -1,5 +1,6 @@
 #include "GeneticAlgorithmController.hh"
 #include <algorithm>
+#include <stdlib.h>
 
 GeneticAlgorithmController::GeneticAlgorithmController()
 {
@@ -16,8 +17,6 @@ GeneticAlgorithmController::~GeneticAlgorithmController()
 
 void GeneticAlgorithmController::fitToVectorField(Network* network, VectorField* targetVectorField)
 {
-  // std::cout<<"------------------"<<std::endl;
-
   mTargetVectorField = targetVectorField;
 
   createInitialPopulation(network);
@@ -27,7 +26,7 @@ void GeneticAlgorithmController::fitToVectorField(Network* network, VectorField*
     mutation();
     crossover();
     death();
-    // chooseBestNetwork();
+    chooseBestNetwork();
     // std::cout<<"  --avg="<<calculateAverageFitness()<<std::endl;
   }
 
@@ -152,23 +151,35 @@ NetworkPopulationElement* GeneticAlgorithmController::chooseForDeath()
 void GeneticAlgorithmController::createMixedNetwork(Network* parentNetwork1, Network* parentNetwork2, Network* childNetwork)
 {
   std::vector<Node*> nodes = parentNetwork1->getNodes();
+  double* tmpBuffer = new double[bufferSize];
+
   for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
   {
     Node* parentNode = (*itNode);
     childNetwork->addNode(parentNode->getId());
 
     Node* childNode = childNetwork->getNodeById(parentNode->getId());
-    double* tmpBuffer = new double[bufferSize];
     parentNode->getValues(tmpBuffer);
     childNode->setValues(tmpBuffer);
-    delete [] tmpBuffer;
   }
+  delete [] tmpBuffer;
+
+  struct random_data* rand_state;
+  char* rand_statebufs;
+  rand_statebufs = (char*)calloc(1, 32);
+  rand_state = (struct random_data*)calloc(1, sizeof(struct random_data));
+  initstate_r(random(), rand_statebufs, 32, rand_state);
 
   for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
   {
     Network* parentNetwork;
     Node* parentNode;
-    double random = static_cast<double>(rand())/RAND_MAX;
+    // double random = static_cast<double>(rand())/RAND_MAX;
+
+    int randInt;
+    random_r((struct random_data*)rand_state, &randInt);
+    double random = static_cast<double>(randInt)/RAND_MAX;
+
     if(random < 0.5)
     {
       parentNetwork = parentNetwork1;
@@ -205,7 +216,9 @@ void GeneticAlgorithmController::createMixedNetwork(Network* parentNetwork1, Net
       nodesMap[(*itNode)->getId()] = *itNode;
     }
     nodeEquation->loadNodesToEquation(nodeEquation->getBaseCalculationNode(), nodesMap);
-  } 
+  }
+  free(rand_state);
+  free(rand_statebufs);
 }
 
 Network* GeneticAlgorithmController::chooseBestNetwork()

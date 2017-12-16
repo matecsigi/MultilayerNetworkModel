@@ -49,25 +49,17 @@ void executeStepsInThread(std::vector<Node*> &nodes)
 
 void MultilayerNetwork::step(void)
 {
-  /* This is needed so that each node is stepped only once,
-   even if it's part of multiple networks*/
-  std::map<int, Node*> nodesMap;
-  std::vector<int> nodeIds;
-  this->collectNodes(nodesMap, nodeIds);  
-  std::sort(nodeIds.begin(), nodeIds.end());
-  nodeIds.erase(unique(nodeIds.begin(), nodeIds.end()), nodeIds.end());
-
   std::vector<std::vector<Node*>> nodeThreadPartition(numberOfCores);
 
-  for(std::vector<int>::iterator itId=nodeIds.begin(); itId != nodeIds.end(); ++itId)
+  for(std::vector<int>::iterator itId=mNodeIds.begin(); itId != mNodeIds.end(); ++itId)
   {
     // Node* node = nodesMap[(*itId)];
     // node->step();
     int id = (*itId);
-    int partitionSize = nodeIds.size()/numberOfCores;
+    int partitionSize = mNodeIds.size()/numberOfCores;
     int index = min(numberOfCores-1,id/partitionSize);
     // std::cout<<"index="<<index<<std::endl;
-    nodeThreadPartition[index].push_back(nodesMap[id]);
+    nodeThreadPartition[index].push_back(mNodesMap[id]);
   }
 
   std::thread stepThreads[numberOfCores];
@@ -232,6 +224,7 @@ void MultilayerNetwork::load(const char* filename)
   }
 
   loadNodesToAllEquations();
+  updateNodesMap();
 
   StringBuffer buffer;
   PrettyWriter<StringBuffer> writer(buffer);
@@ -362,6 +355,15 @@ void MultilayerNetwork::loadNodesToAllEquations(void)
   }
 }
 
+void MultilayerNetwork::updateNodesMap()
+{
+  this->collectNodes(mNodesMap, mNodeIds);
+
+  /* This is needed so that each node is stepped only once,
+   even if it's part of multiple networks*/
+  std::sort(mNodeIds.begin(), mNodeIds.end());
+  mNodeIds.erase(unique(mNodeIds.begin(), mNodeIds.end()), mNodeIds.end());
+}
 
 bool initialConditionsEqual(const MultilayerNetwork& multilayerNetwork1, const MultilayerNetwork& multilayerNetwork2)
 {

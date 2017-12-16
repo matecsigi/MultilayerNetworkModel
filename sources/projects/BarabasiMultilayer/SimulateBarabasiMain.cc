@@ -5,10 +5,11 @@
 #include "Node.hh"
 #include "GlobalVariables.hh"
 #include <ctime>
+#include <chrono>
 
 int main()
 {
-  clock_t begin = clock();
+  std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
 
   std::cout<<"Starting simulation"<<std::endl;
 
@@ -39,9 +40,8 @@ int main()
 
   delete multilayerNetwork;
 
-  clock_t end = clock();
-  double elapsed_secs = double(end - begin) / CLOCKS_PER_SEC;
-  std::cout<<"run time="<<elapsed_secs<<std::endl;
+  std::chrono::steady_clock::time_point end= std::chrono::steady_clock::now();
+  std::cout << "Time difference = " << std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count() <<std::endl;
 
   return 0;
 }

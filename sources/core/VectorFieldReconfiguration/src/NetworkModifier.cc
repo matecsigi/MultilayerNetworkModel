@@ -1,6 +1,7 @@
 #include "NetworkModifier.hh"
 #include <iostream>
 #include <algorithm>
+#include <stdlib.h>
 
 NetworkModifier::NetworkModifier()
 {
@@ -63,6 +64,8 @@ void NetworkModifier::copyNetwork(Network* oldNetwork, Network* newNetwork)
     }
   }
 
+  double* tmpBuffer = new double[bufferSize];
+
   for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
   {
     Node* oldNode = (*itNode);
@@ -73,10 +76,8 @@ void NetworkModifier::copyNetwork(Network* oldNetwork, Network* newNetwork)
       newNetwork->addEdge(oldNode->getId(), oldNeighbor->getId());
     }
     Node* newNode = newNetwork->getNodeById(oldNode->getId());
-    double* tmpBuffer = new double[bufferSize];
     oldNode->getValues(tmpBuffer);
     newNode->setValues(tmpBuffer);
-    delete [] tmpBuffer;
 
     std::string strEquation = oldNetwork->getNodeDynamicalEquationString(oldNode->getId());
     newNetwork->setDynamicalEquationString(oldNode->getId(), strEquation);
@@ -89,7 +90,9 @@ void NetworkModifier::copyNetwork(Network* oldNetwork, Network* newNetwork)
       nodesMap[(*itNode)->getId()] = *itNode;
     }
     nodeEquation->loadNodesToEquation(nodeEquation->getBaseCalculationNode(), nodesMap);
-  } 
+  }
+  delete [] tmpBuffer;
+ 
 }
 
 Node* NetworkModifier::chooseNode(Network* network)
@@ -110,7 +113,18 @@ ModificationType NetworkModifier::chooseType()
   typeVector.push_back(CHANGE_PLUS_TO_MULTIPLY);
   typeVector.push_back(CHANGE_MULTIPLY_TO_PLUS);
   
-  int randomIndex = rand()%static_cast<int>(typeVector.size());
+  // int randomIndex = rand()%static_cast<int>(typeVector.size());
+  struct random_data* rand_state;
+  char* rand_statebufs;
+  rand_statebufs = (char*)calloc(1, 32);
+  rand_state = (struct random_data*)calloc(1, sizeof(struct random_data));
+  initstate_r(random(), rand_statebufs, 32, rand_state);
+  int randomIndex;
+  random_r((struct random_data*)rand_state, &randomIndex);
+  randomIndex = randomIndex%static_cast<int>(typeVector.size());
+
+  free(rand_state);
+  free(rand_statebufs);
 
   return typeVector[randomIndex];
 }
