@@ -20,7 +20,7 @@ double DynamicalEquation::evaluate()
   return mBaseCalculationNode->evaluate();
 }
 
-double DynamicalEquation::evaluateAtState(std::vector<IdValuePair> startingState)
+double DynamicalEquation::evaluateAtState(std::vector<IdValuePair> &startingState)
 {
   return mBaseCalculationNode->evaluateAtState(startingState);
 }

@@ -13,7 +13,7 @@ int main(void)
 
   std::cout<<"Start simulation"<<std::endl;
 
-  int simulationTime = 5;
+  int simulationTime = 15;
 
   const char *filename="generated/multilayerStructure_0.json";
   std::string filenameInitialCond = "generated/InitialCondition-1.bin";

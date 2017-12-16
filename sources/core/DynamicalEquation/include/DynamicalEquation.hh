@@ -20,7 +20,7 @@ public:
   ~DynamicalEquation();
 
   double evaluate();
-  double evaluateAtState(std::vector<IdValuePair> startingState);
+  double evaluateAtState(std::vector<IdValuePair> &startingState);
   void ODEcalculator(const state_type &x, state_type &dxdt, double t);
   void ODEcalculatorAtState(const state_type &x, state_type &dxdt, double t, std::vector<IdValuePair> &startingState);
 

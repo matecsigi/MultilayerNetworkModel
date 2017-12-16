@@ -81,7 +81,7 @@ public:
      @param[in] startingState: describes the state of the node to be taken as the basis for stepping
      @param[out] finalState: the result of the stepping (final value) is stored here
    */
-  void stepOdeAtState(DynamicalEquation* dynamicalEquation, std::vector<IdValuePair> startingState, std::vector<IdValuePair> &finalState);
+  void stepOdeAtState(DynamicalEquation* dynamicalEquation, std::vector<IdValuePair> &startingState, std::vector<IdValuePair> &finalState);
 
   /**
      Steps the dynamical equation. A node can have multiple dynamical equations,
