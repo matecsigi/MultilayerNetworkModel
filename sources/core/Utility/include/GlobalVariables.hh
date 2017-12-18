@@ -19,6 +19,7 @@ extern int numberOfGenerations;
 extern double mutationRatio;
 extern double crossoverRatio;
 extern double deathRatio;
+extern double elitRatio;
 
 //Network modification parameters
 /**

@@ -11,11 +11,17 @@ double odeTime = 1;
 double odeStepSize = 0.1;
 
 //Genetic algorithm parameters
-int initialPopulationSize = 40;
-int numberOfGenerations = 10;
+int initialPopulationSize = 500;
+int numberOfGenerations = 10000;
 double mutationRatio = 0.15;
 double crossoverRatio = 0.3;
 double deathRatio = 0.3;
+
+/**
+   The highest rankded elements are not deleted.
+   This strategy is called elitism.
+ */
+double elitRatio = 0.5;
 
 //Network modification parameters
 std::vector<double> modificationTypeProbabilities

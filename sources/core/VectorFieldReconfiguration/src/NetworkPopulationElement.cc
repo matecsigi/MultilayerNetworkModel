@@ -27,6 +27,11 @@ void NetworkPopulationElement::setFitness(double fitness)
   mFitness = fitness;
 }
 
+void NetworkPopulationElement::setRank(int rank)
+{
+  mRank = rank;
+}
+
 Network* NetworkPopulationElement::getNetwork()
 {
   return mNetwork;
@@ -40,6 +45,11 @@ int NetworkPopulationElement::getGeneration()
 double NetworkPopulationElement::getFitness()
 {
   return mFitness;
+}
+
+int NetworkPopulationElement::getRank()
+{
+  return mRank;
 }
 
 void NetworkPopulationElement::updateFitness()

@@ -26,6 +26,9 @@ public:
   void createMixedNetwork(Network* parentNetwork1, Network* parentNetwork2, Network* childNetwork);
   Network* chooseBestNetwork();
   double calculateAverageFitness();
+  void updateFitnessRanks();
+  void quickSortTwoVectors(std::vector<double> &fitnessVector, int left, int right);
+
 private:
   int mGeneration;
   VectorField* mTargetVectorField;
