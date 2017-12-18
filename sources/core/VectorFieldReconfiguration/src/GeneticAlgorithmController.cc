@@ -22,7 +22,7 @@ void GeneticAlgorithmController::fitToVectorField(Network* network, VectorField*
   createInitialPopulation(network);
   for(mGeneration=1; mGeneration<numberOfGenerations+1; ++mGeneration)
   {
-    // std::cout<<"generation="<<mGeneration<<std::endl;
+    std::cout<<"generation="<<mGeneration<<std::endl;
     mutation();
     crossover();
     death();
@@ -234,7 +234,7 @@ Network* GeneticAlgorithmController::chooseBestNetwork()
       bestPopulationElement = currentElement;
     }
   }
-  // std::cout<<"  -fitness="<<bestPopulationElement->getFitness()<<std::endl;
+  std::cout<<"  -fitness="<<bestPopulationElement->getFitness()<<std::endl;
   return bestPopulationElement->getNetwork();
 }
 

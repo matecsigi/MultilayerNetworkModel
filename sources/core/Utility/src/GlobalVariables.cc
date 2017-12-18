@@ -16,3 +16,15 @@ int numberOfGenerations = 10;
 double mutationRatio = 0.15;
 double crossoverRatio = 0.3;
 double deathRatio = 0.3;
+
+//Network modification parameters
+std::vector<double> modificationTypeProbabilities
+{
+  1, //ADD_EDGE
+  1, //REMOVE_EDGE
+  3, //ADD_TO_OUTER_BLOCK
+  3, //REMOVE_FROM_OUTER_BLOCK
+  100, //CHANGE_CONSTANT
+  20, //CHANGE_PLUS_TO_MULTIPLY
+  20 //CHANGE_MULTIPLY_TO_PLUS
+};

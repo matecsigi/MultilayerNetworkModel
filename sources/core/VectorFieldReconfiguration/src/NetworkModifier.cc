@@ -119,14 +119,32 @@ ModificationType NetworkModifier::chooseType()
   rand_statebufs = (char*)calloc(1, 32);
   rand_state = (struct random_data*)calloc(1, sizeof(struct random_data));
   initstate_r(random(), rand_statebufs, 32, rand_state);
-  int randomIndex;
-  random_r((struct random_data*)rand_state, &randomIndex);
-  randomIndex = randomIndex%static_cast<int>(typeVector.size());
+  int randomInt;
+  random_r((struct random_data*)rand_state, &randomInt);
+
+  double sum = 0;
+  for(std::vector<double>::iterator it=modificationTypeProbabilities.begin(); it != modificationTypeProbabilities.end(); ++it)
+  {
+    sum += *it;
+  }
+
+  double random = sum*((double)randomInt/RAND_MAX);
+  double counter = 0;
+  int index = 0;
+  for(std::vector<double>::iterator it=modificationTypeProbabilities.begin(); it != modificationTypeProbabilities.end(); ++it)
+  {
+    counter += *it;
+    if(counter >= random)
+    {
+      break;
+    }
+    ++index;
+  }
 
   free(rand_state);
   free(rand_statebufs);
 
-  return typeVector[randomIndex];
+  return typeVector[index];
 }
 
 //-----------------------------------
