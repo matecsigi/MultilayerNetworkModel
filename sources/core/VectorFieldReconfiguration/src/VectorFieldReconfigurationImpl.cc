@@ -13,7 +13,7 @@ void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration()
   }
   VectorField* currentVectorField = new VectorField();
   std::vector<IdValuePair> currentState = networkAssigned->getCurrentState();
-  gridAroundPointScheme(currentVectorField, networkAssigned, currentState);
+  gridAroundPointScheme2(currentVectorField, networkAssigned, currentState);
 
   VectorField* targetVectorField = new VectorField();
   std::vector<IdValuePair> directionInLowerNetwork = calculateLowerNetworkDirection();
