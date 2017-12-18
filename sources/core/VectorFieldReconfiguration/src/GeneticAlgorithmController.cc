@@ -1,6 +1,8 @@
 #include "GeneticAlgorithmController.hh"
 #include <algorithm>
 #include <stdlib.h>
+#include <ctime>
+#include <chrono>
 
 GeneticAlgorithmController::GeneticAlgorithmController()
 {
@@ -17,6 +19,9 @@ GeneticAlgorithmController::~GeneticAlgorithmController()
 
 void GeneticAlgorithmController::fitToVectorField(Network* network, VectorField* targetVectorField)
 {
+  std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
+  std::chrono::steady_clock::time_point end;
+
   mTargetVectorField = targetVectorField;
 
   createInitialPopulation(network);
@@ -27,7 +32,11 @@ void GeneticAlgorithmController::fitToVectorField(Network* network, VectorField*
     crossover();
     death();
     chooseBestNetwork();
-    std::cout<<"  --avg="<<calculateAverageFitness()<<std::endl;
+    std::cout<<"  -avg="<<calculateAverageFitness()<<std::endl;
+    
+    end= std::chrono::steady_clock::now();
+    std::cout <<"  -time="<<(double)std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count()/1000000 <<std::endl;
+
   }
 
   Network* bestNetwork = chooseBestNetwork();
@@ -89,7 +98,7 @@ void GeneticAlgorithmController::createInitialPopulation(Network* network)
   {
     Network* networkModified = new Network;
     networkModifier.copyNetwork(network, networkModified);
-    networkModifier.modifyNetwork(networkModified, 4);
+    networkModifier.modifyNetwork(networkModified, 25);
     NetworkPopulationElement* populationElement = new NetworkPopulationElement(networkModified, mTargetVectorField);
     populationElement->setGeneration(0);
     mPopulation.push_back(populationElement);
@@ -258,7 +267,7 @@ Network* GeneticAlgorithmController::chooseBestNetwork()
       bestPopulationElement = currentElement;
     }
   }
-  std::cout<<"  -fitness="<<bestPopulationElement->getFitness()<<std::endl;
+  std::cout<<"  -best="<<bestPopulationElement->getFitness()<<std::endl;
   return bestPopulationElement->getNetwork();
 }
 
