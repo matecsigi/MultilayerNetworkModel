@@ -1,6 +1,6 @@
 #include "GlobalVariables.hh"
 
-int numberOfCores = 4;
+int numberOfCores = 5;
 
 int bufferSize = 100;
 int initialConditionsSize = 2;
@@ -12,7 +12,7 @@ double odeStepSize = 0.1;
 
 //Genetic algorithm parameters
 int initialPopulationSize = 250;
-int numberOfGenerations = 10000;
+int numberOfGenerations = 50;
 double mutationRatio = 0.15;
 double crossoverRatio = 0.15;
 double deathRatio = 0.3;

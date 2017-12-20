@@ -19,23 +19,23 @@ GeneticAlgorithmController::~GeneticAlgorithmController()
 
 void GeneticAlgorithmController::fitToVectorField(Network* network, VectorField* targetVectorField)
 {
-  std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
-  std::chrono::steady_clock::time_point end;
+  // std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
+  // std::chrono::steady_clock::time_point end;
 
   mTargetVectorField = targetVectorField;
 
   createInitialPopulation(network);
   for(mGeneration=1; mGeneration<numberOfGenerations+1; ++mGeneration)
   {
-    std::cout<<"generation="<<mGeneration<<std::endl;
+    // std::cout<<"generation="<<mGeneration<<std::endl;
     mutation();
     crossover();
     death();
     chooseBestNetwork();
-    std::cout<<"  -avg="<<calculateAverageFitness()<<std::endl;
+    // std::cout<<"  -avg="<<calculateAverageFitness()<<std::endl;
     
-    end= std::chrono::steady_clock::now();
-    std::cout <<"  -time="<<(double)std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count()/1000000 <<std::endl;
+    // end= std::chrono::steady_clock::now();
+    // std::cout <<"  -time="<<(double)std::chrono::duration_cast<std::chrono::microseconds>(end - begin).count()/1000000 <<std::endl;
 
   }
 
@@ -267,7 +267,7 @@ Network* GeneticAlgorithmController::chooseBestNetwork()
       bestPopulationElement = currentElement;
     }
   }
-  std::cout<<"  -best="<<bestPopulationElement->getFitness()<<std::endl;
+  // std::cout<<"  -best="<<bestPopulationElement->getFitness()<<std::endl;
   return bestPopulationElement->getNetwork();
 }
 

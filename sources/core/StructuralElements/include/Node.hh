@@ -57,11 +57,11 @@ public:
   double getCurrentState();
   double getPreviousState();
 
-  void setLastChangeByUpwardInfluence(double value);
-  void setLastChangeByDownwardInfluence(double value);
+  void setChangeByUpwardInfluence(int index, double value);
+  void setChangeByDownwardInfluence(int index, double value);
 
-  double getLastChangeByUpwardInfluence();
-  double getLastChangeByDownwardInfluence();
+  double getChangeByUpwardInfluence(int index);
+  double getChangeByDownwardInfluence(int index);
 
   //Simulation
   /**
@@ -106,18 +106,18 @@ private:
   IVectorFieldReconfiguration* mVectorFieldReconfiguration;
 
   /**
-     Returns the change due to the last exectution of the 
+     Stores the changes due to the last exectution of the 
      UpwardInfluence function on the node. This is needed because 
      these changes are only propagated to one direction to avoid 
      oscillation between nodes on neighbor layers that would result in 
      their values going to infinity.
    */
-  double mLastChangeByUpwardInfluence;
+  std::vector<double> mChangeByUpwardInfluence;
 
   /**
-     Returns the change due to the last exectution of the 
+     Stores the changes due to the exectution of the 
      UpwardInfluence function on the node.
    */
-  double mLastChangeByDownwardInfluence;
+  std::vector<double> mChangeByDownwardInfluence;
 };
 #endif

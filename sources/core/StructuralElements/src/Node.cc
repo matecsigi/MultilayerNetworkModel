@@ -16,8 +16,10 @@ Node::Node(void)
   mUpwardInfluence = new UpwardInfluenceImpl(this);
   mDownwardInfluence = new DownwardInfluenceImpl(this);
   mVectorFieldReconfiguration = new VectorFieldReconfigurationImpl(this);
-  mLastChangeByUpwardInfluence = 0;
-  mLastChangeByDownwardInfluence = 0;
+  mChangeByUpwardInfluence.push_back(0.0);
+  mChangeByUpwardInfluence.push_back(0.0);
+  mChangeByDownwardInfluence.push_back(0.0);
+  mChangeByDownwardInfluence.push_back(0.0);
 }
 
 Node::Node(int id)
@@ -28,8 +30,10 @@ Node::Node(int id)
   mUpwardInfluence = new UpwardInfluenceImpl(this);
   mDownwardInfluence = new DownwardInfluenceImpl(this);
   mVectorFieldReconfiguration = new VectorFieldReconfigurationImpl(this);
-  mLastChangeByUpwardInfluence = 0;
-  mLastChangeByDownwardInfluence = 0;
+  mChangeByUpwardInfluence.push_back(0.0);
+  mChangeByUpwardInfluence.push_back(0.0);
+  mChangeByDownwardInfluence.push_back(0.0);
+  mChangeByDownwardInfluence.push_back(0.0);
 }
 
 Node::~Node(void)
@@ -106,24 +110,24 @@ double Node::getPreviousState()
   return mValues[getIndexTMinusOne(t)];
 }
 
-void Node::setLastChangeByUpwardInfluence(double value)
+void Node::setChangeByUpwardInfluence(int index, double value)
 {
-  mLastChangeByUpwardInfluence = value;
+  mChangeByUpwardInfluence[index] = value;
 }
 
-void Node::setLastChangeByDownwardInfluence(double value)
+void Node::setChangeByDownwardInfluence(int index, double value)
 {
-  mLastChangeByDownwardInfluence = value;
+  mChangeByDownwardInfluence[index] = value;
 }
 
-double Node::getLastChangeByUpwardInfluence()
+double Node::getChangeByUpwardInfluence(int index)
 {
-  return mLastChangeByUpwardInfluence;
+  return mChangeByUpwardInfluence[index];
 }
 
-double Node::getLastChangeByDownwardInfluence()
+double Node::getChangeByDownwardInfluence(int index)
 {
-  return mLastChangeByDownwardInfluence;
+  return mChangeByDownwardInfluence[index];
 }
 
 void Node::step(void)
