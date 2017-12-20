@@ -39,18 +39,19 @@ double VectorField::getDistanceFrom(VectorField* vectorField)
     std::vector<IdValuePair> coordinate = currentPoint->getCoordinate();
     std::vector<IdValuePair> direction1 = currentPoint->getDirection();
     std::vector<IdValuePair> direction2 = vectorField->getDirectionForCoordinate(coordinate);
+    double pointDistance = 0;
     for(std::vector<IdValuePair>::iterator itDir=direction1.begin(); itDir != direction1.end(); ++itDir)
     {
       int key = itDir->mId;
       double value1 = itDir->mValue;
       double value2 = getValueForId(direction2, key);
       double localDifference = fabs(value1-value2);
-      //std::cout<<"  -localDiff="<<value1<<"-"<<value2<<std::endl;
-      distance += localDifference;
+      pointDistance += localDifference*localDifference;
     }
+    distance += sqrt(pointDistance);
   }
   distance = distance/numberOfPoints;
-  //  std::cout<<"distance="<<distance<<std::endl;
+
   return distance;
 }
 
