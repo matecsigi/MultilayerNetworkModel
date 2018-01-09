@@ -24,7 +24,7 @@ double deathRatio = 0.3;
 double elitRatio = 0.5;
 
 //Network modification parameters
-std::vector<double> modificationTypeProbabilities
+std::vector<double> vectorReconfModTypeProbabilities
 {
   1, //ADD_EDGE
   1, //REMOVE_EDGE

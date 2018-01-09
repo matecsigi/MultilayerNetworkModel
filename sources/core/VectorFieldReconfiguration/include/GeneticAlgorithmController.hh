@@ -7,7 +7,7 @@
 class GeneticAlgorithmController
 {
 public:
-  GeneticAlgorithmController(double (*fitnessFunction)(NetworkPopulationElement*) = NULL);
+  GeneticAlgorithmController(std::vector<double> &modificationTypeProbabilities = vectorReconfModTypeProbabilities, double (*fitnessFunction)(NetworkPopulationElement*) = NULL);
   ~GeneticAlgorithmController();
 
   void fitToVectorField(Network* network, VectorField* targetVectorField);
@@ -33,6 +33,7 @@ private:
   int mGeneration;
   VectorField* mTargetVectorField;
   std::vector<NetworkPopulationElement*> mPopulation;
+  std::vector<double> mModificationTypeProbabilities;
   double (*mFitnessFunction)(NetworkPopulationElement*);
 };
 

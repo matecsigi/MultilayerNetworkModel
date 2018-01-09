@@ -31,7 +31,7 @@ void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration()
 
   // std::cout<<"DISTANCE="<<targetVectorField->getDistanceFrom(currentVectorField)<<std::endl;
 
-  GeneticAlgorithmController geneticController;
+  GeneticAlgorithmController geneticController(mModificationTypeProbabilities);
   geneticController.fitToVectorField(networkAssigned, targetVectorField);
 
   // if(*testNetwork == *networkAssigned)

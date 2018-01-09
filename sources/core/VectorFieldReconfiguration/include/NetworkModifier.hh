@@ -19,7 +19,7 @@ enum ModificationType
 class NetworkModifier
 {
 public:
-  NetworkModifier();
+  NetworkModifier(std::vector<double> &modificationTypeProbabilities = vectorReconfModTypeProbabilities);
   ~NetworkModifier();
 
   void modifyNetwork(Network* network, int numberOfChanges=1);
@@ -97,6 +97,9 @@ public:
   int numberOfType(CalculationNode* calcNode, CalcNodeTypes type);
   CalculationNode* getParent(CalculationNode* calcNode, CalculationNode* childCalcNode);
   void getNodeOccurrences(CalculationNode* calcNode, std::vector<CalculationNode*> &locations, int nodeId);
+
+private:
+  std::vector<double> mModificationTypeProbabilities;
 };
 
 #endif

@@ -3,8 +3,9 @@
 #include <algorithm>
 #include <stdlib.h>
 
-NetworkModifier::NetworkModifier()
+NetworkModifier::NetworkModifier(std::vector<double> &modificationTypeProbabilities)
 {
+  mModificationTypeProbabilities = modificationTypeProbabilities;
 }
 
 NetworkModifier::~NetworkModifier()
@@ -123,7 +124,7 @@ ModificationType NetworkModifier::chooseType()
   random_r((struct random_data*)rand_state, &randomInt);
 
   double sum = 0;
-  for(std::vector<double>::iterator it=modificationTypeProbabilities.begin(); it != modificationTypeProbabilities.end(); ++it)
+  for(std::vector<double>::iterator it=mModificationTypeProbabilities.begin(); it != mModificationTypeProbabilities.end(); ++it)
   {
     sum += *it;
   }
@@ -131,7 +132,7 @@ ModificationType NetworkModifier::chooseType()
   double random = sum*((double)randomInt/RAND_MAX);
   double counter = 0;
   int index = 0;
-  for(std::vector<double>::iterator it=modificationTypeProbabilities.begin(); it != modificationTypeProbabilities.end(); ++it)
+  for(std::vector<double>::iterator it=mModificationTypeProbabilities.begin(); it != mModificationTypeProbabilities.end(); ++it)
   {
     counter += *it;
     if(counter >= random)

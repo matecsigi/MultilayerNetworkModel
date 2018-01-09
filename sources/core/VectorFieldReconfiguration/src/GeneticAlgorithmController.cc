@@ -4,8 +4,9 @@
 #include <ctime>
 #include <chrono>
 
-GeneticAlgorithmController::GeneticAlgorithmController(double (*fitnessFunction)(NetworkPopulationElement*))
+GeneticAlgorithmController::GeneticAlgorithmController(std::vector<double> &modificationTypeProbabilities, double (*fitnessFunction)(NetworkPopulationElement*))
 {
+  mModificationTypeProbabilities = modificationTypeProbabilities;
   mFitnessFunction = fitnessFunction;
 }
 
@@ -40,7 +41,7 @@ void GeneticAlgorithmController::fitToVectorField(Network* network, VectorField*
   }
 
   Network* bestNetwork = chooseBestNetwork();
-  NetworkModifier networkModifier;
+  NetworkModifier networkModifier(mModificationTypeProbabilities);
   networkModifier.copyNetwork(bestNetwork, network);
 }
 
@@ -51,7 +52,7 @@ void GeneticAlgorithmController::mutation()
   {
     NetworkPopulationElement* networkElement = chooseForMutation();
     Network* network = networkElement->getNetwork();
-    NetworkModifier networkModifier;
+    NetworkModifier networkModifier(mModificationTypeProbabilities);
     networkModifier.modifyNetwork(network);
     networkElement->setNetwork(network);
     networkElement->setGeneration(mGeneration);
@@ -92,7 +93,7 @@ void GeneticAlgorithmController::death()
 
 void GeneticAlgorithmController::createInitialPopulation(Network* network)
 {
-  NetworkModifier networkModifier;
+  NetworkModifier networkModifier(mModificationTypeProbabilities);
   
   for(int i=0; i<initialPopulationSize; ++i)
   {
