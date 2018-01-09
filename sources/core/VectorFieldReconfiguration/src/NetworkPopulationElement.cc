@@ -1,8 +1,29 @@
 #include "NetworkPopulationElement.hh"
 #include "VectorFieldSchemes.hh"
 
-NetworkPopulationElement::NetworkPopulationElement(Network* network, VectorField* targetVectorField)
+double vectorReconfFitnessFunction(NetworkPopulationElement *networkPopulationElement)
 {
+  VectorField* currentVectorField = new VectorField();
+  std::vector<IdValuePair> currentState = networkPopulationElement->mNetwork->getCurrentState();
+  gridAroundPointScheme2(currentVectorField, networkPopulationElement->mNetwork, currentState);
+  double distance = networkPopulationElement->mTargetVectorField->getDistanceFrom(currentVectorField);
+
+  double fitness = 100.0/distance;
+  delete currentVectorField;
+
+  return fitness;
+}
+
+NetworkPopulationElement::NetworkPopulationElement(Network* network, VectorField* targetVectorField, double (*fitnessFunction)(NetworkPopulationElement*))
+{
+  if(fitnessFunction == NULL)
+  {
+    mFitnessFunction = &vectorReconfFitnessFunction;
+  }
+  else
+  {
+    mFitnessFunction = fitnessFunction;
+  }
   mTargetVectorField = targetVectorField;
   setNetwork(network);
 }
@@ -54,14 +75,6 @@ int NetworkPopulationElement::getRank()
 
 void NetworkPopulationElement::updateFitness()
 {
-  VectorField* currentVectorField = new VectorField();
-  std::vector<IdValuePair> currentState = mNetwork->getCurrentState();
-  std::vector<Node*> nodes = mNetwork->getNodes();
-  gridAroundPointScheme2(currentVectorField, mNetwork, currentState);
-  double distance = mTargetVectorField->getDistanceFrom(currentVectorField);
-
-  double fitness = 100.0/distance;
+  double fitness = mFitnessFunction(this);
   setFitness(fitness);
-
-  delete currentVectorField;
 }

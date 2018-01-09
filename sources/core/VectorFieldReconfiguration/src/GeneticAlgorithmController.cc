@@ -4,9 +4,9 @@
 #include <ctime>
 #include <chrono>
 
-GeneticAlgorithmController::GeneticAlgorithmController()
+GeneticAlgorithmController::GeneticAlgorithmController(double (*fitnessFunction)(NetworkPopulationElement*))
 {
-
+  mFitnessFunction = fitnessFunction;
 }
 
 GeneticAlgorithmController::~GeneticAlgorithmController()
