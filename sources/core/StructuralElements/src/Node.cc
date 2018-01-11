@@ -92,7 +92,7 @@ void Node::setCurrentState(state_type state)
   mValues[getIndexT(t)] = state[0];
 }
 
-void Node::getValues(double* values)
+void Node::getValues(double* values) const
 {
   for(int i=0; i<bufferSize; ++i)
   {
@@ -194,4 +194,28 @@ bool operator==(const Node& node1, const Node& node2)
   }
 
   return true;
+}
+
+std::ostream& operator<<(std::ostream &os, const Node &node)
+{
+  os<<"Node "<<node.getId()<<std::endl;
+
+  //printing state
+  double* tmpBuffer = new double[bufferSize];
+  node.getValues(tmpBuffer);
+  for(int i=0; i<bufferSize; ++i)
+  {
+    os<<" "<<tmpBuffer[i];
+  }
+  os<<std::endl;
+  delete [] tmpBuffer;
+
+  //printing equation
+  std::vector<Network*> networks = node.getNetworks();
+  for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
+  {
+    os<<"  "<<(*itNet)->getNodeDynamicalEquationString(node.getId())<<std::endl;
+  }
+
+  return os;
 }

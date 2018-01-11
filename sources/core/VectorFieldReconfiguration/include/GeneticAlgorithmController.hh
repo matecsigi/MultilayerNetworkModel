@@ -8,7 +8,7 @@
 class GeneticAlgorithmController
 {
 public:
-  GeneticAlgorithmController(std::vector<double> &modificationTypeProbabilities = vectorReconfModTypeProbabilities, double (*fitnessFunction)(NetworkPopulationElement*) = NULL, std::function<void (Network*)> = nullptr);
+  GeneticAlgorithmController(std::vector<double> &modificationTypeProbabilities = vectorReconfModTypeProbabilities, double (*fitnessFunction)(NetworkPopulationElement*) = NULL, std::function<void (Network*)> createInitialNetwork = nullptr);
   ~GeneticAlgorithmController();
 
   void runGeneticAlgorithm(Network* network = NULL);

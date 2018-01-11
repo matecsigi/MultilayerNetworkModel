@@ -53,7 +53,7 @@ public:
      variable.
      @param[out] values: all the states oof the buffer are stored here
    */
-  void getValues(double* values);
+  void getValues(double* values) const;
   double getCurrentState();
   double getPreviousState();
 
@@ -95,7 +95,8 @@ public:
   void setDownwardInfluence();
 
   friend bool operator==(const Node& node1, const Node& node2);
-
+  friend std::ostream& operator<<(std::ostream &os, const Node &node);
+  
 private:
   int mNodeId;
   Network* mNetworkAssigned;

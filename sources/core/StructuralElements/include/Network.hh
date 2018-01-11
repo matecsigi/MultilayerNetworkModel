@@ -80,6 +80,7 @@ public:
   std::vector<IdValuePair> getDirectionAtState(std::vector<IdValuePair> &basePointCoordinates) const;
 
   friend bool operator==(const Network& network1, const Network& network2);
+  friend std::ostream& operator<<(std::ostream &os, const Network &network);
 
 private:
   int mNetworkId;

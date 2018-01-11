@@ -1,8 +1,8 @@
 #include "InitialConditionGeneratorImpl.hh"
+#include "NetworkInitialConditionGenerators.hh"
 
 void InitialConditionGeneratorImpl::generateInitialCondition()
 {
-  double* tmpBuffer = new double[bufferSize];
   std::vector<Layer*> layers = mMultilayerNetwork->getLayers();
   for(std::vector<Layer*>::iterator itLay=layers.begin(); itLay != layers.end(); ++itLay)
   {
@@ -11,21 +11,7 @@ void InitialConditionGeneratorImpl::generateInitialCondition()
     for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
     {
       Network* currentNetwork = (*itNet);
-      std::vector<Node*> nodes = currentNetwork->getNodes();
-      for(std::vector<Node*>::iterator itNode = nodes.begin(); itNode != nodes.end(); ++itNode)
-      {
-	Node* currentNode = (*itNode);
-	for(int i=0; i<bufferSize; ++i)
-	{
-	  tmpBuffer[i] = 0;
-	}
-	for(int i=0; i<initialConditionsSize; ++i)
-	{
-	  tmpBuffer[i] = 1;
-	}
-	currentNode->setValues(tmpBuffer);
-      }
+      oneNetworkInitialConditions(currentNetwork);
     }
   }
-  delete [] tmpBuffer;
 }

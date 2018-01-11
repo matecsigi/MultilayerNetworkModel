@@ -253,3 +253,15 @@ bool operator==(const Network& network1, const Network& network2)
 
   return true;
 }
+
+std::ostream& operator<<(std::ostream &os, const Network &network)
+{
+  os<<"Network "<<network.getId()<<std::endl;
+  std::vector<Node*> nodes = network.getNodes();
+  for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); itNode++)
+  {
+    os<<*(*itNode);
+  }
+  
+  return os;
+}
