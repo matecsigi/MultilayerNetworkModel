@@ -5,14 +5,16 @@
 #include "HebbianFitnessFunction.hh"
 #include "GenerateBarabasiNetwork.hh"
 #include "GeneralNetworkGenerator.hh"
+#include "NetworkDynamicsGenerators.hh"
 
 using namespace std::placeholders;
 
 int main()
 {
   std::cout<<"Hello HebbianProject!"<<std::endl;
-  std::function<void(Network*)> binderBarabasi = std::bind(generateBarabasiNetwork, _1, 30);
-  std::function<void(Network*)> binderGeneral = std::bind(generateNetwork, _1, std::ref(binderBarabasi));
+  std::function<void(Network*)> binderBarabasiStructure = std::bind(generateBarabasiNetwork, _1, 6);
+  std::function<void(Network*)> binderLinearDynamics = std::bind(linearNetworkDynamicsGenerator, _1);
+  std::function<void(Network*)> binderGeneral = std::bind(generateNetwork, _1, binderBarabasiStructure, binderLinearDynamics, nullptr);
   GeneticAlgorithmController geneticController(vectorReconfModTypeProbabilities, hebbianFitnessFunction, binderGeneral);
   geneticController.runGeneticAlgorithm();
 

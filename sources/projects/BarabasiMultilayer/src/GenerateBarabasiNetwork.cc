@@ -22,6 +22,6 @@ std::string pythonBarabasiGeneratorIndependent(int numberOfNodes)
 void generateBarabasiNetwork(Network* network, int numberOfNodes)
 {
   std::string filename = pythonBarabasiGeneratorIndependent(numberOfNodes);
-  int fakeNodeCounter = 0;
-  loadNetworkFromJSON(network, filename, fakeNodeCounter);
+  int nodeIdCounter = 1;
+  loadNetworkFromJSON(network, filename, nodeIdCounter);
 }

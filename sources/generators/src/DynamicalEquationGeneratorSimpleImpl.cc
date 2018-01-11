@@ -1,4 +1,5 @@
 #include "DynamicalEquationGeneratorSimpleImpl.hh"
+#include "NetworkDynamicsGenerators.hh"
 
 void DynamicalEquationGeneratorSimpleImpl::generateDynamicalEquations()
 {
@@ -10,25 +11,7 @@ void DynamicalEquationGeneratorSimpleImpl::generateDynamicalEquations()
     for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
     {
       Network* currentNetwork = (*itNet);
-      std::vector<Node*> nodes = currentNetwork->getNodes();
-      for(std::vector<Node*>::iterator itNode = nodes.begin(); itNode != nodes.end(); ++itNode)
-      {
-	Node* currentNode = (*itNode);
-	std::string myString = "-1";
-	myString.append("+");
-	myString.append("ID");
-	myString.append((std::to_string(currentNode->getId())));
-
-	std::vector<Node*> neighbors = (*itNet)->getNodeNeighbors((*itNode)->getId());
-	for(std::vector<Node*>::iterator itNei=neighbors.begin(); itNei != neighbors.end(); ++itNei)
-	{
-	  myString.append("+");
-	  myString.append("0.2*");
-	  myString.append("ID");
-	  myString.append((std::to_string((*itNei)->getId())));
-	}
-	currentNetwork->setDynamicalEquationString(currentNode->getId(), myString);
-      }
+      linearNetworkDynamicsGenerator(currentNetwork);
     }
   }
   mMultilayerNetwork->loadNodesToAllEquations();
