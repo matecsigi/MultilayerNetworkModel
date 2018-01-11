@@ -1,6 +1,5 @@
 #include "StructureGeneratorBarabasiImpl.hh"
 #include "UtilityFunctions.hh"
-// #include <unistd.h>
 #include <stdlib.h>
 
 StructureGeneratorBarabasiImpl::StructureGeneratorBarabasiImpl(MultilayerNetwork* multilayerNetwork)

@@ -1208,6 +1208,39 @@ sources/projects/BarabasiMultilayer/SimulateBarabasiMain.cc.s:
 	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/projects/BarabasiMultilayer/SimulateBarabasiMain.cc.s
 .PHONY : sources/projects/BarabasiMultilayer/SimulateBarabasiMain.cc.s
 
+sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.o: sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.o
+
+.PHONY : sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.o
+
+# target to build an object file
+sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.o:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.o
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.o
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.o
+.PHONY : sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.o
+
+sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.i: sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.i
+
+.PHONY : sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.i
+
+# target to preprocess a source file
+sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.i:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.i
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.i
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.i
+.PHONY : sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.i
+
+sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.s: sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.s
+
+.PHONY : sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.s
+
+# target to generate assembly for a file
+sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.s:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.s
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.s
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.s
+.PHONY : sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.s
+
 sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.o: sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.cc.o
 
 .PHONY : sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.o
@@ -1216,6 +1249,7 @@ sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.o: source
 sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.cc.o:
 	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.cc.o
 	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.cc.o
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.cc.o
 .PHONY : sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.cc.o
 
 sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.i: sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.cc.i
@@ -1226,6 +1260,7 @@ sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.i: source
 sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.cc.i:
 	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.cc.i
 	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.cc.i
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.cc.i
 .PHONY : sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.cc.i
 
 sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.s: sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.cc.s
@@ -1236,6 +1271,7 @@ sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.s: source
 sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.cc.s:
 	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.cc.s
 	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.cc.s
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.cc.s
 .PHONY : sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.cc.s
 
 sources/projects/HebbianProject/simulateHebbian.o: sources/projects/HebbianProject/simulateHebbian.cc.o
@@ -1264,6 +1300,33 @@ sources/projects/HebbianProject/simulateHebbian.s: sources/projects/HebbianProje
 sources/projects/HebbianProject/simulateHebbian.cc.s:
 	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/projects/HebbianProject/simulateHebbian.cc.s
 .PHONY : sources/projects/HebbianProject/simulateHebbian.cc.s
+
+sources/projects/HebbianProject/src/HebbianFitnessFunction.o: sources/projects/HebbianProject/src/HebbianFitnessFunction.cc.o
+
+.PHONY : sources/projects/HebbianProject/src/HebbianFitnessFunction.o
+
+# target to build an object file
+sources/projects/HebbianProject/src/HebbianFitnessFunction.cc.o:
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/projects/HebbianProject/src/HebbianFitnessFunction.cc.o
+.PHONY : sources/projects/HebbianProject/src/HebbianFitnessFunction.cc.o
+
+sources/projects/HebbianProject/src/HebbianFitnessFunction.i: sources/projects/HebbianProject/src/HebbianFitnessFunction.cc.i
+
+.PHONY : sources/projects/HebbianProject/src/HebbianFitnessFunction.i
+
+# target to preprocess a source file
+sources/projects/HebbianProject/src/HebbianFitnessFunction.cc.i:
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/projects/HebbianProject/src/HebbianFitnessFunction.cc.i
+.PHONY : sources/projects/HebbianProject/src/HebbianFitnessFunction.cc.i
+
+sources/projects/HebbianProject/src/HebbianFitnessFunction.s: sources/projects/HebbianProject/src/HebbianFitnessFunction.cc.s
+
+.PHONY : sources/projects/HebbianProject/src/HebbianFitnessFunction.s
+
+# target to generate assembly for a file
+sources/projects/HebbianProject/src/HebbianFitnessFunction.cc.s:
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/projects/HebbianProject/src/HebbianFitnessFunction.cc.s
+.PHONY : sources/projects/HebbianProject/src/HebbianFitnessFunction.cc.s
 
 sources/runners/GenerateMain.o: sources/runners/GenerateMain.cc.o
 
@@ -1435,12 +1498,18 @@ help:
 	@echo "... sources/projects/BarabasiMultilayer/SimulateBarabasiMain.o"
 	@echo "... sources/projects/BarabasiMultilayer/SimulateBarabasiMain.i"
 	@echo "... sources/projects/BarabasiMultilayer/SimulateBarabasiMain.s"
+	@echo "... sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.o"
+	@echo "... sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.i"
+	@echo "... sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.s"
 	@echo "... sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.o"
 	@echo "... sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.i"
 	@echo "... sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.s"
 	@echo "... sources/projects/HebbianProject/simulateHebbian.o"
 	@echo "... sources/projects/HebbianProject/simulateHebbian.i"
 	@echo "... sources/projects/HebbianProject/simulateHebbian.s"
+	@echo "... sources/projects/HebbianProject/src/HebbianFitnessFunction.o"
+	@echo "... sources/projects/HebbianProject/src/HebbianFitnessFunction.i"
+	@echo "... sources/projects/HebbianProject/src/HebbianFitnessFunction.s"
 	@echo "... sources/runners/GenerateMain.o"
 	@echo "... sources/runners/GenerateMain.i"
 	@echo "... sources/runners/GenerateMain.s"
