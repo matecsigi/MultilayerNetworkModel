@@ -1,6 +1,10 @@
 #include "HebbianFitnessFunction.hh"
 #include "NetworkInitialConditionGenerators.hh"
+#include "GenerateBarabasiNetwork.hh"
+#include "NetworkDynamicsGenerators.hh"
+#include "Node.hh"
 #include <iostream>
+#include <random>
 
 double hebbianFitnessFunction(NetworkPopulationElement* networkPopulationElement)
 {
@@ -10,11 +14,21 @@ double hebbianFitnessFunction(NetworkPopulationElement* networkPopulationElement
 
   //generate starting state for network
   randomNetworkInitialConditions(network);
-  std::cout<<*network<<std::endl;
+
   //generate lower network with barabasi
   //generate lower network dynamics
+  Network* lowerNetwork = new Network;
+  generateBarabasiNetwork(lowerNetwork, 10);
+  linearNetworkDynamicsGenerator(lowerNetwork);
+
   //generate lower starting conditions
+  randomNetworkInitialConditions(lowerNetwork);
+
   //assign lower network to higher node
+  std::vector<Node*> higherNodes = network->getNodes();
+  int randomIndex = rand()%higherNodes.size();
+  Node* higherNode = higherNodes[randomIndex];
+  higherNode->setNetworkAssigned(lowerNetwork);
 
   //ODE step higher
   //ODE step lower
@@ -24,6 +38,9 @@ double hebbianFitnessFunction(NetworkPopulationElement* networkPopulationElement
   //calculate hebbian for lower -> hebbianNetwork
   
   //distance between lower and hebbianNetwork
+
+  delete network;
+  delete lowerNetwork;
 
   return 1;
 }
