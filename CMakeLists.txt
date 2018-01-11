@@ -9,6 +9,7 @@ file(GLOB_RECURSE core_src "sources/core/*.cc")
 file(GLOB_RECURSE generators_src "sources/generators/src/*.cc")
 file(GLOB_RECURSE parser_src "sources/parser/src/*.cpp")
 file(GLOB_RECURSE project_barabasi_src "sources/projects/BarabasiMultilayer/src/*.cc")
+file(GLOB_RECURSE project_hebbian_src "sources/projects/HebbianProject/src/*.cc")
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
@@ -24,10 +25,12 @@ ${CMAKE_SOURCE_DIR}/sources/core/Utility/include
 ${CMAKE_SOURCE_DIR}/sources/generators/include
 ${CMAKE_SOURCE_DIR}/sources/parser/include
 ${CMAKE_SOURCE_DIR}/sources/external
-${CMAKE_SOURCE_DIR}/sources/projects/BarabasiMultilayer/include)
+${CMAKE_SOURCE_DIR}/sources/projects/BarabasiMultilayer/include
+${CMAKE_SOURCE_DIR}/sources/projects/HebbianProject/include)
 
 add_executable(test ${CMAKE_SOURCE_DIR}/sources/test/test_StructureGeneration.cc ${core_src} ${generators_src} ${parser_src})
 add_executable(generate ${CMAKE_SOURCE_DIR}/sources/runners/GenerateMain.cc ${core_src} ${generators_src} ${parser_src})
 add_executable(simulate ${CMAKE_SOURCE_DIR}/sources/runners/SimulateMain.cc ${core_src} ${generators_src} ${parser_src})
 add_executable(simulateBarabasi ${CMAKE_SOURCE_DIR}/sources/projects/BarabasiMultilayer/SimulateBarabasiMain.cc ${core_src} ${generators_src} ${parser_src} ${project_barabasi_src})
 add_executable(generateBarabasi ${CMAKE_SOURCE_DIR}/sources/projects/BarabasiMultilayer/GenerateBarabasiMain.cc ${core_src} ${generators_src} ${parser_src} ${project_barabasi_src})
+add_executable(simulateHebbian ${CMAKE_SOURCE_DIR}/sources/projects/HebbianProject/simulateHebbian.cc ${core_src} ${generators_src} ${parser_src} ${project_hebbian_src})
