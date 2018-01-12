@@ -26,5 +26,6 @@ extern double elitRatio;
    Contains the ratios of different network/equation modification types.
  */
 extern std::vector<double> vectorReconfModTypeProbabilities;
+extern std::vector<double> hebbianModTypeProbabilities;
 
 #endif

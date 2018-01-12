@@ -130,7 +130,7 @@ double Node::getChangeByDownwardInfluence(int index)
   return mChangeByDownwardInfluence[index];
 }
 
-void Node::step(void)
+void Node::step(std::vector<double> &modTypeProbabilities)
 {
   std::vector<Network*> networks = getNetworks();
   for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
@@ -141,7 +141,7 @@ void Node::step(void)
 
   mUpwardInfluence->calculateUpwardInfluence();
   mDownwardInfluence->calculateDownwardInfluence();
-  mVectorFieldReconfiguration->calculateVectorFieldReconfiguration();
+  mVectorFieldReconfiguration->calculateVectorFieldReconfiguration(modTypeProbabilities);
 }
 
 void Node::stepODE(DynamicalEquation* dynamicalEquation)

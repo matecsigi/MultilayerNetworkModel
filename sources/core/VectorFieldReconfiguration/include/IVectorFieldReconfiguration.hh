@@ -10,7 +10,7 @@ public:
   IVectorFieldReconfiguration(Node* node, std::vector<double> &modificationTypeProbabilities = vectorReconfModTypeProbabilities){mNode = node; mModificationTypeProbabilities = modificationTypeProbabilities;};
   virtual ~IVectorFieldReconfiguration(void){};
 
-  virtual void calculateVectorFieldReconfiguration() = 0;
+  virtual void calculateVectorFieldReconfiguration(std::vector<double> &modificationTypeProbabilities = vectorReconfModTypeProbabilities) = 0;
 protected:
   Node* mNode;
   std::vector<double> mModificationTypeProbabilities;

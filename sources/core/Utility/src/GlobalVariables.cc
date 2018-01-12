@@ -34,3 +34,14 @@ std::vector<double> vectorReconfModTypeProbabilities
   20, //CHANGE_PLUS_TO_MULTIPLY
   20 //CHANGE_MULTIPLY_TO_PLUS
 };
+
+std::vector<double> hebbianModTypeProbabilities
+{
+  0, //ADD_EDGE
+  0, //REMOVE_EDGE
+  0, //ADD_TO_OUTER_BLOCK
+  0, //REMOVE_FROM_OUTER_BLOCK
+  1, //CHANGE_CONSTANT
+  0, //CHANGE_PLUS_TO_MULTIPLY
+  0 //CHANGE_MULTIPLY_TO_PLUS
+};

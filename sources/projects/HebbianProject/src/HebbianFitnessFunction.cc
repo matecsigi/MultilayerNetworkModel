@@ -22,7 +22,7 @@ double hebbianFitnessFunction(NetworkPopulationElement* networkPopulationElement
 
   IObserver *observer = new HebbianObserver(multilayerNetwork);
   // multilayerNetwork->iterate(transientTime);
-  multilayerNetwork->iterate(runTime, observer);
+  multilayerNetwork->iterate(runTime, observer, hebbianModTypeProbabilities);
 
   delete multilayerNetwork;
 

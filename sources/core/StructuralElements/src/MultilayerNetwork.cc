@@ -38,11 +38,11 @@ std::vector<Layer*> MultilayerNetwork::getLayers(void) const
   return mLayers;
 }
 
-void executeStepsInThread(std::vector<Node*> &nodes)
+void executeStepsInThread(std::vector<Node*> &nodes, std::vector<double> &modTypeProbabilities)
 {
   for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
   {
-    (*itNode)->step();
+    (*itNode)->step(modTypeProbabilities);
   }
 }
 
@@ -61,7 +61,7 @@ void MultilayerNetwork::step(void)
   std::thread stepThreads[numberOfCores];
   for(int i=0; i < numberOfCores; ++i)
   {
-    stepThreads[i] = std::thread(executeStepsInThread, std::ref(nodeThreadPartition[i]));
+    stepThreads[i] = std::thread(executeStepsInThread, std::ref(nodeThreadPartition[i]), std::ref(mModTypeProbabilities));
   }
 
   for(int i=0; i < numberOfCores; ++i)
@@ -70,8 +70,9 @@ void MultilayerNetwork::step(void)
   }
 }
 
-void MultilayerNetwork::iterate(int steps, IObserver *observer)
+void MultilayerNetwork::iterate(int steps, IObserver *observer, std::vector<double> &modTypeProbabilities)
 {
+  mModTypeProbabilities = modTypeProbabilities;
   updateNodesMap();
 
   if(observer != NULL){observer->atStart();}

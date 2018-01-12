@@ -69,7 +69,7 @@ public:
      UpwardInfluence, DownwardInfluence and VectorFieldReconfiguration.
      The current value of the node is used for the stepping.
    */
-  void step();
+  void step(std::vector<double> &modTypeProbabilities = vectorReconfModTypeProbabilities);
 
   /**
      Performs one step on the node involving only the ODE.

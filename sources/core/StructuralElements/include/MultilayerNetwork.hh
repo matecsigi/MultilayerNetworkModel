@@ -4,6 +4,7 @@
 #include "Node.hh"
 #include "Layer.hh"
 #include "IObserver.hh"
+#include "GlobalVariables.hh"
 #include <vector>
 #include <iostream>
 #include <map>
@@ -30,7 +31,7 @@ public:
   /**
      Iterates the system for a given number of steps.
    */
-  void iterate(int steps, IObserver *observer = NULL);
+  void iterate(int steps, IObserver *observer = NULL, std::vector<double> &modTypeProbabilities = vectorReconfModTypeProbabilities);
 
   //Save and load
   void save(std::string filename = "");
@@ -76,9 +77,9 @@ private:
    */
   std::map<int, Node*> mNodesMap;
   std::vector<int> mNodeIds;
+  std::vector<double> mModTypeProbabilities;
 };
 
-void executeStepsInThread(std::vector<Node*> &nodes);
-
+void executeStepsInThread(std::vector<Node*> &nodes, std::vector<double> &modTypeProbabilities);
 
 #endif

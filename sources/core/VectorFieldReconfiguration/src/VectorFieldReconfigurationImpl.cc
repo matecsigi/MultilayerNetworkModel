@@ -3,8 +3,9 @@
 #include "VectorFieldSchemes.hh"
 #include "GeneticAlgorithmController.hh"
 
-void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration()
+void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration(std::vector<double> &modificationTypeProbabilities)
 {
+  mModificationTypeProbabilities = modificationTypeProbabilities;
   // std::cout<<"VectorFieldReconfig node="<<mNode->getId()<<std::endl;
   Network* networkAssigned = mNode->getNetworkAssigned();
   if(networkAssigned == NULL)

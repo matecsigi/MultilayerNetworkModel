@@ -11,7 +11,7 @@ public:
   VectorFieldReconfigurationImpl(Node* node, std::vector<double> &modificationTypeProbabilities = vectorReconfModTypeProbabilities):IVectorFieldReconfiguration(node, modificationTypeProbabilities){mNode = node; mModificationTypeProbabilities = modificationTypeProbabilities;};
   ~VectorFieldReconfigurationImpl(void){};
 
-  void calculateVectorFieldReconfiguration();
+  void calculateVectorFieldReconfiguration(std::vector<double> &modificationTypeProbabilities = vectorReconfModTypeProbabilities);
   void calculateTargetVectorField(VectorField* targetVectorField, VectorField* currentVectorField, std::vector<IdValuePair> directionInLowerNetwork, std::vector<IdValuePair> directionInHigherNetworks);
 
   std::vector<IdValuePair> calculateLowerNetworkDirection();
