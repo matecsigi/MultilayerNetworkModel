@@ -5,6 +5,7 @@
 #include "Node.hh"
 #include "MultilayerNetwork.hh"
 #include "NetworkModifier.hh"
+#include "HebbianObserver.hh"
 #include <iostream>
 #include <random>
 
@@ -19,8 +20,9 @@ double hebbianFitnessFunction(NetworkPopulationElement* networkPopulationElement
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
   generateMultilayerNetworkForHebbianFitness(multilayerNetwork, network);
 
+  IObserver *observer = new HebbianObserver(multilayerNetwork);
   multilayerNetwork->iterate(transientTime);
-  multilayerNetwork->iterate(runTime);
+  multilayerNetwork->iterate(runTime, observer);
 
   delete multilayerNetwork;
 

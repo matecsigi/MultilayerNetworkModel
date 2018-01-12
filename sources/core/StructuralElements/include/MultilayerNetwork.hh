@@ -3,6 +3,7 @@
 
 #include "Node.hh"
 #include "Layer.hh"
+#include "IObserver.hh"
 #include <vector>
 #include <iostream>
 #include <map>
@@ -29,7 +30,7 @@ public:
   /**
      Iterates the system for a given number of steps.
    */
-  void iterate(int steps);
+  void iterate(int steps, IObserver *observer = NULL);
 
   //Save and load
   void save(std::string filename = "");

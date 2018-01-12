@@ -70,12 +70,13 @@ void MultilayerNetwork::step(void)
   }
 }
 
-void MultilayerNetwork::iterate(int steps)
+void MultilayerNetwork::iterate(int steps, IObserver *observer)
 {
   for(t=0; t<steps; ++t)
   {
     std::cout<<"t="<<t<<std::endl;
     step();
+    if(observer != NULL){observer->atStep();}
 
     if((t % (bufferSize-2)) == (bufferSize-2-1))
     {
@@ -86,6 +87,7 @@ void MultilayerNetwork::iterate(int steps)
   }
   save();
   saveState();
+  if(observer != NULL){observer->atFinish();}
 }
 
 void MultilayerNetwork::save(std::string filename)

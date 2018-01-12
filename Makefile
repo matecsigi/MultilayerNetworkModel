@@ -1454,6 +1454,33 @@ sources/projects/HebbianProject/src/HebbianFitnessFunction.cc.s:
 	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/projects/HebbianProject/src/HebbianFitnessFunction.cc.s
 .PHONY : sources/projects/HebbianProject/src/HebbianFitnessFunction.cc.s
 
+sources/projects/HebbianProject/src/HebbianObserver.o: sources/projects/HebbianProject/src/HebbianObserver.cc.o
+
+.PHONY : sources/projects/HebbianProject/src/HebbianObserver.o
+
+# target to build an object file
+sources/projects/HebbianProject/src/HebbianObserver.cc.o:
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/projects/HebbianProject/src/HebbianObserver.cc.o
+.PHONY : sources/projects/HebbianProject/src/HebbianObserver.cc.o
+
+sources/projects/HebbianProject/src/HebbianObserver.i: sources/projects/HebbianProject/src/HebbianObserver.cc.i
+
+.PHONY : sources/projects/HebbianProject/src/HebbianObserver.i
+
+# target to preprocess a source file
+sources/projects/HebbianProject/src/HebbianObserver.cc.i:
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/projects/HebbianProject/src/HebbianObserver.cc.i
+.PHONY : sources/projects/HebbianProject/src/HebbianObserver.cc.i
+
+sources/projects/HebbianProject/src/HebbianObserver.s: sources/projects/HebbianProject/src/HebbianObserver.cc.s
+
+.PHONY : sources/projects/HebbianProject/src/HebbianObserver.s
+
+# target to generate assembly for a file
+sources/projects/HebbianProject/src/HebbianObserver.cc.s:
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/projects/HebbianProject/src/HebbianObserver.cc.s
+.PHONY : sources/projects/HebbianProject/src/HebbianObserver.cc.s
+
 sources/runners/GenerateMain.o: sources/runners/GenerateMain.cc.o
 
 .PHONY : sources/runners/GenerateMain.o
@@ -1645,6 +1672,9 @@ help:
 	@echo "... sources/projects/HebbianProject/src/HebbianFitnessFunction.o"
 	@echo "... sources/projects/HebbianProject/src/HebbianFitnessFunction.i"
 	@echo "... sources/projects/HebbianProject/src/HebbianFitnessFunction.s"
+	@echo "... sources/projects/HebbianProject/src/HebbianObserver.o"
+	@echo "... sources/projects/HebbianProject/src/HebbianObserver.i"
+	@echo "... sources/projects/HebbianProject/src/HebbianObserver.s"
 	@echo "... sources/runners/GenerateMain.o"
 	@echo "... sources/runners/GenerateMain.i"
 	@echo "... sources/runners/GenerateMain.s"
