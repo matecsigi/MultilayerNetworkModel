@@ -97,6 +97,8 @@ public:
   int numberOfType(CalculationNode* calcNode, CalcNodeTypes type);
   CalculationNode* getParent(CalculationNode* calcNode, CalculationNode* childCalcNode);
   void getNodeOccurrences(CalculationNode* calcNode, std::vector<CalculationNode*> &locations, int nodeId);
+  double getNodeMultiplier(CalculationNode* calcNode, int nodeId);
+  void setNodeMultiplier(CalculationNode* calcNode, int nodeId, double value);
 
 private:
   std::vector<double> mModificationTypeProbabilities;

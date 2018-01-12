@@ -9,6 +9,7 @@ public:
   IObserver(MultilayerNetwork *multilayerNetwork){mMultilayerNetwork = multilayerNetwork;};
   virtual ~IObserver(void){};
 
+  virtual void atStart() = 0;
   virtual void atStep() = 0;
   virtual void atFinish() = 0;
 protected:

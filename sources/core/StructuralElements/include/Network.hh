@@ -18,6 +18,12 @@ public:
   void removeEdge(int nodeId1, int nodeId2);
   void removeAllEdges();
 
+  double getEdgeWeight(int sourceId, int targetId);
+  /**
+     Sets the weight of the edge but only if the edge exists.
+   */
+  void setEdgeWeight(int sourceId, int targetId, double weight);
+
   void assignToNode(Node *node);
   void setDynamicalEquation(int nodeId, DynamicalEquation* nodeEquation);
   void setDynamicalEquationString(int nodeId, std::string strEquation);

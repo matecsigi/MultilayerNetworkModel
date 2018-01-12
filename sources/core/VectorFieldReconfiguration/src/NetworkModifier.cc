@@ -732,3 +732,36 @@ void NetworkModifier::getNodeOccurrences(CalculationNode* calcNode, std::vector<
 
   return;        
 }
+
+double NetworkModifier::getNodeMultiplier(CalculationNode* calcNode, int nodeId)
+{
+  std::vector<CalculationNode*> nodeOccurrences;
+  getNodeOccurrences(calcNode, nodeOccurrences, nodeId);
+  CalculationNode* child = nodeOccurrences[0];
+  CalculationNode* parent = getParent(calcNode, child);
+  if((parent->left == child) && (parent->right->getType() == CONSTANT))
+  {
+    return parent->right->getValue();
+  }
+  else if((parent->right == child) && (parent->left->getType() == CONSTANT))
+  {
+    return parent->left->getValue();
+  }
+  return 0;
+}
+
+void NetworkModifier::setNodeMultiplier(CalculationNode* calcNode, int nodeId, double value)
+{
+  std::vector<CalculationNode*> nodeOccurrences;
+  getNodeOccurrences(calcNode, nodeOccurrences, nodeId);
+  CalculationNode* child = nodeOccurrences[0];
+  CalculationNode* parent = getParent(calcNode, child);
+  if((parent->left == child) && (parent->right->getType() == CONSTANT))
+  {
+    parent->right->setValue(value);
+  }
+  else if((parent->right == child) && (parent->left->getType() == CONSTANT))
+  {
+    parent->left->setValue(value);
+  }
+}

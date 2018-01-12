@@ -19,6 +19,9 @@ public:
   DynamicalEquation();
   ~DynamicalEquation();
 
+  double getEdgeWeight(int nodeId);
+  void setEdgeWeight(int nodeId, double weight);
+  
   double evaluate();
   double evaluateAtState(std::vector<IdValuePair> &startingState);
   void ODEcalculator(const state_type &x, state_type &dxdt, double t);

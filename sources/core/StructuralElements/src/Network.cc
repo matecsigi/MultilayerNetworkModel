@@ -74,6 +74,19 @@ void Network::removeAllEdges()
   }
 }
 
+double Network::getEdgeWeight(int sourceId, int targetId)
+{
+  DynamicalEquation* dynamicalEquation = getNodeDynamicalEquation(targetId);
+  double weight = dynamicalEquation->getEdgeWeight(sourceId);
+  return weight;
+}
+
+void Network::setEdgeWeight(int sourceId, int targetId, double weight)
+{
+  DynamicalEquation* dynamicalEquation = getNodeDynamicalEquation(targetId);
+  dynamicalEquation->setEdgeWeight(sourceId, weight);
+}
+
 void Network::assignToNode(Node* node)
 {
   mNodeAssigned = node;

@@ -1,4 +1,5 @@
 #include "DynamicalEquation.hh"
+#include "NetworkModifier.hh"
 #include "interpreter.h"
 #include "scanner.h"
 #include "parser.hpp"
@@ -13,6 +14,19 @@ DynamicalEquation::DynamicalEquation()
 DynamicalEquation::~DynamicalEquation()
 {
   delete mBaseCalculationNode;
+}
+
+double DynamicalEquation::getEdgeWeight(int nodeId)
+{
+  NetworkModifier networkModifier;
+  double edgeWeight = networkModifier.getNodeMultiplier(mBaseCalculationNode, nodeId);
+  return edgeWeight;
+}
+
+void DynamicalEquation::setEdgeWeight(int nodeId, double weight)
+{
+  NetworkModifier networkModifier;
+  networkModifier.setNodeMultiplier(mBaseCalculationNode, nodeId, weight);  
 }
 
 double DynamicalEquation::evaluate()

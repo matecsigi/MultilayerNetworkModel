@@ -72,6 +72,7 @@ void MultilayerNetwork::step(void)
 
 void MultilayerNetwork::iterate(int steps, IObserver *observer)
 {
+  if(observer != NULL){observer->atStart();}
   for(t=0; t<steps; ++t)
   {
     std::cout<<"t="<<t<<std::endl;
