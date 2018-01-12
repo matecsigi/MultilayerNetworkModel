@@ -19,6 +19,7 @@ public:
 private:
   std::vector<Network*> mLowerNetworks;
   std::vector<Network*> mHebbianNetworks;
+  std::vector<double> mDistances;
 
   void evaluateHebbianLearning(Network* referenceNetwork, Network* network);
 };

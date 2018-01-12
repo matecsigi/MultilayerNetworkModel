@@ -72,11 +72,14 @@ void MultilayerNetwork::step(void)
 
 void MultilayerNetwork::iterate(int steps, IObserver *observer)
 {
+  updateNodesMap();
+
   if(observer != NULL){observer->atStart();}
   for(t=0; t<steps; ++t)
   {
     std::cout<<"t="<<t<<std::endl;
     step();
+
     if(observer != NULL){observer->atStep();}
 
     if((t % (bufferSize-2)) == (bufferSize-2-1))

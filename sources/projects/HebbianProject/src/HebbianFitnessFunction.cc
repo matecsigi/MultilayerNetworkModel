@@ -12,7 +12,7 @@
 double hebbianFitnessFunction(NetworkPopulationElement* networkPopulationElement)
 {
   int transientTime = 10;
-  int runTime = 10;
+  int runTime = 4;
 
   std::cout<<"Hebbian fitness"<<std::endl;
 
@@ -21,7 +21,7 @@ double hebbianFitnessFunction(NetworkPopulationElement* networkPopulationElement
   generateMultilayerNetworkForHebbianFitness(multilayerNetwork, network);
 
   IObserver *observer = new HebbianObserver(multilayerNetwork);
-  multilayerNetwork->iterate(transientTime);
+  // multilayerNetwork->iterate(transientTime);
   multilayerNetwork->iterate(runTime, observer);
 
   delete multilayerNetwork;

@@ -737,6 +737,7 @@ double NetworkModifier::getNodeMultiplier(CalculationNode* calcNode, int nodeId)
 {
   std::vector<CalculationNode*> nodeOccurrences;
   getNodeOccurrences(calcNode, nodeOccurrences, nodeId);
+  if(nodeOccurrences.size() == 0){return 0;}
   CalculationNode* child = nodeOccurrences[0];
   CalculationNode* parent = getParent(calcNode, child);
   if((parent->left == child) && (parent->right->getType() == CONSTANT))
@@ -754,6 +755,7 @@ void NetworkModifier::setNodeMultiplier(CalculationNode* calcNode, int nodeId, d
 {
   std::vector<CalculationNode*> nodeOccurrences;
   getNodeOccurrences(calcNode, nodeOccurrences, nodeId);
+  if(nodeOccurrences.size() == 0){return;}
   CalculationNode* child = nodeOccurrences[0];
   CalculationNode* parent = getParent(calcNode, child);
   if((parent->left == child) && (parent->right->getType() == CONSTANT))
