@@ -21,20 +21,7 @@ int main(void)
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
   multilayerNetwork->load(filename);
   multilayerNetwork->loadState(filenameInitialCond.c_str());
-
-  for(t=0; t<simulationTime; ++t)
-  {
-    std::cout<<"t="<<t<<std::endl;
-    multilayerNetwork->step();
-
-    if((t % (bufferSize-2)) == (bufferSize-2-1))
-    {
-      std::cout<<"Changing t="<<t<<std::endl;
-      multilayerNetwork->save();
-      multilayerNetwork->saveState();
-      multilayerNetwork->shiftBuffers();
-    }
-  }
+  multilayerNetwork->iterate(simulationTime);
 
   // std::cout<<*multilayerNetwork<<std::endl;
 

@@ -70,6 +70,24 @@ void MultilayerNetwork::step(void)
   }
 }
 
+void MultilayerNetwork::iterate(int steps)
+{
+  for(t=0; t<steps; ++t)
+  {
+    std::cout<<"t="<<t<<std::endl;
+    step();
+
+    if((t % (bufferSize-2)) == (bufferSize-2-1))
+    {
+      save();
+      saveState();
+      shiftBuffers();
+    }
+  }
+  save();
+  saveState();
+}
+
 void MultilayerNetwork::save(std::string filename)
 {
   if(filename.empty())

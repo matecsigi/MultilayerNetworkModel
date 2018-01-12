@@ -10,19 +10,17 @@
 
 double hebbianFitnessFunction(NetworkPopulationElement* networkPopulationElement)
 {
+  int transientTime = 10;
+  int runTime = 10;
+
   std::cout<<"Hebbian fitness"<<std::endl;
 
   Network* network = networkPopulationElement->getNetwork();
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
   generateMultilayerNetworkForHebbianFitness(multilayerNetwork, network);
 
-  //ODE step higher
-  //ODE step lower
-  //lower vector reconfig, edge weight only
-
-  //calculate hebbian for lower -> hebbianNetwork
-  
-  //distance between lower and hebbianNetwork
+  multilayerNetwork->iterate(transientTime);
+  multilayerNetwork->iterate(runTime);
 
   delete multilayerNetwork;
 

@@ -26,6 +26,11 @@ public:
    */
   void step(void);
 
+  /**
+     Iterates the system for a given number of steps.
+   */
+  void iterate(int steps);
+
   //Save and load
   void save(std::string filename = "");
   void load(const char* filename);
