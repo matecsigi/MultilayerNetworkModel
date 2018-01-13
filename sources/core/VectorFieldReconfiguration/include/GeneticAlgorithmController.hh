@@ -3,6 +3,7 @@
 
 #include "NetworkModifier.hh"
 #include "NetworkPopulationElement.hh"
+#include "IGeneticObserver.hh"
 #include <functional>
 
 class GeneticAlgorithmController
@@ -11,7 +12,7 @@ public:
   GeneticAlgorithmController(std::vector<double> &modificationTypeProbabilities = vectorReconfModTypeProbabilities, double (*fitnessFunction)(NetworkPopulationElement*) = NULL, std::function<void (Network*)> createInitialNetwork = nullptr);
   ~GeneticAlgorithmController();
 
-  void runGeneticAlgorithm(Network* network = NULL);
+  void runGeneticAlgorithm(Network* network = NULL, IGeneticObserver *observer = NULL);
 
   void fitToVectorField(Network* network, VectorField* targetVectorField);
 

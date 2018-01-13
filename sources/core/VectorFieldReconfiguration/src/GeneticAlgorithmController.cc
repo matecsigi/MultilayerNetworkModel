@@ -40,8 +40,9 @@ void GeneticAlgorithmController::fitToVectorField(Network* network, VectorField*
   runGeneticAlgorithm(network);
 }
 
-void GeneticAlgorithmController::runGeneticAlgorithm(Network* network)
+void GeneticAlgorithmController::runGeneticAlgorithm(Network* network, IGeneticObserver *observer)
 {
+  if(observer != NULL){observer->atStart();}
   createInitialPopulation();
   for(mGeneration=1; mGeneration<numberOfGenerations+1; ++mGeneration)
   {
@@ -50,12 +51,14 @@ void GeneticAlgorithmController::runGeneticAlgorithm(Network* network)
     crossover();
     death();
     chooseBestNetwork();
+    if(observer != NULL){observer->atStep();}
     // std::cout<<"  -avg="<<calculateAverageFitness()<<std::endl;
   }
 
   Network* bestNetwork = chooseBestNetwork();
   NetworkModifier networkModifier(mModificationTypeProbabilities);
   networkModifier.copyNetwork(bestNetwork, network);
+  if(observer != NULL){observer->atFinish();}
 }
 
 void GeneticAlgorithmController::mutation()
