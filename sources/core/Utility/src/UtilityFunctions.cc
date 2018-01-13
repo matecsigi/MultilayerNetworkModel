@@ -1,5 +1,6 @@
 #include "UtilityFunctions.hh"
 #include "GlobalVariables.hh"
+#include "Node.hh"
 #include <fstream>
 #include <rapidjson/document.h>
 #include <rapidjson/writer.h>
@@ -79,4 +80,48 @@ void loadNetworkFromJSON(Network* network, std::string filename, int& nodeIdCoun
     network->addEdge(nodeIdMap[sourceId], nodeIdMap[targetId]);
     network->addEdge(nodeIdMap[targetId], nodeIdMap[sourceId]);
   }
+}
+
+
+void saveNetworkToJSON(Network* network, std::string filename)
+{
+  Document document;
+  Document::AllocatorType& allocator = document.GetAllocator();
+  document.SetObject();
+
+  Value nodesArray(kArrayType);
+  std::vector<Node*> nodes = network->getNodes();
+  for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
+  {
+    Value nodeObject(kObjectType);
+    nodeObject.AddMember("id", (*itNode)->getId(), allocator);
+
+    Value textEq;
+    std::string strEq = network->getNodeDynamicalEquationString((*itNode)->getId());
+
+    textEq.SetString(strEq.c_str(), allocator);
+    nodeObject.AddMember("DynamicalEquation", textEq, allocator);
+
+    Value neighborArray(kArrayType);
+    std::vector<Node*> neighbors = network->getNodeNeighbors((*itNode)->getId());
+    for(std::vector<Node*>::iterator itNei=neighbors.begin(); itNei != neighbors.end(); ++itNei)
+    {
+      Value neighborObject(kObjectType);
+      neighborObject.AddMember("id", (*itNei)->getId(), allocator);
+      neighborArray.PushBack(neighborObject, allocator);
+    }
+    nodeObject.AddMember("Neighbors", neighborArray, allocator);
+    nodesArray.PushBack(nodeObject, allocator);
+  }
+  Value nodesTmp(kObjectType);
+  nodesTmp.AddMember("Nodes", nodesArray, allocator);
+  document.AddMember("Network", nodesTmp, allocator);
+
+  StringBuffer buffer;
+  PrettyWriter<StringBuffer> writer(buffer);
+  document.Accept(writer);
+
+  std::ofstream file(filename.c_str());
+  file<<buffer.GetString();
+  file.close();
 }

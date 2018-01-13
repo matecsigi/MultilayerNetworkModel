@@ -13,7 +13,7 @@ HebbianObserver::~HebbianObserver()
 
 void HebbianObserver::atStart()
 {
-  std::cout<<"--atStart--"<<std::endl;
+  // std::cout<<"--atStart--"<<std::endl;
   std::vector<Layer*> layers = mMultilayerNetwork->getLayers();
   std::vector<Network*> lowerNetworks = layers[1]->getNetworks();
   for(std::vector<Network*>::iterator itNet=lowerNetworks.begin(); itNet != lowerNetworks.end(); ++itNet)
@@ -28,7 +28,7 @@ void HebbianObserver::atStart()
 
 void HebbianObserver::atStep()
 {
-  std::cout<<"--atStep--"<<std::endl;
+  // std::cout<<"--atStep--"<<std::endl;
   for(unsigned i=0; i<mLowerNetworks.size(); ++i)
   {
     evaluateHebbianLearning(mLowerNetworks[i], mHebbianNetworks[i]);
@@ -39,7 +39,7 @@ void HebbianObserver::atStep()
 
 void HebbianObserver::atFinish()
 {
-  std::cout<<"--atFinish--"<<std::endl;
+  // std::cout<<"--atFinish--"<<std::endl;
   for(unsigned i=0; i<mLowerNetworks.size(); ++i)
   {
     Network* realNetwork = mLowerNetworks[i];
@@ -64,10 +64,19 @@ void HebbianObserver::atFinish()
   std::cout<<"DISTANCE="<<sumDistances/(double)mDistances.size()<<std::endl;
 }
 
+double HebbianObserver::getResult()
+{
+  double sumDistances = 0;
+  for(std::vector<double>::iterator itDis=mDistances.begin(); itDis != mDistances.end(); ++itDis)
+  {
+    sumDistances += *itDis;
+  }
+  return sumDistances/(double)mDistances.size();  
+}
+
 void HebbianObserver::evaluateHebbianLearning(Network* referenceNetwork, Network* network)
 {
   double alpha = 0.1;
-  std::cout<<"evaluateHebbianLearning"<<std::endl;
   std::vector<Node*> nodes = referenceNetwork->getNodes();
   for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
   {

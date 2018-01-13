@@ -55,9 +55,13 @@ void GeneticAlgorithmController::runGeneticAlgorithm(Network* network, IGeneticO
     // std::cout<<"  -avg="<<calculateAverageFitness()<<std::endl;
   }
 
-  Network* bestNetwork = chooseBestNetwork();
-  NetworkModifier networkModifier(mModificationTypeProbabilities);
-  networkModifier.copyNetwork(bestNetwork, network);
+  if(network != NULL)
+  {
+    NetworkPopulationElement* bestNetwork = chooseBestNetwork();
+    NetworkModifier networkModifier(mModificationTypeProbabilities);
+    networkModifier.copyNetwork(bestNetwork->getNetwork(), network);
+  }
+
   if(observer != NULL){observer->atFinish();}
 }
 
@@ -270,7 +274,7 @@ void GeneticAlgorithmController::createMixedNetwork(Network* parentNetwork1, Net
   free(rand_statebufs);
 }
 
-Network* GeneticAlgorithmController::chooseBestNetwork()
+NetworkPopulationElement* GeneticAlgorithmController::chooseBestNetwork()
 {
   NetworkPopulationElement* bestPopulationElement = mPopulation[0];
   for(std::vector<NetworkPopulationElement*>::iterator itNet=mPopulation.begin(); itNet != mPopulation.end(); ++itNet)
@@ -282,7 +286,7 @@ Network* GeneticAlgorithmController::chooseBestNetwork()
     }
   }
   // std::cout<<"  -best="<<bestPopulationElement->getFitness()<<std::endl;
-  return bestPopulationElement->getNetwork();
+  return bestPopulationElement;
 }
 
 double GeneticAlgorithmController::calculateAverageFitness()
@@ -349,4 +353,9 @@ void GeneticAlgorithmController::quickSortTwoVectors(std::vector<double> &fitnes
   {
     quickSortTwoVectors(fitnessVector, i, right);
   }
+}
+
+int GeneticAlgorithmController::getGeneration()
+{
+  return mGeneration;
 }

@@ -21,10 +21,12 @@ double hebbianFitnessFunction(NetworkPopulationElement* networkPopulationElement
 
   IObserver *observer = new HebbianObserver(multilayerNetwork);
   multilayerNetwork->iterate(runTime, observer, hebbianModTypeProbabilities);
+  double distance = observer->getResult();
+  double fitness = (double)100/distance;
 
   delete multilayerNetwork;
 
-  return 1;
+  return fitness;
 }
 
 void generateMultilayerNetworkForHebbianFitness(MultilayerNetwork* multilayerNetwork, Network* network)

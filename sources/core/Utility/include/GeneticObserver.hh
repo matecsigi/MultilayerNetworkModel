@@ -9,9 +9,9 @@ public:
   GeneticObserver(GeneticAlgorithmController *geneticAlgorithmController):IGeneticObserver(geneticAlgorithmController){mGeneticAlgorithmController = geneticAlgorithmController;}
   ~GeneticObserver(void);
   
-  virtual void atStart();
-  virtual void atStep();
-  virtual void atFinish();
+  void atStart();
+  void atStep();
+  void atFinish();
 };
 
 #endif

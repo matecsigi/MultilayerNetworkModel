@@ -15,6 +15,7 @@ public:
   void atStart();
   void atStep();
   void atFinish();
+  double getResult();
 
 private:
   std::vector<Network*> mLowerNetworks;
