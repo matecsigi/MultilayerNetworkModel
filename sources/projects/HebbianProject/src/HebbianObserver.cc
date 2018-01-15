@@ -1,6 +1,6 @@
 #include "HebbianObserver.hh"
-#include "NetworkModifier.hh"
 #include "VectorFieldSchemes.hh"
+#include "NetworkUtilityFunctions.hh"
 #include <iostream>
 
 HebbianObserver::~HebbianObserver()
@@ -20,8 +20,7 @@ void HebbianObserver::atStart()
   {
     mLowerNetworks.push_back((*itNet));
     Network* newHebbianNetwork = new Network;
-    NetworkModifier networkModifier;
-    networkModifier.copyNetwork((*itNet), newHebbianNetwork);
+    copyNetwork((*itNet), newHebbianNetwork);
     mHebbianNetworks.push_back(newHebbianNetwork);
   }
 }

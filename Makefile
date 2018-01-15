@@ -608,6 +608,48 @@ sources/core/Utility/src/GlobalVariables.cc.s:
 	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/Utility/src/GlobalVariables.cc.s
 .PHONY : sources/core/Utility/src/GlobalVariables.cc.s
 
+sources/core/Utility/src/NetworkUtilityFunctions.o: sources/core/Utility/src/NetworkUtilityFunctions.cc.o
+
+.PHONY : sources/core/Utility/src/NetworkUtilityFunctions.o
+
+# target to build an object file
+sources/core/Utility/src/NetworkUtilityFunctions.cc.o:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/core/Utility/src/NetworkUtilityFunctions.cc.o
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/core/Utility/src/NetworkUtilityFunctions.cc.o
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/Utility/src/NetworkUtilityFunctions.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/Utility/src/NetworkUtilityFunctions.cc.o
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/core/Utility/src/NetworkUtilityFunctions.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/Utility/src/NetworkUtilityFunctions.cc.o
+.PHONY : sources/core/Utility/src/NetworkUtilityFunctions.cc.o
+
+sources/core/Utility/src/NetworkUtilityFunctions.i: sources/core/Utility/src/NetworkUtilityFunctions.cc.i
+
+.PHONY : sources/core/Utility/src/NetworkUtilityFunctions.i
+
+# target to preprocess a source file
+sources/core/Utility/src/NetworkUtilityFunctions.cc.i:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/core/Utility/src/NetworkUtilityFunctions.cc.i
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/core/Utility/src/NetworkUtilityFunctions.cc.i
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/Utility/src/NetworkUtilityFunctions.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/Utility/src/NetworkUtilityFunctions.cc.i
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/core/Utility/src/NetworkUtilityFunctions.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/Utility/src/NetworkUtilityFunctions.cc.i
+.PHONY : sources/core/Utility/src/NetworkUtilityFunctions.cc.i
+
+sources/core/Utility/src/NetworkUtilityFunctions.s: sources/core/Utility/src/NetworkUtilityFunctions.cc.s
+
+.PHONY : sources/core/Utility/src/NetworkUtilityFunctions.s
+
+# target to generate assembly for a file
+sources/core/Utility/src/NetworkUtilityFunctions.cc.s:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/core/Utility/src/NetworkUtilityFunctions.cc.s
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/core/Utility/src/NetworkUtilityFunctions.cc.s
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/Utility/src/NetworkUtilityFunctions.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/Utility/src/NetworkUtilityFunctions.cc.s
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/core/Utility/src/NetworkUtilityFunctions.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/Utility/src/NetworkUtilityFunctions.cc.s
+.PHONY : sources/core/Utility/src/NetworkUtilityFunctions.cc.s
+
 sources/core/Utility/src/UtilityFunctions.o: sources/core/Utility/src/UtilityFunctions.cc.o
 
 .PHONY : sources/core/Utility/src/UtilityFunctions.o
@@ -943,6 +985,48 @@ sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.cc.s:
 	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.cc.s
 	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.cc.s
 .PHONY : sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.cc.s
+
+sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.o: sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.o
+
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.o
+
+# target to build an object file
+sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.o:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.o
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.o
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.o
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.o
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.o
+
+sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.i: sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.i
+
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.i
+
+# target to preprocess a source file
+sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.i:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.i
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.i
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.i
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.i
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.i
+
+sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.s: sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.s
+
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.s
+
+# target to generate assembly for a file
+sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.s:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.s
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.s
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.s
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.s
+.PHONY : sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.s
 
 sources/generators/src/DynamicalEquationGeneratorSimpleImpl.o: sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
 
@@ -1648,6 +1732,9 @@ help:
 	@echo "... sources/core/Utility/src/GlobalVariables.o"
 	@echo "... sources/core/Utility/src/GlobalVariables.i"
 	@echo "... sources/core/Utility/src/GlobalVariables.s"
+	@echo "... sources/core/Utility/src/NetworkUtilityFunctions.o"
+	@echo "... sources/core/Utility/src/NetworkUtilityFunctions.i"
+	@echo "... sources/core/Utility/src/NetworkUtilityFunctions.s"
 	@echo "... sources/core/Utility/src/UtilityFunctions.o"
 	@echo "... sources/core/Utility/src/UtilityFunctions.i"
 	@echo "... sources/core/Utility/src/UtilityFunctions.s"
@@ -1672,6 +1759,9 @@ help:
 	@echo "... sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.o"
 	@echo "... sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.i"
 	@echo "... sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.s"
+	@echo "... sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.o"
+	@echo "... sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.i"
+	@echo "... sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.s"
 	@echo "... sources/generators/src/DynamicalEquationGeneratorSimpleImpl.o"
 	@echo "... sources/generators/src/DynamicalEquationGeneratorSimpleImpl.i"
 	@echo "... sources/generators/src/DynamicalEquationGeneratorSimpleImpl.s"

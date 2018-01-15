@@ -14,4 +14,6 @@ void setValueForId(std::vector<IdValuePair> &pairVector, int id, double value);
 void loadNetworkFromJSON(Network* network, std::string filename, int& nodeIdCounter);
 void saveNetworkToJSON(Network* network, std::string filename);
 
+void printDirection(std::vector<IdValuePair> direction);
+
 #endif

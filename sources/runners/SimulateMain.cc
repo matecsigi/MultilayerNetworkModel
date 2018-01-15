@@ -23,7 +23,7 @@ int main(void)
   multilayerNetwork->loadState(filenameInitialCond.c_str());
   multilayerNetwork->iterate(simulationTime);
 
-  // std::cout<<*multilayerNetwork<<std::endl;
+  std::cout<<*multilayerNetwork<<std::endl;
 
   delete multilayerNetwork;
 

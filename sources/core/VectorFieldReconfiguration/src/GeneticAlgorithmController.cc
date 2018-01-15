@@ -1,4 +1,5 @@
 #include "GeneticAlgorithmController.hh"
+#include "NetworkUtilityFunctions.hh"
 #include <algorithm>
 #include <stdlib.h>
 #include <ctime>
@@ -9,7 +10,7 @@ using namespace std::placeholders;
 void createInitialNetworkByModification(Network* network, Network* referenceNetwork, GeneticAlgorithmController *geneticController)
 {
   NetworkModifier networkModifier(geneticController->mModificationTypeProbabilities);
-  networkModifier.copyNetwork(referenceNetwork, network);
+  copyNetwork(referenceNetwork, network);
   networkModifier.modifyNetwork(network, 25);  
 }
 
@@ -58,8 +59,7 @@ void GeneticAlgorithmController::runGeneticAlgorithm(Network* network, IGeneticO
   if(network != NULL)
   {
     NetworkPopulationElement* bestNetwork = chooseBestNetwork();
-    NetworkModifier networkModifier(mModificationTypeProbabilities);
-    networkModifier.copyNetwork(bestNetwork->getNetwork(), network);
+    copyNetwork(bestNetwork->getNetwork(), network);
   }
 
   if(observer != NULL){observer->atFinish();}

@@ -12,10 +12,6 @@ public:
   ~VectorFieldReconfigurationImpl(void){};
 
   void calculateVectorFieldReconfiguration(std::vector<double> &modificationTypeProbabilities = vectorReconfModTypeProbabilities);
-  void calculateTargetVectorField(VectorField* targetVectorField, VectorField* currentVectorField, std::vector<IdValuePair> directionInLowerNetwork, std::vector<IdValuePair> directionInHigherNetworks);
-
-  std::vector<IdValuePair> calculateLowerNetworkDirection();
-  std::vector<IdValuePair> calculateHigherNetworksDirection();
 };
 
 #endif

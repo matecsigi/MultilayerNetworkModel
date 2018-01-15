@@ -1,6 +1,6 @@
 #include "GlobalVariables.hh"
 
-int numberOfCores = 5;
+int numberOfCores = 1;
 
 int bufferSize = 10;
 int initialConditionsSize = 2;

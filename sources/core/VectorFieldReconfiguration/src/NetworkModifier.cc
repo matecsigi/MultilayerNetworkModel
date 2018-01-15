@@ -51,51 +51,6 @@ void NetworkModifier::modifyNetwork(Network* network, int numberOfChanges)
   }
 }
 
-void NetworkModifier::copyNetwork(Network* oldNetwork, Network* newNetwork)
-{
-  newNetwork->removeAllEdges();
-  
-  std::vector<Node*> nodes = oldNetwork->getNodes();
-  for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
-  {
-    Node* oldNode = (*itNode);
-    if(newNetwork->getNodeById(oldNode->getId()) == NULL)
-    {
-      newNetwork->addNode(oldNode->getId());      
-    }
-  }
-
-  double* tmpBuffer = new double[bufferSize];
-
-  for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
-  {
-    Node* oldNode = (*itNode);
-    std::vector<Node*> neighbors = oldNetwork->getNodeNeighbors(oldNode->getId());
-    for(std::vector<Node*>::iterator itNei=neighbors.begin(); itNei != neighbors.end(); ++itNei)
-    {
-      Node* oldNeighbor = (*itNei);
-      newNetwork->addEdge(oldNode->getId(), oldNeighbor->getId());
-    }
-    Node* newNode = newNetwork->getNodeById(oldNode->getId());
-    oldNode->getValues(tmpBuffer);
-    newNode->setValues(tmpBuffer);
-
-    std::string strEquation = oldNetwork->getNodeDynamicalEquationString(oldNode->getId());
-    newNetwork->setDynamicalEquationString(oldNode->getId(), strEquation);
-    DynamicalEquation* nodeEquation = newNetwork->getNodeDynamicalEquation(newNode->getId());
-    std::vector<Node*> nodes = newNetwork->getNodeNeighbors(newNode->getId());
-    nodes.push_back(newNode);
-    std::map<int, Node*> nodesMap;
-    for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
-    {
-      nodesMap[(*itNode)->getId()] = *itNode;
-    }
-    nodeEquation->loadNodesToEquation(nodeEquation->getBaseCalculationNode(), nodesMap);
-  }
-  delete [] tmpBuffer;
- 
-}
-
 Node* NetworkModifier::chooseNode(Network* network)
 {
   std::vector<Node*> nodes = network->getNodes();

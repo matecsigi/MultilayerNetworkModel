@@ -125,3 +125,13 @@ void saveNetworkToJSON(Network* network, std::string filename)
   file<<buffer.GetString();
   file.close();
 }
+
+void printDirection(std::vector<IdValuePair> direction)
+{
+  std::cout<<"DIRECTION"<<std::endl;
+  for(std::vector<IdValuePair>::iterator itDir=direction.begin(); itDir != direction.end(); ++itDir)
+  {
+    std::cout<<" "<<itDir->mId<<" -> "<<itDir->mValue<<std::endl;
+  }
+  std::cout<<"----------------"<<std::endl;
+}

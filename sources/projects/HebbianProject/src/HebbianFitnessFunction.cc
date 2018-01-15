@@ -4,7 +4,7 @@
 #include "NetworkDynamicsGenerators.hh"
 #include "Node.hh"
 #include "MultilayerNetwork.hh"
-#include "NetworkModifier.hh"
+#include "NetworkUtilityFunctions.hh"
 #include "HebbianObserver.hh"
 #include <iostream>
 #include <random>
@@ -38,8 +38,7 @@ void generateMultilayerNetworkForHebbianFitness(MultilayerNetwork* multilayerNet
   layers[0]->addNetwork(1);
   std::vector<Network*> networks = layers[0]->getNetworks();
   Network* higherNetwork = networks[0];
-  NetworkModifier networkModifier;
-  networkModifier.copyNetwork(network, higherNetwork);
+  copyNetwork(network, higherNetwork);
   randomNetworkInitialConditions(higherNetwork);
 
   int nodeIdCounter = 0;
