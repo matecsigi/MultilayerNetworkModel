@@ -11,9 +11,9 @@
 
 double hebbianFitnessFunction(NetworkPopulationElement* networkPopulationElement)
 {
-  int runTime = 4;
+  int runTime = 20;
 
-  std::cout<<"Hebbian fitness"<<std::endl;
+  std::cout<<"======Hebbian fitness======="<<std::endl;
 
   Network* network = networkPopulationElement->getNetwork();
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
@@ -25,6 +25,8 @@ double hebbianFitnessFunction(NetworkPopulationElement* networkPopulationElement
   double fitness = (double)100/distance;
 
   delete multilayerNetwork;
+
+  std::cout<<"============="<<std::endl;
 
   return fitness;
 }
@@ -49,7 +51,7 @@ void generateMultilayerNetworkForHebbianFitness(MultilayerNetwork* multilayerNet
     layers[1]->addNetwork((*itNode)->getId()+1);
     if((*itNode)->getId() > nodeIdCounter)
     {
-      nodeIdCounter = (*itNode)->getId();
+      nodeIdCounter = (*itNode)->getId()+1;
     }
   }
 

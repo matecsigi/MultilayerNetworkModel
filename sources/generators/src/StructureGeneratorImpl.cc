@@ -9,7 +9,6 @@ void StructureGeneratorImpl::generateStructure()
   generateNetworks();
   generateNodes();
   assignNetworksToNodes();
-  //cout<<*mMultilayerNetwork;
 }
 
 void StructureGeneratorImpl::generateLayers(void)

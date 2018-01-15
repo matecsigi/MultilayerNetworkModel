@@ -7,10 +7,10 @@ void linearNetworkDynamicsGenerator(Network* network)
   for(std::vector<Node*>::iterator itNode = nodes.begin(); itNode != nodes.end(); ++itNode)
   {
     Node* currentNode = (*itNode);
-    std::string myString = "-1";
-    // myString.append("+");
-    // myString.append("1*ID");
-    // myString.append((std::to_string(currentNode->getId())));
+    std::string myString;
+    myString.append("-");
+    myString.append("1*ID");
+    myString.append((std::to_string(currentNode->getId())));
     
     std::vector<Node*> neighbors = network->getNodeNeighbors((*itNode)->getId());
     for(std::vector<Node*>::iterator itNei=neighbors.begin(); itNei != neighbors.end(); ++itNei)

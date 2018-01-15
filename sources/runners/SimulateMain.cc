@@ -15,7 +15,7 @@ int main(void)
 
   int simulationTime = 15;
 
-  const char *filename="generated/multilayerStructure_0.json";
+  const char *filename="generated/multilayerStructureInit.json";
   std::string filenameInitialCond = "generated/InitialCondition-1.bin";
 
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;

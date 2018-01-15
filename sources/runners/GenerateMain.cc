@@ -14,7 +14,7 @@ int main(void)
 {
   std::cout<<"Start generation"<<std::endl;
 
-  const char *filename="generated/multilayerStructure_0.json";
+  const char *filename="generated/multilayerStructureInit.json";
   const char *filenameInitialCond="generated/InitialCondition-1.bin";
 
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;

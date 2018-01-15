@@ -82,7 +82,6 @@ void loadNetworkFromJSON(Network* network, std::string filename, int& nodeIdCoun
   }
 }
 
-
 void saveNetworkToJSON(Network* network, std::string filename)
 {
   Document document;

@@ -19,7 +19,7 @@ std::string pythonBarabasiGeneratorIndependent(int numberOfNodes)
   return filename;
 }
 
-void generateBarabasiNetwork(Network* network, int numberOfNodes, int nodeIdCounter)
+void generateBarabasiNetwork(Network* network, int numberOfNodes, int &nodeIdCounter)
 {
   std::string filename = pythonBarabasiGeneratorIndependent(numberOfNodes);
   loadNetworkFromJSON(network, filename, nodeIdCounter);

@@ -3,6 +3,6 @@
 
 #include "Network.hh"
 
-void generateBarabasiNetwork(Network* network, int numberOfNodes, int nodeIdCounter = 1);
+void generateBarabasiNetwork(Network* network, int numberOfNodes, int &nodeIdCounter);
 
 #endif

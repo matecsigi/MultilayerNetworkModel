@@ -80,6 +80,7 @@ void MultilayerNetwork::iterate(int steps, IObserver *observer, std::vector<doub
   {
     std::cout<<"t="<<t<<std::endl;
     step();
+    std::cout<<*this<<std::endl;
 
     if(observer != NULL){observer->atStep();}
 
