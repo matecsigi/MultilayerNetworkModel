@@ -1028,257 +1028,299 @@ sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.
 	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.s
 .PHONY : sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.s
 
-sources/generators/src/DynamicalEquationGeneratorSimpleImpl.o: sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
+sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.o: sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
 
-.PHONY : sources/generators/src/DynamicalEquationGeneratorSimpleImpl.o
-
-# target to build an object file
-sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o:
-	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
-	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
-	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
-.PHONY : sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
-
-sources/generators/src/DynamicalEquationGeneratorSimpleImpl.i: sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.i
-
-.PHONY : sources/generators/src/DynamicalEquationGeneratorSimpleImpl.i
-
-# target to preprocess a source file
-sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.i:
-	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.i
-	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.i
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.i
-	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.i
-.PHONY : sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.i
-
-sources/generators/src/DynamicalEquationGeneratorSimpleImpl.s: sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.s
-
-.PHONY : sources/generators/src/DynamicalEquationGeneratorSimpleImpl.s
-
-# target to generate assembly for a file
-sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.s:
-	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.s
-	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.s
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.s
-	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.s
-.PHONY : sources/generators/src/DynamicalEquationGeneratorSimpleImpl.cc.s
-
-sources/generators/src/GeneralNetworkGenerator.o: sources/generators/src/GeneralNetworkGenerator.cc.o
-
-.PHONY : sources/generators/src/GeneralNetworkGenerator.o
+.PHONY : sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.o
 
 # target to build an object file
-sources/generators/src/GeneralNetworkGenerator.cc.o:
-	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/src/GeneralNetworkGenerator.cc.o
-	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/src/GeneralNetworkGenerator.cc.o
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/src/GeneralNetworkGenerator.cc.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/src/GeneralNetworkGenerator.cc.o
-	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/src/GeneralNetworkGenerator.cc.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/src/GeneralNetworkGenerator.cc.o
-.PHONY : sources/generators/src/GeneralNetworkGenerator.cc.o
+sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc.o:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
+.PHONY : sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
 
-sources/generators/src/GeneralNetworkGenerator.i: sources/generators/src/GeneralNetworkGenerator.cc.i
+sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.i: sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc.i
 
-.PHONY : sources/generators/src/GeneralNetworkGenerator.i
+.PHONY : sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.i
 
 # target to preprocess a source file
-sources/generators/src/GeneralNetworkGenerator.cc.i:
-	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/src/GeneralNetworkGenerator.cc.i
-	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/src/GeneralNetworkGenerator.cc.i
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/src/GeneralNetworkGenerator.cc.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/src/GeneralNetworkGenerator.cc.i
-	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/src/GeneralNetworkGenerator.cc.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/src/GeneralNetworkGenerator.cc.i
-.PHONY : sources/generators/src/GeneralNetworkGenerator.cc.i
+sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc.i:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc.i
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc.i
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc.i
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc.i
+.PHONY : sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc.i
 
-sources/generators/src/GeneralNetworkGenerator.s: sources/generators/src/GeneralNetworkGenerator.cc.s
+sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.s: sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc.s
 
-.PHONY : sources/generators/src/GeneralNetworkGenerator.s
+.PHONY : sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.s
 
 # target to generate assembly for a file
-sources/generators/src/GeneralNetworkGenerator.cc.s:
-	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/src/GeneralNetworkGenerator.cc.s
-	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/src/GeneralNetworkGenerator.cc.s
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/src/GeneralNetworkGenerator.cc.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/src/GeneralNetworkGenerator.cc.s
-	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/src/GeneralNetworkGenerator.cc.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/src/GeneralNetworkGenerator.cc.s
-.PHONY : sources/generators/src/GeneralNetworkGenerator.cc.s
+sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc.s:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc.s
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc.s
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc.s
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc.s
+.PHONY : sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc.s
 
-sources/generators/src/InitialConditionGeneratorImpl.o: sources/generators/src/InitialConditionGeneratorImpl.cc.o
+sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.o: sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc.o
 
-.PHONY : sources/generators/src/InitialConditionGeneratorImpl.o
+.PHONY : sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.o
 
 # target to build an object file
-sources/generators/src/InitialConditionGeneratorImpl.cc.o:
-	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/src/InitialConditionGeneratorImpl.cc.o
-	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/src/InitialConditionGeneratorImpl.cc.o
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/src/InitialConditionGeneratorImpl.cc.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/src/InitialConditionGeneratorImpl.cc.o
-	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/src/InitialConditionGeneratorImpl.cc.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/src/InitialConditionGeneratorImpl.cc.o
-.PHONY : sources/generators/src/InitialConditionGeneratorImpl.cc.o
+sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc.o:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc.o
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc.o
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc.o
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc.o
+.PHONY : sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc.o
 
-sources/generators/src/InitialConditionGeneratorImpl.i: sources/generators/src/InitialConditionGeneratorImpl.cc.i
+sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.i: sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc.i
 
-.PHONY : sources/generators/src/InitialConditionGeneratorImpl.i
+.PHONY : sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.i
 
 # target to preprocess a source file
-sources/generators/src/InitialConditionGeneratorImpl.cc.i:
-	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/src/InitialConditionGeneratorImpl.cc.i
-	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/src/InitialConditionGeneratorImpl.cc.i
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/src/InitialConditionGeneratorImpl.cc.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/src/InitialConditionGeneratorImpl.cc.i
-	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/src/InitialConditionGeneratorImpl.cc.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/src/InitialConditionGeneratorImpl.cc.i
-.PHONY : sources/generators/src/InitialConditionGeneratorImpl.cc.i
+sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc.i:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc.i
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc.i
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc.i
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc.i
+.PHONY : sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc.i
 
-sources/generators/src/InitialConditionGeneratorImpl.s: sources/generators/src/InitialConditionGeneratorImpl.cc.s
+sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.s: sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc.s
 
-.PHONY : sources/generators/src/InitialConditionGeneratorImpl.s
+.PHONY : sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.s
 
 # target to generate assembly for a file
-sources/generators/src/InitialConditionGeneratorImpl.cc.s:
-	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/src/InitialConditionGeneratorImpl.cc.s
-	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/src/InitialConditionGeneratorImpl.cc.s
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/src/InitialConditionGeneratorImpl.cc.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/src/InitialConditionGeneratorImpl.cc.s
-	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/src/InitialConditionGeneratorImpl.cc.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/src/InitialConditionGeneratorImpl.cc.s
-.PHONY : sources/generators/src/InitialConditionGeneratorImpl.cc.s
+sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc.s:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc.s
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc.s
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc.s
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc.s
+.PHONY : sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc.s
 
-sources/generators/src/NetworkDynamicsGenerators.o: sources/generators/src/NetworkDynamicsGenerators.cc.o
+sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.o: sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc.o
 
-.PHONY : sources/generators/src/NetworkDynamicsGenerators.o
+.PHONY : sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.o
 
 # target to build an object file
-sources/generators/src/NetworkDynamicsGenerators.cc.o:
-	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/src/NetworkDynamicsGenerators.cc.o
-	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/src/NetworkDynamicsGenerators.cc.o
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/src/NetworkDynamicsGenerators.cc.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/src/NetworkDynamicsGenerators.cc.o
-	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/src/NetworkDynamicsGenerators.cc.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/src/NetworkDynamicsGenerators.cc.o
-.PHONY : sources/generators/src/NetworkDynamicsGenerators.cc.o
+sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc.o:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc.o
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc.o
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc.o
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc.o
+.PHONY : sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc.o
 
-sources/generators/src/NetworkDynamicsGenerators.i: sources/generators/src/NetworkDynamicsGenerators.cc.i
+sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.i: sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc.i
 
-.PHONY : sources/generators/src/NetworkDynamicsGenerators.i
+.PHONY : sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.i
 
 # target to preprocess a source file
-sources/generators/src/NetworkDynamicsGenerators.cc.i:
-	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/src/NetworkDynamicsGenerators.cc.i
-	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/src/NetworkDynamicsGenerators.cc.i
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/src/NetworkDynamicsGenerators.cc.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/src/NetworkDynamicsGenerators.cc.i
-	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/src/NetworkDynamicsGenerators.cc.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/src/NetworkDynamicsGenerators.cc.i
-.PHONY : sources/generators/src/NetworkDynamicsGenerators.cc.i
+sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc.i:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc.i
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc.i
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc.i
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc.i
+.PHONY : sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc.i
 
-sources/generators/src/NetworkDynamicsGenerators.s: sources/generators/src/NetworkDynamicsGenerators.cc.s
+sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.s: sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc.s
 
-.PHONY : sources/generators/src/NetworkDynamicsGenerators.s
+.PHONY : sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.s
 
 # target to generate assembly for a file
-sources/generators/src/NetworkDynamicsGenerators.cc.s:
-	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/src/NetworkDynamicsGenerators.cc.s
-	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/src/NetworkDynamicsGenerators.cc.s
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/src/NetworkDynamicsGenerators.cc.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/src/NetworkDynamicsGenerators.cc.s
-	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/src/NetworkDynamicsGenerators.cc.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/src/NetworkDynamicsGenerators.cc.s
-.PHONY : sources/generators/src/NetworkDynamicsGenerators.cc.s
+sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc.s:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc.s
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc.s
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc.s
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc.s
+.PHONY : sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc.s
 
-sources/generators/src/NetworkInitialConditionGenerators.o: sources/generators/src/NetworkInitialConditionGenerators.cc.o
+sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.o: sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc.o
 
-.PHONY : sources/generators/src/NetworkInitialConditionGenerators.o
+.PHONY : sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.o
 
 # target to build an object file
-sources/generators/src/NetworkInitialConditionGenerators.cc.o:
-	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/src/NetworkInitialConditionGenerators.cc.o
-	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/src/NetworkInitialConditionGenerators.cc.o
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/src/NetworkInitialConditionGenerators.cc.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/src/NetworkInitialConditionGenerators.cc.o
-	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/src/NetworkInitialConditionGenerators.cc.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/src/NetworkInitialConditionGenerators.cc.o
-.PHONY : sources/generators/src/NetworkInitialConditionGenerators.cc.o
+sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc.o:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc.o
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc.o
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc.o
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc.o
+.PHONY : sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc.o
 
-sources/generators/src/NetworkInitialConditionGenerators.i: sources/generators/src/NetworkInitialConditionGenerators.cc.i
+sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.i: sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc.i
 
-.PHONY : sources/generators/src/NetworkInitialConditionGenerators.i
+.PHONY : sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.i
 
 # target to preprocess a source file
-sources/generators/src/NetworkInitialConditionGenerators.cc.i:
-	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/src/NetworkInitialConditionGenerators.cc.i
-	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/src/NetworkInitialConditionGenerators.cc.i
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/src/NetworkInitialConditionGenerators.cc.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/src/NetworkInitialConditionGenerators.cc.i
-	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/src/NetworkInitialConditionGenerators.cc.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/src/NetworkInitialConditionGenerators.cc.i
-.PHONY : sources/generators/src/NetworkInitialConditionGenerators.cc.i
+sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc.i:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc.i
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc.i
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc.i
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc.i
+.PHONY : sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc.i
 
-sources/generators/src/NetworkInitialConditionGenerators.s: sources/generators/src/NetworkInitialConditionGenerators.cc.s
+sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.s: sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc.s
 
-.PHONY : sources/generators/src/NetworkInitialConditionGenerators.s
+.PHONY : sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.s
 
 # target to generate assembly for a file
-sources/generators/src/NetworkInitialConditionGenerators.cc.s:
-	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/src/NetworkInitialConditionGenerators.cc.s
-	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/src/NetworkInitialConditionGenerators.cc.s
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/src/NetworkInitialConditionGenerators.cc.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/src/NetworkInitialConditionGenerators.cc.s
-	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/src/NetworkInitialConditionGenerators.cc.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/src/NetworkInitialConditionGenerators.cc.s
-.PHONY : sources/generators/src/NetworkInitialConditionGenerators.cc.s
+sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc.s:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc.s
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc.s
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc.s
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc.s
+.PHONY : sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc.s
 
-sources/generators/src/StructureGeneratorImpl.o: sources/generators/src/StructureGeneratorImpl.cc.o
+sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.o: sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc.o
 
-.PHONY : sources/generators/src/StructureGeneratorImpl.o
+.PHONY : sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.o
 
 # target to build an object file
-sources/generators/src/StructureGeneratorImpl.cc.o:
-	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/src/StructureGeneratorImpl.cc.o
-	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/src/StructureGeneratorImpl.cc.o
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/src/StructureGeneratorImpl.cc.o
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/src/StructureGeneratorImpl.cc.o
-	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/src/StructureGeneratorImpl.cc.o
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/src/StructureGeneratorImpl.cc.o
-.PHONY : sources/generators/src/StructureGeneratorImpl.cc.o
+sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc.o:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc.o
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc.o
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc.o
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc.o
+.PHONY : sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc.o
 
-sources/generators/src/StructureGeneratorImpl.i: sources/generators/src/StructureGeneratorImpl.cc.i
+sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.i: sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc.i
 
-.PHONY : sources/generators/src/StructureGeneratorImpl.i
+.PHONY : sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.i
 
 # target to preprocess a source file
-sources/generators/src/StructureGeneratorImpl.cc.i:
-	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/src/StructureGeneratorImpl.cc.i
-	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/src/StructureGeneratorImpl.cc.i
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/src/StructureGeneratorImpl.cc.i
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/src/StructureGeneratorImpl.cc.i
-	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/src/StructureGeneratorImpl.cc.i
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/src/StructureGeneratorImpl.cc.i
-.PHONY : sources/generators/src/StructureGeneratorImpl.cc.i
+sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc.i:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc.i
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc.i
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc.i
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc.i
+.PHONY : sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc.i
 
-sources/generators/src/StructureGeneratorImpl.s: sources/generators/src/StructureGeneratorImpl.cc.s
+sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.s: sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc.s
 
-.PHONY : sources/generators/src/StructureGeneratorImpl.s
+.PHONY : sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.s
 
 # target to generate assembly for a file
-sources/generators/src/StructureGeneratorImpl.cc.s:
-	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/src/StructureGeneratorImpl.cc.s
-	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/src/StructureGeneratorImpl.cc.s
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/src/StructureGeneratorImpl.cc.s
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/src/StructureGeneratorImpl.cc.s
-	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/src/StructureGeneratorImpl.cc.s
-	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/src/StructureGeneratorImpl.cc.s
-.PHONY : sources/generators/src/StructureGeneratorImpl.cc.s
+sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc.s:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc.s
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc.s
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc.s
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc.s
+.PHONY : sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc.s
+
+sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.o: sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.cc.o
+
+.PHONY : sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.o
+
+# target to build an object file
+sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.cc.o:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.cc.o
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.cc.o
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.cc.o
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.cc.o
+.PHONY : sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.cc.o
+
+sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.i: sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.cc.i
+
+.PHONY : sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.i
+
+# target to preprocess a source file
+sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.cc.i:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.cc.i
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.cc.i
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.cc.i
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.cc.i
+.PHONY : sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.cc.i
+
+sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.s: sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.cc.s
+
+.PHONY : sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.s
+
+# target to generate assembly for a file
+sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.cc.s:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.cc.s
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.cc.s
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.cc.s
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.cc.s
+.PHONY : sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.cc.s
+
+sources/generators/StructureGenerators/src/StructureGeneratorImpl.o: sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc.o
+
+.PHONY : sources/generators/StructureGenerators/src/StructureGeneratorImpl.o
+
+# target to build an object file
+sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc.o:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc.o
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc.o
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc.o
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc.o
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc.o
+.PHONY : sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc.o
+
+sources/generators/StructureGenerators/src/StructureGeneratorImpl.i: sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc.i
+
+.PHONY : sources/generators/StructureGenerators/src/StructureGeneratorImpl.i
+
+# target to preprocess a source file
+sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc.i:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc.i
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc.i
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc.i
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc.i
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc.i
+.PHONY : sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc.i
+
+sources/generators/StructureGenerators/src/StructureGeneratorImpl.s: sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc.s
+
+.PHONY : sources/generators/StructureGenerators/src/StructureGeneratorImpl.s
+
+# target to generate assembly for a file
+sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc.s:
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc.s
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc.s
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc.s
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc.s
+	$(MAKE) -f CMakeFiles/test.dir/build.make CMakeFiles/test.dir/sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc.s
+.PHONY : sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc.s
 
 sources/parser/src/interpreter.o: sources/parser/src/interpreter.cpp.o
 
@@ -1460,39 +1502,6 @@ sources/projects/BarabasiMultilayer/SimulateBarabasiMain.cc.s:
 	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/projects/BarabasiMultilayer/SimulateBarabasiMain.cc.s
 .PHONY : sources/projects/BarabasiMultilayer/SimulateBarabasiMain.cc.s
 
-sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.o: sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.o
-
-.PHONY : sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.o
-
-# target to build an object file
-sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.o:
-	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.o
-	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.o
-	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.o
-.PHONY : sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.o
-
-sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.i: sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.i
-
-.PHONY : sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.i
-
-# target to preprocess a source file
-sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.i:
-	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.i
-	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.i
-	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.i
-.PHONY : sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.i
-
-sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.s: sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.s
-
-.PHONY : sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.s
-
-# target to generate assembly for a file
-sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.s:
-	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.s
-	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.s
-	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.s
-.PHONY : sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.cc.s
-
 sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.o: sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.cc.o
 
 .PHONY : sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.o
@@ -1607,59 +1616,59 @@ sources/projects/HebbianProject/src/HebbianObserver.cc.s:
 	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/projects/HebbianProject/src/HebbianObserver.cc.s
 .PHONY : sources/projects/HebbianProject/src/HebbianObserver.cc.s
 
-sources/runners/GenerateMain.o: sources/runners/GenerateMain.cc.o
+sources/projects/MainProject/GenerateMain.o: sources/projects/MainProject/GenerateMain.cc.o
 
-.PHONY : sources/runners/GenerateMain.o
-
-# target to build an object file
-sources/runners/GenerateMain.cc.o:
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/runners/GenerateMain.cc.o
-.PHONY : sources/runners/GenerateMain.cc.o
-
-sources/runners/GenerateMain.i: sources/runners/GenerateMain.cc.i
-
-.PHONY : sources/runners/GenerateMain.i
-
-# target to preprocess a source file
-sources/runners/GenerateMain.cc.i:
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/runners/GenerateMain.cc.i
-.PHONY : sources/runners/GenerateMain.cc.i
-
-sources/runners/GenerateMain.s: sources/runners/GenerateMain.cc.s
-
-.PHONY : sources/runners/GenerateMain.s
-
-# target to generate assembly for a file
-sources/runners/GenerateMain.cc.s:
-	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/runners/GenerateMain.cc.s
-.PHONY : sources/runners/GenerateMain.cc.s
-
-sources/runners/SimulateMain.o: sources/runners/SimulateMain.cc.o
-
-.PHONY : sources/runners/SimulateMain.o
+.PHONY : sources/projects/MainProject/GenerateMain.o
 
 # target to build an object file
-sources/runners/SimulateMain.cc.o:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/runners/SimulateMain.cc.o
-.PHONY : sources/runners/SimulateMain.cc.o
+sources/projects/MainProject/GenerateMain.cc.o:
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/projects/MainProject/GenerateMain.cc.o
+.PHONY : sources/projects/MainProject/GenerateMain.cc.o
 
-sources/runners/SimulateMain.i: sources/runners/SimulateMain.cc.i
+sources/projects/MainProject/GenerateMain.i: sources/projects/MainProject/GenerateMain.cc.i
 
-.PHONY : sources/runners/SimulateMain.i
+.PHONY : sources/projects/MainProject/GenerateMain.i
 
 # target to preprocess a source file
-sources/runners/SimulateMain.cc.i:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/runners/SimulateMain.cc.i
-.PHONY : sources/runners/SimulateMain.cc.i
+sources/projects/MainProject/GenerateMain.cc.i:
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/projects/MainProject/GenerateMain.cc.i
+.PHONY : sources/projects/MainProject/GenerateMain.cc.i
 
-sources/runners/SimulateMain.s: sources/runners/SimulateMain.cc.s
+sources/projects/MainProject/GenerateMain.s: sources/projects/MainProject/GenerateMain.cc.s
 
-.PHONY : sources/runners/SimulateMain.s
+.PHONY : sources/projects/MainProject/GenerateMain.s
 
 # target to generate assembly for a file
-sources/runners/SimulateMain.cc.s:
-	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/runners/SimulateMain.cc.s
-.PHONY : sources/runners/SimulateMain.cc.s
+sources/projects/MainProject/GenerateMain.cc.s:
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/projects/MainProject/GenerateMain.cc.s
+.PHONY : sources/projects/MainProject/GenerateMain.cc.s
+
+sources/projects/MainProject/SimulateMain.o: sources/projects/MainProject/SimulateMain.cc.o
+
+.PHONY : sources/projects/MainProject/SimulateMain.o
+
+# target to build an object file
+sources/projects/MainProject/SimulateMain.cc.o:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/projects/MainProject/SimulateMain.cc.o
+.PHONY : sources/projects/MainProject/SimulateMain.cc.o
+
+sources/projects/MainProject/SimulateMain.i: sources/projects/MainProject/SimulateMain.cc.i
+
+.PHONY : sources/projects/MainProject/SimulateMain.i
+
+# target to preprocess a source file
+sources/projects/MainProject/SimulateMain.cc.i:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/projects/MainProject/SimulateMain.cc.i
+.PHONY : sources/projects/MainProject/SimulateMain.cc.i
+
+sources/projects/MainProject/SimulateMain.s: sources/projects/MainProject/SimulateMain.cc.s
+
+.PHONY : sources/projects/MainProject/SimulateMain.s
+
+# target to generate assembly for a file
+sources/projects/MainProject/SimulateMain.cc.s:
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/projects/MainProject/SimulateMain.cc.s
+.PHONY : sources/projects/MainProject/SimulateMain.cc.s
 
 sources/test/test_StructureGeneration.o: sources/test/test_StructureGeneration.cc.o
 
@@ -1762,24 +1771,27 @@ help:
 	@echo "... sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.o"
 	@echo "... sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.i"
 	@echo "... sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.s"
-	@echo "... sources/generators/src/DynamicalEquationGeneratorSimpleImpl.o"
-	@echo "... sources/generators/src/DynamicalEquationGeneratorSimpleImpl.i"
-	@echo "... sources/generators/src/DynamicalEquationGeneratorSimpleImpl.s"
-	@echo "... sources/generators/src/GeneralNetworkGenerator.o"
-	@echo "... sources/generators/src/GeneralNetworkGenerator.i"
-	@echo "... sources/generators/src/GeneralNetworkGenerator.s"
-	@echo "... sources/generators/src/InitialConditionGeneratorImpl.o"
-	@echo "... sources/generators/src/InitialConditionGeneratorImpl.i"
-	@echo "... sources/generators/src/InitialConditionGeneratorImpl.s"
-	@echo "... sources/generators/src/NetworkDynamicsGenerators.o"
-	@echo "... sources/generators/src/NetworkDynamicsGenerators.i"
-	@echo "... sources/generators/src/NetworkDynamicsGenerators.s"
-	@echo "... sources/generators/src/NetworkInitialConditionGenerators.o"
-	@echo "... sources/generators/src/NetworkInitialConditionGenerators.i"
-	@echo "... sources/generators/src/NetworkInitialConditionGenerators.s"
-	@echo "... sources/generators/src/StructureGeneratorImpl.o"
-	@echo "... sources/generators/src/StructureGeneratorImpl.i"
-	@echo "... sources/generators/src/StructureGeneratorImpl.s"
+	@echo "... sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.o"
+	@echo "... sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.i"
+	@echo "... sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.s"
+	@echo "... sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.o"
+	@echo "... sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.i"
+	@echo "... sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.s"
+	@echo "... sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.o"
+	@echo "... sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.i"
+	@echo "... sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.s"
+	@echo "... sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.o"
+	@echo "... sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.i"
+	@echo "... sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.s"
+	@echo "... sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.o"
+	@echo "... sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.i"
+	@echo "... sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.s"
+	@echo "... sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.o"
+	@echo "... sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.i"
+	@echo "... sources/generators/StructureGenerators/src/GenerateBarabasiNetwork.s"
+	@echo "... sources/generators/StructureGenerators/src/StructureGeneratorImpl.o"
+	@echo "... sources/generators/StructureGenerators/src/StructureGeneratorImpl.i"
+	@echo "... sources/generators/StructureGenerators/src/StructureGeneratorImpl.s"
 	@echo "... sources/parser/src/interpreter.o"
 	@echo "... sources/parser/src/interpreter.i"
 	@echo "... sources/parser/src/interpreter.s"
@@ -1795,9 +1807,6 @@ help:
 	@echo "... sources/projects/BarabasiMultilayer/SimulateBarabasiMain.o"
 	@echo "... sources/projects/BarabasiMultilayer/SimulateBarabasiMain.i"
 	@echo "... sources/projects/BarabasiMultilayer/SimulateBarabasiMain.s"
-	@echo "... sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.o"
-	@echo "... sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.i"
-	@echo "... sources/projects/BarabasiMultilayer/src/GenerateBarabasiNetwork.s"
 	@echo "... sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.o"
 	@echo "... sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.i"
 	@echo "... sources/projects/BarabasiMultilayer/src/StructureGeneratorBarabasiImpl.s"
@@ -1810,12 +1819,12 @@ help:
 	@echo "... sources/projects/HebbianProject/src/HebbianObserver.o"
 	@echo "... sources/projects/HebbianProject/src/HebbianObserver.i"
 	@echo "... sources/projects/HebbianProject/src/HebbianObserver.s"
-	@echo "... sources/runners/GenerateMain.o"
-	@echo "... sources/runners/GenerateMain.i"
-	@echo "... sources/runners/GenerateMain.s"
-	@echo "... sources/runners/SimulateMain.o"
-	@echo "... sources/runners/SimulateMain.i"
-	@echo "... sources/runners/SimulateMain.s"
+	@echo "... sources/projects/MainProject/GenerateMain.o"
+	@echo "... sources/projects/MainProject/GenerateMain.i"
+	@echo "... sources/projects/MainProject/GenerateMain.s"
+	@echo "... sources/projects/MainProject/SimulateMain.o"
+	@echo "... sources/projects/MainProject/SimulateMain.i"
+	@echo "... sources/projects/MainProject/SimulateMain.s"
 	@echo "... sources/test/test_StructureGeneration.o"
 	@echo "... sources/test/test_StructureGeneration.i"
 	@echo "... sources/test/test_StructureGeneration.s"
