@@ -3,17 +3,17 @@
 
 #include "MultilayerNetwork.hh"
 #include "GlobalVariables.hh"
+#include "GeneticAlgorithmParameterContainer.hh"
 
 class IVectorFieldReconfiguration
 {
 public:
-  IVectorFieldReconfiguration(Node* node, std::vector<double> &modificationTypeProbabilities = vectorReconfModTypeProbabilities){mNode = node; mModificationTypeProbabilities = modificationTypeProbabilities;};
+  IVectorFieldReconfiguration(Node* node){mNode = node;};
   virtual ~IVectorFieldReconfiguration(void){};
 
-  virtual void calculateVectorFieldReconfiguration(std::vector<double> &modificationTypeProbabilities = vectorReconfModTypeProbabilities) = 0;
+  virtual void calculateVectorFieldReconfiguration(GeneticAlgorithmParameterContainer *geneticParameters) = 0;
 protected:
   Node* mNode;
-  std::vector<double> mModificationTypeProbabilities;
 };
 
 #endif

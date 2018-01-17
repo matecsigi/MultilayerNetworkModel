@@ -29,7 +29,7 @@ void DownwardInfluenceImpl::calculateDownwardInfluence()
   state_type x = {mNode->getCurrentState()+change};
   mNode->setCurrentState(x);
 
-  std::cout<<"Downward:"<<mNode->getId()<<"->"<<change<<std::endl;
+  // std::cout<<"Downward:"<<mNode->getId()<<"->"<<change<<std::endl;
 
   mNode->setChangeByDownwardInfluence(t%2, change);
 

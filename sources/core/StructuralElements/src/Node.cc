@@ -130,26 +130,26 @@ double Node::getChangeByDownwardInfluence(int index)
   return mChangeByDownwardInfluence[index];
 }
 
-void Node::step(std::vector<double> &modTypeProbabilities)
+void Node::step(SimulationParameterContainer *parameters)
 {
   std::vector<Network*> networks = getNetworks();
   for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
   {
     DynamicalEquation* dynamicalEquation = (*itNet)->getNodeDynamicalEquation(this->getId());
-    stepODE(dynamicalEquation);
+    stepODE(dynamicalEquation, parameters);
   }
 
-  mUpwardInfluence->calculateUpwardInfluence();
-  mDownwardInfluence->calculateDownwardInfluence();
-  mVectorFieldReconfiguration->calculateVectorFieldReconfiguration(modTypeProbabilities);
+  // mUpwardInfluence->calculateUpwardInfluence();
+  // mDownwardInfluence->calculateDownwardInfluence();
+  mVectorFieldReconfiguration->calculateVectorFieldReconfiguration(parameters->geneticParameters);
 }
 
-void Node::stepODE(DynamicalEquation* dynamicalEquation)
+void Node::stepODE(DynamicalEquation* dynamicalEquation, SimulationParameterContainer *parameters)
 {
   state_type x = {getPreviousState()};
 
   OdeWrapper wrapper(dynamicalEquation);
-  integrate(wrapper, x, 0.0, odeTime, odeStepSize);  
+  integrate(wrapper, x, 0.0, parameters->odeTime, parameters->odeStepSize);  
   setCurrentState(x);
 }
 
@@ -157,7 +157,7 @@ void Node::stepOdeAtState(DynamicalEquation* dynamicalEquation, std::vector<IdVa
 {
   state_type x = {getValueForId(startingState, getId())};
   OdeWrapperAtState wrapper(dynamicalEquation, &startingState);
-  integrate(wrapper, x, 0.0, odeTime, odeStepSize);
+  integrate(wrapper, x, 0.0, 1.0, 0.1);
   setValueForId(finalState, getId(), x[0]);
 }
 

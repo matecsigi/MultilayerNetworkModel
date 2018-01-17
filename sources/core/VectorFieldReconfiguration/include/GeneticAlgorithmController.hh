@@ -4,12 +4,15 @@
 #include "NetworkModifier.hh"
 #include "NetworkPopulationElement.hh"
 #include "IGeneticObserver.hh"
+#include "GeneticAlgorithmParameterContainer.hh"
 #include <functional>
 
 class GeneticAlgorithmController
 {
 public:
-  GeneticAlgorithmController(std::vector<double> &modificationTypeProbabilities = vectorReconfModTypeProbabilities, double (*fitnessFunction)(NetworkPopulationElement*) = NULL, std::function<void (Network*)> createInitialNetwork = nullptr);
+  // GeneticAlgorithmController(std::vector<double> &modificationTypeProbabilities = vectorReconfModTypeProbabilities, double (*fitnessFunction)(NetworkPopulationElement*) = NULL, std::function<void (Network*)> createInitialNetwork = nullptr);
+  
+  GeneticAlgorithmController(GeneticAlgorithmParameterContainer *parameters = NULL);
   ~GeneticAlgorithmController();
 
   void runGeneticAlgorithm(Network* network = NULL, IGeneticObserver *observer = NULL);
@@ -41,10 +44,16 @@ private:
   int mGeneration;
   VectorField* mTargetVectorField;
   std::vector<NetworkPopulationElement*> mPopulation;
+
+  //parameters
+  int mInitialPopulationSize;
+  int mNumberOfGenerations;
+  double mMutationRatio;
+  double mCrossoverRatio;
+  double mDeathRatio;
+  double mElitRatio;
   std::vector<double> mModificationTypeProbabilities;
   double (*mFitnessFunction)(NetworkPopulationElement*);
-  // void (*mCreateInitialNetwork)(Network* network, Network* referenceNetwork, GeneticAlgorithmController *geneticController);
-  // void (*mCreateInitialNetwork)(Network* network);
   std::function<void (Network*)> mCreateInitialNetwork;
 };
 

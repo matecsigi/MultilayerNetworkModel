@@ -8,10 +8,10 @@
 class VectorFieldReconfigurationImpl: public IVectorFieldReconfiguration
 {
 public:
-  VectorFieldReconfigurationImpl(Node* node, std::vector<double> &modificationTypeProbabilities = vectorReconfModTypeProbabilities):IVectorFieldReconfiguration(node, modificationTypeProbabilities){mNode = node; mModificationTypeProbabilities = modificationTypeProbabilities;};
+  VectorFieldReconfigurationImpl(Node* node):IVectorFieldReconfiguration(node){mNode = node;};
   ~VectorFieldReconfigurationImpl(void){};
 
-  void calculateVectorFieldReconfiguration(std::vector<double> &modificationTypeProbabilities = vectorReconfModTypeProbabilities);
+  void calculateVectorFieldReconfiguration(GeneticAlgorithmParameterContainer *geneticParameters);
 };
 
 #endif

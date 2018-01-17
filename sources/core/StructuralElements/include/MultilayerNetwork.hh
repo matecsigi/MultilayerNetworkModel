@@ -5,6 +5,7 @@
 #include "Layer.hh"
 #include "IObserver.hh"
 #include "GlobalVariables.hh"
+#include "SimulationParameterContainer.hh"
 #include <vector>
 #include <iostream>
 #include <map>
@@ -26,12 +27,12 @@ public:
      Performs a single step on all of the nodes within
      the multilayer network.
    */
-  void step(void);
+  void step(SimulationParameterContainer *parameters = NULL);
 
   /**
      Iterates the system for a given number of steps.
    */
-  void iterate(int steps, IObserver *observer = NULL, std::vector<double> &modTypeProbabilities = vectorReconfModTypeProbabilities);
+  void iterate(int steps, SimulationParameterContainer *parameters = NULL, IObserver *observer = NULL);
 
   //Save and load
   void save(std::string filename = "");
@@ -77,9 +78,8 @@ private:
    */
   std::map<int, Node*> mNodesMap;
   std::vector<int> mNodeIds;
-  std::vector<double> mModTypeProbabilities;
 };
 
-void executeStepsInThread(std::vector<Node*> &nodes, std::vector<double> &modTypeProbabilities);
+void executeStepsInThread(std::vector<Node*> &nodes, SimulationParameterContainer *parameters);
 
 #endif

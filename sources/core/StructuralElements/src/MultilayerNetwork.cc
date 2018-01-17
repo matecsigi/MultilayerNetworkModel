@@ -38,16 +38,19 @@ std::vector<Layer*> MultilayerNetwork::getLayers(void) const
   return mLayers;
 }
 
-void executeStepsInThread(std::vector<Node*> &nodes, std::vector<double> &modTypeProbabilities)
+void executeStepsInThread(std::vector<Node*> &nodes, SimulationParameterContainer *parameters)
 {
   for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
   {
-    (*itNode)->step(modTypeProbabilities);
+    (*itNode)->step(parameters);
   }
 }
 
-void MultilayerNetwork::step(void)
+void MultilayerNetwork::step(SimulationParameterContainer *parameters)
 {
+  bool deletionNeeded = false;
+  if(parameters == NULL){parameters = new SimulationParameterContainer; deletionNeeded = true;};
+
   std::vector<std::vector<Node*>> nodeThreadPartition(numberOfCores);
 
   for(std::vector<int>::iterator itId=mNodeIds.begin(); itId != mNodeIds.end(); ++itId)
@@ -61,25 +64,28 @@ void MultilayerNetwork::step(void)
   std::thread stepThreads[numberOfCores];
   for(int i=0; i < numberOfCores; ++i)
   {
-    stepThreads[i] = std::thread(executeStepsInThread, std::ref(nodeThreadPartition[i]), std::ref(mModTypeProbabilities));
+    stepThreads[i] = std::thread(executeStepsInThread, std::ref(nodeThreadPartition[i]), parameters);
   }
 
   for(int i=0; i < numberOfCores; ++i)
   {
     stepThreads[i].join();
   }
+  if(deletionNeeded == true){delete parameters;}
 }
 
-void MultilayerNetwork::iterate(int steps, IObserver *observer, std::vector<double> &modTypeProbabilities)
+void MultilayerNetwork::iterate(int steps, SimulationParameterContainer *parameters, IObserver *observer)
 {
-  mModTypeProbabilities = modTypeProbabilities;
+  bool deletionNeeded = false;
+  if(parameters == NULL){parameters = new SimulationParameterContainer; deletionNeeded = true;};
+
   updateNodesMap();
 
   if(observer != NULL){observer->atStart();}
   for(t=0; t<steps; ++t)
   {
     std::cout<<"t="<<t<<std::endl;
-    step();
+    step(parameters);
     std::cout<<*this<<std::endl;
 
     if(observer != NULL){observer->atStep();}
@@ -94,6 +100,7 @@ void MultilayerNetwork::iterate(int steps, IObserver *observer, std::vector<doub
   save();
   saveState();
   if(observer != NULL){observer->atFinish();}
+  if(deletionNeeded == true){delete parameters;}
 }
 
 void MultilayerNetwork::save(std::string filename)

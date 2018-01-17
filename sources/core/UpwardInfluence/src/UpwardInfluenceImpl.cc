@@ -18,15 +18,17 @@ void UpwardInfluenceImpl::calculateUpwardInfluence()
     Node* currentLowerNode = (*itNode);
     currentLowerNode->getValues(tmpBuffer);
     change += tmpBuffer[getIndexTMinusOne(t)]-tmpBuffer[getIndexTMinusTwo(t)];
-    std::cout<<"  +"<<tmpBuffer[getIndexTMinusOne(t)]-tmpBuffer[getIndexTMinusTwo(t)]<<" == "<<tmpBuffer[getIndexTMinusOne(t)]<<" -- "<<tmpBuffer[getIndexTMinusTwo(t)]<<" ... "<<currentLowerNode->getId()<<std::endl;
+
+    // std::cout<<"  +"<<tmpBuffer[getIndexTMinusOne(t)]-tmpBuffer[getIndexTMinusTwo(t)]<<" == "<<tmpBuffer[getIndexTMinusOne(t)]<<" -- "<<tmpBuffer[getIndexTMinusTwo(t)]<<" ... "<<currentLowerNode->getId()<<std::endl;
+
     change -= currentLowerNode->getChangeByDownwardInfluence((t-1)%2);
-    std::cout<<"  -"<<currentLowerNode->getChangeByDownwardInfluence((t-1)%2)<<std::endl;
+    // std::cout<<"  -"<<currentLowerNode->getChangeByDownwardInfluence((t-1)%2)<<std::endl;
   }
 
   state_type x = {mNode->getCurrentState()+change};
   mNode->setCurrentState(x);
 
-  std::cout<<"Upward:"<<mNode->getId()<<"->"<<change<<std::endl;
+  // std::cout<<"Upward:"<<mNode->getId()<<"->"<<change<<std::endl;
 
   mNode->setChangeByUpwardInfluence(t%2, change);
 

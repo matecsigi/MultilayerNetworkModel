@@ -7,6 +7,7 @@
 #include "IVectorFieldReconfiguration.hh"
 #include "GlobalVariables.hh"
 #include "UtilityFunctions.hh"
+#include "SimulationParameterContainer.hh"
 #include <vector>
 
 class IUpwardInfluence;
@@ -69,7 +70,7 @@ public:
      UpwardInfluence, DownwardInfluence and VectorFieldReconfiguration.
      The current value of the node is used for the stepping.
    */
-  void step(std::vector<double> &modTypeProbabilities = vectorReconfModTypeProbabilities);
+  void step(SimulationParameterContainer *parameters);
 
   /**
      Performs one step on the node involving only the ODE.
@@ -89,7 +90,7 @@ public:
      equations is stepped in this function.
      @param dynamicalEquation: the dynamical equation to be stepped
    */
-  void stepODE(DynamicalEquation* dynamicalEquation);
+  void stepODE(DynamicalEquation* dynamicalEquation, SimulationParameterContainer *parameters);
 
   void setUpwardInfluence();
   void setDownwardInfluence();

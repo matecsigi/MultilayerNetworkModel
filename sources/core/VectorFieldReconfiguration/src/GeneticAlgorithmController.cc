@@ -14,12 +14,23 @@ void createInitialNetworkByModification(Network* network, Network* referenceNetw
   networkModifier.modifyNetwork(network, 25);  
 }
 
-GeneticAlgorithmController::GeneticAlgorithmController(std::vector<double> &modificationTypeProbabilities, double (*fitnessFunction)(NetworkPopulationElement*), std::function<void (Network*)> createInitialNetwork)
+GeneticAlgorithmController::GeneticAlgorithmController(GeneticAlgorithmParameterContainer *parameters)
 {
+  bool deletionNeeded = false;
+  if(parameters == NULL){parameters = new GeneticAlgorithmParameterContainer; deletionNeeded = true;};
+
   mNetwork = NULL;
-  mModificationTypeProbabilities = modificationTypeProbabilities;
-  mFitnessFunction = fitnessFunction;
-  mCreateInitialNetwork = createInitialNetwork;
+  mInitialPopulationSize = parameters->initialPopulationSize;
+  mNumberOfGenerations = parameters->numberOfGenerations;
+  mMutationRatio = parameters->mutationRatio;
+  mCrossoverRatio = parameters->crossoverRatio;
+  mDeathRatio = parameters->deathRatio;
+  mElitRatio = parameters->elitRatio;
+  mModificationTypeProbabilities = parameters->modificationTypeProbabilities;
+  mFitnessFunction = parameters->fitnessFunction;
+  mCreateInitialNetwork = parameters->createInitialNetwork;
+
+  if(deletionNeeded == true){delete parameters;}
 }
 
 GeneticAlgorithmController::~GeneticAlgorithmController()
@@ -45,7 +56,7 @@ void GeneticAlgorithmController::runGeneticAlgorithm(Network* network, IGeneticO
 {
   if(observer != NULL){observer->atStart();}
   createInitialPopulation();
-  for(mGeneration=1; mGeneration<numberOfGenerations+1; ++mGeneration)
+  for(mGeneration=1; mGeneration<mNumberOfGenerations+1; ++mGeneration)
   {
     // std::cout<<"generation="<<mGeneration<<std::endl;
     mutation();
@@ -67,7 +78,7 @@ void GeneticAlgorithmController::runGeneticAlgorithm(Network* network, IGeneticO
 
 void GeneticAlgorithmController::mutation()
 {
-  int numberOfMutations = mPopulation.size()*mutationRatio;
+  int numberOfMutations = mPopulation.size()*mMutationRatio;
   for(int i=0; i<numberOfMutations; ++i)
   {
     NetworkPopulationElement* networkElement = chooseForMutation();
@@ -82,7 +93,7 @@ void GeneticAlgorithmController::mutation()
 void GeneticAlgorithmController::crossover()
 {
   updateFitnessRanks();
-  int numberOfCrossovers = mPopulation.size()*crossoverRatio;
+  int numberOfCrossovers = mPopulation.size()*mCrossoverRatio;
   for(int i=0; i<numberOfCrossovers; ++i)
   {
     NetworkPopulationElement* networkElement1 = chooseForCrossover();
@@ -103,7 +114,7 @@ void GeneticAlgorithmController::crossover()
 
 void GeneticAlgorithmController::death()
 {
-  int numberOfDeaths = mPopulation.size()-initialPopulationSize;
+  int numberOfDeaths = mPopulation.size()-mInitialPopulationSize;
   for(int i=0; i<numberOfDeaths; ++i)
   {
     NetworkPopulationElement* networkElement = chooseForDeath();
@@ -113,7 +124,7 @@ void GeneticAlgorithmController::death()
 
 void GeneticAlgorithmController::createInitialPopulation()
 {  
-  for(int i=0; i<initialPopulationSize; ++i)
+  for(int i=0; i<mInitialPopulationSize; ++i)
   {
     Network* newNetwork = new Network;
     mCreateInitialNetwork(newNetwork);
@@ -187,7 +198,7 @@ NetworkPopulationElement* GeneticAlgorithmController::chooseForDeath()
       int generation = (*itNet)->getGeneration();
       if(generation <= mGeneration-i)
       {
-	if((double)(*itNet)->getRank() < mPopulation.size()*elitRatio)
+	if((double)(*itNet)->getRank() < mPopulation.size()*mElitRatio)
 	{
 	  return (*itNet);
 	}

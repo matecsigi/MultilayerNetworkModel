@@ -6,6 +6,7 @@
 #include "MultilayerNetwork.hh"
 #include "NetworkUtilityFunctions.hh"
 #include "HebbianObserver.hh"
+#include "SimulationParameterContainer.hh"
 #include <iostream>
 #include <random>
 
@@ -19,12 +20,15 @@ double hebbianFitnessFunction(NetworkPopulationElement* networkPopulationElement
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
   generateMultilayerNetworkForHebbianFitness(multilayerNetwork, network);
 
+  SimulationParameterContainer *parameters = new SimulationParameterContainer;
+  parameters->geneticParameters->modificationTypeProbabilities = hebbianModTypeProbabilities;
   IObserver *observer = new HebbianObserver(multilayerNetwork);
-  multilayerNetwork->iterate(runTime, observer, hebbianModTypeProbabilities);
+  multilayerNetwork->iterate(runTime, parameters, observer);
   double distance = observer->getResult();
   double fitness = (double)100/distance;
 
   delete multilayerNetwork;
+  delete parameters;
 
   std::cout<<"============="<<std::endl;
 

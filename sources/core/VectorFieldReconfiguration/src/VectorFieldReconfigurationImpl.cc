@@ -4,9 +4,8 @@
 #include "VectorFieldTransformImplementations.hh"
 #include "GeneticAlgorithmController.hh"
 
-void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration(std::vector<double> &modificationTypeProbabilities)
+void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration(GeneticAlgorithmParameterContainer *geneticParameters)
 {
-  mModificationTypeProbabilities = modificationTypeProbabilities;
   Network* networkAssigned = mNode->getNetworkAssigned();
   if(networkAssigned == NULL)
   {
@@ -26,7 +25,7 @@ void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration(std::ve
   // std::cout<<"--------Target----------"<<std::endl;
   // std::cout<<*targetVectorField;
 
-  GeneticAlgorithmController geneticController(mModificationTypeProbabilities);
+  GeneticAlgorithmController geneticController(geneticParameters);
   geneticController.fitToVectorField(networkAssigned, targetVectorField);
 
   delete currentVectorField;
