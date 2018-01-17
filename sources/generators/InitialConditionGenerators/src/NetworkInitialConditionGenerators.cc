@@ -23,7 +23,7 @@ void oneNetworkInitialConditions(Network* network)
   delete [] tmpBuffer;
 }
 
-void randomNetworkInitialConditions(Network* network)
+void randomNetworkInitialConditions(Network* network, double min, double max)
 {
   double* tmpBuffer = new double[bufferSize];
   std::vector<Node*> nodes = network->getNodes();
@@ -36,7 +36,7 @@ void randomNetworkInitialConditions(Network* network)
     }
     for(int i=0; i<initialConditionsSize; ++i)
     {
-      tmpBuffer[i] = ((double)rand()/RAND_MAX)*10;
+      tmpBuffer[i] = min+((double)rand()/RAND_MAX)*(max-min);
     }
     currentNode->setValues(tmpBuffer);
   }

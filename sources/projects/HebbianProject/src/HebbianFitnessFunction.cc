@@ -10,20 +10,19 @@
 #include <iostream>
 #include <random>
 
-double hebbianFitnessFunction(NetworkPopulationElement* networkPopulationElement)
+double hebbianFitnessFunction(NetworkPopulationElement* networkPopulationElement, HebbianParameterContainer *hebbianParameters)
 {
-  int runTime = 20;
-
   std::cout<<"======Hebbian fitness======="<<std::endl;
 
   Network* network = networkPopulationElement->getNetwork();
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
-  generateMultilayerNetworkForHebbianFitness(multilayerNetwork, network);
+  generateMultilayerNetworkForHebbianFitness(multilayerNetwork, network, hebbianParameters);
 
   SimulationParameterContainer *parameters = new SimulationParameterContainer;
   parameters->geneticParameters->modificationTypeProbabilities = hebbianModTypeProbabilities;
   IObserver *observer = new HebbianObserver(multilayerNetwork);
-  multilayerNetwork->iterate(runTime, parameters, observer);
+  multilayerNetwork->iterate(hebbianParameters->transientTime, parameters);
+  multilayerNetwork->iterate(hebbianParameters->runTime, parameters, observer);
   double distance = observer->getResult();
   double fitness = (double)100/distance;
 
@@ -35,7 +34,7 @@ double hebbianFitnessFunction(NetworkPopulationElement* networkPopulationElement
   return fitness;
 }
 
-void generateMultilayerNetworkForHebbianFitness(MultilayerNetwork* multilayerNetwork, Network* network)
+void generateMultilayerNetworkForHebbianFitness(MultilayerNetwork* multilayerNetwork, Network* network, HebbianParameterContainer *hebbianParameters)
 {
   multilayerNetwork->addLayer(1);
   multilayerNetwork->addLayer(2);
@@ -45,7 +44,7 @@ void generateMultilayerNetworkForHebbianFitness(MultilayerNetwork* multilayerNet
   std::vector<Network*> networks = layers[0]->getNetworks();
   Network* higherNetwork = networks[0];
   copyNetwork(network, higherNetwork);
-  randomNetworkInitialConditions(higherNetwork);
+  randomNetworkInitialConditions(higherNetwork, hebbianParameters->higherNetworkInitConditionMin, hebbianParameters->higherNetworkInitConditionMax);
 
   int nodeIdCounter = 0;
 
@@ -63,9 +62,9 @@ void generateMultilayerNetworkForHebbianFitness(MultilayerNetwork* multilayerNet
   for(std::vector<Network*>::iterator itNet=lowerNetworks.begin(); itNet != lowerNetworks.end(); ++itNet)
   {
     Network* lowerNetwork = (*itNet);
-    generateBarabasiNetwork(lowerNetwork, 10, nodeIdCounter);
+    generateBarabasiNetwork(lowerNetwork, hebbianParameters->lowerNetworkSize, nodeIdCounter);
     linearNetworkDynamicsGenerator(lowerNetwork);
-    randomNetworkInitialConditions(lowerNetwork);
+    randomNetworkInitialConditions(lowerNetwork, hebbianParameters->lowerNetworkInitConditionMin, hebbianParameters->lowerNetworkInitConditionMax);
   }
   
   //assign networks to nodes

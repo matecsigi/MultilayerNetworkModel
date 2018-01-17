@@ -3,8 +3,9 @@
 
 #include "NetworkPopulationElement.hh"
 #include "MultilayerNetwork.hh"
+#include "HebbianParameterContainer.hh"
 
-double hebbianFitnessFunction(NetworkPopulationElement* networkPopulationElement);
-void generateMultilayerNetworkForHebbianFitness(MultilayerNetwork* multilayerNetwork, Network* network);
+double hebbianFitnessFunction(NetworkPopulationElement* networkPopulationElement, HebbianParameterContainer *hebbianParameters);
+void generateMultilayerNetworkForHebbianFitness(MultilayerNetwork* multilayerNetwork, Network* network, HebbianParameterContainer *hebbianParameters);
 
 #endif
