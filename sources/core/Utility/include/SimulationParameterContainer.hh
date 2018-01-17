@@ -12,6 +12,9 @@ public:
   double odeTime = 1;
   double odeStepSize = 0.1;
 
+  double downwardInfluenceMultiplier = 0.01;
+  double upwardInfluenceMultiplier = 0.1;
+
   GeneticAlgorithmParameterContainer *geneticParameters;
 };
 

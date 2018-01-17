@@ -9,7 +9,7 @@ public:
   UpwardInfluenceImpl(Node* node):IUpwardInfluence(node){mNode = node;};
   ~UpwardInfluenceImpl(void){};
 
-  void calculateUpwardInfluence();
+  void calculateUpwardInfluence(double upwardMultiplier);
 };
 
 #endif

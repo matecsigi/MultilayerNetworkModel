@@ -1,9 +1,11 @@
 #include <iostream>
 #include "UpwardInfluenceImpl.hh"
 
-void UpwardInfluenceImpl::calculateUpwardInfluence()
+void UpwardInfluenceImpl::calculateUpwardInfluence(double upwardMultiplier)
 {
-  // std::cout<<"---UpwardInfluence---"<<std::endl;
+  std::cout<<"---UpwardInfluence---"<<std::endl;
+  if(t == 0){return;}
+
   Network* networkAssigned = mNode->getNetworkAssigned();
   if(networkAssigned == NULL)
   {
@@ -19,11 +21,12 @@ void UpwardInfluenceImpl::calculateUpwardInfluence()
     currentLowerNode->getValues(tmpBuffer);
     change += tmpBuffer[getIndexTMinusOne(t)]-tmpBuffer[getIndexTMinusTwo(t)];
 
-    // std::cout<<"  +"<<tmpBuffer[getIndexTMinusOne(t)]-tmpBuffer[getIndexTMinusTwo(t)]<<" == "<<tmpBuffer[getIndexTMinusOne(t)]<<" -- "<<tmpBuffer[getIndexTMinusTwo(t)]<<" ... "<<currentLowerNode->getId()<<std::endl;
+    std::cout<<"  +"<<tmpBuffer[getIndexTMinusOne(t)]-tmpBuffer[getIndexTMinusTwo(t)]<<" == "<<tmpBuffer[getIndexTMinusOne(t)]<<" -- "<<tmpBuffer[getIndexTMinusTwo(t)]<<" ... "<<currentLowerNode->getId()<<std::endl;
 
     change -= currentLowerNode->getChangeByDownwardInfluence((t-1)%2);
-    // std::cout<<"  -"<<currentLowerNode->getChangeByDownwardInfluence((t-1)%2)<<std::endl;
+    std::cout<<"  -"<<currentLowerNode->getChangeByDownwardInfluence((t-1)%2)<<std::endl;
   }
+  change = change*upwardMultiplier;
 
   state_type x = {mNode->getCurrentState()+change};
   mNode->setCurrentState(x);

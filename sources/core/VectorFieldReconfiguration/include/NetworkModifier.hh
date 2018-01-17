@@ -4,6 +4,7 @@
 #include "Node.hh"
 #include "Network.hh"
 #include "VectorField.hh"
+#include "GeneticAlgorithmParameterContainer.hh"
 
 enum ModificationType
 {
@@ -19,7 +20,7 @@ enum ModificationType
 class NetworkModifier
 {
 public:
-  NetworkModifier(std::vector<double> &modificationTypeProbabilities = vectorReconfModTypeProbabilities);
+  NetworkModifier(GeneticAlgorithmParameterContainer *geneticParameters = 0);
   ~NetworkModifier();
 
   void modifyNetwork(Network* network, int numberOfChanges=1);
@@ -100,6 +101,7 @@ public:
   void setNodeMultiplier(CalculationNode* calcNode, int nodeId, double value);
 
 private:
+  double mMaxConstantChange;
   std::vector<double> mModificationTypeProbabilities;
 };
 

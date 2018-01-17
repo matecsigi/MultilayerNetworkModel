@@ -44,6 +44,7 @@ private:
   std::vector<NetworkPopulationElement*> mPopulation;
 
   //parameters
+  GeneticAlgorithmParameterContainer mGeneticParameters;
   int mInitialPopulationSize;
   int mNumberOfGenerations;
   double mMutationRatio;

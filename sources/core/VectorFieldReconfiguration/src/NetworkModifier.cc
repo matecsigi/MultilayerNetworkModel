@@ -3,9 +3,15 @@
 #include <algorithm>
 #include <stdlib.h>
 
-NetworkModifier::NetworkModifier(std::vector<double> &modificationTypeProbabilities)
+NetworkModifier::NetworkModifier(GeneticAlgorithmParameterContainer *geneticParameters)
 {
-  mModificationTypeProbabilities = modificationTypeProbabilities;
+  bool deletionNeeded = false;
+  if(geneticParameters == NULL){geneticParameters = new GeneticAlgorithmParameterContainer; deletionNeeded = true;};
+
+  mMaxConstantChange = geneticParameters->maxConstantChange;
+  mModificationTypeProbabilities = geneticParameters->modificationTypeProbabilities;
+
+  if(deletionNeeded == true){delete geneticParameters;}
 }
 
 NetworkModifier::~NetworkModifier()
@@ -546,7 +552,7 @@ CalculationNode* NetworkModifier::specific_removeEdge(CalculationNode* baseCalcN
 void NetworkModifier::specific_changeConstant(CalculationNode* changingCalcNode)
 {
   double value = changingCalcNode->getValue();
-  value += -1+2*((double)rand()/RAND_MAX);
+  value += -mMaxConstantChange+2*mMaxConstantChange*((double)rand()/RAND_MAX);
   changingCalcNode->setValue(value);
 }
 

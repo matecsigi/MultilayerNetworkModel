@@ -22,6 +22,8 @@ public:
   */
   double elitRatio = 0.5;
 
+  double maxConstantChange = 0.01;
+
   std::vector<double> modificationTypeProbabilities = vectorReconfModTypeProbabilities;
 
   std::function<double (NetworkPopulationElement*)> fitnessFunction = nullptr;

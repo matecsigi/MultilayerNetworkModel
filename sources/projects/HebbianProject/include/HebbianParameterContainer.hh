@@ -13,8 +13,8 @@ public:
   int transientTime = 0;
   int runTime = 20;
 
-  double higherNetworkInitConditionMin = 10000;
-  double higherNetworkInitConditionMax = 20000;
+  double higherNetworkInitConditionMin = 100;
+  double higherNetworkInitConditionMax = 200;
   double lowerNetworkInitConditionMin = 0;
   double lowerNetworkInitConditionMax = 10;
 };

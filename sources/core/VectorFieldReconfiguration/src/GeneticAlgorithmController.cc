@@ -9,7 +9,7 @@ using namespace std::placeholders;
 
 void createInitialNetworkByModification(Network* network, Network* referenceNetwork, GeneticAlgorithmController *geneticController)
 {
-  NetworkModifier networkModifier(geneticController->mModificationTypeProbabilities);
+  NetworkModifier networkModifier(&geneticController->mGeneticParameters);
   copyNetwork(referenceNetwork, network);
   networkModifier.modifyNetwork(network, 25);  
 }
@@ -18,6 +18,8 @@ GeneticAlgorithmController::GeneticAlgorithmController(GeneticAlgorithmParameter
 {
   bool deletionNeeded = false;
   if(parameters == NULL){parameters = new GeneticAlgorithmParameterContainer; deletionNeeded = true;};
+
+  mGeneticParameters = *parameters;
 
   mNetwork = NULL;
   mInitialPopulationSize = parameters->initialPopulationSize;
@@ -83,7 +85,7 @@ void GeneticAlgorithmController::mutation()
   {
     NetworkPopulationElement* networkElement = chooseForMutation();
     Network* network = networkElement->getNetwork();
-    NetworkModifier networkModifier(mModificationTypeProbabilities);
+    NetworkModifier networkModifier(&mGeneticParameters);
     networkModifier.modifyNetwork(network);
     networkElement->setNetwork(network);
     networkElement->setGeneration(mGeneration);
