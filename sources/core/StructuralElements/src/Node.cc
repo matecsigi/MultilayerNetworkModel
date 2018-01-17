@@ -136,7 +136,7 @@ void Node::step(SimulationParameterContainer *parameters)
   for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
   {
     DynamicalEquation* dynamicalEquation = (*itNet)->getNodeDynamicalEquation(this->getId());
-    stepODE(dynamicalEquation, parameters);
+    // stepODE(dynamicalEquation, parameters);
   }
 
   mUpwardInfluence->calculateUpwardInfluence();

@@ -28,7 +28,7 @@ void UpwardInfluenceImpl::calculateUpwardInfluence()
   state_type x = {mNode->getCurrentState()+change};
   mNode->setCurrentState(x);
 
-  // std::cout<<"Upward:"<<mNode->getId()<<"->"<<change<<std::endl;
+  std::cout<<"Upward:"<<mNode->getId()<<"->"<<change<<std::endl;
 
   mNode->setChangeByUpwardInfluence(t%2, change);
 
