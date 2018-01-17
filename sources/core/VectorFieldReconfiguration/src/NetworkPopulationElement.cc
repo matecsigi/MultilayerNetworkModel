@@ -14,9 +14,9 @@ double vectorReconfFitnessFunction(NetworkPopulationElement *networkPopulationEl
   return fitness;
 }
 
-NetworkPopulationElement::NetworkPopulationElement(Network* network, VectorField* targetVectorField, double (*fitnessFunction)(NetworkPopulationElement*))
+NetworkPopulationElement::NetworkPopulationElement(Network* network, VectorField* targetVectorField, std::function<double (NetworkPopulationElement*)> fitnessFunction)
 {
-  if(fitnessFunction == NULL)
+  if(fitnessFunction == nullptr)
   {
     mFitnessFunction = &vectorReconfFitnessFunction;
   }

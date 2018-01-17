@@ -3,11 +3,12 @@
 
 #include "Network.hh"
 #include "VectorField.hh"
+#include <functional>
 
 class NetworkPopulationElement
 {
 public:
-  NetworkPopulationElement(Network* network, VectorField* targetVectorField, double (*fitnessFunction)(NetworkPopulationElement*) = NULL);
+  NetworkPopulationElement(Network* network, VectorField* targetVectorField, std::function<double (NetworkPopulationElement*)> fitnessFunction = nullptr);
   ~NetworkPopulationElement();
 
   void setNetwork(Network* network);
@@ -28,7 +29,7 @@ private:
   Network* mNetwork;
   int mGeneration;
   double mFitness;
-  double (*mFitnessFunction)(NetworkPopulationElement*);
+  std::function<double (NetworkPopulationElement*)> mFitnessFunction;
   /**
      The rank of the network in the population based on fitness.
      The element with rank 1 has thi highest fitness value.

@@ -139,8 +139,8 @@ void Node::step(SimulationParameterContainer *parameters)
     stepODE(dynamicalEquation, parameters);
   }
 
-  // mUpwardInfluence->calculateUpwardInfluence();
-  // mDownwardInfluence->calculateDownwardInfluence();
+  mUpwardInfluence->calculateUpwardInfluence();
+  mDownwardInfluence->calculateDownwardInfluence();
   mVectorFieldReconfiguration->calculateVectorFieldReconfiguration(parameters->geneticParameters);
 }
 
