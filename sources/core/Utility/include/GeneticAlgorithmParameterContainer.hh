@@ -11,8 +11,8 @@ public:
   GeneticAlgorithmParameterContainer(){};
   ~GeneticAlgorithmParameterContainer(){};
 
-  int initialPopulationSize = 10; //250
-  int numberOfGenerations = 5; //50
+  int initialPopulationSize = 100; //250
+  int numberOfGenerations = 50; //50
   double mutationRatio = 0.15;
   double crossoverRatio = 0.15;
   double deathRatio = 0.3;

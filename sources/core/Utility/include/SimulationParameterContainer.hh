@@ -9,7 +9,7 @@ public:
   SimulationParameterContainer(){geneticParameters = new GeneticAlgorithmParameterContainer;};
   ~SimulationParameterContainer(){delete geneticParameters;};
 
-  double odeTime = 1;
+  double odeTime = 0.5;
   double odeStepSize = 0.1;
 
   double downwardInfluenceMultiplier = 0.01;

@@ -12,7 +12,7 @@
 
 double hebbianFitnessFunction(NetworkPopulationElement* networkPopulationElement, HebbianParameterContainer *hebbianParameters)
 {
-  std::cout<<"======Hebbian fitness======="<<std::endl;
+  // std::cout<<"======Hebbian fitness======="<<std::endl;
 
   Network* network = networkPopulationElement->getNetwork();
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
@@ -29,7 +29,7 @@ double hebbianFitnessFunction(NetworkPopulationElement* networkPopulationElement
   delete multilayerNetwork;
   delete parameters;
 
-  std::cout<<"============="<<std::endl;
+  // std::cout<<"============="<<std::endl;
 
   return fitness;
 }
