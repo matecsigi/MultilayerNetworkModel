@@ -20,12 +20,16 @@ double hebbianFitnessFunction(NetworkPopulationElement* networkPopulationElement
 
   SimulationParameterContainer *parameters = new SimulationParameterContainer;
   parameters->geneticParameters->modificationTypeProbabilities = hebbianModTypeProbabilities;
+  parameters->geneticParameters->initialPopulationSize = 30;
   IObserver *observer = new HebbianObserver(multilayerNetwork);
   multilayerNetwork->iterate(hebbianParameters->transientTime, parameters);
   multilayerNetwork->iterate(hebbianParameters->runTime, parameters, observer);
-  double distance = observer->getResult();
+
+  double sumDistance = observer->getResult();
+  double distance = sumDistance/(double)(hebbianParameters->runTime);
   double fitness = (double)100/distance;
 
+  delete observer;
   delete multilayerNetwork;
   delete parameters;
 

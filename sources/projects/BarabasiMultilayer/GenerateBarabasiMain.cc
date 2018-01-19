@@ -34,6 +34,9 @@ int main()
   // cout<<*multilayerNetwork<<endl;
 
   delete multilayerNetwork;
+  delete structureGenerator;
+  delete dynamicalEquationGenerator;
+  delete initialConditionGenerator;
 
   return 0;
 }

@@ -53,6 +53,9 @@ void HebbianObserver::atFinish()
 
     double distance = realVectorField->getDistanceFrom(hebbianVectorField);
     mDistances.push_back(distance);
+
+    delete realVectorField;
+    delete hebbianVectorField;
   }
 
   double sumDistances = 0;
@@ -60,7 +63,6 @@ void HebbianObserver::atFinish()
   {
     sumDistances += *itDis;
   }
-  std::cout<<"DISTANCE="<<sumDistances/(double)mDistances.size()<<std::endl;
 }
 
 double HebbianObserver::getResult()
@@ -70,7 +72,9 @@ double HebbianObserver::getResult()
   {
     sumDistances += *itDis;
   }
-  return sumDistances/(double)mDistances.size();  
+  double result = sumDistances/(double)(mDistances.size());
+  std::cout<<"DISTANCE="<<result<<std::endl;
+  return result;  
 }
 
 void HebbianObserver::evaluateHebbianLearning(Network* referenceNetwork, Network* network)

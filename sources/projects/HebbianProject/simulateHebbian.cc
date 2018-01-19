@@ -23,6 +23,8 @@ int main()
   std::function<void(Network*)> binderGeneral = std::bind(generateNetwork, _1, binderBarabasiStructure, binderLinearDynamics, nullptr);
 
   GeneticAlgorithmParameterContainer *geneticParameters = new GeneticAlgorithmParameterContainer();
+  geneticParameters->numberOfGenerations = 1000;
+  geneticParameters->initialPopulationSize = 25;
   geneticParameters->modificationTypeProbabilities = vectorReconfModTypeProbabilities;
   geneticParameters->fitnessFunction = std::bind(hebbianFitnessFunction, _1, hebbianParameters);
   geneticParameters->createInitialNetwork = binderGeneral;
@@ -32,6 +34,7 @@ int main()
 
   delete hebbianParameters;
   delete geneticParameters;
+  delete observer;
 
   return 0;
 }

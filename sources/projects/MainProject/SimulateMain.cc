@@ -13,7 +13,7 @@ int main(void)
 
   std::cout<<"Start simulation"<<std::endl;
 
-  int simulationTime = 15;
+  int simulationTime = 100;
 
   const char *filename="generated/multilayerStructureInit.json";
   std::string filenameInitialCond = "generated/InitialCondition-1.bin";
@@ -23,7 +23,7 @@ int main(void)
   multilayerNetwork->loadState(filenameInitialCond.c_str());
   multilayerNetwork->iterate(simulationTime);
 
-  std::cout<<*multilayerNetwork<<std::endl;
+  // std::cout<<*multilayerNetwork<<std::endl;
 
   delete multilayerNetwork;
 

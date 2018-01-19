@@ -7,7 +7,7 @@ class IGeneticObserver
 {
 public:
   IGeneticObserver(GeneticAlgorithmController *geneticAlgorithmController){mGeneticAlgorithmController = geneticAlgorithmController;}
-  ~IGeneticObserver(void){};
+  virtual ~IGeneticObserver(void){};
 
   virtual void atStart() = 0;
   virtual void atStep() = 0;

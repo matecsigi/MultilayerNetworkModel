@@ -19,7 +19,7 @@ void GeneticObserver::atStep()
   NetworkPopulationElement* bestNetwork = mGeneticAlgorithmController->chooseBestNetwork();
 
   // std::string filename = "sources/projects/HebbianProject/generated/geneticNetwork_gen";
-  std::string filename = "generated/hebbianNetworks/geneticNetwork_gen";
+  std::string filename = "bin/generated/hebbianNetworks/geneticNetwork_gen";
   int generation = mGeneticAlgorithmController->getGeneration();
   filename.append(std::to_string(generation));
   filename.append("_fitness");

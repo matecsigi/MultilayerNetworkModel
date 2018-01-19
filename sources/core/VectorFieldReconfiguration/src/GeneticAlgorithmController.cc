@@ -121,6 +121,7 @@ void GeneticAlgorithmController::death()
   {
     NetworkPopulationElement* networkElement = chooseForDeath();
     mPopulation.erase(std::remove(mPopulation.begin(), mPopulation.end(), networkElement), mPopulation.end());
+    delete networkElement;
   }
 }
 

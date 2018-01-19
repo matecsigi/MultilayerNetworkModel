@@ -30,6 +30,7 @@ NetworkPopulationElement::NetworkPopulationElement(Network* network, VectorField
 
 NetworkPopulationElement::~NetworkPopulationElement()
 {
+  delete mNetwork;
 }
 
 void NetworkPopulationElement::setNetwork(Network* network)
