@@ -73,7 +73,7 @@ double HebbianObserver::getResult()
     sumDistances += *itDis;
   }
   double result = sumDistances/(double)(mDistances.size());
-  std::cout<<"DISTANCE="<<result<<std::endl;
+  // std::cout<<"DISTANCE="<<result<<std::endl;
   return result;  
 }
 

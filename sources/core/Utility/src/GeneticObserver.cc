@@ -28,10 +28,11 @@ void GeneticObserver::atStep()
 
   saveNetworkToJSON(bestNetwork->getNetwork(), filename);
 
+  std::cout<<"========================="<<std::endl;
   std::cout<<"generation="<<mGeneticAlgorithmController->getGeneration()<<std::endl;
   std::cout<<"  ->BEST="<<bestNetwork->getFitness()<<std::endl;
   std::cout<<"  ->AVG="<<mGeneticAlgorithmController->calculateAverageFitness()<<std::endl;
-
+  mGeneticAlgorithmController->printPopulation();
 }
 
 void GeneticObserver::atFinish()

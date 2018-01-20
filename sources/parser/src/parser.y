@@ -78,7 +78,6 @@
 
 %%
 
-
 variable : STRING INTEGER
            {
 	     if($1 == "ID")
@@ -104,7 +103,11 @@ constant : INTEGER
 	     $$ = new CNConstant(-$2);
 	   }
 
-atomexpr : constant
+atomexpr : constant MULTIPLY variable
+           {
+	     $$ = new CNMultiply($1, $3);	     
+           } 
+         | constant
            {
 	     $$ = $1;
 	   }
@@ -130,14 +133,14 @@ unaryexpr : powexpr
             {
 	      $$ = $1;
 	    }
-          | PLUS powexpr
-            {
-	      $$ = $2;
-	    }
-          | MINUS powexpr
-            {
-	      $$ = new CNNegate($2);
-	    }
+//          | PLUS powexpr
+//            {
+//	      $$ = $2;
+//	    }
+//          | MINUS powexpr
+//            {
+//	      $$ = new CNNegate($2);
+//	    }
 
 mulexpr : unaryexpr
           {

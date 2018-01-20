@@ -201,14 +201,14 @@ std::ostream& operator<<(std::ostream &os, const Node &node)
   os<<"Node "<<node.getId()<<std::endl;
 
   //printing state
-  double* tmpBuffer = new double[bufferSize];
-  node.getValues(tmpBuffer);
-  for(int i=0; i<bufferSize; ++i)
-  {
-    os<<" "<<tmpBuffer[i];
-  }
-  os<<std::endl;
-  delete [] tmpBuffer;
+  // double* tmpBuffer = new double[bufferSize];
+  // node.getValues(tmpBuffer);
+  // for(int i=0; i<bufferSize; ++i)
+  // {
+  //   os<<" "<<tmpBuffer[i];
+  // }
+  // os<<std::endl;
+  // delete [] tmpBuffer;
 
   //printing equation
   std::vector<Network*> networks = node.getNetworks();

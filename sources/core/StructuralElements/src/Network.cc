@@ -173,6 +173,7 @@ std::vector<IdValuePair> Network::getDirectionAtState(std::vector<IdValuePair> &
   for(std::vector<Node*>::const_iterator itNode=mNodes.begin(); itNode != mNodes.end(); ++itNode)
   {
     DynamicalEquation* nodeEquation = getNodeDynamicalEquation((*itNode)->getId());
+    std::cout<<nodeEquation->toString()<<std::endl;
     (*itNode)->stepOdeAtState(nodeEquation, basePointCoordinates, finalState);
   }
   

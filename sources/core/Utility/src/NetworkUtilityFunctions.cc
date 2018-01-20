@@ -32,12 +32,13 @@ void copyNetwork(Network* oldNetwork, Network* newNetwork)
     std::string strEquation = oldNetwork->getNodeDynamicalEquationString(oldNode->getId());
     newNetwork->setDynamicalEquationString(oldNode->getId(), strEquation);
     DynamicalEquation* nodeEquation = newNetwork->getNodeDynamicalEquation(newNode->getId());
-    std::vector<Node*> nodes = newNetwork->getNodeNeighbors(newNode->getId());
-    nodes.push_back(newNode);
+    std::vector<Node*> newNeighbors = newNetwork->getNodeNeighbors(newNode->getId());
+    // nodes.push_back(newNode);
     std::map<int, Node*> nodesMap;
-    for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
+    nodesMap[newNode->getId()] = newNode;
+    for(std::vector<Node*>::iterator itNewN=newNeighbors.begin(); itNewN != newNeighbors.end(); ++itNewN)
     {
-      nodesMap[(*itNode)->getId()] = *itNode;
+      nodesMap[(*itNewN)->getId()] = *itNewN;
     }
     nodeEquation->loadNodesToEquation(nodeEquation->getBaseCalculationNode(), nodesMap);
   }

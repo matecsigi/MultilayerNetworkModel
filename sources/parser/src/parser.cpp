@@ -30,7 +30,7 @@
 // This special exception was added by the Free Software Foundation in
 // version 2.2 of Bison.
 // //                    "%code top" blocks.
-#line 33 "parser.y" // lalr1.cc:397
+#line 31 "parser.y" // lalr1.cc:397
 
     #include <iostream>
     #include "scanner.h"
@@ -42,7 +42,7 @@
     static EquationParser::Parser::symbol_type yylex(EquationParser::Scanner &scanner, EquationParser::Interpreter &driver) {
         return scanner.get_next_token();
     }
-        
+    using namespace std;        
     using namespace EquationParser;
 
 #line 49 "parser.cpp" // lalr1.cc:397
@@ -593,7 +593,7 @@ namespace  EquationParser  {
           switch (yyn)
             {
   case 2:
-#line 85 "parser.y" // lalr1.cc:859
+#line 82 "parser.y" // lalr1.cc:859
     {
 	     if(yystack_[1].value.as< std::string > () == "ID")
 	     {
@@ -604,7 +604,7 @@ namespace  EquationParser  {
     break;
 
   case 3:
-#line 93 "parser.y" // lalr1.cc:859
+#line 90 "parser.y" // lalr1.cc:859
     {
 	     yylhs.value.as< class CalculationNode* > () = new CNConstant(yystack_[0].value.as< int > ());
 	   }
@@ -612,7 +612,7 @@ namespace  EquationParser  {
     break;
 
   case 4:
-#line 97 "parser.y" // lalr1.cc:859
+#line 94 "parser.y" // lalr1.cc:859
     {
 	     yylhs.value.as< class CalculationNode* > () = new CNConstant(yystack_[0].value.as< double > ());
 	   }
@@ -620,7 +620,7 @@ namespace  EquationParser  {
     break;
 
   case 5:
-#line 101 "parser.y" // lalr1.cc:859
+#line 98 "parser.y" // lalr1.cc:859
     {
 	     yylhs.value.as< class CalculationNode* > () = new CNConstant(-yystack_[0].value.as< int > ());
 	   }
@@ -628,7 +628,7 @@ namespace  EquationParser  {
     break;
 
   case 6:
-#line 105 "parser.y" // lalr1.cc:859
+#line 102 "parser.y" // lalr1.cc:859
     {
 	     yylhs.value.as< class CalculationNode* > () = new CNConstant(-yystack_[0].value.as< double > ());
 	   }
@@ -636,15 +636,15 @@ namespace  EquationParser  {
     break;
 
   case 7:
-#line 110 "parser.y" // lalr1.cc:859
+#line 107 "parser.y" // lalr1.cc:859
     {
-	     yylhs.value.as< class CalculationNode* > () = yystack_[0].value.as< class CalculationNode* > ();
-	   }
+	     yylhs.value.as< class CalculationNode* > () = new CNMultiply(yystack_[2].value.as< class CalculationNode* > (), yystack_[0].value.as< class CalculationNode* > ());	     
+           }
 #line 644 "parser.cpp" // lalr1.cc:859
     break;
 
   case 8:
-#line 114 "parser.y" // lalr1.cc:859
+#line 111 "parser.y" // lalr1.cc:859
     {
 	     yylhs.value.as< class CalculationNode* > () = yystack_[0].value.as< class CalculationNode* > ();
 	   }
@@ -652,39 +652,39 @@ namespace  EquationParser  {
     break;
 
   case 9:
-#line 118 "parser.y" // lalr1.cc:859
+#line 115 "parser.y" // lalr1.cc:859
     {
-	     yylhs.value.as< class CalculationNode* > () = yystack_[1].value.as< class CalculationNode* > ();
+	     yylhs.value.as< class CalculationNode* > () = yystack_[0].value.as< class CalculationNode* > ();
 	   }
 #line 660 "parser.cpp" // lalr1.cc:859
     break;
 
   case 10:
-#line 123 "parser.y" // lalr1.cc:859
+#line 119 "parser.y" // lalr1.cc:859
     {
-	    yylhs.value.as< class CalculationNode* > () = yystack_[0].value.as< class CalculationNode* > ();
-	  }
+	     yylhs.value.as< class CalculationNode* > () = yystack_[1].value.as< class CalculationNode* > ();
+	   }
 #line 668 "parser.cpp" // lalr1.cc:859
     break;
 
   case 11:
-#line 127 "parser.y" // lalr1.cc:859
+#line 124 "parser.y" // lalr1.cc:859
     {
-	    yylhs.value.as< class CalculationNode* > () = new CNPower(yystack_[2].value.as< class CalculationNode* > (), yystack_[0].value.as< class CalculationNode* > ());
+	    yylhs.value.as< class CalculationNode* > () = yystack_[0].value.as< class CalculationNode* > ();
 	  }
 #line 676 "parser.cpp" // lalr1.cc:859
     break;
 
   case 12:
-#line 132 "parser.y" // lalr1.cc:859
+#line 128 "parser.y" // lalr1.cc:859
     {
-	      yylhs.value.as< class CalculationNode* > () = yystack_[0].value.as< class CalculationNode* > ();
-	    }
+	    yylhs.value.as< class CalculationNode* > () = new CNPower(yystack_[2].value.as< class CalculationNode* > (), yystack_[0].value.as< class CalculationNode* > ());
+	  }
 #line 684 "parser.cpp" // lalr1.cc:859
     break;
 
   case 13:
-#line 136 "parser.y" // lalr1.cc:859
+#line 133 "parser.y" // lalr1.cc:859
     {
 	      yylhs.value.as< class CalculationNode* > () = yystack_[0].value.as< class CalculationNode* > ();
 	    }
@@ -692,96 +692,88 @@ namespace  EquationParser  {
     break;
 
   case 14:
-#line 140 "parser.y" // lalr1.cc:859
+#line 146 "parser.y" // lalr1.cc:859
     {
-	      yylhs.value.as< class CalculationNode* > () = new CNNegate(yystack_[0].value.as< class CalculationNode* > ());
-	    }
+	    yylhs.value.as< class CalculationNode* > () = yystack_[0].value.as< class CalculationNode* > ();
+	  }
 #line 700 "parser.cpp" // lalr1.cc:859
     break;
 
   case 15:
-#line 145 "parser.y" // lalr1.cc:859
+#line 150 "parser.y" // lalr1.cc:859
     {
-	    yylhs.value.as< class CalculationNode* > () = yystack_[0].value.as< class CalculationNode* > ();
+	    yylhs.value.as< class CalculationNode* > () = new CNMultiply(yystack_[2].value.as< class CalculationNode* > (), yystack_[0].value.as< class CalculationNode* > ());
 	  }
 #line 708 "parser.cpp" // lalr1.cc:859
     break;
 
   case 16:
-#line 149 "parser.y" // lalr1.cc:859
+#line 154 "parser.y" // lalr1.cc:859
     {
-	    yylhs.value.as< class CalculationNode* > () = new CNMultiply(yystack_[2].value.as< class CalculationNode* > (), yystack_[0].value.as< class CalculationNode* > ());
+	    yylhs.value.as< class CalculationNode* > () = new CNDivide(yystack_[2].value.as< class CalculationNode* > (), yystack_[0].value.as< class CalculationNode* > ());
 	  }
 #line 716 "parser.cpp" // lalr1.cc:859
     break;
 
   case 17:
-#line 153 "parser.y" // lalr1.cc:859
+#line 159 "parser.y" // lalr1.cc:859
     {
-	    yylhs.value.as< class CalculationNode* > () = new CNDivide(yystack_[2].value.as< class CalculationNode* > (), yystack_[0].value.as< class CalculationNode* > ());
+	    yylhs.value.as< class CalculationNode* > () = yystack_[0].value.as< class CalculationNode* > ();
 	  }
 #line 724 "parser.cpp" // lalr1.cc:859
     break;
 
   case 18:
-#line 158 "parser.y" // lalr1.cc:859
+#line 163 "parser.y" // lalr1.cc:859
     {
-	    yylhs.value.as< class CalculationNode* > () = yystack_[0].value.as< class CalculationNode* > ();
+	    yylhs.value.as< class CalculationNode* > () = new CNAdd(yystack_[2].value.as< class CalculationNode* > (), yystack_[0].value.as< class CalculationNode* > ());
 	  }
 #line 732 "parser.cpp" // lalr1.cc:859
     break;
 
   case 19:
-#line 162 "parser.y" // lalr1.cc:859
+#line 167 "parser.y" // lalr1.cc:859
     {
-	    yylhs.value.as< class CalculationNode* > () = new CNAdd(yystack_[2].value.as< class CalculationNode* > (), yystack_[0].value.as< class CalculationNode* > ());
+	    yylhs.value.as< class CalculationNode* > () = new CNSubtract(yystack_[2].value.as< class CalculationNode* > (), yystack_[0].value.as< class CalculationNode* > ());
 	  }
 #line 740 "parser.cpp" // lalr1.cc:859
     break;
 
   case 20:
-#line 166 "parser.y" // lalr1.cc:859
+#line 172 "parser.y" // lalr1.cc:859
     {
-	    yylhs.value.as< class CalculationNode* > () = new CNSubtract(yystack_[2].value.as< class CalculationNode* > (), yystack_[0].value.as< class CalculationNode* > ());
+	    yylhs.value.as< class CalculationNode* > () = yystack_[0].value.as< class CalculationNode* > ();
 	  }
 #line 748 "parser.cpp" // lalr1.cc:859
     break;
 
-  case 21:
-#line 171 "parser.y" // lalr1.cc:859
+  case 24:
+#line 180 "parser.y" // lalr1.cc:859
     {
-	    yylhs.value.as< class CalculationNode* > () = yystack_[0].value.as< class CalculationNode* > ();
+	    driver.mCalcBase = yystack_[1].value.as< class CalculationNode* > ();
 	  }
 #line 756 "parser.cpp" // lalr1.cc:859
     break;
 
   case 25:
-#line 179 "parser.y" // lalr1.cc:859
-    {
-	    driver.mCalcBase = yystack_[1].value.as< class CalculationNode* > ();
-	  }
-#line 764 "parser.cpp" // lalr1.cc:859
-    break;
-
-  case 26:
-#line 184 "parser.y" // lalr1.cc:859
+#line 185 "parser.y" // lalr1.cc:859
     {
 	    driver.mCalcBase = yystack_[1].value.as< class CalculationNode* > ();
        
 	  }
-#line 773 "parser.cpp" // lalr1.cc:859
+#line 765 "parser.cpp" // lalr1.cc:859
     break;
 
-  case 27:
-#line 190 "parser.y" // lalr1.cc:859
+  case 26:
+#line 191 "parser.y" // lalr1.cc:859
     {
 	    driver.mCalcBase = yystack_[0].value.as< class CalculationNode* > ();
 	  }
-#line 781 "parser.cpp" // lalr1.cc:859
+#line 773 "parser.cpp" // lalr1.cc:859
     break;
 
 
-#line 785 "parser.cpp" // lalr1.cc:859
+#line 777 "parser.cpp" // lalr1.cc:859
             default:
               break;
             }
@@ -1036,81 +1028,79 @@ namespace  EquationParser  {
   }
 
 
-  const signed char  Parser ::yypact_ninf_ = -9;
+  const signed char  Parser ::yypact_ninf_ = -7;
 
   const signed char  Parser ::yytable_ninf_ = -1;
 
   const signed char
    Parser ::yypact_[] =
   {
-      -1,    -2,    -1,    -9,    -9,     8,    17,    -9,    -9,     1,
-      -9,    -9,    -8,     3,    23,    24,    -9,    22,    25,    -9,
-      -9,    -9,    -9,     8,    -1,    -1,    -1,    -1,    -9,    -9,
-      -9,    -9,    -9,    -9,    -9,    -9,    -9,    -9,    -8,    -8
+      -3,    -6,    -3,    -7,    -7,     5,    -7,    -5,     1,    -7,
+      -7,    -1,     6,     3,     4,    -7,    13,    -7,    -7,    18,
+      -3,    -3,    -3,    -3,    -3,    -7,    -7,    -7,    -7,    -7,
+      -7,    -7,    -7,    -7,    -1,    -1
   };
 
   const unsigned char
    Parser ::yydefact_[] =
   {
-      22,     0,     0,     3,     4,     0,     0,     8,     7,    10,
-      12,    15,    18,    21,     0,     0,     2,     0,     0,    13,
-       3,     4,    14,     0,     0,     0,     0,     0,    26,    25,
-      24,    23,     9,     5,     6,    11,    16,    17,    19,    20
+      21,     0,     0,     3,     4,     0,     9,     8,    11,    13,
+      14,    17,    20,     0,     0,     2,     0,     5,     6,     0,
+       0,     0,     0,     0,     0,    25,    24,    23,    22,    10,
+       7,    12,    15,    16,    18,    19
   };
 
   const signed char
    Parser ::yypgoto_[] =
   {
-      -9,    -9,    -9,    -9,    -5,     7,     9,    -9,    20,    -9
+      -7,     7,    -7,    -7,     2,    -2,     0,    -7,    23,    -7
   };
 
   const signed char
    Parser ::yydefgoto_[] =
   {
-      -1,     7,     8,     9,    10,    11,    12,    13,    14,    15
+      -1,     6,     7,     8,     9,    10,    11,    12,    13,    14
   };
 
   const unsigned char
    Parser ::yytable_[] =
   {
-      19,    22,     1,     2,    24,    25,    16,     3,     4,     5,
-       6,     1,     2,    26,    27,    23,     3,     4,    35,    18,
-       1,     2,    17,    28,    30,    20,    21,    32,    18,    29,
-      31,    36,    37,    33,    34,    38,    39
+       1,     2,    15,    25,    27,     3,     4,    19,     5,    26,
+      28,    21,    22,    17,    18,    20,    23,    24,    29,    32,
+      33,     1,    31,    34,    35,    16,    30
   };
 
   const unsigned char
    Parser ::yycheck_[] =
   {
-       5,     6,     3,     4,    12,    13,     8,     8,     9,    10,
-      11,     3,     4,    10,    11,    14,     8,     9,    23,    11,
-       3,     4,     2,     0,     0,     8,     9,     5,    11,     6,
-       6,    24,    25,     8,     9,    26,    27
+       3,     4,     8,     0,     0,     8,     9,    12,    11,     6,
+       6,    12,    13,     8,     9,    14,    10,    11,     5,    21,
+      22,     3,    20,    23,    24,     2,    19
   };
 
   const unsigned char
    Parser ::yystos_[] =
   {
-       0,     3,     4,     8,     9,    10,    11,    16,    17,    18,
-      19,    20,    21,    22,    23,    24,     8,    23,    11,    19,
-       8,     9,    19,    14,    12,    13,    10,    11,     0,     6,
-       0,     6,     5,     8,     9,    19,    20,    20,    21,    21
+       0,     3,     4,     8,     9,    11,    16,    17,    18,    19,
+      20,    21,    22,    23,    24,     8,    23,     8,     9,    12,
+      14,    12,    13,    10,    11,     0,     6,     0,     6,     5,
+      16,    19,    20,    20,    21,    21
   };
 
   const unsigned char
    Parser ::yyr1_[] =
   {
        0,    15,    16,    17,    17,    17,    17,    18,    18,    18,
-      19,    19,    20,    20,    20,    21,    21,    21,    22,    22,
-      22,    23,    24,    24,    24,    24,    24,    24
+      18,    19,    19,    20,    21,    21,    21,    22,    22,    22,
+      23,    24,    24,    24,    24,    24,    24
   };
 
   const unsigned char
    Parser ::yyr2_[] =
   {
-       0,     2,     2,     1,     1,     2,     2,     1,     1,     3,
-       1,     3,     1,     2,     2,     1,     3,     3,     1,     3,
-       3,     1,     0,     2,     2,     2,     2,     1
+       0,     2,     2,     1,     1,     2,     2,     3,     1,     1,
+       3,     1,     3,     1,     1,     3,     3,     1,     3,     3,
+       1,     0,     2,     2,     2,     2,     1
   };
 
 
@@ -1131,9 +1121,9 @@ namespace  EquationParser  {
   const unsigned char
    Parser ::yyrline_[] =
   {
-       0,    84,    84,    92,    96,   100,   104,   109,   113,   117,
-     122,   126,   131,   135,   139,   144,   148,   152,   157,   161,
-     165,   170,   175,   176,   177,   178,   183,   189
+       0,    81,    81,    89,    93,    97,   101,   106,   110,   114,
+     118,   123,   127,   132,   145,   149,   153,   158,   162,   166,
+     171,   176,   177,   178,   179,   184,   190
   };
 
   // Print the state stack on the debug stream.
@@ -1168,11 +1158,11 @@ namespace  EquationParser  {
 
 #line 15 "parser.y" // lalr1.cc:1167
 } //  EquationParser 
-#line 1172 "parser.cpp" // lalr1.cc:1167
-#line 194 "parser.y" // lalr1.cc:1168
+#line 1162 "parser.cpp" // lalr1.cc:1167
+#line 195 "parser.y" // lalr1.cc:1168
 
 
 void EquationParser::Parser::error(const location &loc , const std::string &message) {
         
-        cout << "Error: " << message << endl << "Error location: " << driver.location() << endl;
+  std::cout << "Error: " << message << std::endl << "Error location: " << driver.location() << std::endl;
 }

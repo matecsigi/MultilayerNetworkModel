@@ -6,6 +6,7 @@
 #include "GenerateBarabasiNetwork.hh"
 #include "GeneralNetworkGenerator.hh"
 #include "NetworkDynamicsGenerators.hh"
+#include "NetworkInitialConditionGenerators.hh"
 #include "IGeneticObserver.hh"
 #include "GeneticObserver.hh"
 #include "HebbianParameterContainer.hh"
@@ -20,9 +21,11 @@ int main()
 
   std::function<void(Network*)> binderBarabasiStructure = std::bind(generateBarabasiNetwork, _1, hebbianParameters->higherNetworkSize, 1);
   std::function<void(Network*)> binderLinearDynamics = std::bind(linearNetworkDynamicsGenerator, _1);
-  std::function<void(Network*)> binderGeneral = std::bind(generateNetwork, _1, binderBarabasiStructure, binderLinearDynamics, nullptr);
+  std::function<void(Network*)> binderInitialConditions = std::bind(oneNetworkInitialConditions, _1);
+  std::function<void(Network*)> binderGeneral = std::bind(generateNetwork, _1, binderBarabasiStructure, binderLinearDynamics, binderInitialConditions);
 
   GeneticAlgorithmParameterContainer *geneticParameters = new GeneticAlgorithmParameterContainer();
+  geneticParameters->defaultCall = 1;
   geneticParameters->numberOfGenerations = 1000;
   geneticParameters->initialPopulationSize = 25;
   geneticParameters->modificationTypeProbabilities = vectorReconfModTypeProbabilities;

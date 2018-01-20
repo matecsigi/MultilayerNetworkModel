@@ -10,6 +10,7 @@ NetworkModifier::NetworkModifier(GeneticAlgorithmParameterContainer *geneticPara
 
   mMaxConstantChange = geneticParameters->maxConstantChange;
   mModificationTypeProbabilities = geneticParameters->modificationTypeProbabilities;
+  mDefaultCall = geneticParameters->defaultCall;
 
   if(deletionNeeded == true){delete geneticParameters;}
 }
@@ -27,6 +28,11 @@ void NetworkModifier::modifyNetwork(Network* network, int numberOfChanges)
 
     // DynamicalEquation* nodeEquation = network->getNodeDynamicalEquation(nodeToChange->getId());
     // std::cout<<nodeEquation->toString()<<std::endl;
+
+    if(mDefaultCall == 1)
+    {
+      std::cout<<"type="<<type<<std::endl;
+    }
 
     switch(type)
     {

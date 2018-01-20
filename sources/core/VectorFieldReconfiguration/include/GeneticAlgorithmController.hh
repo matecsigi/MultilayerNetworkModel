@@ -30,12 +30,14 @@ public:
   NetworkPopulationElement* chooseForDeath();
 
   //Helper functions
+  NetworkPopulationElement* chooseForDeath_helper();
   void createMixedNetwork(Network* parentNetwork1, Network* parentNetwork2, Network* childNetwork);
   NetworkPopulationElement* chooseBestNetwork();
   double calculateAverageFitness();
   void updateFitnessRanks();
   void quickSortTwoVectors(std::vector<double> &fitnessVector, int left, int right);
   int getGeneration();
+  void printPopulation();
 
 private:
   Network* mNetwork;

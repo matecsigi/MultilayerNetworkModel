@@ -84,10 +84,22 @@ void GeneticAlgorithmController::mutation()
   for(int i=0; i<numberOfMutations; ++i)
   {
     NetworkPopulationElement* networkElement = chooseForMutation();
+    // if(mGeneticParameters.defaultCall == 1)
+    // {
+    //   std::cout<<"==mutation_BEFORE==";
+    //   std::cout<<"fitness="<<networkElement->getFitness()<<std::endl;
+    //   std::cout<<*networkElement->getNetwork()<<std::endl;
+    // }
     Network* network = networkElement->getNetwork();
     NetworkModifier networkModifier(&mGeneticParameters);
     networkModifier.modifyNetwork(network);
     networkElement->setNetwork(network);
+    // if(mGeneticParameters.defaultCall == 1)
+    // {
+    //   std::cout<<"==mutation_AFTER==";
+    //   std::cout<<"fitness="<<networkElement->getFitness()<<std::endl;
+    //   std::cout<<*networkElement->getNetwork()<<std::endl;
+    // }
     networkElement->setGeneration(mGeneration);
   }
 }
@@ -109,8 +121,6 @@ void GeneticAlgorithmController::crossover()
     childElement->setGeneration(mGeneration);
     childElement->setRank((networkElement1->getRank()+networkElement2->getRank())/2);
     mPopulation.push_back(childElement);
-
-    // std::cout<<"    -parent="<<networkElement1->getFitness()<<", "<<networkElement2->getFitness()<<"->"<<childElement->getFitness()<<std::endl;
   }
 }
 
@@ -147,30 +157,6 @@ NetworkPopulationElement* GeneticAlgorithmController::chooseForMutation()
 
 NetworkPopulationElement* GeneticAlgorithmController::chooseForCrossover()
 {
-  /*
-    Comment out to use roulette based selection instead of rank based selection.
-   */
-  // double sumFitness = 0;
-  // for(std::vector<NetworkPopulationElement*>::iterator itNet=mPopulation.begin(); itNet != mPopulation.end(); ++itNet)
-  // {
-  //   // sumFitness += pow(2, (*itNet)->getFitness());
-  //   sumFitness += (*itNet)->getFitness()*(*itNet)->getFitness();
-  // }
-
-  // double random = (static_cast<double>(rand())/RAND_MAX)*sumFitness;
-  // double counter = 0;
-  // for(std::vector<NetworkPopulationElement*>::iterator itNet=mPopulation.begin(); itNet != mPopulation.end(); ++itNet)
-  // {
-  //   // counter += pow(2, (*itNet)->getFitness());
-  //   counter += (*itNet)->getFitness()*(*itNet)->getFitness();
-  //   if(counter >= random)
-  //   {
-  //     return (*itNet);
-  //   }
-  // }
-
-  // return mPopulation[0];
-
   double sumRank = 0;
   for(std::vector<NetworkPopulationElement*>::iterator itNet=mPopulation.begin(); itNet != mPopulation.end(); ++itNet)
   {
@@ -188,24 +174,38 @@ NetworkPopulationElement* GeneticAlgorithmController::chooseForCrossover()
     }
   }
 
-  return mPopulation[0];
+  int randomIndex = rand()%static_cast<int>(mPopulation.size());
+  return mPopulation[randomIndex];
 }
 
 
 NetworkPopulationElement* GeneticAlgorithmController::chooseForDeath()
 {
-  for(int i=2; i>=0; --i)
+  // for(int i=2; i>=0; --i)
+  // {
+  //   for(std::vector<NetworkPopulationElement*>::iterator itNet=mPopulation.begin(); itNet != mPopulation.end(); ++itNet)
+  //   {
+  //     int generation = (*itNet)->getGeneration();
+  //     if(generation <= mGeneration-i)
+  //     {
+  // 	if((double)(*itNet)->getRank() < mPopulation.size()*mElitRatio)
+  // 	{
+  // 	  return (*itNet);
+  // 	}
+  //     }
+  //   }
+  // }
+  NetworkPopulationElement* networkElement = NULL;
+  while(networkElement == NULL)
   {
-    for(std::vector<NetworkPopulationElement*>::iterator itNet=mPopulation.begin(); itNet != mPopulation.end(); ++itNet)
+    networkElement = chooseForDeath_helper();
+    if((double)networkElement->getRank() > mPopulation.size()*mElitRatio)
     {
-      int generation = (*itNet)->getGeneration();
-      if(generation <= mGeneration-i)
-      {
-	if((double)(*itNet)->getRank() < mPopulation.size()*mElitRatio)
-	{
-	  return (*itNet);
-	}
-      }
+      return networkElement;
+    }
+    else
+    {
+      networkElement = NULL;
     }
   }
 
@@ -214,6 +214,29 @@ NetworkPopulationElement* GeneticAlgorithmController::chooseForDeath()
 }
 
 //Helpers
+
+NetworkPopulationElement* GeneticAlgorithmController::chooseForDeath_helper()
+{
+  double sumRank = 0;
+  for(std::vector<NetworkPopulationElement*>::iterator itNet=mPopulation.begin(); itNet != mPopulation.end(); ++itNet)
+  {
+    sumRank += (*itNet)->getRank();
+  }
+
+  double random = (static_cast<double>(rand())/RAND_MAX)*sumRank;
+  double counter = 0;
+  for(std::vector<NetworkPopulationElement*>::iterator itNet=mPopulation.begin(); itNet != mPopulation.end(); ++itNet)
+  {
+    counter += (*itNet)->getRank();
+    if(counter >= random)
+    {
+      return (*itNet);
+    }
+  }
+  
+  int randomIndex = rand()%static_cast<int>(mPopulation.size());
+  return mPopulation[randomIndex];  
+}
 
 void GeneticAlgorithmController::createMixedNetwork(Network* parentNetwork1, Network* parentNetwork2, Network* childNetwork)
 {
@@ -372,4 +395,13 @@ void GeneticAlgorithmController::quickSortTwoVectors(std::vector<double> &fitnes
 int GeneticAlgorithmController::getGeneration()
 {
   return mGeneration;
+}
+
+void GeneticAlgorithmController::printPopulation()
+{
+  for(std::vector<NetworkPopulationElement*>::iterator itPop=mPopulation.begin(); itPop != mPopulation.end(); ++itPop)
+  {
+    std::cout<<"  element fitness="<<(*itPop)->getFitness()<<std::endl;
+    std::cout<<"  network="<<*(*itPop)->getNetwork()<<std::endl;
+  }
 }

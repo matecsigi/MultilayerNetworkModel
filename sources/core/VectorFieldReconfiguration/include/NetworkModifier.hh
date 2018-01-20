@@ -103,6 +103,7 @@ public:
 private:
   double mMaxConstantChange;
   std::vector<double> mModificationTypeProbabilities;
+  int mDefaultCall;
 };
 
 #endif

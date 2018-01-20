@@ -48,14 +48,12 @@
     #include <stdint.h>
     #include "CalculationNode.hh"
 
-    using namespace std;
-
     namespace EquationParser {
         class Scanner;
         class Interpreter;
     }
 
-#line 59 "parser.hpp" // lalr1.cc:377
+#line 57 "parser.hpp" // lalr1.cc:377
 
 # include <cassert>
 # include <cstdlib> // std::abort
@@ -132,7 +130,7 @@
 
 #line 15 "parser.y" // lalr1.cc:377
 namespace  EquationParser  {
-#line 136 "parser.hpp" // lalr1.cc:377
+#line 134 "parser.hpp" // lalr1.cc:377
 
 
 
@@ -721,9 +719,9 @@ namespace  EquationParser  {
     enum
     {
       yyeof_ = 0,
-      yylast_ = 36,     ///< Last index in yytable_.
+      yylast_ = 26,     ///< Last index in yytable_.
       yynnts_ = 10,  ///< Number of nonterminal symbols.
-      yyfinal_ = 30, ///< Termination state number.
+      yyfinal_ = 27, ///< Termination state number.
       yyterror_ = 1,
       yyerrcode_ = 256,
       yyntokens_ = 15  ///< Number of tokens.
@@ -1148,7 +1146,7 @@ namespace  EquationParser  {
 
 #line 15 "parser.y" // lalr1.cc:377
 } //  EquationParser 
-#line 1152 "parser.hpp" // lalr1.cc:377
+#line 1150 "parser.hpp" // lalr1.cc:377
 
 
 

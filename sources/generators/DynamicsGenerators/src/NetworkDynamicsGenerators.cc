@@ -15,11 +15,13 @@ void linearNetworkDynamicsGenerator(Network* network)
     std::vector<Node*> neighbors = network->getNodeNeighbors((*itNode)->getId());
     for(std::vector<Node*>::iterator itNei=neighbors.begin(); itNei != neighbors.end(); ++itNei)
     {
-      myString.append("+");
+      myString.append("*");
       myString.append("0.2*");
       myString.append("ID");
       myString.append((std::to_string((*itNei)->getId())));
     }
+    myString.append("*0.2*ID");
+    myString.append(std::to_string(neighbors[0]->getId()));
     network->setDynamicalEquationString(currentNode->getId(), myString);
   }
 }
