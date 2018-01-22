@@ -150,14 +150,19 @@ void NetworkModifier::removeEdge(Network* network, Node* node)
   std::vector<CalculationNode*> deleteList;
   getNodeOccurrences(baseCalcNode, deleteList, neighborToRemove->getId());
 
+  bool deletionCancelled = false;
+
   for(std::vector<CalculationNode*>::iterator itCalc=deleteList.begin(); itCalc != deleteList.end(); ++itCalc)
   {
     CalculationNode* changingCalcNode = (*itCalc);
-    baseCalcNode = specific_removeEdge(baseCalcNode, changingCalcNode);
+    baseCalcNode = specific_removeEdge(baseCalcNode, changingCalcNode, deletionCancelled);
   }
 
   nodeEquation->setBaseCalculationNode(baseCalcNode);
-  network->removeEdge(node->getId(), neighborToRemove->getId());
+  if(deletionCancelled == false)
+  {
+    network->removeEdge(node->getId(), neighborToRemove->getId());
+  }
 }
 
 
@@ -191,7 +196,8 @@ void NetworkModifier::removeFromOuterBlock(Network* network, Node* node)
   int randomIndex = rand()%locations.size();
   CalculationNode* changingCalcNode = locations[randomIndex];  
 
-  baseCalcNode = specific_removeEdge(baseCalcNode, changingCalcNode);
+  bool deletionCancelled = false;
+  baseCalcNode = specific_removeEdge(baseCalcNode, changingCalcNode, deletionCancelled);
   nodeEquation->setBaseCalculationNode(baseCalcNode);
 }
 
@@ -461,12 +467,14 @@ CalculationNode* NetworkModifier::specific_addEdge(CalculationNode* baseCalcNode
   return baseCalcNode;  
 }
 
-CalculationNode* NetworkModifier::specific_removeEdge(CalculationNode* baseCalcNode, CalculationNode* changingCalcNode)
+CalculationNode* NetworkModifier::specific_removeEdge(CalculationNode* baseCalcNode, CalculationNode* changingCalcNode, bool &deletionCancelled)
 {
   if(changingCalcNode == baseCalcNode)
   {
-    delete changingCalcNode;
-    baseCalcNode = NULL;
+    deletionCancelled = true;
+    return baseCalcNode;
+    // delete changingCalcNode;
+    // baseCalcNode = NULL;
   }
   else
   {
@@ -479,9 +487,11 @@ CalculationNode* NetworkModifier::specific_removeEdge(CalculationNode* baseCalcN
 	changingCalcNode = parent;
 	if(parent == baseCalcNode)
 	{
-	  baseCalcNode = NULL;
-	  delete changingCalcNode;
+	  deletionCancelled = true;
 	  return baseCalcNode;
+	  // baseCalcNode = NULL;
+	  // delete changingCalcNode;
+	  // return baseCalcNode;
 	}
 	else
 	{
@@ -493,9 +503,11 @@ CalculationNode* NetworkModifier::specific_removeEdge(CalculationNode* baseCalcN
 	changingCalcNode = parent;
 	if(parent == baseCalcNode)
 	{
-	  baseCalcNode = NULL;
-	  delete changingCalcNode;
+	  deletionCancelled = true;
 	  return baseCalcNode;
+	  // baseCalcNode = NULL;
+	  // delete changingCalcNode;
+	  // return baseCalcNode;
 	}
 	else
 	{

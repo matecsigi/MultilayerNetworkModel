@@ -88,7 +88,7 @@ public:
 
   //Specific change functions (given the exact location of change)
   CalculationNode* specific_addEdge(CalculationNode* baseCalcNode, CalculationNode* changingCalcNode, Node* newNeighbor);
-  CalculationNode* specific_removeEdge(CalculationNode* baseCalcNode, CalculationNode* changingCalcNode);
+  CalculationNode* specific_removeEdge(CalculationNode* baseCalcNode, CalculationNode* changingCalcNode, bool &deletionCancelled);
   void specific_changeConstant(CalculationNode* changingCalcNode);
   CalculationNode* specific_changePlusToMultiply(CalculationNode* baseCalcNode, CalculationNode* changingCalcNode);
   CalculationNode* specific_changeMultiplyToPlus(CalculationNode* baseCalcNode, CalculationNode* changingCalcNode);

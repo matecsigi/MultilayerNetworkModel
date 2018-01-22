@@ -36,6 +36,7 @@ double DynamicalEquation::evaluate()
 
 double DynamicalEquation::evaluateAtState(std::vector<IdValuePair> &startingState)
 {
+  // std::cout<<mBaseCalculationNode->toString()<<std::endl;
   return mBaseCalculationNode->evaluateAtState(startingState);
 }
 
