@@ -31,7 +31,7 @@ void NetworkModifier::modifyNetwork(Network* network, int numberOfChanges)
 
     if(mDefaultCall == 1)
     {
-      std::cout<<"type="<<type<<std::endl;
+      // std::cout<<"type="<<type<<std::endl;
     }
 
     switch(type)

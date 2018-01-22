@@ -32,7 +32,7 @@ void GeneticObserver::atStep()
   std::cout<<"generation="<<mGeneticAlgorithmController->getGeneration()<<std::endl;
   std::cout<<"  ->BEST="<<bestNetwork->getFitness()<<std::endl;
   std::cout<<"  ->AVG="<<mGeneticAlgorithmController->calculateAverageFitness()<<std::endl;
-  mGeneticAlgorithmController->printPopulation();
+  // mGeneticAlgorithmController->printPopulation();
 }
 
 void GeneticObserver::atFinish()

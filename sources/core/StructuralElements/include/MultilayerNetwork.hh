@@ -61,6 +61,13 @@ public:
    */
   void shiftBuffers(void);
 
+  /**
+     Find the maximum and minimum values among all the nodes in the multilayer network.
+     There are used to check if the values go to +/- infinity.
+   */
+  double getMaxValue();
+  double getMinValue();
+
   void collectNodes(std::map<int, Node*>& nodesMap, std::vector<int>& nodeIds) const;
   void collectNetworks(std::map<int, Network*>& networksMap, std::vector<int>& networkIds) const;
 

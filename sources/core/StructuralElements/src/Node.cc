@@ -110,6 +110,32 @@ double Node::getPreviousState()
   return mValues[getIndexTMinusOne(t)];
 }
 
+double Node::getMaxValue()
+{
+  double max = 0;
+  for(int i=0; i<bufferSize; ++i)
+  {
+    if(mValues[i] > max)
+    {
+      max = mValues[i];
+    }
+  }
+  return max;
+}
+
+double Node::getMinValue()
+{
+  double min = 0;
+  for(int i=0; i<bufferSize; ++i)
+  {
+    if(mValues[i] < min)
+    {
+      min = mValues[i];
+    }
+  }
+  return min;
+}
+
 void Node::setChangeByUpwardInfluence(int index, double value)
 {
   mChangeByUpwardInfluence[index] = value;

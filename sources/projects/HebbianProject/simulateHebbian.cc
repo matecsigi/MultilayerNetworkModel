@@ -1,3 +1,4 @@
+#include <fstream>
 #include <iostream>
 #include <functional>
 #include "GeneticAlgorithmController.hh"
@@ -27,12 +28,19 @@ int main()
   GeneticAlgorithmParameterContainer *geneticParameters = new GeneticAlgorithmParameterContainer();
   geneticParameters->defaultCall = 1;
   geneticParameters->numberOfGenerations = 1000;
-  geneticParameters->initialPopulationSize = 25;
+  geneticParameters->initialPopulationSize = 30;
   geneticParameters->modificationTypeProbabilities = vectorReconfModTypeProbabilities;
   geneticParameters->fitnessFunction = std::bind(hebbianFitnessFunction, _1, hebbianParameters);
   geneticParameters->createInitialNetwork = binderGeneral;
+
+  std::ofstream fileParam("bin/generated/parameters.txt");
+  fileParam<<hebbianParameters->toString()<<std::endl;
+  fileParam<<geneticParameters->toString();
+  fileParam.close();
+
   GeneticAlgorithmController geneticController(geneticParameters);
   IGeneticObserver *observer = new GeneticObserver(&geneticController);
+
   geneticController.runGeneticAlgorithm(NULL, observer);
 
   delete hebbianParameters;

@@ -58,6 +58,9 @@ public:
   double getCurrentState();
   double getPreviousState();
 
+  double getMaxValue();
+  double getMinValue();
+
   void setChangeByUpwardInfluence(int index, double value);
   void setChangeByDownwardInfluence(int index, double value);
 

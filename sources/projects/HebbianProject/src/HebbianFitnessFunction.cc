@@ -28,7 +28,11 @@ double hebbianFitnessFunction(NetworkPopulationElement* networkPopulationElement
   double sumDistance = observer->getResult();
   double distance = sumDistance/(double)(hebbianParameters->runTime);
   double fitness = (double)100/distance;
-  std::cout<<"distance="<<distance<<std::endl;
+  if((multilayerNetwork->getMaxValue() > 1.0e+30) || (multilayerNetwork->getMinValue() < -1.0e+30))
+  {
+    fitness = 1.0e-50;
+  }
+
   std::cout<<"fitness="<<fitness<<std::endl;
 
   delete observer;

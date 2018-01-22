@@ -84,23 +84,17 @@ void GeneticAlgorithmController::mutation()
   for(int i=0; i<numberOfMutations; ++i)
   {
     NetworkPopulationElement* networkElement = chooseForMutation();
-    // if(mGeneticParameters.defaultCall == 1)
-    // {
-    //   std::cout<<"==mutation_BEFORE==";
-    //   std::cout<<"fitness="<<networkElement->getFitness()<<std::endl;
-    //   std::cout<<*networkElement->getNetwork()<<std::endl;
-    // }
     Network* network = networkElement->getNetwork();
+    Network* mutatedNetwork = new Network;
+    copyNetwork(network, mutatedNetwork);
+
     NetworkModifier networkModifier(&mGeneticParameters);
-    networkModifier.modifyNetwork(network);
-    networkElement->setNetwork(network);
-    // if(mGeneticParameters.defaultCall == 1)
-    // {
-    //   std::cout<<"==mutation_AFTER==";
-    //   std::cout<<"fitness="<<networkElement->getFitness()<<std::endl;
-    //   std::cout<<*networkElement->getNetwork()<<std::endl;
-    // }
-    networkElement->setGeneration(mGeneration);
+    networkModifier.modifyNetwork(mutatedNetwork);
+
+    NetworkPopulationElement* mutatedElement = new NetworkPopulationElement(mutatedNetwork, mTargetVectorField, mFitnessFunction);
+    mutatedElement->setRank(networkElement->getRank());
+    mutatedElement->setGeneration(mGeneration);
+    mPopulation.push_back(mutatedElement);
   }
 }
 
@@ -126,6 +120,7 @@ void GeneticAlgorithmController::crossover()
 
 void GeneticAlgorithmController::death()
 {
+  updateFitnessRanks();
   int numberOfDeaths = mPopulation.size()-mInitialPopulationSize;
   for(int i=0; i<numberOfDeaths; ++i)
   {
@@ -199,7 +194,7 @@ NetworkPopulationElement* GeneticAlgorithmController::chooseForDeath()
   while(networkElement == NULL)
   {
     networkElement = chooseForDeath_helper();
-    if((double)networkElement->getRank() > mPopulation.size()*mElitRatio)
+    if((double)networkElement->getRank() > mInitialPopulationSize*mElitRatio)
     {
       return networkElement;
     }

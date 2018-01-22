@@ -4,6 +4,7 @@
 #include "NetworkPopulationElement.hh"
 #include "GlobalVariables.hh"
 #include <functional>
+#include <string>
 
 class GeneticAlgorithmParameterContainer
 {
@@ -22,7 +23,7 @@ public:
      The highest rankded elements are not deleted.
      This strategy is called elitism.
   */
-  double elitRatio = 0.5;
+  double elitRatio = 0.2;
 
   double maxConstantChange = 0.01;
 
@@ -30,6 +31,8 @@ public:
 
   std::function<double (NetworkPopulationElement*)> fitnessFunction = nullptr;
   std::function<void (Network*)> createInitialNetwork = nullptr;
+
+  std::string toString();
 };
 
 #endif

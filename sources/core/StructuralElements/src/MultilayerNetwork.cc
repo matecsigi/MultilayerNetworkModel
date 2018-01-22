@@ -84,7 +84,7 @@ void MultilayerNetwork::iterate(int steps, SimulationParameterContainer *paramet
   if(observer != NULL){observer->atStart();}
   for(t=0; t<steps; ++t)
   {
-    std::cout<<"t="<<t<<std::endl;
+    // std::cout<<"t="<<t<<std::endl;
     step(parameters);
 
     if(observer != NULL){observer->atStep();}
@@ -96,6 +96,8 @@ void MultilayerNetwork::iterate(int steps, SimulationParameterContainer *paramet
       shiftBuffers();
     }
   }
+  // std::cout<<*this<<std::endl;
+
   save();
   saveState();
   if(observer != NULL){observer->atFinish();}
@@ -465,6 +467,33 @@ bool dynamicalEquationsEqual(const MultilayerNetwork& multilayerNetwork1, const 
   return true;
 }
 
+double MultilayerNetwork::getMaxValue()
+{
+  double max = 0;
+  for(std::vector<int>::iterator itId=mNodeIds.begin(); itId != mNodeIds.end(); ++itId)
+  {
+    Node* node = mNodesMap[*itId];
+    if(node->getMaxValue() > max)
+    {
+      max = node->getMaxValue();
+    }
+  }
+  return max;
+}
+
+double MultilayerNetwork::getMinValue()
+{
+  double min = 0;
+  for(std::vector<int>::iterator itId=mNodeIds.begin(); itId != mNodeIds.end(); ++itId)
+  {
+    Node* node = mNodesMap[*itId];
+    if(node->getMinValue() < min)
+    {
+      min = node->getMinValue();
+    }
+  }
+  return min;
+}
 
 void MultilayerNetwork::collectNodes(std::map<int, Node*>& nodesMap, std::vector<int>& nodeIds) const
 {
