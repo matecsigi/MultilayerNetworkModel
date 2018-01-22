@@ -21,7 +21,7 @@ void linearNetworkDynamicsGenerator(Network* network)
       myString.append((std::to_string((*itNei)->getId())));
     }
     // myString.append("*0.2*ID");
-    myString.append(std::to_string(neighbors[0]->getId()));
+    // myString.append(std::to_string(neighbors[0]->getId()));
     network->setDynamicalEquationString(currentNode->getId(), myString);
   }
 }
