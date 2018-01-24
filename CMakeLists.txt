@@ -5,6 +5,8 @@ set(CMAKE_CXX_COMPILER "g++")
 
 project(MultilayerModel)
 
+add_subdirectory(sources/projects/MpiCluster)
+
 file(GLOB_RECURSE core_src "sources/core/*.cc")
 file(GLOB_RECURSE generators_src "sources/generators/*.cc")
 file(GLOB_RECURSE parser_src "sources/parser/src/*.cpp")
@@ -12,7 +14,6 @@ file(GLOB_RECURSE project_barabasi_src "sources/projects/BarabasiMultilayer/src/
 file(GLOB_RECURSE project_hebbian_src "sources/projects/HebbianProject/src/*.cc")
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-
 set (CMAKE_CXX_FLAGS "-O3 -g -Wall -std=c++11 -lboost_unit_test_framework")
 
 include_directories(
@@ -32,7 +33,7 @@ ${CMAKE_SOURCE_DIR}/sources/projects/MainProject/include
 ${CMAKE_SOURCE_DIR}/sources/projects/BarabasiMultilayer/include
 ${CMAKE_SOURCE_DIR}/sources/projects/HebbianProject/include)
 
-add_executable(test
+add_executable(testing
 ${CMAKE_SOURCE_DIR}/sources/test/test_StructureGeneration.cc ${core_src}
 ${generators_src} ${parser_src})
 add_executable(generate

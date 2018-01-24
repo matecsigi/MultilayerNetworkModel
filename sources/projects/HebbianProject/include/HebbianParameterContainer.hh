@@ -9,12 +9,11 @@ public:
   HebbianParameterContainer(){};
   ~HebbianParameterContainer(){};
 
-  int higherNetworkSize = 15;
-  int lowerNetworkSize = 10;
+  int higherNetworkSize = 6;
+  int lowerNetworkSize = 6;
 
   int transientTime = 10;
   int runTime = 20;
-
   double higherNetworkInitConditionMin = 100;
   double higherNetworkInitConditionMax = 200;
   double lowerNetworkInitConditionMin = 0;
