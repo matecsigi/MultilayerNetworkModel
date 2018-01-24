@@ -12,6 +12,8 @@ public:
   GeneticAlgorithmParameterContainer(){};
   ~GeneticAlgorithmParameterContainer(){};
 
+  bool cluster = false;
+
   int defaultCall = 0;
 
   int initialPopulationSize = 100; //250

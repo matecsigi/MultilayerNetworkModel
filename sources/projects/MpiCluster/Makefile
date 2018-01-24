@@ -1124,6 +1124,60 @@ src/GeneticAlgorithmServer.cc.s:
 	cd /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel && $(MAKE) -f sources/projects/MpiCluster/CMakeFiles/cluster.dir/build.make sources/projects/MpiCluster/CMakeFiles/cluster.dir/src/GeneticAlgorithmServer.cc.s
 .PHONY : src/GeneticAlgorithmServer.cc.s
 
+src/MpiUtility.o: src/MpiUtility.cc.o
+
+.PHONY : src/MpiUtility.o
+
+# target to build an object file
+src/MpiUtility.cc.o:
+	cd /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel && $(MAKE) -f sources/projects/MpiCluster/CMakeFiles/cluster.dir/build.make sources/projects/MpiCluster/CMakeFiles/cluster.dir/src/MpiUtility.cc.o
+.PHONY : src/MpiUtility.cc.o
+
+src/MpiUtility.i: src/MpiUtility.cc.i
+
+.PHONY : src/MpiUtility.i
+
+# target to preprocess a source file
+src/MpiUtility.cc.i:
+	cd /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel && $(MAKE) -f sources/projects/MpiCluster/CMakeFiles/cluster.dir/build.make sources/projects/MpiCluster/CMakeFiles/cluster.dir/src/MpiUtility.cc.i
+.PHONY : src/MpiUtility.cc.i
+
+src/MpiUtility.s: src/MpiUtility.cc.s
+
+.PHONY : src/MpiUtility.s
+
+# target to generate assembly for a file
+src/MpiUtility.cc.s:
+	cd /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel && $(MAKE) -f sources/projects/MpiCluster/CMakeFiles/cluster.dir/build.make sources/projects/MpiCluster/CMakeFiles/cluster.dir/src/MpiUtility.cc.s
+.PHONY : src/MpiUtility.cc.s
+
+src/MultilayerNetworkServer.o: src/MultilayerNetworkServer.cc.o
+
+.PHONY : src/MultilayerNetworkServer.o
+
+# target to build an object file
+src/MultilayerNetworkServer.cc.o:
+	cd /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel && $(MAKE) -f sources/projects/MpiCluster/CMakeFiles/cluster.dir/build.make sources/projects/MpiCluster/CMakeFiles/cluster.dir/src/MultilayerNetworkServer.cc.o
+.PHONY : src/MultilayerNetworkServer.cc.o
+
+src/MultilayerNetworkServer.i: src/MultilayerNetworkServer.cc.i
+
+.PHONY : src/MultilayerNetworkServer.i
+
+# target to preprocess a source file
+src/MultilayerNetworkServer.cc.i:
+	cd /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel && $(MAKE) -f sources/projects/MpiCluster/CMakeFiles/cluster.dir/build.make sources/projects/MpiCluster/CMakeFiles/cluster.dir/src/MultilayerNetworkServer.cc.i
+.PHONY : src/MultilayerNetworkServer.cc.i
+
+src/MultilayerNetworkServer.s: src/MultilayerNetworkServer.cc.s
+
+.PHONY : src/MultilayerNetworkServer.s
+
+# target to generate assembly for a file
+src/MultilayerNetworkServer.cc.s:
+	cd /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel && $(MAKE) -f sources/projects/MpiCluster/CMakeFiles/cluster.dir/build.make sources/projects/MpiCluster/CMakeFiles/cluster.dir/src/MultilayerNetworkServer.cc.s
+.PHONY : src/MultilayerNetworkServer.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1244,6 +1298,12 @@ help:
 	@echo "... src/GeneticAlgorithmServer.o"
 	@echo "... src/GeneticAlgorithmServer.i"
 	@echo "... src/GeneticAlgorithmServer.s"
+	@echo "... src/MpiUtility.o"
+	@echo "... src/MpiUtility.i"
+	@echo "... src/MpiUtility.s"
+	@echo "... src/MultilayerNetworkServer.o"
+	@echo "... src/MultilayerNetworkServer.i"
+	@echo "... src/MultilayerNetworkServer.s"
 .PHONY : help
 
 

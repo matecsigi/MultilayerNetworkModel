@@ -20,6 +20,7 @@ double hebbianFitnessFunction(NetworkPopulationElement* networkPopulationElement
 
   SimulationParameterContainer *parameters = new SimulationParameterContainer;
   parameters->cluster = hebbianParameters->cluster;
+  parameters->geneticParameters->cluster = hebbianParameters->cluster;
   parameters->geneticParameters->modificationTypeProbabilities = hebbianModTypeProbabilities;
   parameters->geneticParameters->initialPopulationSize = 30;
 

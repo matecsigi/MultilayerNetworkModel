@@ -1,4 +1,5 @@
 #include "MultilayerNetwork.hh"
+#include "MultilayerNetworkServer.hh"
 #include <iostream>
 #include <fstream>
 #include <map>
@@ -51,6 +52,12 @@ void MultilayerNetwork::step(SimulationParameterContainer *parameters)
   bool deletionNeeded = false;
   if(parameters == NULL){parameters = new SimulationParameterContainer; deletionNeeded = true;};
 
+  MultilayerNetworkServer server;
+  if(parameters->cluster == true)
+  {
+    server.start();
+  }
+
   std::vector<std::vector<Node*>> nodeThreadPartition(numberOfCores);
 
   for(std::vector<int>::iterator itId=mNodeIds.begin(); itId != mNodeIds.end(); ++itId)
@@ -67,10 +74,16 @@ void MultilayerNetwork::step(SimulationParameterContainer *parameters)
     stepThreads[i] = std::thread(executeStepsInThread, std::ref(nodeThreadPartition[i]), parameters);
   }
 
+  if(parameters->cluster == true)
+  {
+    server.processQueue(this);
+  }
+
   for(int i=0; i < numberOfCores; ++i)
   {
     stepThreads[i].join();
   }
+
   if(deletionNeeded == true){delete parameters;}
 }
 

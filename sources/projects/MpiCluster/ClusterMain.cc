@@ -16,6 +16,6 @@ int main(int argc, char *argv[])
   else if(world.rank() != 0)
   {
     GeneticAlgorithmServer geneticAlgorithmServer;
-    geneticAlgorithmServer.startServer();
+    geneticAlgorithmServer.start();
   }
 }

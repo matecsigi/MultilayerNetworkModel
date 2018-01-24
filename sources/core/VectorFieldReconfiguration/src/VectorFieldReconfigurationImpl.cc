@@ -3,6 +3,7 @@
 #include "VectorFieldSchemes.hh"
 #include "VectorFieldTransformImplementations.hh"
 #include "GeneticAlgorithmController.hh"
+#include "MpiUtility.hh"
 
 void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration(GeneticAlgorithmParameterContainer *geneticParameters)
 {
@@ -25,8 +26,15 @@ void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration(Genetic
   // std::cout<<"--------Target----------"<<std::endl;
   // std::cout<<*targetVectorField;
 
-  GeneticAlgorithmController geneticController(geneticParameters);
-  geneticController.fitToVectorField(networkAssigned, targetVectorField);
+  if(geneticParameters->cluster == true)
+  {
+    mpiSend(1, 0, mNode->getId());
+  }
+  else
+  {
+    GeneticAlgorithmController geneticController(geneticParameters);
+    geneticController.fitToVectorField(networkAssigned, targetVectorField);
+  }
 
   delete currentVectorField;
   delete targetVectorField;
