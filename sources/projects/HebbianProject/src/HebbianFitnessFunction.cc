@@ -19,8 +19,10 @@ double hebbianFitnessFunction(NetworkPopulationElement* networkPopulationElement
   generateMultilayerNetworkForHebbianFitness(multilayerNetwork, network, hebbianParameters);
 
   SimulationParameterContainer *parameters = new SimulationParameterContainer;
+  parameters->cluster = hebbianParameters->cluster;
   parameters->geneticParameters->modificationTypeProbabilities = hebbianModTypeProbabilities;
   parameters->geneticParameters->initialPopulationSize = 30;
+
   IObserver *observer = new HebbianObserver(multilayerNetwork);
   multilayerNetwork->iterate(hebbianParameters->transientTime, parameters);
   multilayerNetwork->iterate(hebbianParameters->runTime, parameters, observer);

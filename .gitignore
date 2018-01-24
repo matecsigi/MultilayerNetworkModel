@@ -3,6 +3,7 @@ build
 lib/*
 generated/*
 CMakeFiles/*
+sources/projects/MpiCluster/CMakeFiles/*
 
 sources/projects/BarabasiMultilayer/generated/*
 

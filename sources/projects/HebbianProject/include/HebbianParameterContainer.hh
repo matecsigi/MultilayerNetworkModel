@@ -9,6 +9,8 @@ public:
   HebbianParameterContainer(){};
   ~HebbianParameterContainer(){};
 
+  bool cluster = false;
+
   int higherNetworkSize = 6;
   int lowerNetworkSize = 6;
 
