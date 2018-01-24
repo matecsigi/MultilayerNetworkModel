@@ -1,1 +1,0 @@
-mpic++   -O3 -g -Wall -std=c++11 -lboost_mpi   CMakeFiles/cluster.dir/ClusterMain.cc.o  -o ../../../bin/cluster -rdynamic 
