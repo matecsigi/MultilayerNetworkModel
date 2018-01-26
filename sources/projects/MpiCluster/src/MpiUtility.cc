@@ -1,5 +1,5 @@
-#include "MpiUtility.hh"
 #include <boost/mpi.hpp>
+#include "MpiUtility.hh"
 
 void mpiSend(int destination, int tag, int value)
 {

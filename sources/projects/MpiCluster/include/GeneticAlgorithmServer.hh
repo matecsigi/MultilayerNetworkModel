@@ -1,6 +1,7 @@
 #ifndef GENETICALGORITHMSERVER_HH
 #define GENETICALGORITHMSERVER_HH
 
+#include <thread>
 #include <queue>
 
 class GeneticAlgorithmServer
@@ -13,7 +14,8 @@ public:
   void receiver();
   void processQueue();
 
-  std::queue<int> mQueue;
+  std::queue<int>* mQueue;
+  std::thread* receiverThread;
 };
 
 #endif

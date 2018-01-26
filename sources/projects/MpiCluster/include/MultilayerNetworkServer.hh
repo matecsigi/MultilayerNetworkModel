@@ -3,6 +3,7 @@
 
 #include "MultilayerNetwork.hh"
 #include <queue>
+#include <thread>
 
 class MultilayerNetworkServer
 {
@@ -14,7 +15,9 @@ public:
   void receiver();
   void processQueue(MultilayerNetwork* multilayerNetwork);
 
-  std::queue<int> mQueue;
+  std::queue<int> *mQueue;
+  std::queue<int> *mProcessed;
+  std::thread* receiverThread;
 };
 
 #endif

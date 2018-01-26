@@ -74,14 +74,14 @@ void MultilayerNetwork::step(SimulationParameterContainer *parameters)
     stepThreads[i] = std::thread(executeStepsInThread, std::ref(nodeThreadPartition[i]), parameters);
   }
 
-  if(parameters->cluster == true)
-  {
-    server.processQueue(this);
-  }
-
   for(int i=0; i < numberOfCores; ++i)
   {
     stepThreads[i].join();
+  }
+
+  if(parameters->cluster == true)
+  {
+    server.processQueue(this);
   }
 
   if(deletionNeeded == true){delete parameters;}
@@ -97,8 +97,9 @@ void MultilayerNetwork::iterate(int steps, SimulationParameterContainer *paramet
   if(observer != NULL){observer->atStart();}
   for(t=0; t<steps; ++t)
   {
-    // std::cout<<"t="<<t<<std::endl;
+    std::cout<<"t="<<t<<std::endl;
     step(parameters);
+    std::cout<<"after step"<<std::endl;
 
     if(observer != NULL){observer->atStep();}
 
