@@ -1178,6 +1178,33 @@ src/MultilayerNetworkServer.cc.s:
 	cd /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel && $(MAKE) -f sources/projects/MpiCluster/CMakeFiles/cluster.dir/build.make sources/projects/MpiCluster/CMakeFiles/cluster.dir/src/MultilayerNetworkServer.cc.s
 .PHONY : src/MultilayerNetworkServer.cc.s
 
+src/SerializedClasses.o: src/SerializedClasses.cc.o
+
+.PHONY : src/SerializedClasses.o
+
+# target to build an object file
+src/SerializedClasses.cc.o:
+	cd /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel && $(MAKE) -f sources/projects/MpiCluster/CMakeFiles/cluster.dir/build.make sources/projects/MpiCluster/CMakeFiles/cluster.dir/src/SerializedClasses.cc.o
+.PHONY : src/SerializedClasses.cc.o
+
+src/SerializedClasses.i: src/SerializedClasses.cc.i
+
+.PHONY : src/SerializedClasses.i
+
+# target to preprocess a source file
+src/SerializedClasses.cc.i:
+	cd /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel && $(MAKE) -f sources/projects/MpiCluster/CMakeFiles/cluster.dir/build.make sources/projects/MpiCluster/CMakeFiles/cluster.dir/src/SerializedClasses.cc.i
+.PHONY : src/SerializedClasses.cc.i
+
+src/SerializedClasses.s: src/SerializedClasses.cc.s
+
+.PHONY : src/SerializedClasses.s
+
+# target to generate assembly for a file
+src/SerializedClasses.cc.s:
+	cd /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel && $(MAKE) -f sources/projects/MpiCluster/CMakeFiles/cluster.dir/build.make sources/projects/MpiCluster/CMakeFiles/cluster.dir/src/SerializedClasses.cc.s
+.PHONY : src/SerializedClasses.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1304,6 +1331,9 @@ help:
 	@echo "... src/MultilayerNetworkServer.o"
 	@echo "... src/MultilayerNetworkServer.i"
 	@echo "... src/MultilayerNetworkServer.s"
+	@echo "... src/SerializedClasses.o"
+	@echo "... src/SerializedClasses.i"
+	@echo "... src/SerializedClasses.s"
 .PHONY : help
 
 

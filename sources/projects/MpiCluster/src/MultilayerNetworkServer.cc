@@ -7,22 +7,20 @@ std::mutex m2;
 
 MultilayerNetworkServer::MultilayerNetworkServer()
 {
-  mQueue = new std::queue<int>;
+  mQueue = new std::queue<GeneticAlgorithmReply>;
   mProcessed = new std::queue<int>;
   receiverThread = NULL;
 }
 
 MultilayerNetworkServer::~MultilayerNetworkServer()
 {
-  std::cout<<"server delete started"<<std::endl;
-  delete mQueue;
-  delete mProcessed;
   if(receiverThread != NULL)
   {
     receiverThread->join();
     delete receiverThread;
   }
-  std::cout<<"server deleted"<<std::endl;
+  delete mQueue;
+  delete mProcessed;
 }
 
 void MultilayerNetworkServer::start()
@@ -38,12 +36,17 @@ void MultilayerNetworkServer::receiver()
   char **argv = NULL;
   boost::mpi::environment env{argc, argv};
   boost::mpi::communicator world;
-  int i;
+  // boost::mpi::request req;
+  GeneticAlgorithmReply inMessage;
   boost::mpi::status status;
 
   while(true)
   {
-    status = world.recv(boost::mpi::any_source, boost::mpi::any_tag, i);
+    // req = world.irecv(boost::mpi::any_source, boost::mpi::any_tag, inMessage);
+    // status = req.wait();
+    std::cout<<"ready to receive"<<std::endl;
+    status = world.recv(boost::mpi::any_source, boost::mpi::any_tag, inMessage);
+    std::cout<<" reccc "<<inMessage.getNodeId()<<std::endl;
     if(status.tag() == 1)
     {
       return;
@@ -51,8 +54,8 @@ void MultilayerNetworkServer::receiver()
     else if(status.tag() == 0)
     {
       m2.lock();
-      mQueue->push(i);
-      std::cout<<"multinet got "<<i<<" -- size="<<mQueue->size()<<std::endl;
+      mQueue->push(inMessage);
+      std::cout<<"multinet got "<<inMessage.getNodeId()<<" -- size="<<mQueue->size()<<std::endl;
       m2.unlock();
     }
   }
@@ -60,7 +63,7 @@ void MultilayerNetworkServer::receiver()
 
 void MultilayerNetworkServer::processQueue(MultilayerNetwork *multilayerNetwork)
 {
-  int i;
+  GeneticAlgorithmReply inMessage;
   std::cout<<"MultilayerServer processQueue"<<std::endl;
   while(true)
   {
@@ -71,16 +74,20 @@ void MultilayerNetworkServer::processQueue(MultilayerNetwork *multilayerNetwork)
       char **argv = NULL;
       boost::mpi::environment env{argc, argv};
       boost::mpi::communicator world;
-      world.send(0, 1, i);
+      GeneticAlgorithmMessage tmpMessage(10);
+      // boost::mpi::request req = world.isend(0, 1, tmpMessage);
+      // req.wait();
+      world.send(1, 1, tmpMessage);
       m2.unlock();
+      std::cout<<"initiate stop"<<std::endl;
       return;
     }
     else if(mQueue->size() > 0)
     {
-      i = mQueue->front();
+      inMessage = mQueue->front();
       mQueue->pop();
-      mProcessed->push(i);
-      std::cout<<"multinet processed "<<i<<std::endl;
+      mProcessed->push(inMessage.getNodeId());
+      std::cout<<"multinet processed "<<inMessage.getNodeId()<<std::endl;
     }
     m2.unlock();
   }

@@ -7,7 +7,7 @@ std::mutex m;
 
 GeneticAlgorithmServer::GeneticAlgorithmServer()
 {
-  mQueue = new std::queue<int>;
+  mQueue = new std::queue<GeneticAlgorithmMessage>;
   receiverThread = NULL;
 }
 
@@ -33,15 +33,24 @@ void GeneticAlgorithmServer::receiver()
   char **argv = NULL;
   boost::mpi::environment env{argc, argv};
   boost::mpi::communicator world;
-  int i;
+  GeneticAlgorithmMessage inMessage;
+  boost::mpi::status status;
 
   while(true)
   {
-    world.recv(0, 0, i);
-    m.lock();
-    mQueue->push(i);
-    std::cout<<"genetic received "<<i<<" -- size="<<mQueue->size()<<std::endl;
-    m.unlock();
+    status = world.recv(boost::mpi::any_source, boost::mpi::any_tag, inMessage);
+    if(status.tag() == 0)
+    {
+      m.lock();
+      mQueue->push(inMessage);
+      std::cout<<"genetic received "<<inMessage.getNodeId()<<" -- size="<<mQueue->size()<<std::endl;
+      m.unlock();
+    }
+    else if(status.tag() == 1)
+    {
+      GeneticAlgorithmReply outMessage;
+      world.send(0, 1, outMessage);
+    }
   }
 }
 
@@ -51,7 +60,7 @@ void GeneticAlgorithmServer::processQueue()
   char **argv = NULL;
   boost::mpi::environment env{argc, argv};
   boost::mpi::communicator world;
-  int i;
+  GeneticAlgorithmMessage inMessage;
 
   std::cout<<"GeneticServer processQueue"<<std::endl;
   while(true)
@@ -60,10 +69,12 @@ void GeneticAlgorithmServer::processQueue()
     // std::cout<<"proc "<<mQueue->size()<<std::endl;
     if(mQueue->size() > 0)
     {
-      i = mQueue->front();
+      inMessage = mQueue->front();
       mQueue->pop();
-      world.send(0, 0, i);
-      std::cout<<"genetic send "<<i<<std::endl;
+      int id = inMessage.getNodeId();
+      GeneticAlgorithmReply outMessage(id);
+      world.send(0, 0, outMessage);
+      std::cout<<"genetic send "<<outMessage.getNodeId()<<std::endl;
     }
     m.unlock();
   }

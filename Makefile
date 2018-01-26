@@ -1905,6 +1905,48 @@ sources/projects/MpiCluster/src/MultilayerNetworkServer.cc.s:
 	$(MAKE) -f CMakeFiles/testing.dir/build.make CMakeFiles/testing.dir/sources/projects/MpiCluster/src/MultilayerNetworkServer.cc.s
 .PHONY : sources/projects/MpiCluster/src/MultilayerNetworkServer.cc.s
 
+sources/projects/MpiCluster/src/SerializedClasses.o: sources/projects/MpiCluster/src/SerializedClasses.cc.o
+
+.PHONY : sources/projects/MpiCluster/src/SerializedClasses.o
+
+# target to build an object file
+sources/projects/MpiCluster/src/SerializedClasses.cc.o:
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/projects/MpiCluster/src/SerializedClasses.cc.o
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/projects/MpiCluster/src/SerializedClasses.cc.o
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/projects/MpiCluster/src/SerializedClasses.cc.o
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/projects/MpiCluster/src/SerializedClasses.cc.o
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/projects/MpiCluster/src/SerializedClasses.cc.o
+	$(MAKE) -f CMakeFiles/testing.dir/build.make CMakeFiles/testing.dir/sources/projects/MpiCluster/src/SerializedClasses.cc.o
+.PHONY : sources/projects/MpiCluster/src/SerializedClasses.cc.o
+
+sources/projects/MpiCluster/src/SerializedClasses.i: sources/projects/MpiCluster/src/SerializedClasses.cc.i
+
+.PHONY : sources/projects/MpiCluster/src/SerializedClasses.i
+
+# target to preprocess a source file
+sources/projects/MpiCluster/src/SerializedClasses.cc.i:
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/projects/MpiCluster/src/SerializedClasses.cc.i
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/projects/MpiCluster/src/SerializedClasses.cc.i
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/projects/MpiCluster/src/SerializedClasses.cc.i
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/projects/MpiCluster/src/SerializedClasses.cc.i
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/projects/MpiCluster/src/SerializedClasses.cc.i
+	$(MAKE) -f CMakeFiles/testing.dir/build.make CMakeFiles/testing.dir/sources/projects/MpiCluster/src/SerializedClasses.cc.i
+.PHONY : sources/projects/MpiCluster/src/SerializedClasses.cc.i
+
+sources/projects/MpiCluster/src/SerializedClasses.s: sources/projects/MpiCluster/src/SerializedClasses.cc.s
+
+.PHONY : sources/projects/MpiCluster/src/SerializedClasses.s
+
+# target to generate assembly for a file
+sources/projects/MpiCluster/src/SerializedClasses.cc.s:
+	$(MAKE) -f CMakeFiles/simulateHebbian.dir/build.make CMakeFiles/simulateHebbian.dir/sources/projects/MpiCluster/src/SerializedClasses.cc.s
+	$(MAKE) -f CMakeFiles/generateBarabasi.dir/build.make CMakeFiles/generateBarabasi.dir/sources/projects/MpiCluster/src/SerializedClasses.cc.s
+	$(MAKE) -f CMakeFiles/simulateBarabasi.dir/build.make CMakeFiles/simulateBarabasi.dir/sources/projects/MpiCluster/src/SerializedClasses.cc.s
+	$(MAKE) -f CMakeFiles/simulate.dir/build.make CMakeFiles/simulate.dir/sources/projects/MpiCluster/src/SerializedClasses.cc.s
+	$(MAKE) -f CMakeFiles/generate.dir/build.make CMakeFiles/generate.dir/sources/projects/MpiCluster/src/SerializedClasses.cc.s
+	$(MAKE) -f CMakeFiles/testing.dir/build.make CMakeFiles/testing.dir/sources/projects/MpiCluster/src/SerializedClasses.cc.s
+.PHONY : sources/projects/MpiCluster/src/SerializedClasses.cc.s
+
 sources/test/test_StructureGeneration.o: sources/test/test_StructureGeneration.cc.o
 
 .PHONY : sources/test/test_StructureGeneration.o
@@ -2079,6 +2121,9 @@ help:
 	@echo "... sources/projects/MpiCluster/src/MultilayerNetworkServer.o"
 	@echo "... sources/projects/MpiCluster/src/MultilayerNetworkServer.i"
 	@echo "... sources/projects/MpiCluster/src/MultilayerNetworkServer.s"
+	@echo "... sources/projects/MpiCluster/src/SerializedClasses.o"
+	@echo "... sources/projects/MpiCluster/src/SerializedClasses.i"
+	@echo "... sources/projects/MpiCluster/src/SerializedClasses.s"
 	@echo "... sources/test/test_StructureGeneration.o"
 	@echo "... sources/test/test_StructureGeneration.i"
 	@echo "... sources/test/test_StructureGeneration.s"

@@ -4,6 +4,8 @@
 #include "VectorFieldTransformImplementations.hh"
 #include "GeneticAlgorithmController.hh"
 #include "MpiUtility.hh"
+#include "SerializedClasses.hh"
+#include <boost/mpi.hpp>
 
 void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration(GeneticAlgorithmParameterContainer *geneticParameters)
 {
@@ -28,7 +30,17 @@ void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration(Genetic
 
   if(geneticParameters->cluster == true)
   {
-    mpiSend(1, 0, mNode->getId());
+    int argc;
+    char **argv = NULL;
+    boost::mpi::environment env{argc, argv};
+    boost::mpi::communicator world;
+
+    SerializedNetwork serializedNetwork;
+    serializeNetwork(networkAssigned, &serializedNetwork);
+    GeneticAlgorithmMessage message(mNode->getId());
+    message.mNetwork = serializedNetwork;
+    world.send(1, 0, message);
+    // mpiSend(1, 0, mNode->getId());
   }
   else
   {

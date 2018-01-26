@@ -3,6 +3,7 @@
 
 #include <thread>
 #include <queue>
+#include "SerializedClasses.hh"
 
 class GeneticAlgorithmServer
 {
@@ -14,7 +15,7 @@ public:
   void receiver();
   void processQueue();
 
-  std::queue<int>* mQueue;
+  std::queue<GeneticAlgorithmMessage>* mQueue;
   std::thread* receiverThread;
 };
 

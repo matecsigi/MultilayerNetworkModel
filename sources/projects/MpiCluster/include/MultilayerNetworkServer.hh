@@ -2,6 +2,7 @@
 #define MULTILAYERNETWORKSERVER_HH
 
 #include "MultilayerNetwork.hh"
+#include "SerializedClasses.hh"
 #include <queue>
 #include <thread>
 
@@ -15,7 +16,7 @@ public:
   void receiver();
   void processQueue(MultilayerNetwork* multilayerNetwork);
 
-  std::queue<int> *mQueue;
+  std::queue<GeneticAlgorithmReply> *mQueue;
   std::queue<int> *mProcessed;
   std::thread* receiverThread;
 };
