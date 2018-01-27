@@ -2,6 +2,7 @@
 #include <thread>
 #include <mutex>
 #include "MultilayerNetworkServer.hh"
+#include "NetworkUtilityFunctions.hh"
 
 std::mutex m2;
 
@@ -44,9 +45,7 @@ void MultilayerNetworkServer::receiver()
   {
     // req = world.irecv(boost::mpi::any_source, boost::mpi::any_tag, inMessage);
     // status = req.wait();
-    std::cout<<"ready to receive"<<std::endl;
     status = world.recv(boost::mpi::any_source, boost::mpi::any_tag, inMessage);
-    std::cout<<" reccc "<<inMessage.getNodeId()<<std::endl;
     if(status.tag() == 1)
     {
       return;
@@ -55,7 +54,7 @@ void MultilayerNetworkServer::receiver()
     {
       m2.lock();
       mQueue->push(inMessage);
-      std::cout<<"multinet got "<<inMessage.getNodeId()<<" -- size="<<mQueue->size()<<std::endl;
+      std::cout<<" +multinet got "<<inMessage.getNodeId()<<" -- size="<<mQueue->size()<<std::endl;
       m2.unlock();
     }
   }
@@ -63,12 +62,13 @@ void MultilayerNetworkServer::receiver()
 
 void MultilayerNetworkServer::processQueue(MultilayerNetwork *multilayerNetwork)
 {
+  mNumberOfNodesToProcess = calculateNumberOfNodesToProcess(multilayerNetwork);
   GeneticAlgorithmReply inMessage;
   std::cout<<"MultilayerServer processQueue"<<std::endl;
   while(true)
   {
     m2.lock();
-    if(mProcessed->size() >= 5)
+    if(finished() == true)
     {
       int argc;
       char **argv = NULL;
@@ -79,16 +79,53 @@ void MultilayerNetworkServer::processQueue(MultilayerNetwork *multilayerNetwork)
       // req.wait();
       world.send(1, 1, tmpMessage);
       m2.unlock();
-      std::cout<<"initiate stop"<<std::endl;
       return;
     }
     else if(mQueue->size() > 0)
     {
       inMessage = mQueue->front();
+
+      int nodeId = inMessage.mNodeId;
+
+      SerializedNetwork serializedNetwork = inMessage.mNetwork;
+      Network* network = new Network;
+      deserializeNetwork(&serializedNetwork, network);
+
+      Node* node = multilayerNetwork->mNodesMap[nodeId];
+      Network* networkAssigned = node->getNetworkAssigned();
+      copyNetwork(network, networkAssigned);
+
       mQueue->pop();
-      mProcessed->push(inMessage.getNodeId());
-      std::cout<<"multinet processed "<<inMessage.getNodeId()<<std::endl;
+      mProcessed->push(nodeId);
+      // std::cout<<"multinet processed "<<nodeId<<std::endl;
     }
     m2.unlock();
   }
+}
+
+bool MultilayerNetworkServer::finished()
+{
+  if((int)mProcessed->size() >= mNumberOfNodesToProcess)
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
+
+int MultilayerNetworkServer::calculateNumberOfNodesToProcess(MultilayerNetwork* multilayerNetwork)
+{
+  int counter = 0;
+  for(std::vector<int>::iterator itId=multilayerNetwork->mNodeIds.begin(); itId != multilayerNetwork->mNodeIds.end(); ++itId)
+  {
+    Node* currentNode = multilayerNetwork->mNodesMap[*itId];
+    if(currentNode->getNetworkAssigned() != NULL)
+    {
+      ++counter;
+    }
+  }
+
+  return counter;
 }

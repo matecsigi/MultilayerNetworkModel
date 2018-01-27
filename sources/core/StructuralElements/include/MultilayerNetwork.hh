@@ -76,15 +76,16 @@ public:
   friend std::ostream& operator<<(std::ostream& os, const MultilayerNetwork& multilayerNetwork);
   friend bool operator==(const MultilayerNetwork& multilayerNetwork1, const MultilayerNetwork& multilayerNetwork2);
 
-private:
-  std::vector<Layer*> mLayers;
-
   /**
      Contains all the nodes in id, pointer pairs.
      Used for executing the steps for the nodes.
    */
   std::map<int, Node*> mNodesMap;
   std::vector<int> mNodeIds;
+
+private:
+  std::vector<Layer*> mLayers;
+
 };
 
 void executeStepsInThread(std::vector<Node*> &nodes, SimulationParameterContainer *parameters);

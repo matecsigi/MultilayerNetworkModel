@@ -15,10 +15,13 @@ public:
   void start();
   void receiver();
   void processQueue(MultilayerNetwork* multilayerNetwork);
+  bool finished();
+  int calculateNumberOfNodesToProcess(MultilayerNetwork* multilayerNetwork);
 
   std::queue<GeneticAlgorithmReply> *mQueue;
   std::queue<int> *mProcessed;
   std::thread* receiverThread;
+  int mNumberOfNodesToProcess;
 };
 
 #endif

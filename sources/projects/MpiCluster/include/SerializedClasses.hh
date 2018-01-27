@@ -5,6 +5,7 @@
 #include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/string.hpp>
 #include "Network.hh"
+#include "VectorField.hh"
 
 class SerializedNode
 {
@@ -67,6 +68,66 @@ public:
   friend void deserializeNetwork(SerializedNetwork* serializedNetwork, Network* network);
 };
 
+class SerializedIdValuePair
+{
+private:
+  friend class boost::serialization::access;
+  template<class Archive>
+  void serialize(Archive &ar, const unsigned int version)
+  {
+    ar & mId;
+    ar & mValue;
+  }
+
+public:
+  SerializedIdValuePair(){};
+  SerializedIdValuePair(int id, double value): mId(id), mValue(value){};
+  ~SerializedIdValuePair(){};
+
+  int mId;
+  double mValue;
+};
+
+class SerializedVectorFieldPoint
+{
+private:
+  friend class boost::serialization::access;
+  template<class Archive>
+  void serialize(Archive &ar, const unsigned int version)
+  {
+    ar & mCoordinate;
+    ar & mDirection;
+  }
+
+public:
+  SerializedVectorFieldPoint(){};
+  SerializedVectorFieldPoint(std::vector<SerializedIdValuePair> &coordinate, std::vector<SerializedIdValuePair> &direction):mCoordinate(coordinate), mDirection(direction){};
+  ~SerializedVectorFieldPoint(){};
+
+  std::vector<SerializedIdValuePair> mCoordinate;
+  std::vector<SerializedIdValuePair> mDirection;
+};
+
+class SerializedVectorField
+{
+private:
+  friend class boost::serialization::access;
+  template<class Archive>
+  void serialize(Archive &ar, const unsigned int version)
+  {
+    ar & mVectorFieldPoints;
+  }
+
+  std::vector<SerializedVectorFieldPoint> mVectorFieldPoints;
+
+public:
+  SerializedVectorField(){};
+  ~SerializedVectorField(){};
+
+  friend void serializeVectorField(VectorField *vectorField, SerializedVectorField *serializedVectorField);
+  friend void deserializeVectorField(SerializedVectorField *serializedVectorField, VectorField *vectorField);
+};
+
 class GeneticAlgorithmMessage
 {
 private:
@@ -76,6 +137,7 @@ private:
   {
     ar & mNodeId;
     ar & mNetwork;
+    ar & mVectorField;
   }
 
 public:
@@ -86,6 +148,7 @@ public:
 
   int mNodeId;
   SerializedNetwork mNetwork;
+  SerializedVectorField mVectorField;
 };
 
 class GeneticAlgorithmReply
@@ -111,5 +174,8 @@ public:
 
 void serializeNetwork(Network *network, SerializedNetwork *serializedNetwork);
 void deserializeNetwork(SerializedNetwork* serializedNetwork, Network* network);
+
+void serializeVectorField(VectorField *vectorField, SerializedVectorField *serializedVectorField);
+void deserializeVectorField(SerializedVectorField *serializedVectorField, VectorField *vectorField);
 
 #endif

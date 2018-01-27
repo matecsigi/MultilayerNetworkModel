@@ -37,9 +37,13 @@ void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration(Genetic
 
     SerializedNetwork serializedNetwork;
     serializeNetwork(networkAssigned, &serializedNetwork);
+    SerializedVectorField serializedVectorField;
+    serializeVectorField(targetVectorField, &serializedVectorField);
+
     GeneticAlgorithmMessage message(mNode->getId());
     message.mNetwork = serializedNetwork;
-    world.send(1, 0, message);
+    message.mVectorField = serializedVectorField;
+    world.send((mNode->getId()%(world.size()-1))+1, 0, message);
     // mpiSend(1, 0, mNode->getId());
   }
   else

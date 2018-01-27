@@ -1,5 +1,6 @@
 #include <boost/mpi.hpp>
 #include "GeneticAlgorithmServer.hh"
+#include "GeneticAlgorithmController.hh"
 #include <iostream>
 #include <mutex>
 
@@ -43,7 +44,7 @@ void GeneticAlgorithmServer::receiver()
     {
       m.lock();
       mQueue->push(inMessage);
-      std::cout<<"genetic received "<<inMessage.getNodeId()<<" -- size="<<mQueue->size()<<std::endl;
+      std::cout<<"  -genetic received("<<world.rank()<<") "<<inMessage.getNodeId()<<" -- size="<<mQueue->size()<<std::endl;
       m.unlock();
     }
     else if(status.tag() == 1)
@@ -66,15 +67,33 @@ void GeneticAlgorithmServer::processQueue()
   while(true)
   {
     m.lock();
-    // std::cout<<"proc "<<mQueue->size()<<std::endl;
     if(mQueue->size() > 0)
     {
       inMessage = mQueue->front();
       mQueue->pop();
+
+      SerializedNetwork serializedNetwork = inMessage.mNetwork;
+      Network* network = new Network;
+      deserializeNetwork(&serializedNetwork, network);
+
+      SerializedVectorField serializedVectorField = inMessage.mVectorField;
+      VectorField* targetVectorField = new VectorField;
+      deserializeVectorField(&serializedVectorField, targetVectorField);
+
+      GeneticAlgorithmController geneticController;
+      geneticController.fitToVectorField(network, targetVectorField);
+
+      SerializedNetwork serializedModifiedNetwork;
+      serializeNetwork(network, &serializedModifiedNetwork);
+
       int id = inMessage.getNodeId();
       GeneticAlgorithmReply outMessage(id);
+      outMessage.mNetwork = serializedModifiedNetwork;
       world.send(0, 0, outMessage);
-      std::cout<<"genetic send "<<outMessage.getNodeId()<<std::endl;
+      // std::cout<<"genetic send "<<outMessage.getNodeId()<<std::endl;
+      
+      delete network;
+      delete targetVectorField;
     }
     m.unlock();
   }
