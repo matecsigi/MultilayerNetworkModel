@@ -2,19 +2,18 @@
 #include "UtilityFunctions.hh"
 #include "GeneticAlgorithmController.hh"
 #include <iostream>
+#include <spdlog/spdlog.h>
 
 GeneticObserver::~GeneticObserver(void)
 {
-
 }
 
 void GeneticObserver::atStart()
 {
-  // std::cout<<"Genetic atStart"<<std::endl;
-  // mLogger = spdlog::get("basic_logger");
-  // mLogger = spdlog::basic_logger_mt("basic_logger", "bin/generated/log.txt");
-  // mLogger->info("Starting simulation\n");
-  // spdlog::drop_all();
+  std::cout<<"at start"<<std::endl;
+  auto logger = spdlog::basic_logger_mt("hebbian_logger", "bin/generated/log.txt");
+  logger->info("Genetic algorithm started");
+  spdlog::drop_all();
 }
 
 void GeneticObserver::atStep()
@@ -32,6 +31,12 @@ void GeneticObserver::atStep()
 
   saveNetworkToJSON(bestNetwork->getNetwork(), filename);
 
+  auto logger = spdlog::basic_logger_mt("hebbian_logger", "bin/generated/log.txt");
+  logger->info("generation={}", mGeneticAlgorithmController->getGeneration());
+  logger->info("  best={}", bestNetwork->getFitness());
+  logger->info("  avg={}", mGeneticAlgorithmController->calculateAverageFitness());
+  spdlog::drop_all();
+
   std::cout<<"========================="<<std::endl;
   std::cout<<"generation="<<mGeneticAlgorithmController->getGeneration()<<std::endl;
   std::cout<<"  ->BEST="<<bestNetwork->getFitness()<<std::endl;
@@ -41,5 +46,5 @@ void GeneticObserver::atStep()
 
 void GeneticObserver::atFinish()
 {
-  // std::cout<<"Genetic atFinish"<<std::endl;
+
 }

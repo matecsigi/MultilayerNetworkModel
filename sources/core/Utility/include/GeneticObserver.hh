@@ -2,7 +2,6 @@
 #define GENETICOBSERVER_HH
 
 #include "IGeneticObserver.hh"
-// #include "spdlog/spdlog.h"
 
 class GeneticObserver: public IGeneticObserver
 {
@@ -14,7 +13,7 @@ public:
   void atStep();
   void atFinish();
 // private:
-//   std::shared_ptr<spdlog::logger> mLogger;
+//    std::shared_ptr<spdlog::logger> mLogger;
 };
 
 #endif

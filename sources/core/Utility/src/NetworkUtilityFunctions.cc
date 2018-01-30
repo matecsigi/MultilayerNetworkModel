@@ -14,7 +14,7 @@ void copyNetwork(Network* oldNetwork, Network* newNetwork)
     }
   }
 
-  double* tmpBuffer = new double[bufferSize];
+  // double* tmpBuffer = new double[bufferSize];
 
   for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
   {
@@ -26,8 +26,8 @@ void copyNetwork(Network* oldNetwork, Network* newNetwork)
       newNetwork->addEdge(oldNode->getId(), oldNeighbor->getId());
     }
     Node* newNode = newNetwork->getNodeById(oldNode->getId());
-    oldNode->getValues(tmpBuffer);
-    newNode->setValues(tmpBuffer);
+    // oldNode->getValues(tmpBuffer);
+    // newNode->setValues(tmpBuffer);
 
     std::string strEquation = oldNetwork->getNodeDynamicalEquationString(oldNode->getId());
     newNetwork->setDynamicalEquationString(oldNode->getId(), strEquation);
@@ -42,7 +42,7 @@ void copyNetwork(Network* oldNetwork, Network* newNetwork)
     }
     nodeEquation->loadNodesToEquation(nodeEquation->getBaseCalculationNode(), nodesMap);
   }
-  delete [] tmpBuffer; 
+  // delete [] tmpBuffer; 
 }
 
 std::vector<IdValuePair> calculateLowerNetworkDirection(Node *node)
