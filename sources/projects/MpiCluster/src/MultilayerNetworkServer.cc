@@ -26,13 +26,13 @@ MultilayerNetworkServer::~MultilayerNetworkServer()
 
 void MultilayerNetworkServer::start()
 {
-  std::cout<<"MultilayerServer started"<<std::endl;
+  // std::cout<<"MultilayerServer started"<<std::endl;
   receiverThread = new std::thread(&MultilayerNetworkServer::receiver, this);
 }
 
 void MultilayerNetworkServer::receiver()
 {
-  std::cout<<"MultilayerServer receiver"<<std::endl;
+  // std::cout<<"MultilayerServer receiver"<<std::endl;
   int argc;
   char **argv = NULL;
   boost::mpi::environment env{argc, argv};
@@ -54,7 +54,7 @@ void MultilayerNetworkServer::receiver()
     {
       m2.lock();
       mQueue->push(inMessage);
-      std::cout<<" +multinet got "<<inMessage.getNodeId()<<" -- size="<<mQueue->size()<<std::endl;
+      // std::cout<<" +multinet got "<<inMessage.getNodeId()<<" -- size="<<mQueue->size()<<std::endl;
       m2.unlock();
     }
   }
@@ -64,9 +64,10 @@ void MultilayerNetworkServer::processQueue(MultilayerNetwork *multilayerNetwork)
 {
   mNumberOfNodesToProcess = calculateNumberOfNodesToProcess(multilayerNetwork);
   GeneticAlgorithmReply inMessage;
-  std::cout<<"MultilayerServer processQueue"<<std::endl;
+  // std::cout<<"MultilayerServer processQueue"<<std::endl;
   while(true)
   {
+    // std::cout<<"something starts"<<std::endl;
     m2.lock();
     if(finished() == true)
     {
@@ -84,7 +85,6 @@ void MultilayerNetworkServer::processQueue(MultilayerNetwork *multilayerNetwork)
     else if(mQueue->size() > 0)
     {
       inMessage = mQueue->front();
-
       int nodeId = inMessage.mNodeId;
 
       SerializedNetwork serializedNetwork = inMessage.mNetwork;
@@ -94,6 +94,8 @@ void MultilayerNetworkServer::processQueue(MultilayerNetwork *multilayerNetwork)
       Node* node = multilayerNetwork->mNodesMap[nodeId];
       Network* networkAssigned = node->getNetworkAssigned();
       copyNetwork(network, networkAssigned);
+
+      delete network;
 
       mQueue->pop();
       mProcessed->push(nodeId);

@@ -1,6 +1,7 @@
 #include <boost/mpi.hpp>
 #include "GeneticAlgorithmServer.hh"
 #include "GeneticAlgorithmController.hh"
+#include "GeneticAlgorithmParameterContainer.hh"
 #include <iostream>
 #include <mutex>
 
@@ -23,7 +24,7 @@ GeneticAlgorithmServer::~GeneticAlgorithmServer()
 
 void GeneticAlgorithmServer::start()
 {
-  std::cout<<"GeneticAlgorithmServer started"<<std::endl;
+  // std::cout<<"GeneticAlgorithmServer started"<<std::endl;
   receiverThread = new std::thread(&GeneticAlgorithmServer::receiver, this);
   processQueue();
 }
@@ -44,7 +45,7 @@ void GeneticAlgorithmServer::receiver()
     {
       m.lock();
       mQueue->push(inMessage);
-      std::cout<<"  -genetic received("<<world.rank()<<") "<<inMessage.getNodeId()<<" -- size="<<mQueue->size()<<std::endl;
+      // std::cout<<"  -genetic received("<<world.rank()<<") "<<inMessage.getNodeId()<<" -- size="<<mQueue->size()<<std::endl;
       m.unlock();
     }
     else if(status.tag() == 1)
@@ -63,7 +64,7 @@ void GeneticAlgorithmServer::processQueue()
   boost::mpi::communicator world;
   GeneticAlgorithmMessage inMessage;
 
-  std::cout<<"GeneticServer processQueue"<<std::endl;
+  // std::cout<<"GeneticServer processQueue"<<std::endl;
   while(true)
   {
     m.lock();
@@ -80,8 +81,11 @@ void GeneticAlgorithmServer::processQueue()
       VectorField* targetVectorField = new VectorField;
       deserializeVectorField(&serializedVectorField, targetVectorField);
 
-      GeneticAlgorithmController geneticController;
+      GeneticAlgorithmParameterContainer *geneticParameters = new GeneticAlgorithmParameterContainer;
+      geneticParameters->modificationTypeProbabilities = hebbianModTypeProbabilities;
+      GeneticAlgorithmController geneticController(geneticParameters);
       geneticController.fitToVectorField(network, targetVectorField);
+      delete geneticParameters;
 
       SerializedNetwork serializedModifiedNetwork;
       serializeNetwork(network, &serializedModifiedNetwork);

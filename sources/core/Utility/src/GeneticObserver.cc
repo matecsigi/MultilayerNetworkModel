@@ -11,6 +11,10 @@ GeneticObserver::~GeneticObserver(void)
 void GeneticObserver::atStart()
 {
   // std::cout<<"Genetic atStart"<<std::endl;
+  // mLogger = spdlog::get("basic_logger");
+  // mLogger = spdlog::basic_logger_mt("basic_logger", "bin/generated/log.txt");
+  // mLogger->info("Starting simulation\n");
+  // spdlog::drop_all();
 }
 
 void GeneticObserver::atStep()

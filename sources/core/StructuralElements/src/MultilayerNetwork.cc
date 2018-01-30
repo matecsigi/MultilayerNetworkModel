@@ -97,9 +97,8 @@ void MultilayerNetwork::iterate(int steps, SimulationParameterContainer *paramet
   if(observer != NULL){observer->atStart();}
   for(t=0; t<steps; ++t)
   {
-    std::cout<<"t="<<t<<std::endl;
+    // std::cout<<"t="<<t<<std::endl;
     step(parameters);
-    std::cout<<"after step"<<std::endl;
 
     if(observer != NULL){observer->atStep();}
 

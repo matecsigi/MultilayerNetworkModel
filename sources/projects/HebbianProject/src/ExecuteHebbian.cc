@@ -29,7 +29,7 @@ void executeHebbian(bool cluster)
 
   GeneticAlgorithmParameterContainer *geneticParameters = new GeneticAlgorithmParameterContainer();
   geneticParameters->defaultCall = 1;
-  geneticParameters->numberOfGenerations = 1000;
+  geneticParameters->numberOfGenerations = 10000;
   geneticParameters->initialPopulationSize = 30;
   geneticParameters->modificationTypeProbabilities = vectorReconfModTypeProbabilities;
   geneticParameters->fitnessFunction = std::bind(hebbianFitnessFunction, _1, hebbianParameters);

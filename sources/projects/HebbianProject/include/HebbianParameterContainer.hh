@@ -11,8 +11,8 @@ public:
 
   bool cluster = false;
 
-  int higherNetworkSize = 6;
-  int lowerNetworkSize = 6;
+  int higherNetworkSize = 20;
+  int lowerNetworkSize = 10;
 
   int transientTime = 10;
   int runTime = 20;
