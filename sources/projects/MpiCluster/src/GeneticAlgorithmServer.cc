@@ -9,6 +9,9 @@ std::mutex m;
 
 GeneticAlgorithmServer::GeneticAlgorithmServer()
 {
+  mNumberOfRequests = 10;
+  mNumberOfReceived = 0;
+  mNumberOfProcessed = 0;
   mQueue = new std::queue<GeneticAlgorithmMessage>;
   receiverThread = NULL;
 }
@@ -25,8 +28,15 @@ GeneticAlgorithmServer::~GeneticAlgorithmServer()
 void GeneticAlgorithmServer::start()
 {
   // std::cout<<"GeneticAlgorithmServer started"<<std::endl;
-  receiverThread = new std::thread(&GeneticAlgorithmServer::receiver, this);
-  processQueue();
+  // receiverThread = new std::thread(&GeneticAlgorithmServer::receiver, this);
+  // processQueue();
+
+  while(true)
+  {
+    receiver();
+    processQueue();
+  }
+
 }
 
 void GeneticAlgorithmServer::receiver()
@@ -38,15 +48,23 @@ void GeneticAlgorithmServer::receiver()
   GeneticAlgorithmMessage inMessage;
   boost::mpi::status status;
 
-  while(true)
+  bool stop = false;
+
+  while(!stop)
   {
     status = world.recv(boost::mpi::any_source, boost::mpi::any_tag, inMessage);
     if(status.tag() == 0)
     {
       m.lock();
       mQueue->push(inMessage);
-      // std::cout<<"  -genetic received("<<world.rank()<<") "<<inMessage.getNodeId()<<" -- size="<<mQueue->size()<<std::endl;
+      std::cout<<"  -genetic received("<<world.rank()<<") "<<inMessage.getNodeId()<<" -- size="<<mQueue->size()<<std::endl;
       m.unlock();
+      mNumberOfRequests = inMessage.mNumberOfRequests;
+      ++mNumberOfReceived;
+      if(mNumberOfReceived >= mNumberOfRequests)
+      {
+	stop = true;
+      }
     }
     else if(status.tag() == 1)
     {
@@ -54,6 +72,7 @@ void GeneticAlgorithmServer::receiver()
       world.send(0, 1, outMessage);
     }
   }
+  mNumberOfReceived = 0;
 }
 
 void GeneticAlgorithmServer::processQueue()
@@ -64,8 +83,10 @@ void GeneticAlgorithmServer::processQueue()
   boost::mpi::communicator world;
   GeneticAlgorithmMessage inMessage;
 
+  bool stop = false;
+
   // std::cout<<"GeneticServer processQueue"<<std::endl;
-  while(true)
+  while(!stop)
   {
     m.lock();
     if(mQueue->size() > 0)
@@ -94,12 +115,19 @@ void GeneticAlgorithmServer::processQueue()
       GeneticAlgorithmReply outMessage(id);
       outMessage.mNetwork = serializedModifiedNetwork;
       world.send(0, 0, outMessage);
-      // std::cout<<"genetic send "<<outMessage.getNodeId()<<std::endl;
-      
+      std::cout<<"genetic send "<<outMessage.getNodeId()<<std::endl;
+ 
+      ++mNumberOfProcessed;
+      if(mNumberOfProcessed >= mNumberOfRequests)
+      {
+	stop = true;
+      }
+
       delete network;
       delete targetVectorField;
     }
     m.unlock();
   }
+  mNumberOfProcessed = 0;
 }
 

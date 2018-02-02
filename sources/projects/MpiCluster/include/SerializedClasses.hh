@@ -136,6 +136,7 @@ private:
   void serialize(Archive &ar, const unsigned int version)
   {
     ar & mNodeId;
+    ar & mNumberOfRequests;
     ar & mNetwork;
     ar & mVectorField;
   }
@@ -147,6 +148,7 @@ public:
   int getNodeId(){return mNodeId;};
 
   int mNodeId;
+  int mNumberOfRequests;
   SerializedNetwork mNetwork;
   SerializedVectorField mVectorField;
 };

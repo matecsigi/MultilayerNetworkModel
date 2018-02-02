@@ -17,6 +17,10 @@ public:
 
   std::queue<GeneticAlgorithmMessage>* mQueue;
   std::thread* receiverThread;
+
+  int mNumberOfRequests;
+  int mNumberOfReceived;
+  int mNumberOfProcessed;
 };
 
 #endif

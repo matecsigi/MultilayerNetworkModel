@@ -19,8 +19,6 @@ void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration(Genetic
   gridAroundPointScheme2(currentVectorField, networkAssigned, currentState);
 
   VectorField* targetVectorField = new VectorField();
-  // std::vector<IdValuePair> directionInLowerNetwork = calculateLowerNetworkDirection();
-  // std::vector<IdValuePair> directionInHigherNetworks = calculateHigherNetworksDirection();
   weightNodeVectorFieldTransform(targetVectorField, currentVectorField, mNode);
 
   // std::cout<<"--------Current---------"<<std::endl;;
@@ -41,9 +39,13 @@ void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration(Genetic
     serializeVectorField(targetVectorField, &serializedVectorField);
 
     GeneticAlgorithmMessage message(mNode->getId());
+    int rankToProcess = (mNode->getId()%(world.size()-1))+1;
+    message.mNumberOfRequests = geneticParameters->clusterMessageSizes[rankToProcess];
     message.mNetwork = serializedNetwork;
     message.mVectorField = serializedVectorField;
-    world.send((mNode->getId()%(world.size()-1))+1, 0, message);
+    world.send(rankToProcess, 0, message);
+    
+    std::cout<<"impl sent "<<mNode->getId()<<std::endl;
     // mpiSend(1, 0, mNode->getId());
   }
   else

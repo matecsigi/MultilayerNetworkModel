@@ -10,6 +10,7 @@
 #include <rapidjson/prettywriter.h>
 #include <system_error>
 #include <thread>
+#include <boost/mpi.hpp>
 
 using namespace rapidjson;
 
@@ -37,6 +38,35 @@ void MultilayerNetwork::addLayer(int layerId)
 std::vector<Layer*> MultilayerNetwork::getLayers(void) const
 {
   return mLayers;
+}
+
+void MultilayerNetwork::calculateClusterMessageSizes(SimulationParameterContainer *parameters)
+{
+  int argc;
+  char **argv = NULL;
+  boost::mpi::environment env{argc, argv};
+  boost::mpi::communicator world;
+
+  for(int i=0; i< world.size(); ++i)
+  {
+    parameters->geneticParameters->clusterMessageSizes.push_back(0);
+  }
+
+  for(std::vector<int>::iterator itId=mNodeIds.begin(); itId != mNodeIds.end(); ++itId)
+  {
+    Node* node = mNodesMap[(*itId)];
+    if(node->getNetworkAssigned() != NULL)
+    {
+      int rank = (node->getId()%(world.size()-1))+1;
+      parameters->geneticParameters->clusterMessageSizes[rank] += 1;
+    }
+  }
+
+  for(int i=0; i<world.size(); ++i)
+  {
+    std::cout<<"rank="<<i<<" -> "<<parameters->geneticParameters->clusterMessageSizes[i]<<std::endl;
+  }
+
 }
 
 void executeStepsInThread(std::vector<Node*> &nodes, SimulationParameterContainer *parameters)
@@ -93,6 +123,7 @@ void MultilayerNetwork::iterate(int steps, SimulationParameterContainer *paramet
   if(parameters == NULL){parameters = new SimulationParameterContainer; deletionNeeded = true;};
 
   updateNodesMap();
+  calculateClusterMessageSizes(parameters);
 
   if(observer != NULL){observer->atStart();}
   for(t=0; t<steps; ++t)
