@@ -43,8 +43,14 @@ void executeHebbian(bool cluster)
   GeneticAlgorithmController geneticController(geneticParameters);
   IGeneticObserver *observer = new GeneticObserver(&geneticController);
 
+  Network* network = new Network;
+  std::string filename = "bin/generated/start.json";
+  int counter = 1;
+  loadNetworkFromJSON(network, filename, counter);
+
   geneticController.runGeneticAlgorithm(NULL, observer);
 
+  delete network;
   delete hebbianParameters;
   delete geneticParameters;
   delete observer;

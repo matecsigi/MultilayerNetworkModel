@@ -52,17 +52,20 @@ void GeneticAlgorithmServer::receiver()
 
   while(!stop)
   {
+    // std::cout<<"recv start"<<std::endl;
     status = world.recv(boost::mpi::any_source, boost::mpi::any_tag, inMessage);
     if(status.tag() == 0)
     {
       m.lock();
       mQueue->push(inMessage);
-      std::cout<<"  -genetic received("<<world.rank()<<") "<<inMessage.getNodeId()<<" -- size="<<mQueue->size()<<std::endl;
+      // std::cout<<"  -genetic received("<<world.rank()<<") "<<inMessage.getNodeId()<<" -- size="<<mQueue->size()<<std::endl;
       m.unlock();
       mNumberOfRequests = inMessage.mNumberOfRequests;
       ++mNumberOfReceived;
+      // std::cout<<"numberOfReceived="<<mNumberOfReceived<<" req="<<mNumberOfRequests<<std::endl;
       if(mNumberOfReceived >= mNumberOfRequests)
       {
+	// std::cout<<"stop genetic server"<<std::endl;
 	stop = true;
       }
     }
@@ -115,9 +118,10 @@ void GeneticAlgorithmServer::processQueue()
       GeneticAlgorithmReply outMessage(id);
       outMessage.mNetwork = serializedModifiedNetwork;
       world.send(0, 0, outMessage);
-      std::cout<<"genetic send "<<outMessage.getNodeId()<<std::endl;
+      // std::cout<<"genetic send "<<outMessage.getNodeId()<<std::endl;
  
       ++mNumberOfProcessed;
+      // std::cout<<"mNumberOfProcessed="<<mNumberOfProcessed;
       if(mNumberOfProcessed >= mNumberOfRequests)
       {
 	stop = true;

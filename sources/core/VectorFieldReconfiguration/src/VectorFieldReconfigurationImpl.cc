@@ -28,6 +28,7 @@ void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration(Genetic
 
   if(geneticParameters->cluster == true)
   {
+    // std::cout<<"impl "<<mNode->getId()<<std::endl;
     int argc;
     char **argv = NULL;
     boost::mpi::environment env{argc, argv};
@@ -41,11 +42,12 @@ void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration(Genetic
     GeneticAlgorithmMessage message(mNode->getId());
     int rankToProcess = (mNode->getId()%(world.size()-1))+1;
     message.mNumberOfRequests = geneticParameters->clusterMessageSizes[rankToProcess];
+    // std::cout<<"nrOfReq="<<message.mNumberOfRequests<<std::endl;
     message.mNetwork = serializedNetwork;
     message.mVectorField = serializedVectorField;
     world.send(rankToProcess, 0, message);
     
-    std::cout<<"impl sent "<<mNode->getId()<<std::endl;
+    // std::cout<<"impl sent "<<mNode->getId()<<std::endl;
     // mpiSend(1, 0, mNode->getId());
   }
   else

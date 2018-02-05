@@ -54,7 +54,7 @@ void MultilayerNetworkServer::receiver()
     {
       m2.lock();
       mQueue->push(inMessage);
-      std::cout<<" +multinet got "<<inMessage.getNodeId()<<" -- size="<<mQueue->size()<<std::endl;
+      // std::cout<<" +multinet got "<<inMessage.getNodeId()<<" -- size="<<mQueue->size()<<std::endl;
       m2.unlock();
     }
   }

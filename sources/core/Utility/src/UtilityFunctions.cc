@@ -56,29 +56,61 @@ void loadNetworkFromJSON(Network* network, std::string filename, int& nodeIdCoun
   std::string input((std::istreambuf_iterator<char>(file)), (std::istreambuf_iterator<char>()));
   Document document;
   document.Parse(input.c_str());
-  
-  /* The first value is the id of the node in the python-generated Barabasi network and 
-     the second value is the id of the node is the multilayer structure */
-  std::map<int, int> nodeIdMap;
 
-  Value& nodeArray = document["nodes"];
-  for(SizeType i=0; i<nodeArray.Size(); ++i)
+  if(document.HasMember("nodes"))
   {
-    Value& nodeObject = nodeArray[i];
-    network->addNode(nodeIdCounter);
-    nodeIdMap[nodeObject["id"].GetInt()] = nodeIdCounter;
-    ++nodeIdCounter;
+
+    /* The first value is the id of the node in the python-generated Barabasi network and 
+       the second value is the id of the node is the multilayer structure */
+    std::map<int, int> nodeIdMap;
+    
+    Value& nodeArray = document["nodes"];
+    for(SizeType i=0; i<nodeArray.Size(); ++i)
+    {
+      Value& nodeObject = nodeArray[i];
+      network->addNode(nodeIdCounter);
+      nodeIdMap[nodeObject["id"].GetInt()] = nodeIdCounter;
+      ++nodeIdCounter;
+    }
+    
+    Value& edgeArray = document["links"];
+    for(SizeType i=0; i<edgeArray.Size(); ++i)
+    {
+      Value& edgeObject = edgeArray[i];
+      int sourceId = edgeObject["source"].GetInt();
+      int targetId = edgeObject["target"].GetInt();
+      
+      network->addEdge(nodeIdMap[sourceId], nodeIdMap[targetId]);
+      network->addEdge(nodeIdMap[targetId], nodeIdMap[sourceId]);
+    }
   }
 
-  Value& edgeArray = document["links"];
-  for(SizeType i=0; i<edgeArray.Size(); ++i)
+  else
   {
-    Value& edgeObject = edgeArray[i];
-    int sourceId = edgeObject["source"].GetInt();
-    int targetId = edgeObject["target"].GetInt();
+    Value& nodeArray = document["Network"]["Nodes"];
+    for(SizeType i=0; i<nodeArray.Size(); ++i)
+    {
+      Value& nodeObject = nodeArray[i];
+      network->addNode(nodeObject["id"].GetInt());
+      network->setDynamicalEquationString(nodeObject["id"].GetInt(), nodeObject["DynamicalEquation"].GetString());
+    }
+    for(SizeType i=0; i<nodeArray.Size(); ++i)
+    {
+      Value& nodeObject = nodeArray[i];
+      Value& neighborArray = nodeObject["Neighbors"];
 
-    network->addEdge(nodeIdMap[sourceId], nodeIdMap[targetId]);
-    network->addEdge(nodeIdMap[targetId], nodeIdMap[sourceId]);
+      std::map<int, Node*> nodesMap;
+      nodesMap[nodeObject["id"].GetInt()] = network->getNodeById(nodeObject["id"].GetInt());
+
+      for(SizeType ii=0; ii<neighborArray.Size(); ++ii)
+      {
+	Value& neighborObject = neighborArray[ii];
+	network->addEdge(nodeObject["id"].GetInt(), neighborObject["id"].GetInt());
+	nodesMap[neighborObject["id"].GetInt()] = network->getNodeById(neighborObject["id"].GetInt());
+      }
+      DynamicalEquation* nodeEquation = network->getNodeDynamicalEquation(nodeObject["id"].GetInt());
+      nodeEquation->loadNodesToEquation(nodeEquation->getBaseCalculationNode(), nodesMap);
+    }
   }
 }
 

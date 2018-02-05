@@ -123,7 +123,8 @@ void MultilayerNetwork::iterate(int steps, SimulationParameterContainer *paramet
   if(parameters == NULL){parameters = new SimulationParameterContainer; deletionNeeded = true;};
 
   updateNodesMap();
-  calculateClusterMessageSizes(parameters);
+
+  if(parameters->cluster == true){calculateClusterMessageSizes(parameters);}
 
   if(observer != NULL){observer->atStart();}
   for(t=0; t<steps; ++t)
