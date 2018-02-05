@@ -174,7 +174,14 @@ void GeneticAlgorithmController::createInitialPopulation()
   for(int i=0; i<mInitialPopulationSize; ++i)
   {
     Network* newNetwork = new Network;
-    mCreateInitialNetwork(newNetwork);
+    if(i == 0)
+    {
+      copyNetwork(mNetwork, newNetwork);
+    }
+    else
+    {
+      mCreateInitialNetwork(newNetwork);
+    }
     newNetwork->setId(abs(rand())%1000000);
     NetworkPopulationElement* populationElement = new NetworkPopulationElement(newNetwork, mTargetVectorField, mFitnessFunction);
     populationElement->setGeneration(0);
