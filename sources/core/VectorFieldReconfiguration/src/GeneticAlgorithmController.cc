@@ -56,6 +56,12 @@ void GeneticAlgorithmController::fitToVectorField(Network* network, VectorField*
 
 void GeneticAlgorithmController::runGeneticAlgorithm(Network* network, IGeneticObserver *observer)
 {
+  mNetwork = network;
+  if(mCreateInitialNetwork == nullptr)
+  {
+    mCreateInitialNetwork = std::bind(createInitialNetworkByModification, _1, mNetwork, this);
+  }  
+
   if(observer != NULL){observer->atStart();}
   createInitialPopulation();
   for(mGeneration=1; mGeneration<mNumberOfGenerations+1; ++mGeneration)

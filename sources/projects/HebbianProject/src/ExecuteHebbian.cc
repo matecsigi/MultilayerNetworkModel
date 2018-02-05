@@ -33,7 +33,7 @@ void executeHebbian(bool cluster)
   geneticParameters->initialPopulationSize = 30;
   geneticParameters->modificationTypeProbabilities = vectorReconfModTypeProbabilities;
   geneticParameters->fitnessFunction = std::bind(hebbianFitnessFunction, _1, hebbianParameters);
-  geneticParameters->createInitialNetwork = binderGeneral;
+  // geneticParameters->createInitialNetwork = binderGeneral;
 
   std::ofstream fileParam("bin/generated/parameters.txt");
   fileParam<<hebbianParameters->toString()<<std::endl;
@@ -48,7 +48,7 @@ void executeHebbian(bool cluster)
   int counter = 1;
   loadNetworkFromJSON(network, filename, counter);
 
-  geneticController.runGeneticAlgorithm(NULL, observer);
+  geneticController.runGeneticAlgorithm(network, observer);
 
   delete network;
   delete hebbianParameters;
