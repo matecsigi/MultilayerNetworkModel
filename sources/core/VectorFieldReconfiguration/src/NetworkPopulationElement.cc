@@ -1,12 +1,14 @@
 #include "NetworkPopulationElement.hh"
 #include "VectorFieldSchemes.hh"
 
-double vectorReconfFitnessFunction(NetworkPopulationElement *networkPopulationElement)
+using namespace std::placeholders;
+
+double vectorReconfFitnessFunction(Network* network, VectorField* targetVectorField)
 {
   VectorField* currentVectorField = new VectorField();
-  std::vector<IdValuePair> currentState = networkPopulationElement->mNetwork->getCurrentState();
-  gridAroundPointScheme2(currentVectorField, networkPopulationElement->mNetwork, currentState);
-  double distance = networkPopulationElement->mTargetVectorField->getDistanceFrom(currentVectorField);
+  std::vector<IdValuePair> currentState = network->getCurrentState();
+  gridAroundPointScheme2(currentVectorField, network, currentState);
+  double distance = targetVectorField->getDistanceFrom(currentVectorField);
 
   double fitness = 100.0/distance;
   delete currentVectorField;
@@ -14,17 +16,17 @@ double vectorReconfFitnessFunction(NetworkPopulationElement *networkPopulationEl
   return fitness;
 }
 
-NetworkPopulationElement::NetworkPopulationElement(Network* network, VectorField* targetVectorField, std::function<double (NetworkPopulationElement*)> fitnessFunction)
+NetworkPopulationElement::NetworkPopulationElement(Network* network, VectorField* targetVectorField, std::function<double (Network*)> fitnessFunction)
 {
+  mTargetVectorField = targetVectorField;
   if(fitnessFunction == nullptr)
   {
-    mFitnessFunction = &vectorReconfFitnessFunction;
+    mFitnessFunction = std::bind(vectorReconfFitnessFunction, _1, mTargetVectorField);
   }
   else
   {
     mFitnessFunction = fitnessFunction;
   }
-  mTargetVectorField = targetVectorField;
   setNetwork(network);
 }
 
@@ -76,6 +78,6 @@ int NetworkPopulationElement::getRank()
 
 void NetworkPopulationElement::updateFitness()
 {
-  double fitness = mFitnessFunction(this);
+  double fitness = mFitnessFunction(mNetwork);
   setFitness(fitness);
 }

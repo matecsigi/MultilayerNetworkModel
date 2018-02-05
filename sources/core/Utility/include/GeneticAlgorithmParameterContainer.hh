@@ -31,7 +31,7 @@ public:
 
   std::vector<double> modificationTypeProbabilities = vectorReconfModTypeProbabilities;
 
-  std::function<double (NetworkPopulationElement*)> fitnessFunction = nullptr;
+  std::function<double (Network*)> fitnessFunction = nullptr;
   std::function<void (Network*)> createInitialNetwork = nullptr;
 
   /**

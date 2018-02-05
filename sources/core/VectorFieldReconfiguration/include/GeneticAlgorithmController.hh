@@ -54,7 +54,7 @@ private:
   double mDeathRatio;
   double mElitRatio;
   std::vector<double> mModificationTypeProbabilities;
-  std::function<double (NetworkPopulationElement*)> mFitnessFunction;
+  std::function<double (Network*)> mFitnessFunction;
   std::function<void (Network*)> mCreateInitialNetwork;
 };
 

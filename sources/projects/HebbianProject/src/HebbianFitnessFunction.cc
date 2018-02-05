@@ -11,11 +11,10 @@
 #include <random>
 #include "spdlog/spdlog.h"
 
-double hebbianFitnessFunction(NetworkPopulationElement* networkPopulationElement, HebbianParameterContainer *hebbianParameters)
+double hebbianFitnessFunction(Network* network, HebbianParameterContainer *hebbianParameters)
 {
   // std::cout<<"======Hebbian fitness======="<<std::endl;
 
-  Network* network = networkPopulationElement->getNetwork();
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
   generateMultilayerNetworkForHebbianFitness(multilayerNetwork, network, hebbianParameters);
 
