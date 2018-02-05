@@ -36,6 +36,7 @@ public:
   double calculateAverageFitness();
   void updateFitnessRanks();
   void quickSortTwoVectors(std::vector<double> &fitnessVector, int left, int right);
+  std::vector<NetworkPopulationElement*> getPopulation();
   int getGeneration();
   void printPopulation();
 
@@ -47,6 +48,7 @@ private:
 
   //parameters
   GeneticAlgorithmParameterContainer mGeneticParameters;
+  int mDefaultCall;
   int mInitialPopulationSize;
   int mNumberOfGenerations;
   double mMutationRatio;

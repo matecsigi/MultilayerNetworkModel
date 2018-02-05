@@ -87,6 +87,12 @@ void loadNetworkFromJSON(Network* network, std::string filename, int& nodeIdCoun
 
   else
   {
+    Value& networkObject = document["Network"];
+    if(networkObject.HasMember("id"))
+    {
+      network->setId(networkObject["id"].GetInt());
+    }
+
     Value& nodeArray = document["Network"]["Nodes"];
     for(SizeType i=0; i<nodeArray.Size(); ++i)
     {
@@ -145,6 +151,7 @@ void saveNetworkToJSON(Network* network, std::string filename)
     nodesArray.PushBack(nodeObject, allocator);
   }
   Value nodesTmp(kObjectType);
+  nodesTmp.AddMember("id", network->getId(), allocator);
   nodesTmp.AddMember("Nodes", nodesArray, allocator);
   document.AddMember("Network", nodesTmp, allocator);
 

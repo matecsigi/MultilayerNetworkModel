@@ -39,9 +39,9 @@ double hebbianFitnessFunction(Network* network, HebbianParameterContainer *hebbi
     fitness = 1.0e-50;
   }
 
-  auto logger = spdlog::basic_logger_mt("hebbian_logger", "bin/generated/log.txt");
-  logger->info("fitness={}", fitness);
-  spdlog::drop_all();
+  // auto logger = spdlog::basic_logger_mt("hebbian_logger", "bin/generated/log.txt");
+  // logger->info("fitness={}", fitness);
+  // spdlog::drop_all();
 
   std::cout<<"fitness="<<fitness<<std::endl;
 

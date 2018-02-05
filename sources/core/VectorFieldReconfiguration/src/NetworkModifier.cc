@@ -2,6 +2,7 @@
 #include <iostream>
 #include <algorithm>
 #include <stdlib.h>
+#include <spdlog/spdlog.h>
 
 NetworkModifier::NetworkModifier(GeneticAlgorithmParameterContainer *geneticParameters)
 {
@@ -26,12 +27,11 @@ void NetworkModifier::modifyNetwork(Network* network, int numberOfChanges)
     Node* nodeToChange = chooseNode(network);
     ModificationType type = chooseType();
 
-    // DynamicalEquation* nodeEquation = network->getNodeDynamicalEquation(nodeToChange->getId());
-    // std::cout<<nodeEquation->toString()<<std::endl;
-
     if(mDefaultCall == 1)
     {
-      // std::cout<<"type="<<type<<std::endl;
+      auto logger = spdlog::basic_logger_mt("hebbian_logger", "bin/generated/log.txt");
+      logger->info("type={} node={}", type, nodeToChange->getId());
+      spdlog::drop_all();
     }
 
     switch(type)

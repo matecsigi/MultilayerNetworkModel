@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <ctime>
 #include <chrono>
+#include <spdlog/spdlog.h>
 
 using namespace std::placeholders;
 
@@ -11,7 +12,7 @@ void createInitialNetworkByModification(Network* network, Network* referenceNetw
 {
   NetworkModifier networkModifier(&geneticController->mGeneticParameters);
   copyNetwork(referenceNetwork, network);
-  networkModifier.modifyNetwork(network, 25);  
+  networkModifier.modifyNetwork(network, 25);
 }
 
 GeneticAlgorithmController::GeneticAlgorithmController(GeneticAlgorithmParameterContainer *parameters)
@@ -22,6 +23,7 @@ GeneticAlgorithmController::GeneticAlgorithmController(GeneticAlgorithmParameter
   mGeneticParameters = *parameters;
 
   mNetwork = NULL;
+  mDefaultCall = parameters->defaultCall;
   mInitialPopulationSize = parameters->initialPopulationSize;
   mNumberOfGenerations = parameters->numberOfGenerations;
   mMutationRatio = parameters->mutationRatio;
@@ -86,6 +88,13 @@ void GeneticAlgorithmController::runGeneticAlgorithm(Network* network, IGeneticO
 
 void GeneticAlgorithmController::mutation()
 {
+  if(mDefaultCall == 1)
+  {
+    auto logger = spdlog::basic_logger_mt("hebbian_logger", "bin/generated/log.txt");
+    logger->info("mutation");
+    spdlog::drop_all();
+  }
+
   int numberOfMutations = mPopulation.size()*mMutationRatio;
   for(int i=0; i<numberOfMutations; ++i)
   {
@@ -93,6 +102,14 @@ void GeneticAlgorithmController::mutation()
     Network* network = networkElement->getNetwork();
     Network* mutatedNetwork = new Network;
     copyNetwork(network, mutatedNetwork);
+    mutatedNetwork->setId(abs(rand())%1000000);
+
+    if(mDefaultCall == 1)
+    {
+      auto logger = spdlog::basic_logger_mt("hebbian_logger", "bin/generated/log.txt");
+      logger->info("parent={} child={}", network->getId(), mutatedNetwork->getId());
+      spdlog::drop_all();
+    }
 
     NetworkModifier networkModifier(&mGeneticParameters);
     networkModifier.modifyNetwork(mutatedNetwork);
@@ -106,6 +123,13 @@ void GeneticAlgorithmController::mutation()
 
 void GeneticAlgorithmController::crossover()
 {
+  if(mDefaultCall == 1)
+  {
+    auto logger = spdlog::basic_logger_mt("hebbian_logger", "bin/generated/log.txt");
+    logger->info("crossover");
+    spdlog::drop_all();
+  }
+
   updateFitnessRanks();
   int numberOfCrossovers = mPopulation.size()*mCrossoverRatio;
   for(int i=0; i<numberOfCrossovers; ++i)
@@ -116,6 +140,15 @@ void GeneticAlgorithmController::crossover()
     Network* parentNetwork2 = networkElement2->getNetwork();
     Network* childNetwork = new Network;
     createMixedNetwork(parentNetwork1, parentNetwork2, childNetwork);
+
+    childNetwork->setId(abs(rand())%1000000);
+
+    if(mDefaultCall == 1)
+    {
+      auto logger = spdlog::basic_logger_mt("hebbian_logger", "bin/generated/log.txt");
+      logger->info("parent={} parent={} child={}", parentNetwork1->getId(), parentNetwork2->getId(), childNetwork->getId());
+      spdlog::drop_all();
+    }
 
     NetworkPopulationElement* childElement = new NetworkPopulationElement(childNetwork, mTargetVectorField, mFitnessFunction);
     childElement->setGeneration(mGeneration);
@@ -142,6 +175,7 @@ void GeneticAlgorithmController::createInitialPopulation()
   {
     Network* newNetwork = new Network;
     mCreateInitialNetwork(newNetwork);
+    newNetwork->setId(abs(rand())%1000000);
     NetworkPopulationElement* populationElement = new NetworkPopulationElement(newNetwork, mTargetVectorField, mFitnessFunction);
     populationElement->setGeneration(0);
     mPopulation.push_back(populationElement);
@@ -391,6 +425,11 @@ void GeneticAlgorithmController::quickSortTwoVectors(std::vector<double> &fitnes
   {
     quickSortTwoVectors(fitnessVector, i, right);
   }
+}
+
+std::vector<NetworkPopulationElement*> GeneticAlgorithmController::getPopulation()
+{
+  return mPopulation;
 }
 
 int GeneticAlgorithmController::getGeneration()

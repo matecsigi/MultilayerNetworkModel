@@ -28,6 +28,7 @@ public:
   void setDynamicalEquation(int nodeId, DynamicalEquation* nodeEquation);
   void setDynamicalEquationString(int nodeId, std::string strEquation);
 
+  void setId(int id);
   /**
      Return the unique ID of the network.
    */

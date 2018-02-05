@@ -104,6 +104,11 @@ void Network::setDynamicalEquationString(int nodeId, std::string strEquation)
   mDynamicalEquations[localId]->loadEquationString(strEquation);
 }
 
+void Network::setId(int id)
+{
+  mNetworkId = id;
+}
+
 int Network::getId(void) const
 {
   return mNetworkId;
