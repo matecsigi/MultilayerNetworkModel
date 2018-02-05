@@ -47,6 +47,8 @@ void MultilayerNetwork::calculateClusterMessageSizes(SimulationParameterContaine
   boost::mpi::environment env{argc, argv};
   boost::mpi::communicator world;
 
+  parameters->geneticParameters->clusterMessageSizes.clear();
+
   for(int i=0; i< world.size(); ++i)
   {
     parameters->geneticParameters->clusterMessageSizes.push_back(0);
@@ -62,10 +64,10 @@ void MultilayerNetwork::calculateClusterMessageSizes(SimulationParameterContaine
     }
   }
 
-  for(int i=0; i<world.size(); ++i)
-  {
-    std::cout<<"rank="<<i<<" -> "<<parameters->geneticParameters->clusterMessageSizes[i]<<std::endl;
-  }
+  // for(int i=0; i<world.size(); ++i)
+  // {
+  //   std::cout<<"rank="<<i<<" -> "<<parameters->geneticParameters->clusterMessageSizes[i]<<std::endl;
+  // }
 
 }
 
@@ -627,7 +629,8 @@ std::ostream& operator<<(std::ostream& os, const MultilayerNetwork& multilayerNe
       for(std::vector<Node*>::iterator itNode = nodes.begin(); itNode != nodes.end(); ++itNode)
       {
 	Node* currentNode = (*itNode);
-	os<<"    ---Node "<<currentNode->getId()<<": ";
+	os<<"    ---Node "<<currentNode->getId()<<": "<<std::endl;
+	os<<"    ---NetworkAssigned="<<currentNode->getNetworkAssigned()<<std::endl;
 	double* tmpBuffer = new double[bufferSize];
 	currentNode->getValues(tmpBuffer);
 	for(int i=0; i<bufferSize; ++i)

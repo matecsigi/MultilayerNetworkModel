@@ -26,6 +26,9 @@ double hebbianFitnessFunction(NetworkPopulationElement* networkPopulationElement
   parameters->geneticParameters->initialPopulationSize = 30;
 
   IObserver *observer = new HebbianObserver(multilayerNetwork);
+
+  // std::cout<<*multilayerNetwork<<std::endl;
+
   multilayerNetwork->iterate(hebbianParameters->transientTime, parameters);
   multilayerNetwork->iterate(hebbianParameters->runTime, parameters, observer);
 
@@ -70,7 +73,7 @@ void generateMultilayerNetworkForHebbianFitness(MultilayerNetwork* multilayerNet
   for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
   {
     layers[1]->addNetwork((*itNode)->getId()+1);
-    if((*itNode)->getId() > nodeIdCounter)
+    if((*itNode)->getId() >= nodeIdCounter)
     {
       nodeIdCounter = (*itNode)->getId()+1;
     }
