@@ -15,7 +15,7 @@ file(GLOB_RECURSE project_hebbian_src "sources/projects/HebbianProject/src/*.cc"
 file(GLOB_RECURSE cluster_src "sources/projects/MpiCluster/src/*.cc")
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-set (CMAKE_CXX_FLAGS "-O3 -g -Wall -std=c++11 -lboost_mpi -lboost_unit_test_framework -lboost_mpi -lboost_serialization ")
+set (CMAKE_CXX_FLAGS "-O3 -g -Wall -std=c++11 -lboost_mpi-mt -lboost_unit_test_framework -lboost_mpi-mt -lboost_serialization -lboost_system -lboost_filesystem")
 
 include_directories(
 ${CMAKE_SOURCE_DIR}/sources/core/StructuralElements/include

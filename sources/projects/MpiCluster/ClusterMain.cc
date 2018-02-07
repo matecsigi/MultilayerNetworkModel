@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 
   if(world.rank() == 0)
   {
-    executeHebbian(true);
+    executeHebbian(true, argc, argv);
   }
   else if(world.rank() != 0)
   {

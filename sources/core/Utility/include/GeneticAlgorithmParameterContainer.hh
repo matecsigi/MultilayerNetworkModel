@@ -32,7 +32,7 @@ public:
   std::vector<double> modificationTypeProbabilities = vectorReconfModTypeProbabilities;
 
   std::function<double (Network*)> fitnessFunction = nullptr;
-  std::function<void (Network*)> createInitialNetwork = nullptr;
+  std::function<void (Network*, int)> createInitialNetwork = nullptr;
 
   /**
      When operating in a cluster the number of requests has to be sent in advance to the GeneticAlgorithmServers when they are using only one thread. The vector contains to number of requests. The index is the rank of the process.

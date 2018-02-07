@@ -8,7 +8,7 @@
 
 using namespace std::placeholders;
 
-void createInitialNetworkByModification(Network* network, Network* referenceNetwork, GeneticAlgorithmController *geneticController)
+void createInitialNetworkByModification(Network* network, int control, Network* referenceNetwork, GeneticAlgorithmController *geneticController)
 {
   NetworkModifier networkModifier(&geneticController->mGeneticParameters);
   copyNetwork(referenceNetwork, network);
@@ -50,7 +50,7 @@ void GeneticAlgorithmController::fitToVectorField(Network* network, VectorField*
   mNetwork = network;
   if(mCreateInitialNetwork == nullptr)
   {
-    mCreateInitialNetwork = std::bind(createInitialNetworkByModification, _1, mNetwork, this);
+    mCreateInitialNetwork = std::bind(createInitialNetworkByModification, _1, _2, mNetwork, this);
   }  
   mTargetVectorField = targetVectorField;
   runGeneticAlgorithm(network);
@@ -61,7 +61,7 @@ void GeneticAlgorithmController::runGeneticAlgorithm(Network* network, IGeneticO
   mNetwork = network;
   if(mCreateInitialNetwork == nullptr)
   {
-    mCreateInitialNetwork = std::bind(createInitialNetworkByModification, _1, mNetwork, this);
+    mCreateInitialNetwork = std::bind(createInitialNetworkByModification, _1, _2, mNetwork, this);
   }  
 
   if(observer != NULL){observer->atStart();}
@@ -170,17 +170,17 @@ void GeneticAlgorithmController::death()
 }
 
 void GeneticAlgorithmController::createInitialPopulation()
-{  
+{
   for(int i=0; i<mInitialPopulationSize; ++i)
   {
     Network* newNetwork = new Network;
-    if(i == 0)
+    if((i == 0) && (mNetwork != NULL))
     {
       copyNetwork(mNetwork, newNetwork);
     }
     else
     {
-      mCreateInitialNetwork(newNetwork);
+      mCreateInitialNetwork(newNetwork, i);
     }
     newNetwork->setId(abs(rand())%1000000);
     NetworkPopulationElement* populationElement = new NetworkPopulationElement(newNetwork, mTargetVectorField, mFitnessFunction);

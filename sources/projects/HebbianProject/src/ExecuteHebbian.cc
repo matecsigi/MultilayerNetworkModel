@@ -15,9 +15,13 @@
 
 using namespace std::placeholders;
 
-void executeHebbian(bool cluster)
+void executeHebbian(bool cluster, int argc, char*argv[])
 {
   std::cout<<"Hello HebbianProject!"<<std::endl;
+
+  std::string populationFolder(argv[1]);
+  std::cout<<"argument:"<<populationFolder<<std::endl;
+  std::function<void(Network*, int)> binderLoadPopulation = std::bind(loadPopulation, _1, _2, populationFolder);
 
   HebbianParameterContainer *hebbianParameters = new HebbianParameterContainer;
   hebbianParameters->cluster = cluster;
@@ -25,7 +29,7 @@ void executeHebbian(bool cluster)
   std::function<void(Network*)> binderBarabasiStructure = std::bind(generateBarabasiNetwork, _1, hebbianParameters->higherNetworkSize, 1);
   std::function<void(Network*)> binderLinearDynamics = std::bind(linearNetworkDynamicsGenerator, _1);
   std::function<void(Network*)> binderInitialConditions = std::bind(oneNetworkInitialConditions, _1);
-  std::function<void(Network*)> binderGeneral = std::bind(generateNetwork, _1, binderBarabasiStructure, binderLinearDynamics, binderInitialConditions);
+  std::function<void(Network*, int)> binderGeneral = std::bind(generateNetwork, _1, _2, binderBarabasiStructure, binderLinearDynamics, binderInitialConditions);
 
   GeneticAlgorithmParameterContainer *geneticParameters = new GeneticAlgorithmParameterContainer();
   geneticParameters->defaultCall = 1;
@@ -34,6 +38,8 @@ void executeHebbian(bool cluster)
   geneticParameters->modificationTypeProbabilities = vectorReconfModTypeProbabilities;
   geneticParameters->fitnessFunction = std::bind(hebbianFitnessFunction, _1, hebbianParameters);
   // geneticParameters->createInitialNetwork = binderGeneral;
+  
+  geneticParameters->createInitialNetwork = binderLoadPopulation;
 
   std::ofstream fileParam("bin/generated/parameters.txt");
   fileParam<<hebbianParameters->toString()<<std::endl;
@@ -43,14 +49,14 @@ void executeHebbian(bool cluster)
   GeneticAlgorithmController geneticController(geneticParameters);
   IGeneticObserver *observer = new GeneticObserver(&geneticController);
 
-  Network* network = new Network;
-  std::string filename = "bin/generated/start.json";
-  int counter = 1;
-  loadNetworkFromJSON(network, filename, counter);
+  // Network* network = new Network;
+  // std::string filename = "bin/generated/start.json";
+  // int counter = 1;
+  // loadNetworkFromJSON(network, filename, counter);
 
-  geneticController.runGeneticAlgorithm(network, observer);
+  geneticController.runGeneticAlgorithm(NULL, observer);
 
-  delete network;
+  // delete network;
   delete hebbianParameters;
   delete geneticParameters;
   delete observer;

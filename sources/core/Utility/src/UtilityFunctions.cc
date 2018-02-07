@@ -2,12 +2,17 @@
 #include "GlobalVariables.hh"
 #include "Node.hh"
 #include <fstream>
+#include <sstream>
+#include <string>
+#include <algorithm>
 #include <rapidjson/document.h>
 #include <rapidjson/writer.h>
 #include <rapidjson/stringbuffer.h>
 #include <rapidjson/prettywriter.h>
+#include <boost/filesystem.hpp>
 
 using namespace rapidjson;
+using namespace boost::filesystem;
 
 int getIndexT(int t)
 {
@@ -162,6 +167,53 @@ void saveNetworkToJSON(Network* network, std::string filename)
   std::ofstream file(filename.c_str());
   file<<buffer.GetString();
   file.close();
+}
+
+
+void loadPopulation(Network* network, int control, std::string folderName)
+{
+  std::cout<<"loadPopulation"<<std::endl;
+  path dir(folderName.c_str());
+
+  int numberOfJsonFiles = 0;
+  if(is_directory(dir))
+  {
+    for(directory_iterator it{dir}; it != directory_iterator{}; ++it)
+    {
+      std::ostringstream oss;
+      oss<<*it;
+      std::string fileName = oss.str();
+      if(fileName.find(".json") != std::string::npos)
+      {
+	++numberOfJsonFiles;
+      }
+    }
+  }
+
+  int index = control%numberOfJsonFiles;
+  int counter = 0;
+  if(is_directory(dir))
+  {
+    for(directory_iterator it{dir}; it != directory_iterator{}; ++it)
+    {
+      std::ostringstream oss;
+      oss<<*it;
+      std::string fileName = oss.str();
+      if(fileName.find(".json") != std::string::npos)
+      {
+	if(counter == index)
+	{
+	  int tmp = 1;
+	  fileName.erase(std::remove(fileName.begin(), fileName.end(), '"'), fileName.end());
+	  // std::cout<<"file="<<fileName<<std::endl;
+	  loadNetworkFromJSON(network, fileName, tmp);
+	  return;
+	}
+	++counter;
+      }
+    }
+  }
+
 }
 
 void printDirection(std::vector<IdValuePair> direction)

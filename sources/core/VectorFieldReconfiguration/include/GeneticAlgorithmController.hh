@@ -22,7 +22,7 @@ public:
   void death();
   void createInitialPopulation();
 
-  friend void createInitialNetworkByModification(Network* network, Network* referenceNetwork, GeneticAlgorithmController *geneticController);
+  friend void createInitialNetworkByModification(Network* network, int control, Network* referenceNetwork, GeneticAlgorithmController *geneticController);
 
   //Choosers
   NetworkPopulationElement* chooseForMutation();
@@ -57,7 +57,7 @@ private:
   double mElitRatio;
   std::vector<double> mModificationTypeProbabilities;
   std::function<double (Network*)> mFitnessFunction;
-  std::function<void (Network*)> mCreateInitialNetwork;
+  std::function<void (Network*, int)> mCreateInitialNetwork;
 };
 
 #endif
