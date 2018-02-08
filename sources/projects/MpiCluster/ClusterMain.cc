@@ -18,4 +18,6 @@ int main(int argc, char *argv[])
     GeneticAlgorithmServer geneticAlgorithmServer;
     geneticAlgorithmServer.start();
   }
+
+  return 0;
 }

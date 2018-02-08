@@ -19,10 +19,6 @@ void executeHebbian(bool cluster, int argc, char*argv[])
 {
   std::cout<<"Hello HebbianProject!"<<std::endl;
 
-  std::string populationFolder(argv[1]);
-  std::cout<<"argument:"<<populationFolder<<std::endl;
-  std::function<void(Network*, int)> binderLoadPopulation = std::bind(loadPopulation, _1, _2, populationFolder);
-
   HebbianParameterContainer *hebbianParameters = new HebbianParameterContainer;
   hebbianParameters->cluster = cluster;
 
@@ -37,10 +33,18 @@ void executeHebbian(bool cluster, int argc, char*argv[])
   geneticParameters->initialPopulationSize = 30;
   geneticParameters->modificationTypeProbabilities = vectorReconfModTypeProbabilities;
   geneticParameters->fitnessFunction = std::bind(hebbianFitnessFunction, _1, hebbianParameters);
-  // geneticParameters->createInitialNetwork = binderGeneral;
-  
-  geneticParameters->createInitialNetwork = binderLoadPopulation;
 
+  if(argc > 1)
+  {
+    std::string populationFolder(argv[1]);
+    std::function<void(Network*, int)> binderLoadPopulation = std::bind(loadPopulation, _1, _2, populationFolder);
+    geneticParameters->createInitialNetwork = binderLoadPopulation;
+  }
+  else
+  {
+    geneticParameters->createInitialNetwork = binderGeneral;    
+  }
+ 
   std::ofstream fileParam("bin/generated/parameters.txt");
   fileParam<<hebbianParameters->toString()<<std::endl;
   fileParam<<geneticParameters->toString();

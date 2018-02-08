@@ -11,7 +11,7 @@ file(GLOB_RECURSE project_barabasi_src "sources/projects/BarabasiMultilayer/src/
 file(GLOB_RECURSE project_hebbian_src "../../projects/HebbianProject/src/*.cc")
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-set (CMAKE_CXX_FLAGS "-O3 -g -Wall -std=c++11 -lboost_mpi-mt -lboost_serialization -lboost_system -lboost_filesystem")
+set (CMAKE_CXX_FLAGS "-O3 -g -Wall -std=c++11 -lboost_mpi -lboost_serialization -lboost_system -lboost_filesystem")
 
 include_directories(
 ${CMAKE_SOURCE_DIR}/sources/projects/MpiCluster/include

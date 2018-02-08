@@ -172,7 +172,6 @@ void saveNetworkToJSON(Network* network, std::string filename)
 
 void loadPopulation(Network* network, int control, std::string folderName)
 {
-  std::cout<<"loadPopulation"<<std::endl;
   path dir(folderName.c_str());
 
   int numberOfJsonFiles = 0;
