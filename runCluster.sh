@@ -4,7 +4,7 @@ echo "Hello World!"
 counter=1
 while :
 do
-    latestFolder=$(ls bin/generated/hebbianNetworks/ -t | head -1)
+    latestFolder=$(ls bin/generated/hebbianNetworks/ -t | head -2 | tail -1)
     echo $latestFolder
 
     mv bin/generated/hebbianNetworks bin/generated/hebbianNetworks-$counter
