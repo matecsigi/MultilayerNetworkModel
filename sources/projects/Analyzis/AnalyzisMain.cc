@@ -17,21 +17,40 @@ int main()
   HebbianParameterContainer *hebbianParameters = new HebbianParameterContainer;
   hebbianParameters->transientTime = 20;
   hebbianParameters->runTime = 20;
+  hebbianParameters->numberOfIterations = 2;
 
-  int iterations = 20;
-  double sum1 = 0;
-  double sum2 = 0; 
+  int iterations = 5;
+  int transientCounter = 5;
 
-  for(int i=0; i<iterations; ++i)
+  while(transientCounter < 100)
   {
-    std::cout<<"Network 1"<<std::endl;
-    sum1 += hebbianFitnessFunction(network1, hebbianParameters);
-    std::cout<<"--AVG1="<<sum1/(double)(i+1)<<std::endl;
+    std::cout<<"--transient="<<transientCounter<<std::endl;
+    hebbianParameters->transientTime = transientCounter;
 
-    std::cout<<"Network 2"<<std::endl;
-    sum2 += hebbianFitnessFunction(network2, hebbianParameters);
-    std::cout<<"--AVG2="<<sum2/(double)(i+1)<<std::endl;
+    double sum1 = 0;
+    double fitness1;
+    double min1 = 1000;
+    double max1 = 0;
+
+    for(int i=0; i<iterations; ++i)
+    {
+      fitness1 = hebbianFitnessFunction(network1, hebbianParameters);
+      sum1 += fitness1;
+      if(fitness1 < min1)
+      {
+	min1 = fitness1;
+      }
+      if(fitness1 > max1)
+      {
+	max1 = fitness1;
+      }
+      std::cout<<"  fitness="<<fitness1<<std::endl;
+    }
+    std::cout<<"    min="<<min1<<std::endl;
+    std::cout<<"    max="<<max1<<std::endl;
+    std::cout<<"    avg="<<sum1/iterations<<std::endl;
+
+    transientCounter += 10;
   }
-
   return 0;
 }

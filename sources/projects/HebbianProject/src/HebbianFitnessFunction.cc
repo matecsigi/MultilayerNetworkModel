@@ -15,43 +15,49 @@ double hebbianFitnessFunction(Network* network, HebbianParameterContainer *hebbi
 {
   // std::cout<<"======Hebbian fitness======="<<std::endl;
 
-  MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
-  generateMultilayerNetworkForHebbianFitness(multilayerNetwork, network, hebbianParameters);
+  double sumFitness = 0;
 
-  SimulationParameterContainer *parameters = new SimulationParameterContainer;
-  parameters->cluster = hebbianParameters->cluster;
-  parameters->geneticParameters->cluster = hebbianParameters->cluster;
-  parameters->geneticParameters->modificationTypeProbabilities = hebbianModTypeProbabilities;
-  parameters->geneticParameters->initialPopulationSize = 30;
-
-  IObserver *observer = new HebbianObserver(multilayerNetwork);
-
-  // std::cout<<*multilayerNetwork<<std::endl;
-
-  multilayerNetwork->iterate(hebbianParameters->transientTime, parameters);
-  multilayerNetwork->iterate(hebbianParameters->runTime, parameters, observer);
-
-  double sumDistance = observer->getResult();
-  double distance = sumDistance/(double)(hebbianParameters->runTime);
-  double fitness = (double)100/distance;
-  if((multilayerNetwork->getMaxValue() > 1.0e+30) || (multilayerNetwork->getMinValue() < -1.0e+30))
+  for(int i=0; i < hebbianParameters->numberOfIterations; ++i)
   {
-    fitness = 1.0e-50;
+    MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
+    generateMultilayerNetworkForHebbianFitness(multilayerNetwork, network, hebbianParameters);
+
+    SimulationParameterContainer *parameters = new SimulationParameterContainer;
+    parameters->cluster = hebbianParameters->cluster;
+    parameters->geneticParameters->cluster = hebbianParameters->cluster;
+    parameters->geneticParameters->modificationTypeProbabilities = hebbianModTypeProbabilities;
+    parameters->geneticParameters->initialPopulationSize = 30;
+
+    IObserver *observer = new HebbianObserver(multilayerNetwork);
+
+    // std::cout<<*multilayerNetwork<<std::endl;
+
+    multilayerNetwork->iterate(hebbianParameters->transientTime, parameters);
+    multilayerNetwork->iterate(hebbianParameters->runTime, parameters, observer);
+
+    double sumDistance = observer->getResult();
+    double distance = sumDistance/(double)(hebbianParameters->runTime);
+    double fitness = (double)100/distance;
+    if((multilayerNetwork->getMaxValue() > 1.0e+30) || (multilayerNetwork->getMinValue() < -1.0e+30))
+    {
+      fitness = 1.0e-50;
+    }
+    
+    sumFitness += fitness;
+
+    // auto logger = spdlog::basic_logger_mt("hebbian_logger", "bin/generated/log.txt");
+    // logger->info("fitness={}", fitness);
+    // spdlog::drop_all();
+
+    std::cout<<"fitness="<<fitness<<std::endl;
+
+    delete observer;
+    delete multilayerNetwork;
+    delete parameters;
   }
-
-  // auto logger = spdlog::basic_logger_mt("hebbian_logger", "bin/generated/log.txt");
-  // logger->info("fitness={}", fitness);
-  // spdlog::drop_all();
-
-  std::cout<<"fitness="<<fitness<<std::endl;
-
-  delete observer;
-  delete multilayerNetwork;
-  delete parameters;
-
   // std::cout<<"============="<<std::endl;
 
-  return fitness;
+  return sumFitness/(double)hebbianParameters->numberOfIterations;
 }
 
 void generateMultilayerNetworkForHebbianFitness(MultilayerNetwork* multilayerNetwork, Network* network, HebbianParameterContainer *hebbianParameters)

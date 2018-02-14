@@ -14,6 +14,8 @@ public:
   int higherNetworkSize = 10;
   int lowerNetworkSize = 8;
 
+  int numberOfIterations = 1;
+
   int transientTime = 10;
   int runTime = 20;
   double higherNetworkInitConditionMin = 100;
