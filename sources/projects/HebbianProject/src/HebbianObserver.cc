@@ -40,7 +40,7 @@ void HebbianObserver::atFinish()
     Network* hebbianNetwork = mHebbianNetworks[i];
 
     VectorField* realVectorField = new VectorField();
-    std::vector<IdValuePair> currentState = realNetwork->getCurrentState();
+    std::vector<IdValuePair> currentState = realNetwork->getState();
     gridAroundPointScheme2(realVectorField, realNetwork, currentState);
 
     VectorField* hebbianVectorField = new VectorField();

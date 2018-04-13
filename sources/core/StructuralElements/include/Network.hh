@@ -71,20 +71,8 @@ public:
      @return vector of IDValuePair elements  where the first value is the ID of the node 
      and the second value is the actual value of that node
    */
-  std::vector<IdValuePair> getCurrentState(void) const;
-
-  /**
-     Return the direction in which the network is currently moving 
-     in the state space i.e. the derivative in the phase space.
-     Calculated by stepping the network one step and measuring the 
-     changes in the axis directions.
-     @param basePointCoordinates: the coordinates of the current state 
-     in the phase space
-     @return vector of IdValuePairelements where first value is the ID of the node and the 
-     secodn value is the change along the node's axis i.e. partial 
-     derivative.
-   */
-  std::vector<IdValuePair> getDirectionAtState(std::vector<IdValuePair> &basePointCoordinates) const;
+  std::vector<IdValuePair> getState(void) const;
+  void setState(std::vector<IdValuePair> state);
 
   friend bool operator==(const Network& network1, const Network& network2);
   friend std::ostream& operator<<(std::ostream &os, const Network &network);

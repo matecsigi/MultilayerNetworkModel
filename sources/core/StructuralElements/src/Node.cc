@@ -87,9 +87,9 @@ void Node::setValues(double* values)
   }
 }
 
-void Node::setCurrentState(state_type state)
+void Node::setCurrentState(double state)
 {
-  mValues[getIndexT(t)] = state[0];
+  mValues[getIndexT(t)] = state;
 }
 
 void Node::getValues(double* values) const
@@ -176,7 +176,7 @@ void Node::stepODE(DynamicalEquation* dynamicalEquation, SimulationParameterCont
 
   OdeWrapper wrapper(dynamicalEquation);
   integrate(wrapper, x, 0.0, parameters->odeTime, parameters->odeStepSize);  
-  setCurrentState(x);
+  setCurrentState(x[0]);
 }
 
 void Node::stepOdeAtState(DynamicalEquation* dynamicalEquation, std::vector<IdValuePair> &startingState, std::vector<IdValuePair> &finalState)

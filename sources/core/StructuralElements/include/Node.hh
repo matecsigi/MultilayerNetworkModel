@@ -47,7 +47,7 @@ public:
      @param[in] values: these values are set to the buffer
    */
   void setValues(double* values);
-  void setCurrentState(state_type state);
+  void setCurrentState(double state);
   
   /**
      Stored the content of the whole buffer in the values

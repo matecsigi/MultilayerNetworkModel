@@ -15,7 +15,7 @@ void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration(Genetic
     return;
   }
   VectorField* currentVectorField = new VectorField();
-  std::vector<IdValuePair> currentState = networkAssigned->getCurrentState();
+  std::vector<IdValuePair> currentState = networkAssigned->getState();
   gridAroundPointScheme2(currentVectorField, networkAssigned, currentState);
 
   VectorField* targetVectorField = new VectorField();

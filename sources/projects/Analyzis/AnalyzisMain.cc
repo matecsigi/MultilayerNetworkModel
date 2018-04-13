@@ -15,14 +15,14 @@ int main()
 
 
   HebbianParameterContainer *hebbianParameters = new HebbianParameterContainer;
-  hebbianParameters->transientTime = 20;
-  hebbianParameters->runTime = 20;
+  hebbianParameters->transientTime = 10;
+  hebbianParameters->runTime = 10;
   hebbianParameters->numberOfIterations = 2;
 
   int iterations = 5;
-  int transientCounter = 5;
+  int transientCounter = 10;
 
-  while(transientCounter < 100)
+  while(transientCounter < 20)
   {
     std::cout<<"--transient="<<transientCounter<<std::endl;
     hebbianParameters->transientTime = transientCounter;
@@ -50,7 +50,7 @@ int main()
     std::cout<<"    max="<<max1<<std::endl;
     std::cout<<"    avg="<<sum1/iterations<<std::endl;
 
-    transientCounter += 10;
+    transientCounter += 20;
   }
   return 0;
 }

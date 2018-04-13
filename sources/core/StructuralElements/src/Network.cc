@@ -158,7 +158,7 @@ DynamicalEquation* Network::getNodeDynamicalEquation(int nodeId) const
   return NULL;
 }
 
-std::vector<IdValuePair> Network::getCurrentState(void) const
+std::vector<IdValuePair> Network::getState(void) const
 {
   std::vector<IdValuePair> currentState;
   for(std::vector<Node*>::const_iterator itNode=mNodes.begin(); itNode != mNodes.end(); ++itNode)
@@ -171,26 +171,14 @@ std::vector<IdValuePair> Network::getCurrentState(void) const
   return currentState;
 }
 
-std::vector<IdValuePair> Network::getDirectionAtState(std::vector<IdValuePair> &basePointCoordinates) const
+void Network::setState(std::vector<IdValuePair> state)
 {
-  std::vector<IdValuePair> directions;
-  std::vector<IdValuePair> finalState;
   for(std::vector<Node*>::const_iterator itNode=mNodes.begin(); itNode != mNodes.end(); ++itNode)
   {
-    DynamicalEquation* nodeEquation = getNodeDynamicalEquation((*itNode)->getId());
-    // std::cout<<nodeEquation->toString()<<std::endl;
-    (*itNode)->stepOdeAtState(nodeEquation, basePointCoordinates, finalState);
+    int nodeId = (*itNode)->getId();
+    double value = getValueForId(state, nodeId);
+    (*itNode)->setCurrentState(value);
   }
-  
-  for(std::vector<IdValuePair>::iterator itState=basePointCoordinates.begin(); itState != basePointCoordinates.end(); ++itState)
-   {
-     int id = itState->mId;
-     double startValue = getValueForId(basePointCoordinates, id);
-     double finalValue = getValueForId(finalState, id);
-     setValueForId(directions, id, finalValue-startValue);
-   }
-
-  return directions;
 }
 
 std::string Network::getNodeDynamicalEquationString(int nodeId) const

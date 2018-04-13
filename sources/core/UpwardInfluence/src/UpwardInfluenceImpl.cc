@@ -29,7 +29,7 @@ void UpwardInfluenceImpl::calculateUpwardInfluence(double upwardMultiplier)
   change = change*upwardMultiplier;
 
   state_type x = {mNode->getCurrentState()+change};
-  mNode->setCurrentState(x);
+  mNode->setCurrentState(x[0]);
 
   // std::cout<<"Upward:"<<mNode->getId()<<"->"<<change<<std::endl;
 

@@ -31,7 +31,7 @@ void DownwardInfluenceImpl::calculateDownwardInfluence(double downwardMultiplier
   change = change*downwardMultiplier;
 
   state_type x = {mNode->getCurrentState()+change};
-  mNode->setCurrentState(x);
+  mNode->setCurrentState(x[0]);
 
   // std::cout<<"Downward:"<<mNode->getId()<<"->"<<change<<std::endl;
 

@@ -4,6 +4,22 @@
 
 void calculateTargetVectorField(VectorField* targetVectorField, VectorField* currentVectorField, Node* node)
 {
+  VectorField* isolatedVectorField = currentVectorField;
+
+  VectorField* environmentalVectorField = new VectorField();
+  Network* network = node->getNetworkAssigned();
+  std::vector<IdValuePair> currentState = network->getState();
+
+  MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
+  Network* tmpNetwork = createEnvironmentalMultilayerNetwork(multilayerNetwork, network);
+
+  gridAroundPointScheme2(environmentalVectorField, tmpNetwork, currentState, getEnvironmentalDirectionAtState);
+
+  delete environmentalVectorField;
+}
+
+void calculateTargetVectorFieldOld(VectorField* targetVectorField, VectorField* currentVectorField, Node* node)
+{
   std::vector<IdValuePair> directionInLowerNetwork = calculateLowerNetworkDirection(node);
   std::vector<IdValuePair> directionInHigherNetworks = calculateHigherNetworksDirection(node);
 

@@ -6,7 +6,7 @@ using namespace std::placeholders;
 double vectorReconfFitnessFunction(Network* network, VectorField* targetVectorField)
 {
   VectorField* currentVectorField = new VectorField();
-  std::vector<IdValuePair> currentState = network->getCurrentState();
+  std::vector<IdValuePair> currentState = network->getState();
   gridAroundPointScheme2(currentVectorField, network, currentState);
   double distance = targetVectorField->getDistanceFrom(currentVectorField);
 

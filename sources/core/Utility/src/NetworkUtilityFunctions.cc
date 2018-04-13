@@ -14,7 +14,7 @@ void copyNetwork(Network* oldNetwork, Network* newNetwork)
     }
   }
 
-  // double* tmpBuffer = new double[bufferSize];
+  double* tmpBuffer = new double[bufferSize];
 
   for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
   {
@@ -26,8 +26,8 @@ void copyNetwork(Network* oldNetwork, Network* newNetwork)
       newNetwork->addEdge(oldNode->getId(), oldNeighbor->getId());
     }
     Node* newNode = newNetwork->getNodeById(oldNode->getId());
-    // oldNode->getValues(tmpBuffer);
-    // newNode->setValues(tmpBuffer);
+    oldNode->getValues(tmpBuffer);
+    newNode->setValues(tmpBuffer);
 
     std::string strEquation = oldNetwork->getNodeDynamicalEquationString(oldNode->getId());
     newNetwork->setDynamicalEquationString(oldNode->getId(), strEquation);
@@ -42,14 +42,64 @@ void copyNetwork(Network* oldNetwork, Network* newNetwork)
     }
     nodeEquation->loadNodesToEquation(nodeEquation->getBaseCalculationNode(), nodesMap);
   }
-  // delete [] tmpBuffer; 
+  delete [] tmpBuffer; 
+}
+
+std::vector<IdValuePair> getIsolatedDirectionAtState(Network* network, std::vector<IdValuePair> &basePointCoordinates)
+{
+  std::vector<IdValuePair> directions;
+  std::vector<IdValuePair> finalState;
+  std::vector<Node*> nodes = network->getNodes();
+  for(std::vector<Node*>::const_iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
+  {
+    DynamicalEquation* nodeEquation = network->getNodeDynamicalEquation((*itNode)->getId());
+    // std::cout<<nodeEquation->toString()<<std::endl;
+    (*itNode)->stepOdeAtState(nodeEquation, basePointCoordinates, finalState);
+  }
+  
+  for(std::vector<IdValuePair>::iterator itState=basePointCoordinates.begin(); itState != basePointCoordinates.end(); ++itState)
+   {
+     int id = itState->mId;
+     double startValue = getValueForId(basePointCoordinates, id);
+     double finalValue = getValueForId(finalState, id);
+     setValueForId(directions, id, finalValue-startValue);
+   }
+
+  return directions;
+}
+
+std::vector<IdValuePair> getEnvironmentalDirectionAtState(Network* network, std::vector<IdValuePair> &basePointCoordinates)
+{
+  std::vector<IdValuePair> directions;
+  MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
+  Network* insertedNetwork = createEnvironmentalMultilayerNetwork(multilayerNetwork, network);
+
+  std::cout<<"Environmental MultilayerNetwork"<<std::endl;
+  std::cout<<*multilayerNetwork<<std::endl;
+
+  insertedNetwork->setState(basePointCoordinates);
+  
+  multilayerNetwork->iterate(2);
+
+  std::vector<IdValuePair> finalState = insertedNetwork->getState();
+
+  for(std::vector<IdValuePair>::iterator itState=basePointCoordinates.begin(); itState != basePointCoordinates.end(); ++itState)
+   {
+     int id = itState->mId;
+     double startValue = getValueForId(basePointCoordinates, id);
+     double finalValue = getValueForId(finalState, id);
+     setValueForId(directions, id, finalValue-startValue);
+   }
+
+  delete multilayerNetwork;
+  return directions;
 }
 
 std::vector<IdValuePair> calculateLowerNetworkDirection(Node *node)
 {
   Network* networkAssigned = node->getNetworkAssigned();
-  std::vector<IdValuePair> currentState = networkAssigned->getCurrentState();
-  return  networkAssigned->getDirectionAtState(currentState);
+  std::vector<IdValuePair> currentState = networkAssigned->getState();
+  return  getIsolatedDirectionAtState(networkAssigned, currentState);
 }
 
 std::vector<IdValuePair> calculateHigherNetworksDirection(Node *node)
@@ -60,10 +110,10 @@ std::vector<IdValuePair> calculateHigherNetworksDirection(Node *node)
   std::vector<Network*> networks = node->getNetworks();
   for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
   {
-    std::vector<IdValuePair> currentState = (*itNet)->getCurrentState();
+    std::vector<IdValuePair> currentState = (*itNet)->getState();
     // std::cout<<"higherNetworkDirection"<<std::endl;
-    // printDirection((*itNet)->getDirectionAtState(currentState));
-    directionsInAllHigherNetworks.push_back((*itNet)->getDirectionAtState(currentState));
+    // printDirection(getIsolatedDirectionAtState((*itNet), currentState));
+    directionsInAllHigherNetworks.push_back(getIsolatedDirectionAtState((*itNet), currentState));
   }
 
   std::vector<IdValuePair> referenceHigherDirection = directionsInAllHigherNetworks[0];
@@ -85,4 +135,39 @@ std::vector<IdValuePair> calculateHigherNetworksDirection(Node *node)
   // printDirection(sumDirectionInHigherNetworks);
   // std::cout<<"======================"<<std::endl;
   return sumDirectionInHigherNetworks;
+}
+
+Network* createEnvironmentalMultilayerNetwork(MultilayerNetwork* multilayerNetwork, Network* network)
+{
+  Node* nodeAssigned = network->getNodeAssigned();
+  std::vector<Network*> higherNetworks = nodeAssigned->getNetworks();
+  Network* higherNetwork = higherNetworks[0];
+
+  multilayerNetwork->addLayer(1);
+  multilayerNetwork->addLayer(2);
+  std::vector<Layer*> layers = multilayerNetwork->getLayers();
+  layers[0]->insertNetwork(higherNetwork);
+
+  std::vector<Node*> nodes = higherNetwork->getNodes();
+  for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
+  {
+    Network* lowerNetwork = (*itNode)->getNetworkAssigned();
+    Network* insertedNetwork = layers[1]->insertNetwork(lowerNetwork);
+    (*itNode)->setNetworkAssigned(insertedNetwork);
+  }
+
+  Network* insertedNetwork = NULL;
+  for(std::vector<Layer*>::iterator itLay=layers.begin(); itLay != layers.end(); ++itLay)
+  {
+    std::vector<Network*> networks = (*itLay)->getNetworks();
+    for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
+    {
+      if((*itNet)->getId() == network->getId())
+      {
+	insertedNetwork = (*itNet);
+      }
+    }
+  }
+  
+  return insertedNetwork;
 }

@@ -4,6 +4,8 @@
 #include "Node.hh"
 #include "VectorField.hh"
 
+void calculateTargetVectorField(VectorField* targetVectorField, VectorField* currentVectorField, Node* node);
+
 /**
    Takes the direction of the assigned node in the higher network and each direction
    value in the lower network is multiplied by it to get the change in the direction change 
@@ -11,7 +13,7 @@
    It matters which higher node the lower network is attached to.
    The directions in other higher network nodes doesn't matter.
  */
-void calculateTargetVectorField(VectorField* targetVectorField, VectorField* currentVectorField, Node* node);
+void calculateTargetVectorFieldOld(VectorField* targetVectorField, VectorField* currentVectorField, Node* node);
 
 /**
    Calculates the sum of the directions in the higher network(s) and each direction

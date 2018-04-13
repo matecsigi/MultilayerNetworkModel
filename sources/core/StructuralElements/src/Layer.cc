@@ -1,4 +1,5 @@
 #include "Layer.hh"
+#include "NetworkUtilityFunctions.hh"
 #include <iostream>
 #include <map>
 
@@ -22,6 +23,14 @@ Layer::~Layer(void)
 void Layer::addNetwork(int networkId)
 {
   mNetworksInLayer.push_back(new Network(networkId));
+}
+
+Network* Layer::insertNetwork(Network* network)
+{
+  Network* newNetwork = new Network;
+  copyNetwork(network, newNetwork);
+  mNetworksInLayer.push_back(newNetwork);
+  return newNetwork;
 }
 
 std::vector<Network*> Layer::getNetworks(void) const

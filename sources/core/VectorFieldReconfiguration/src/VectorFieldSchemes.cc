@@ -1,10 +1,11 @@
 #include "VectorFieldSchemes.hh"
 #include "IdValuePair.hh"
 #include "UtilityFunctions.hh"
+#include "NetworkUtilityFunctions.hh"
 
 void gridAroundPointScheme1(VectorField* vectorField, Network* network, std::vector<IdValuePair> &basePointCoordinates)
 {
-  std::vector<IdValuePair> directionAtState = network->getDirectionAtState(basePointCoordinates);
+  std::vector<IdValuePair> directionAtState = getIsolatedDirectionAtState(network, basePointCoordinates);
   vectorField->addPoint(basePointCoordinates, directionAtState);
 
   int counter = 0;
@@ -16,7 +17,7 @@ void gridAroundPointScheme1(VectorField* vectorField, Network* network, std::vec
     {
       std::vector<IdValuePair> coordinate = basePointCoordinates;
       setValueForId(coordinate, id, getValueForId(coordinate, id)-i);
-      std::vector<IdValuePair> direction = network->getDirectionAtState(coordinate);
+      std::vector<IdValuePair> direction = getIsolatedDirectionAtState(network, coordinate);
       vectorField->addPoint(coordinate, direction);
       ++counter;
     }
@@ -24,7 +25,7 @@ void gridAroundPointScheme1(VectorField* vectorField, Network* network, std::vec
     {
       std::vector<IdValuePair> coordinate = basePointCoordinates;
       setValueForId(coordinate, id, getValueForId(coordinate, id)+i);
-      std::vector<IdValuePair> direction = network->getDirectionAtState(coordinate);
+      std::vector<IdValuePair> direction = getIsolatedDirectionAtState(network, coordinate);
       vectorField->addPoint(coordinate, direction);
       ++counter;
     }
@@ -32,9 +33,9 @@ void gridAroundPointScheme1(VectorField* vectorField, Network* network, std::vec
   std::cout<<"scheme counter = "<<counter<<std::endl;
 }
 
-void gridAroundPointScheme2(VectorField* vectorField, Network* network, std::vector<IdValuePair> &basePointCoordinates)
+void gridAroundPointScheme2(VectorField* vectorField, Network* network, std::vector<IdValuePair> &basePointCoordinates, std::function<std::vector<IdValuePair> (Network*, std::vector<IdValuePair>&)> getDirectionAtState)
 {
-  std::vector<IdValuePair> directionAtState = network->getDirectionAtState(basePointCoordinates);
+  std::vector<IdValuePair> directionAtState = getDirectionAtState(network, basePointCoordinates);
   vectorField->addPoint(basePointCoordinates, directionAtState);
 
   int counter = 0;
@@ -50,12 +51,12 @@ void gridAroundPointScheme2(VectorField* vectorField, Network* network, std::vec
     {
       coordinate = basePointCoordinates;
       setValueForId(coordinate, id, getValueForId(coordinate, id)+1);
-      direction = network->getDirectionAtState(coordinate);
+      direction = getDirectionAtState(network, coordinate);
       vectorField->addPoint(coordinate, direction);
     
       coordinate = basePointCoordinates;
       setValueForId(coordinate, id, getValueForId(coordinate, id)-1);
-      direction = network->getDirectionAtState(coordinate);
+      direction = getDirectionAtState(network, coordinate);
       vectorField->addPoint(coordinate, direction);
     }
 
@@ -64,12 +65,12 @@ void gridAroundPointScheme2(VectorField* vectorField, Network* network, std::vec
     {
       coordinate = basePointCoordinates;
       setValueForId(coordinate, id, getValueForId(coordinate, id)+10);
-      direction = network->getDirectionAtState(coordinate);
+      direction = getDirectionAtState(network, coordinate);
       vectorField->addPoint(coordinate, direction);
 
       coordinate = basePointCoordinates;
       setValueForId(coordinate, id, getValueForId(coordinate, id)-10);
-      direction = network->getDirectionAtState(coordinate);
+      direction = getDirectionAtState(network, coordinate);
       vectorField->addPoint(coordinate, direction);      
     }
 
@@ -78,12 +79,12 @@ void gridAroundPointScheme2(VectorField* vectorField, Network* network, std::vec
     {
       coordinate = basePointCoordinates;
       setValueForId(coordinate, id, getValueForId(coordinate, id)+50);
-      direction = network->getDirectionAtState(coordinate);
+      direction = getDirectionAtState(network, coordinate);
       vectorField->addPoint(coordinate, direction);
 
       coordinate = basePointCoordinates;
       setValueForId(coordinate, id, getValueForId(coordinate, id)-50);
-      direction = network->getDirectionAtState(coordinate);
+      direction = getDirectionAtState(network, coordinate);
       vectorField->addPoint(coordinate, direction);
     }
 
