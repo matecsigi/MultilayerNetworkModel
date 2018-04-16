@@ -3,7 +3,7 @@
 
 #include "MultilayerNetwork.hh"
 #include "GlobalVariables.hh"
-#include "GeneticAlgorithmParameterContainer.hh"
+#include "SimulationParameterContainer.hh"
 
 class IVectorFieldReconfiguration
 {
@@ -11,7 +11,7 @@ public:
   IVectorFieldReconfiguration(Node* node){mNode = node;};
   virtual ~IVectorFieldReconfiguration(void){};
 
-  virtual void calculateVectorFieldReconfiguration(GeneticAlgorithmParameterContainer *geneticParameters) = 0;
+  virtual void calculateVectorFieldReconfiguration(SimulationParameterContainer *parameters) = 0;
 protected:
   Node* mNode;
 };

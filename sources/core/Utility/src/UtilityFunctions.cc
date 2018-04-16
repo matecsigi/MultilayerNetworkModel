@@ -54,6 +54,33 @@ void setValueForId(std::vector<IdValuePair> &pairVector, int id, double value)
   pairVector.push_back(IdValuePair(id, value));
 }
 
+VectorFieldPoint* findCorrespondingPoint(VectorFieldPoint* point, VectorField* vectorField)
+{
+  std::vector<IdValuePair> coordinate = point->getCoordinate();
+
+  std::vector<VectorFieldPoint*> points = vectorField->getVectorFieldPoints();
+  for(std::vector<VectorFieldPoint*>::iterator itPoint=points.begin(); itPoint != points.end(); ++itPoint)
+  {
+    std::vector<IdValuePair> currentCoordinate = (*itPoint)->getCoordinate();
+    bool matchingPoint = true;
+    for(std::vector<IdValuePair>::iterator itCord=coordinate.begin(); itCord != coordinate.end(); ++itCord)
+    {
+      int id = itCord->mId;
+      double value = itCord->mValue;
+      double currentValue = getValueForId(currentCoordinate, id);
+      if(value != currentValue)
+      {
+	matchingPoint = false;
+      }
+    }
+    if(matchingPoint)
+    {
+      return (*itPoint);
+    }
+  }
+
+  return NULL;
+}
 
 void loadNetworkFromJSON(Network* network, std::string filename, int& nodeIdCounter)
 {

@@ -7,19 +7,22 @@
 #include "SerializedClasses.hh"
 #include <boost/mpi.hpp>
 
-void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration(GeneticAlgorithmParameterContainer *geneticParameters)
+void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration(SimulationParameterContainer *parameters)
 {
   Network* networkAssigned = mNode->getNetworkAssigned();
   if(networkAssigned == NULL)
   {
     return;
   }
+
+  GeneticAlgorithmParameterContainer *geneticParameters = parameters->geneticParameters;
+
   VectorField* currentVectorField = new VectorField();
   std::vector<IdValuePair> currentState = networkAssigned->getState();
   gridAroundPointScheme2(currentVectorField, networkAssigned, currentState);
 
   VectorField* targetVectorField = new VectorField();
-  weightNodeVectorFieldTransform(targetVectorField, currentVectorField, mNode);
+  calculateTargetVectorField(targetVectorField, currentVectorField, mNode, parameters);
 
   // std::cout<<"--------Current---------"<<std::endl;;
   // std::cout<<*currentVectorField;

@@ -167,7 +167,10 @@ void Node::step(SimulationParameterContainer *parameters)
 
   mUpwardInfluence->calculateUpwardInfluence(parameters->upwardInfluenceMultiplier);
   mDownwardInfluence->calculateDownwardInfluence(parameters->downwardInfluenceMultiplier);
-  mVectorFieldReconfiguration->calculateVectorFieldReconfiguration(parameters->geneticParameters);
+  if(parameters->runVectorFieldReconfiguration)
+  {
+    mVectorFieldReconfiguration->calculateVectorFieldReconfiguration(parameters);
+  }
 }
 
 void Node::stepODE(DynamicalEquation* dynamicalEquation, SimulationParameterContainer *parameters)

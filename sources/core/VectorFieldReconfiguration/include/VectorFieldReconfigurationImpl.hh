@@ -11,7 +11,7 @@ public:
   VectorFieldReconfigurationImpl(Node* node):IVectorFieldReconfiguration(node){mNode = node;};
   ~VectorFieldReconfigurationImpl(void){};
 
-  void calculateVectorFieldReconfiguration(GeneticAlgorithmParameterContainer *geneticParameters);
+  void calculateVectorFieldReconfiguration(SimulationParameterContainer *parameters);
 };
 
 #endif

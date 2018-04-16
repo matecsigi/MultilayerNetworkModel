@@ -17,6 +17,11 @@ public:
   double downwardInfluenceMultiplier = 0.01;
   double upwardInfluenceMultiplier = 0.1;
 
+  bool runVectorFieldReconfiguration = true;
+
+  double adjustmentFactor = 0.3;
+  std::function<double (double, double)> adjustmentDistanceFunction = [](double factor, double distance){return factor/distance;};
+
   GeneticAlgorithmParameterContainer *geneticParameters;
 };
 
