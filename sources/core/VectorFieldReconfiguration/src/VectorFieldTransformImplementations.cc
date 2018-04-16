@@ -17,6 +17,7 @@ void calculateTargetVectorField(VectorField* targetVectorField, VectorField* cur
 
   adjustVectorField(targetVectorField, isolatedVectorField, environmentalVectorField, parameters);
 
+  delete multilayerNetwork;
   delete environmentalVectorField;
 }
 

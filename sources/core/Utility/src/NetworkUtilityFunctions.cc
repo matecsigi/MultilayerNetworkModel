@@ -4,6 +4,9 @@ void copyNetwork(Network* oldNetwork, Network* newNetwork)
 {
   newNetwork->removeAllEdges();
   
+  std::cout<<"id="<<oldNetwork->getId()<<std::endl;
+  newNetwork->setId(oldNetwork->getId());
+
   std::vector<Node*> nodes = oldNetwork->getNodes();
   for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
   {
@@ -73,9 +76,6 @@ std::vector<IdValuePair> getEnvironmentalDirectionAtState(Network* network, std:
   std::vector<IdValuePair> directions;
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
   Network* insertedNetwork = createEnvironmentalMultilayerNetwork(multilayerNetwork, network);
-
-  std::cout<<"Environmental MultilayerNetwork"<<std::endl;
-  std::cout<<*multilayerNetwork<<std::endl;
 
   insertedNetwork->setState(basePointCoordinates);
   
