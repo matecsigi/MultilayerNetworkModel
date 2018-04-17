@@ -6,9 +6,12 @@
 #include "GlobalVariables.hh"
 #include <ctime>
 #include <chrono>
+#include "Trace.hh"
 
 int main(void)
 {
+  traceRun("Hello Trace!");
+
   std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
 
   std::cout<<"Start simulation"<<std::endl;
