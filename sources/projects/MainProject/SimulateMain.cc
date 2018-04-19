@@ -10,6 +10,7 @@
 
 int main(void)
 {
+  std::cout<<"TRACELEVEL="<<TRACELEVEL<<std::endl;
   traceDebug("Hello Trace!");
 
   std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
