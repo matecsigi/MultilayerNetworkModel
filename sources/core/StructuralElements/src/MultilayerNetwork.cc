@@ -34,21 +34,33 @@ MultilayerNetwork::~MultilayerNetwork(void)
 Layer* MultilayerNetwork::addLayer()
 {
   int maximalLayerId = 0;
+  Layer *layerMaximalId = NULL;
   for(std::vector<Layer*>::iterator itLay=mLayers.begin(); itLay != mLayers.end(); ++itLay)
   {
     if((*itLay)->getId() > maximalLayerId)
     {
       maximalLayerId = (*itLay)->getId();
+      layerMaximalId = (*itLay);
     }
   }
-  Layer* newLayer = new Layer(maximalLayerId+1);
+  Layer* newLayer = new Layer(maximalLayerId+1, layerMaximalId, NULL);
   mLayers.push_back(newLayer);
   return newLayer;
 }
 
 void MultilayerNetwork::addLayerById(int layerId)
 {
-  mLayers.push_back(new Layer(layerId));
+  int maximalLayerId = 0;
+  Layer *layerMaximalId = NULL;
+  for(std::vector<Layer*>::iterator itLay=mLayers.begin(); itLay != mLayers.end(); ++itLay)
+  {
+    if((*itLay)->getId() > maximalLayerId)
+    {
+      maximalLayerId = (*itLay)->getId();
+      layerMaximalId = (*itLay);
+    }
+  }
+  mLayers.push_back(new Layer(layerId, layerMaximalId, NULL));
 }
 
 std::vector<Layer*> MultilayerNetwork::getLayers(void) const

@@ -8,9 +8,11 @@ Layer::Layer()
 {
 }
 
-Layer::Layer(int id)
+Layer::Layer(int id, Layer *layerUp, Layer *layerDown)
 {
   mLayerId = id;
+  mLayerUp = layerUp;
+  mLayerDown = layerDown;
 }
 
 Layer::~Layer(void)

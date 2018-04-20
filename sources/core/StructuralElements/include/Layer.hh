@@ -8,7 +8,7 @@ class Layer
 {
 public:
   Layer();
-  Layer(int);
+  Layer(int, Layer *layerUp, Layer *layerDown);
   ~Layer();
 
   void addNetwork(int networkId);
@@ -24,5 +24,7 @@ public:
 private:
   int mLayerId;
   std::vector<Network*> mNetworksInLayer;
+  Layer* mLayerDown;
+  Layer* mLayerUp;
 };
 #endif
