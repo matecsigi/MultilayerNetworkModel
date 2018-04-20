@@ -142,7 +142,7 @@ void MultilayerNetwork::iterate(int steps, SimulationParameterContainer *paramet
   if(observer != NULL){observer->atStart();}
   for(t=0; t<steps; ++t)
   {
-    // std::cout<<"t="<<t<<std::endl;
+    traceRun("Time "+std::to_string(t)+"\n");
     step(parameters);
 
     if(observer != NULL){observer->atStep();}
@@ -154,7 +154,7 @@ void MultilayerNetwork::iterate(int steps, SimulationParameterContainer *paramet
       shiftBuffers();
     }
   }
-  // std::cout<<*this<<std::endl;
+  this->print();
 
   save();
   saveState();
