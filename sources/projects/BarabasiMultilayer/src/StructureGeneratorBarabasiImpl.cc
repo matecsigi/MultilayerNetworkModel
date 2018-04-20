@@ -21,7 +21,7 @@ void StructureGeneratorBarabasiImpl::addLayers(void)
 {
   for(int i=1;i<4;i++)
   {
-    mMultilayerNetwork->addLayer(i);
+    mMultilayerNetwork->addLayerById(i);
   }
 }
 

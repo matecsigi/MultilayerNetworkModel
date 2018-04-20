@@ -16,11 +16,13 @@ public:
   MultilayerNetwork();
   ~MultilayerNetwork();
 
+  Layer* addLayer();
+
   /**
      Adds a layer to the multilayer network.
      @param layerId: the ID of the newly added layer
   */
-  void addLayer(int layerId);
+  void addLayerById(int layerId);
   std::vector<Layer*> getLayers(void) const;
 
   /**

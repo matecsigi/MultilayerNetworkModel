@@ -10,6 +10,7 @@ public:
   ~StructureGeneratorImpl(){};
 
   void generateStructure();
+  Network* generateNetwork(int numberOfNodes);
 private:
   void generateLayers(void);
   void generateNetworks(void);

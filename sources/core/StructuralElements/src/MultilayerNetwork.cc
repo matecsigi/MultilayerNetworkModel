@@ -31,7 +31,22 @@ MultilayerNetwork::~MultilayerNetwork(void)
   }
 }
 
-void MultilayerNetwork::addLayer(int layerId)
+Layer* MultilayerNetwork::addLayer()
+{
+  int maximalLayerId = 0;
+  for(std::vector<Layer*>::iterator itLay=mLayers.begin(); itLay != mLayers.end(); ++itLay)
+  {
+    if((*itLay)->getId() > maximalLayerId)
+    {
+      maximalLayerId = (*itLay)->getId();
+    }
+  }
+  Layer* newLayer = new Layer(maximalLayerId+1);
+  mLayers.push_back(newLayer);
+  return newLayer;
+}
+
+void MultilayerNetwork::addLayerById(int layerId)
 {
   mLayers.push_back(new Layer(layerId));
 }
@@ -260,7 +275,7 @@ void MultilayerNetwork::load(const char* filename)
   for(SizeType i=0; i<layerArray.Size(); ++i)
   {
     Value& layerObject = layerArray[i];
-    this->addLayer(layerObject["id"].GetInt());
+    this->addLayerById(layerObject["id"].GetInt());
     std::vector<Layer*> layers = this->getLayers();
     Layer* layer = layers[layers.size()-1];
     Value& networkArray = layerObject["Networks"];

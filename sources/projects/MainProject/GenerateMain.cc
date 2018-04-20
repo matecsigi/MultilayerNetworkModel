@@ -9,6 +9,7 @@
 #include "DynamicalEquationGeneratorSimpleImpl.hh"
 #include "IInitialConditionGenerator.hh"
 #include "InitialConditionGeneratorImpl.hh"
+#include "Trace.hh"
 
 int main(void)
 {
@@ -31,7 +32,8 @@ int main(void)
   initialConditionGenerator->generateInitialCondition();
   multilayerNetwork->saveState(filenameInitialCond);
 
-  std::cout<<*multilayerNetwork<<std::endl;
+  std::cout<<"Generated MultilayerNetwork"<<std::endl;
+  multilayerNetwork->print();
 
   delete multilayerNetwork;
 

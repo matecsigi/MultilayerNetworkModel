@@ -4,7 +4,7 @@
 #include <iostream>
 #include <map>
 
-Layer::Layer(void)
+Layer::Layer()
 {
 }
 

@@ -5,17 +5,39 @@
 
 void StructureGeneratorImpl::generateStructure()
 {
-  generateLayers();
-  generateNetworks();
-  generateNodes();
-  assignNetworksToNodes();
+  // generateLayers();
+  // generateNetworks();
+  // generateNodes();
+  // assignNetworksToNodes();
+
+  int numberOfNodes = 5;
+
+  Layer* layer1 = mMultilayerNetwork->addLayer();
+  Layer* layer2 = mMultilayerNetwork->addLayer();
+
+  Network* higherNetwork = generateNetwork(numberOfNodes);
+  Network* insertedHigherNetwork = layer1->insertNetwork(higherNetwork);
+
+  std::vector<Node*> nodes = insertedHigherNetwork->getNodes();
+  for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
+  {
+    Network *lowerNetwork = generateNetwork(numberOfNodes);
+    Network* insertedLowerNetwork = layer2->insertNetwork(lowerNetwork);
+    (*itNode)->setNetworkAssigned(insertedLowerNetwork);
+  }
+}
+
+Network* StructureGeneratorImpl::generateNetwork(int numberOfNodes)
+{
+  Network* network = new Network;
+  return network;
 }
 
 void StructureGeneratorImpl::generateLayers(void)
 {
   for(int i=1;i<4;i++)
   {
-    mMultilayerNetwork->addLayer(i);
+    mMultilayerNetwork->addLayerById(i);
   }
 }
 

@@ -144,8 +144,8 @@ Network* createEnvironmentalMultilayerNetwork(MultilayerNetwork* multilayerNetwo
   std::vector<Network*> higherNetworks = nodeAssigned->getNetworks();
   Network* higherNetwork = higherNetworks[0];
 
-  multilayerNetwork->addLayer(1);
-  multilayerNetwork->addLayer(2);
+  multilayerNetwork->addLayerById(1);
+  multilayerNetwork->addLayerById(2);
   std::vector<Layer*> layers = multilayerNetwork->getLayers();
   Network* insertedHigherNetwork = layers[0]->insertNetwork(higherNetwork);
 

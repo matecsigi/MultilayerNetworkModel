@@ -62,8 +62,8 @@ double hebbianFitnessFunction(Network* network, HebbianParameterContainer *hebbi
 
 void generateMultilayerNetworkForHebbianFitness(MultilayerNetwork* multilayerNetwork, Network* network, HebbianParameterContainer *hebbianParameters)
 {
-  multilayerNetwork->addLayer(1);
-  multilayerNetwork->addLayer(2);
+  multilayerNetwork->addLayerById(1);
+  multilayerNetwork->addLayerById(2);
   std::vector<Layer*> layers = multilayerNetwork->getLayers();
 
   layers[0]->addNetwork(1);
