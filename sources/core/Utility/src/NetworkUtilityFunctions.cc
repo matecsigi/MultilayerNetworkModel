@@ -4,7 +4,7 @@ void copyNetwork(Network* oldNetwork, Network* newNetwork)
 {
   newNetwork->removeAllEdges();
   
-  std::cout<<"id="<<oldNetwork->getId()<<std::endl;
+  // std::cout<<"id="<<oldNetwork->getId()<<std::endl;
   newNetwork->setId(oldNetwork->getId());
 
   std::vector<Node*> nodes = oldNetwork->getNodes();

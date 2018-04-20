@@ -73,6 +73,8 @@ public:
 
   void calculateClusterMessageSizes(SimulationParameterContainer *parameters);
 
+  void print();
+
   friend bool initialConditionsEqual(const MultilayerNetwork& multilayerNetwork1, const MultilayerNetwork& multilayerNetwork2);
   friend bool dynamicalEquationsEqual(const MultilayerNetwork& multilayerNetwork1, const MultilayerNetwork& multilayerNetwork2);
   friend std::ostream& operator<<(std::ostream& os, const MultilayerNetwork& multilayerNetwork);

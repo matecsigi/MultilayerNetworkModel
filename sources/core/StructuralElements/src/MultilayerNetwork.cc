@@ -1,5 +1,6 @@
 #include "MultilayerNetwork.hh"
 #include "MultilayerNetworkServer.hh"
+#include "Trace.hh"
 #include <iostream>
 #include <fstream>
 #include <map>
@@ -71,6 +72,16 @@ void MultilayerNetwork::calculateClusterMessageSizes(SimulationParameterContaine
 
 }
 
+void MultilayerNetwork::print()
+{
+  traceDebug("Multilayer Network\n");
+  for(std::vector<Layer*>::iterator itLay=mLayers.begin(); itLay != mLayers.end(); ++itLay)
+  {
+    traceDebug("  ");
+    (*itLay)->print();
+  }
+}
+
 void executeStepsInThread(std::vector<Node*> &nodes, SimulationParameterContainer *parameters)
 {
   for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
@@ -131,7 +142,7 @@ void MultilayerNetwork::iterate(int steps, SimulationParameterContainer *paramet
   if(observer != NULL){observer->atStart();}
   for(t=0; t<steps; ++t)
   {
-    std::cout<<"t="<<t<<std::endl;
+    // std::cout<<"t="<<t<<std::endl;
     step(parameters);
 
     if(observer != NULL){observer->atStep();}

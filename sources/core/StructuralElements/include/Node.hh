@@ -98,6 +98,8 @@ public:
   void setUpwardInfluence();
   void setDownwardInfluence();
 
+  void print();
+
   friend bool operator==(const Node& node1, const Node& node2);
   friend std::ostream& operator<<(std::ostream &os, const Node &node);
   

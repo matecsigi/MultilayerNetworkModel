@@ -17,6 +17,8 @@ public:
 
   int getId(void) const;
 
+  void print();
+
   friend bool operator==(const Layer& layer1, const Layer& layer2);
 
 private:

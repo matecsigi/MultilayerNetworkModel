@@ -74,6 +74,8 @@ public:
   std::vector<IdValuePair> getState(void) const;
   void setState(std::vector<IdValuePair> state);
 
+  void print();
+
   friend bool operator==(const Network& network1, const Network& network2);
   friend std::ostream& operator<<(std::ostream &os, const Network &network);
 

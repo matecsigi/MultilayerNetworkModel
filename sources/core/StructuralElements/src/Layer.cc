@@ -1,5 +1,6 @@
 #include "Layer.hh"
 #include "NetworkUtilityFunctions.hh"
+#include "Trace.hh"
 #include <iostream>
 #include <map>
 
@@ -41,6 +42,16 @@ std::vector<Network*> Layer::getNetworks(void) const
 int Layer::getId(void) const
 {
   return mLayerId;
+}
+
+void Layer::print()
+{
+  traceDebug("Layer "+std::to_string(mLayerId)+"\n");
+  for(std::vector<Network*>::iterator itNet=mNetworksInLayer.begin(); itNet != mNetworksInLayer.end(); ++itNet)
+  {
+    traceDebug("    ");
+    (*itNet)->print();
+  }
 }
 
 bool operator==(const Layer& layer1, const Layer& layer2)

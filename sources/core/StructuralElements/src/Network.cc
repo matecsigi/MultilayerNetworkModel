@@ -1,5 +1,6 @@
 #include "Node.hh"
 #include "Network.hh"
+#include "Trace.hh"
 #include <iostream>
 #include <algorithm>
 #include <assert.h>
@@ -203,6 +204,16 @@ Node* Network::getNodeById(int nodeId)
     }
   }
   return NULL;
+}
+
+void Network::print()
+{
+  traceDebug("Network "+std::to_string(mNetworkId)+"\n");
+  for(std::vector<Node*>::iterator itNode=mNodes.begin(); itNode != mNodes.end(); ++itNode)
+  {
+    traceDebug("      ");
+    (*itNode)->print();
+  }
 }
 
 bool operator==(const Network& network1, const Network& network2)

@@ -11,13 +11,11 @@
 int main(void)
 {
   std::cout<<"TRACELEVEL="<<TRACELEVEL<<std::endl;
-  traceDebug("Hello Trace!");
+  traceRun("Start Simulation\n");
 
   std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
 
-  std::cout<<"Start simulation"<<std::endl;
-
-  int simulationTime = 100;
+  int simulationTime = 5;
 
   const char *filename="generated/multilayerStructureInit.json";
   std::string filenameInitialCond = "generated/InitialCondition-1.bin";
@@ -25,6 +23,8 @@ int main(void)
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
   multilayerNetwork->load(filename);
   multilayerNetwork->loadState(filenameInitialCond.c_str());
+
+  multilayerNetwork->print();
   multilayerNetwork->iterate(simulationTime);
 
   // std::cout<<*multilayerNetwork<<std::endl;

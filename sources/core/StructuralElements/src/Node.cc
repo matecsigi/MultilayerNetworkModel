@@ -5,7 +5,10 @@
 #include "VectorFieldReconfigurationImpl.hh"
 #include "OdeWrapper.hh"
 #include "OdeWrapperAtState.hh"
+#include "Trace.hh"
 #include <boost/numeric/odeint.hpp>
+#include <iomanip>
+#include <sstream>
 
 using namespace boost::numeric::odeint;
 
@@ -198,6 +201,28 @@ void Node::setUpwardInfluence()
 void Node::setDownwardInfluence()
 {
   mDownwardInfluence = new DownwardInfluenceImpl(this);
+}
+
+void Node::print()
+{
+  traceDebug("Node "+std::to_string(mNodeId)+"\n");
+  std::vector<Network*> networks = getNetworks();
+  for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
+  {
+    traceDetailed("        ");
+    traceDetailed("Equation "+(*itNet)->getNodeDynamicalEquationString(mNodeId)+"\n");
+    traceDetailed("        ");
+    traceDetailed("State ");
+    for(int i=0; i<bufferSize; ++i)
+    {
+      std::stringstream streamValue;
+      streamValue<<std::fixed<<std::setprecision(2)<<mValues[i];
+      std::string strValue = streamValue.str();
+      traceDetailed(strValue);
+      traceDetailed(" ");
+    }
+    traceDetailed("\n");
+  }
 }
 
 bool operator==(const Node& node1, const Node& node2)
