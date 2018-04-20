@@ -209,6 +209,17 @@ void Node::print()
   std::vector<Network*> networks = getNetworks();
   for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
   {
+    if(mNetworkAssigned != NULL)
+    {
+      traceDebug("        ");
+      traceDebug("NetworkAssigned "+std::to_string(mNetworkAssigned->getId())+"\n");
+    }
+    else
+    {
+      traceDebug("        ");
+      traceDebug("NetworkAssigned NULL\n");
+    }
+
     traceDetailed("        ");
     traceDetailed("Equation "+(*itNet)->getNodeDynamicalEquationString(mNodeId)+"\n");
     traceDetailed("        ");

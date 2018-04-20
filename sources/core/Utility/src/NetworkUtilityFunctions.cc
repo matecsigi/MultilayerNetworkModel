@@ -3,8 +3,6 @@
 void copyNetwork(Network* oldNetwork, Network* newNetwork)
 {
   newNetwork->removeAllEdges();
-  
-  // std::cout<<"id="<<oldNetwork->getId()<<std::endl;
   newNetwork->setId(oldNetwork->getId());
 
   std::vector<Node*> nodes = oldNetwork->getNodes();
@@ -76,7 +74,7 @@ std::vector<IdValuePair> getEnvironmentalDirectionAtState(Network* network, std:
   std::vector<IdValuePair> directions;
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
   Network* insertedNetwork = createEnvironmentalMultilayerNetwork(multilayerNetwork, network);
-
+  
   insertedNetwork->setState(basePointCoordinates);
   
   SimulationParameterContainer *parameters = new SimulationParameterContainer;
@@ -149,14 +147,15 @@ Network* createEnvironmentalMultilayerNetwork(MultilayerNetwork* multilayerNetwo
   multilayerNetwork->addLayer(1);
   multilayerNetwork->addLayer(2);
   std::vector<Layer*> layers = multilayerNetwork->getLayers();
-  layers[0]->insertNetwork(higherNetwork);
+  Network* insertedHigherNetwork = layers[0]->insertNetwork(higherNetwork);
 
   std::vector<Node*> nodes = higherNetwork->getNodes();
   for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
   {
+    Node* node = insertedHigherNetwork->getNodeById((*itNode)->getId());
     Network* lowerNetwork = (*itNode)->getNetworkAssigned();
     Network* insertedNetwork = layers[1]->insertNetwork(lowerNetwork);
-    (*itNode)->setNetworkAssigned(insertedNetwork);
+    node->setNetworkAssigned(insertedNetwork);
   }
 
   Network* insertedNetwork = NULL;

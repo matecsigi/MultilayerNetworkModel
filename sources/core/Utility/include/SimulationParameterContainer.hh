@@ -9,6 +9,8 @@ public:
   SimulationParameterContainer(){geneticParameters = new GeneticAlgorithmParameterContainer;};
   ~SimulationParameterContainer(){delete geneticParameters;};
 
+  bool printTrace = false;
+
   bool cluster = false;
 
   double odeTime = 0.5;

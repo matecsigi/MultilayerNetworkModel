@@ -24,8 +24,11 @@ int main(void)
   multilayerNetwork->load(filename);
   multilayerNetwork->loadState(filenameInitialCond.c_str());
 
+  SimulationParameterContainer *parameters = new SimulationParameterContainer;
+  parameters->printTrace = true;
+
   multilayerNetwork->print();
-  multilayerNetwork->iterate(simulationTime);
+  multilayerNetwork->iterate(simulationTime, parameters);
 
   // std::cout<<*multilayerNetwork<<std::endl;
 
