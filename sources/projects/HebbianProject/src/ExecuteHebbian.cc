@@ -23,6 +23,8 @@ void executeHebbian(bool cluster, int argc, char*argv[])
   hebbianParameters->cluster = cluster;
 
   std::function<void(Network*)> binderBarabasiStructure = std::bind(generateBarabasiNetwork, _1, hebbianParameters->higherNetworkSize, 1);
+  // std::function<void(Network*)> binderBarabasiStructure = std::bind(generateBarabasiNetwork, _1, hebbianParameters->higherNetworkSize, 1);
+
   std::function<void(Network*)> binderLinearDynamics = std::bind(linearNetworkDynamicsGenerator, _1);
   std::function<void(Network*)> binderInitialConditions = std::bind(oneNetworkInitialConditions, _1);
   std::function<void(Network*, int)> binderGeneral = std::bind(generateNetwork, _1, _2, binderBarabasiStructure, binderLinearDynamics, binderInitialConditions);

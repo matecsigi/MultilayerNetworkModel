@@ -1,6 +1,7 @@
 #include "HebbianFitnessFunction.hh"
 #include "NetworkInitialConditionGenerators.hh"
 #include "GenerateBarabasiNetwork.hh"
+#include "BarabasiModel.hh"
 #include "NetworkDynamicsGenerators.hh"
 #include "Node.hh"
 #include "MultilayerNetwork.hh"
@@ -62,49 +63,20 @@ double hebbianFitnessFunction(Network* network, HebbianParameterContainer *hebbi
 
 void generateMultilayerNetworkForHebbianFitness(MultilayerNetwork* multilayerNetwork, Network* network, HebbianParameterContainer *hebbianParameters)
 {
-  multilayerNetwork->addLayerById(1);
-  multilayerNetwork->addLayerById(2);
-  std::vector<Layer*> layers = multilayerNetwork->getLayers();
+  Layer* layer1 = multilayerNetwork->addLayer();
+  Layer* layer2 = multilayerNetwork->addLayer();
 
-  layers[0]->addNetwork(1);
-  std::vector<Network*> networks = layers[0]->getNetworks();
-  Network* higherNetwork = networks[0];
-  copyNetwork(network, higherNetwork);
-  randomNetworkInitialConditions(higherNetwork, hebbianParameters->higherNetworkInitConditionMin, hebbianParameters->higherNetworkInitConditionMax);
+  Network* insertedNetworkUp = layer1->insertNetwork(network);
+  randomNetworkInitialConditions(insertedNetworkUp, hebbianParameters->higherNetworkInitConditionMin, hebbianParameters->higherNetworkInitConditionMax);  
 
-  int nodeIdCounter = 0;
-
-  std::vector<Node*> nodes = higherNetwork->getNodes();
-  for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
+  std::vector<Node*> nodesUp = insertedNetworkUp->getNodes();
+  for(std::vector<Node*>::iterator itNode=nodesUp.begin(); itNode != nodesUp.end(); ++itNode)
   {
-    layers[1]->addNetwork((*itNode)->getId()+1);
-    if((*itNode)->getId() >= nodeIdCounter)
-    {
-      nodeIdCounter = (*itNode)->getId()+1;
-    }
-  }
-
-  std::vector<Network*> lowerNetworks = layers[1]->getNetworks();
-  for(std::vector<Network*>::iterator itNet=lowerNetworks.begin(); itNet != lowerNetworks.end(); ++itNet)
-  {
-    Network* lowerNetwork = (*itNet);
-    generateBarabasiNetwork(lowerNetwork, hebbianParameters->lowerNetworkSize, nodeIdCounter);
-    linearNetworkDynamicsGenerator(lowerNetwork);
-    randomNetworkInitialConditions(lowerNetwork, hebbianParameters->lowerNetworkInitConditionMin, hebbianParameters->lowerNetworkInitConditionMax);
-  }
-  
-  //assign networks to nodes
-  std::vector<Network*> networksUp = layers[0]->getNetworks();
-  std::vector<Network*> networksDown = layers[1]->getNetworks();
-  int nodeCounter = 0;
-  for(std::vector<Network*>::iterator itNet=networksUp.begin(); itNet != networksUp.end(); ++itNet)
-  {
-    std::vector<Node*> nodesInNetwork = (*itNet)->getNodes();
-    for(std::vector<Node*>::iterator itNode=nodesInNetwork.begin(); itNode != nodesInNetwork.end(); ++itNode)
-    {
-      (*itNode)->setNetworkAssigned(networksDown[nodeCounter]);
-      ++nodeCounter;
-    }
+    Network *networkDown = generateNetwork(hebbianParameters->lowerNetworkSize);
+    Network* insertedNetworkDown = layer2->insertNetwork(networkDown);
+    linearNetworkDynamicsGenerator(insertedNetworkDown);
+    randomNetworkInitialConditions(insertedNetworkDown, hebbianParameters->lowerNetworkInitConditionMin, hebbianParameters->lowerNetworkInitConditionMax);
+    (*itNode)->setNetworkAssigned(insertedNetworkDown);
   }
 
   multilayerNetwork->loadNodesToAllEquations();
