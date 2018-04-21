@@ -33,16 +33,9 @@ void setIds(Layer* layer, Network* network)
 {
   int maxNetworkId = 0;
   int maxNodeId = 0;
-  Layer* layerUp = layer->getLayerUp();
-  Layer* layerDown = layer->getLayerDown();
-  if(layerUp != NULL)
-  {
-    searchLayersUp(layerUp, maxNetworkId, maxNodeId);
-  }
-  if(layerDown != NULL)
-  {
-    searchLayersDown(layerDown, maxNetworkId, maxNodeId);
-  }
+
+  searchLayersUp(layer, maxNetworkId, maxNodeId);
+  searchLayersDown(layer, maxNetworkId, maxNodeId);
 
   network->setId(maxNetworkId+1);
   std::vector<Node*> nodes = network->getNodes();
@@ -179,7 +172,7 @@ void loadNetworkFromJSON(Network* network, std::string filename, int& nodeIdCoun
     for(SizeType i=0; i<nodeArray.Size(); ++i)
     {
       Value& nodeObject = nodeArray[i];
-      network->addNode(nodeIdCounter);
+      network->addNodeById(nodeIdCounter);
       nodeIdMap[nodeObject["id"].GetInt()] = nodeIdCounter;
       ++nodeIdCounter;
     }
@@ -208,7 +201,7 @@ void loadNetworkFromJSON(Network* network, std::string filename, int& nodeIdCoun
     for(SizeType i=0; i<nodeArray.Size(); ++i)
     {
       Value& nodeObject = nodeArray[i];
-      network->addNode(nodeObject["id"].GetInt());
+      network->addNodeById(nodeObject["id"].GetInt());
       network->setDynamicalEquationString(nodeObject["id"].GetInt(), nodeObject["DynamicalEquation"].GetString());
     }
     for(SizeType i=0; i<nodeArray.Size(); ++i)

@@ -1,4 +1,5 @@
 #include "StructureGeneratorImpl.hh"
+#include "BarabasiModel.hh"
 #include <iostream>
 #include <algorithm>
 #include <math.h>
@@ -25,12 +26,6 @@ void StructureGeneratorImpl::generateStructure()
     Network* insertedNetworkDown = layer2->insertNetwork(networkDown);
     (*itNode)->setNetworkAssigned(insertedNetworkDown);
   }
-}
-
-Network* StructureGeneratorImpl::generateNetwork(int numberOfNodes)
-{
-  Network* network = new Network;
-  return network;
 }
 
 void StructureGeneratorImpl::generateLayers(void)
@@ -67,7 +62,7 @@ void StructureGeneratorImpl::generateNodes(void)
       {
 	for(int i=0; i<3; i++)
 	{
-	  (*itNet)->addNode(nodeIdCounter+1);
+	  (*itNet)->addNodeById(nodeIdCounter+1);
 	  ++nodeIdCounter;
 	}
 	generateEdges(*itNet);

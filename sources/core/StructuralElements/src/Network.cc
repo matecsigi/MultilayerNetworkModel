@@ -29,7 +29,26 @@ Network::~Network(void)
   }
 }
 
-void Network::addNode(int nodeId)
+Node* Network::addNode()
+{
+  int maxNodeId = 0;
+  for(std::vector<Node*>::iterator itNode=mNodes.begin(); itNode != mNodes.end(); ++itNode)
+  {
+    if((*itNode)->getId() > maxNodeId)
+    {
+      maxNodeId = (*itNode)->getId();
+    }
+  }
+  Node* newNode = new Node(maxNodeId+1);
+  mNodes.push_back(newNode);
+  newNode->addToNetwork(this);
+  std::vector<Node*> newConnectionVector;
+  mNodeConnections.push_back(newConnectionVector);
+  mDynamicalEquations.push_back(new DynamicalEquation());
+  return newNode;
+}
+
+void Network::addNodeById(int nodeId)
 {
   //create new node only if id doesn't exist
   Node* newNode = new Node(nodeId);
@@ -41,23 +60,23 @@ void Network::addNode(int nodeId)
 }
 
 //TODO: decide if edges should be directed or not
-void Network::addEdge(int nodeId1, int nodeId2)
+void Network::addEdge(int sourceId, int targetId)
 {
-  int localNodeId1 = getLocalId(nodeId1);
-  int localNodeId2 = getLocalId(nodeId2);
-  if(std::find(mNodeConnections[localNodeId1].begin(), mNodeConnections[localNodeId1].end(), mNodes[localNodeId2]) == mNodeConnections[localNodeId1].end()) 
+  int localSourceId = getLocalId(sourceId);
+  int localTargetId = getLocalId(targetId);
+  if(std::find(mNodeConnections[localTargetId].begin(), mNodeConnections[localTargetId].end(), mNodes[localSourceId]) == mNodeConnections[localTargetId].end()) 
   {
-    mNodeConnections[localNodeId1].push_back(mNodes[localNodeId2]);
+    mNodeConnections[localTargetId].push_back(mNodes[localSourceId]);
   }
 }
 
-void Network::removeEdge(int nodeId1, int nodeId2)
+void Network::removeEdge(int sourceId, int targetId)
 {
-  int localId1 = getLocalId(nodeId1);
-  int localId2 = getLocalId(nodeId2);
-  if(std::find(mNodeConnections[localId1].begin(), mNodeConnections[localId1].end(), mNodes[localId2]) != mNodeConnections[localId1].end()) 
+  int localSourceId = getLocalId(sourceId);
+  int localTargetId = getLocalId(targetId);
+  if(std::find(mNodeConnections[localTargetId].begin(), mNodeConnections[localTargetId].end(), mNodes[localSourceId]) != mNodeConnections[localTargetId].end()) 
   {
-    mNodeConnections[localId1].erase(std::remove(mNodeConnections[localId1].begin(), mNodeConnections[localId1].end(), mNodes[localId2]), mNodeConnections[localId1].end());
+    mNodeConnections[localTargetId].erase(std::remove(mNodeConnections[localTargetId].begin(), mNodeConnections[localTargetId].end(), mNodes[localSourceId]), mNodeConnections[localTargetId].end());
   }  
 }
 
@@ -70,7 +89,7 @@ void Network::removeAllEdges()
     for(std::vector<Node*>::iterator itNei=neighbors.begin(); itNei != neighbors.end(); ++itNei)
     {
       Node* neighbor = (*itNei);
-      removeEdge(node->getId(), neighbor->getId());
+      removeEdge(neighbor->getId(), node->getId());
     }
   }
 }
@@ -204,6 +223,12 @@ Node* Network::getNodeById(int nodeId)
     }
   }
   return NULL;
+}
+
+int Network::getNodeDegree(int nodeId)
+{
+  std::vector<Node*> neighbors = getNodeNeighbors(nodeId);
+  return neighbors.size();
 }
 
 void Network::print()

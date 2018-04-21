@@ -288,7 +288,7 @@ void GeneticAlgorithmController::createMixedNetwork(Network* parentNetwork1, Net
   for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
   {
     Node* parentNode = (*itNode);
-    childNetwork->addNode(parentNode->getId());
+    childNetwork->addNodeById(parentNode->getId());
 
     Node* childNode = childNetwork->getNodeById(parentNode->getId());
     parentNode->getValues(tmpBuffer);

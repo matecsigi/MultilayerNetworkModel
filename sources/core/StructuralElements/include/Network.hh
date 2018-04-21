@@ -13,9 +13,10 @@ public:
   Network(int);
   ~Network();
 
-  void addNode(int nodeId);
-  void addEdge(int nodeId1, int nodeId2);
-  void removeEdge(int nodeId1, int nodeId2);
+  Node* addNode();
+  void addNodeById(int nodeId);
+  void addEdge(int sourceId, int targetId);
+  void removeEdge(int sourceId, int targetId);
   void removeAllEdges();
 
   double getEdgeWeight(int sourceId, int targetId);
@@ -73,6 +74,8 @@ public:
    */
   std::vector<IdValuePair> getState(void) const;
   void setState(std::vector<IdValuePair> state);
+
+  int getNodeDegree(int nodeId);
 
   void print();
 

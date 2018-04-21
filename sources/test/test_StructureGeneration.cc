@@ -34,8 +34,8 @@ BOOST_AUTO_TEST_SUITE(test_suite_StructureCorrectness)
 BOOST_AUTO_TEST_CASE(addEdge_duplicatedEdges)
 {
   Network network;
-  network.addNode(0);
-  network.addNode(1);
+  network.addNodeById(0);
+  network.addNodeById(1);
 
   network.addEdge(0, 1);
   network.addEdge(0, 1);
@@ -493,7 +493,7 @@ BOOST_AUTO_TEST_CASE(networkModifier_addToOuterBlock)
 BOOST_AUTO_TEST_CASE(networkModifier_changePlusToMultiply)
 {
   Network* network = new Network;
-  network->addNode(1);
+  network->addNodeById(1);
   std::string strEquation = "(1+1)+(1+1)";
   network->setDynamicalEquationString(1, strEquation);
   std::vector<Node*> nodes = network->getNodes();
@@ -520,7 +520,7 @@ BOOST_AUTO_TEST_CASE(networkModifier_changePlusToMultiply)
 BOOST_AUTO_TEST_CASE(networkModifier_changeMultiplyToPlus)
 {
   Network* network = new Network;
-  network->addNode(1);
+  network->addNodeById(1);
   std::string strEquation = "1*1";
   network->setDynamicalEquationString(1, strEquation);
   std::vector<Node*> nodes = network->getNodes();

@@ -11,7 +11,7 @@ void copyNetwork(Network* oldNetwork, Network* newNetwork)
     Node* oldNode = (*itNode);
     if(newNetwork->getNodeById(oldNode->getId()) == NULL)
     {
-      newNetwork->addNode(oldNode->getId());      
+      newNetwork->addNodeById(oldNode->getId());      
     }
   }
 

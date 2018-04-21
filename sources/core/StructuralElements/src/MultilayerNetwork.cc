@@ -302,7 +302,7 @@ void MultilayerNetwork::load(const char* filename)
       for(SizeType iii=0; iii<nodeArray.Size(); ++iii)
       {
 	Value& nodeObject = nodeArray[iii];
-	network->addNode(nodeObject["id"].GetInt());
+	network->addNodeById(nodeObject["id"].GetInt());
 	network->setDynamicalEquationString(nodeObject["id"].GetInt(), nodeObject["DynamicalEquation"].GetString());
       }
     }

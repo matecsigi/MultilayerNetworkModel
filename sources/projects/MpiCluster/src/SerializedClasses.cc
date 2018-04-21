@@ -30,7 +30,7 @@ void deserializeNetwork(SerializedNetwork* serializedNetwork, Network* network)
     SerializedNode currentNode = (*itNode);
     int id = currentNode.mId;
     std::string dynamicalEquation = currentNode.mDynamicalEquation;
-    network->addNode(id);
+    network->addNodeById(id);
     network->setDynamicalEquationString(id, dynamicalEquation);
   }
 
