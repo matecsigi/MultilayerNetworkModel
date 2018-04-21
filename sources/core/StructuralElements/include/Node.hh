@@ -22,6 +22,7 @@ public:
   ~Node();
 
   int getId(void) const;
+  void setId(int id);
 
   /**
      Returns a vector containing pointers to all 

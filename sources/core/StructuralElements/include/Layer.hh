@@ -17,6 +17,9 @@ public:
 
   int getId(void) const;
 
+  Layer* getLayerUp();
+  Layer* getLayerDown();
+
   void print();
 
   friend bool operator==(const Layer& layer1, const Layer& layer2);

@@ -120,10 +120,7 @@ public:
       mNode = NULL;
     }
 
-  int getId()
-  {
-    return id;
-  }
+  int getId();
   
   void setNode(Node* node)
   {
@@ -134,14 +131,8 @@ public:
   virtual double evaluateAtState(std::vector<IdValuePair> &startingState) const;
 
   virtual bool testNodeIds() const;
+  virtual std::string toString() const;
 
-  virtual std::string toString() const
-  {
-    std::string strCalcNode;
-    strCalcNode.append("ID");
-    strCalcNode.append(std::to_string(id));
-    return strCalcNode;
-  }
 private:
   int id;
   Node* mNode;

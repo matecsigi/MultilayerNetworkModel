@@ -15,15 +15,15 @@ void StructureGeneratorImpl::generateStructure()
   Layer* layer1 = mMultilayerNetwork->addLayer();
   Layer* layer2 = mMultilayerNetwork->addLayer();
 
-  Network* higherNetwork = generateNetwork(numberOfNodes);
-  Network* insertedHigherNetwork = layer1->insertNetwork(higherNetwork);
+  Network* networkUp = generateNetwork(numberOfNodes);
+  Network* insertedNetworkUp = layer1->insertNetwork(networkUp);
 
-  std::vector<Node*> nodes = insertedHigherNetwork->getNodes();
+  std::vector<Node*> nodes = insertedNetworkUp->getNodes();
   for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
   {
-    Network *lowerNetwork = generateNetwork(numberOfNodes);
-    Network* insertedLowerNetwork = layer2->insertNetwork(lowerNetwork);
-    (*itNode)->setNetworkAssigned(insertedLowerNetwork);
+    Network *networkDown = generateNetwork(numberOfNodes);
+    Network* insertedNetworkDown = layer2->insertNetwork(networkDown);
+    (*itNode)->setNetworkAssigned(insertedNetworkDown);
   }
 }
 

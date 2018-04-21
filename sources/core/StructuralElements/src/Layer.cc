@@ -6,6 +6,8 @@
 
 Layer::Layer()
 {
+  mLayerUp = NULL;
+  mLayerDown = NULL;
 }
 
 Layer::Layer(int id, Layer *layerUp, Layer *layerDown)
@@ -32,6 +34,7 @@ Network* Layer::insertNetwork(Network* network)
 {
   Network* newNetwork = new Network;
   copyNetwork(network, newNetwork);
+  setIds(this, newNetwork);
   mNetworksInLayer.push_back(newNetwork);
   return newNetwork;
 }
@@ -44,6 +47,16 @@ std::vector<Network*> Layer::getNetworks(void) const
 int Layer::getId(void) const
 {
   return mLayerId;
+}
+
+Layer* Layer::getLayerUp()
+{
+  return mLayerUp;
+}
+
+Layer* Layer::getLayerDown()
+{
+  return mLayerDown;
 }
 
 void Layer::print()

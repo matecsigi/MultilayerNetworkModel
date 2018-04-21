@@ -61,6 +61,11 @@ int Node::getId(void) const
   return mNodeId;
 }
 
+void Node::setId(int id)
+{
+  mNodeId = id;
+}
+
 std::vector<Network*> Node::getNetworks(void) const
 {
   return mNetworks;
