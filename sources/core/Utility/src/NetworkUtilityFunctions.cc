@@ -74,14 +74,13 @@ std::vector<IdValuePair> getEnvironmentalDirectionAtState(Network* network, std:
   std::vector<IdValuePair> directions;
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
   Network* insertedNetwork = createEnvironmentalMultilayerNetwork(multilayerNetwork, network);
-  
-  insertedNetwork->setState(basePointCoordinates);
-  
+
   SimulationParameterContainer *parameters = new SimulationParameterContainer;
-  parameters->runVectorFieldReconfiguration = false;
+  parameters->runVectorFieldReconfiguration = false;  
+  insertedNetwork->setState(t, basePointCoordinates);
   multilayerNetwork->iterate(2, parameters);
 
-  std::vector<IdValuePair> finalState = insertedNetwork->getState();
+  std::vector<IdValuePair> finalState = insertedNetwork->getState(t);
 
   for(std::vector<IdValuePair>::iterator itState=basePointCoordinates.begin(); itState != basePointCoordinates.end(); ++itState)
    {
@@ -149,6 +148,7 @@ Network* createEnvironmentalMultilayerNetwork(MultilayerNetwork* multilayerNetwo
   std::vector<Layer*> layers = multilayerNetwork->getLayers();
   Network* insertedHigherNetwork = layers[0]->insertNetwork(higherNetwork);
 
+  Network* returnNetwork = NULL;
   std::vector<Node*> nodes = higherNetwork->getNodes();
   for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
   {
@@ -156,20 +156,11 @@ Network* createEnvironmentalMultilayerNetwork(MultilayerNetwork* multilayerNetwo
     Network* lowerNetwork = (*itNode)->getNetworkAssigned();
     Network* insertedNetwork = layers[1]->insertNetwork(lowerNetwork);
     node->setNetworkAssigned(insertedNetwork);
-  }
-
-  Network* insertedNetwork = NULL;
-  for(std::vector<Layer*>::iterator itLay=layers.begin(); itLay != layers.end(); ++itLay)
-  {
-    std::vector<Network*> networks = (*itLay)->getNetworks();
-    for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
+    if(lowerNetwork->getId() == network->getId())
     {
-      if((*itNet)->getId() == network->getId())
-      {
-	insertedNetwork = (*itNet);
-      }
+      returnNetwork = insertedNetwork;
     }
   }
   
-  return insertedNetwork;
+  return returnNetwork;
 }
