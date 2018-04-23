@@ -44,7 +44,7 @@ Node* Network::addNode()
   newNode->addToNetwork(this);
   std::vector<Node*> newConnectionVector;
   mNodeConnections.push_back(newConnectionVector);
-  mDynamicalEquations.push_back(new DynamicalEquation());
+  mDynamicalEquations.push_back(new DynamicalEquation(this));
   return newNode;
 }
 
@@ -56,7 +56,7 @@ void Network::addNodeById(int nodeId)
   newNode->addToNetwork(this);
   std::vector<Node*> newConnectionVector;
   mNodeConnections.push_back(newConnectionVector);
-  mDynamicalEquations.push_back(new DynamicalEquation());
+  mDynamicalEquations.push_back(new DynamicalEquation(this));
 }
 
 //TODO: decide if edges should be directed or not
@@ -116,14 +116,12 @@ void Network::setDynamicalEquation(int nodeId, DynamicalEquation* nodeEquation)
 {
   int localId = getLocalId(nodeId);
   mDynamicalEquations[localId]->loadEquation(nodeEquation);
-  loadNodesToEquations();
 }
 
 void Network::setDynamicalEquationString(int nodeId, std::string strEquation)
 {
   int localId = getLocalId(nodeId);
   mDynamicalEquations[localId]->loadEquationString(strEquation);
-  loadNodesToEquations();
 }
 
 void Network::setId(int id)

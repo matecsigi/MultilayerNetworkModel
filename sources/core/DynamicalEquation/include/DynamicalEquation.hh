@@ -17,6 +17,7 @@ class DynamicalEquation
 {
 public:
   DynamicalEquation();
+  DynamicalEquation(Network* network);
   ~DynamicalEquation();
 
   double getEdgeWeight(int nodeId);
@@ -45,6 +46,7 @@ public:
   void reassignNodeIds(CalculationNode* calcPtr, std::map<int, int> &idMap);
   std::string toString() const;
 private:
+  Network* mNetwork;
   CalculationNode* mBaseCalculationNode;
 };
 

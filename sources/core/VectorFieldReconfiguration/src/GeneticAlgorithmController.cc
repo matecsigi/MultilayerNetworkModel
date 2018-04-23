@@ -114,6 +114,8 @@ void GeneticAlgorithmController::mutation()
     NetworkModifier networkModifier(&mGeneticParameters);
     networkModifier.modifyNetwork(mutatedNetwork);
 
+    mutatedNetwork->loadNodesToEquations();
+
     NetworkPopulationElement* mutatedElement = new NetworkPopulationElement(mutatedNetwork, mTargetVectorField, mFitnessFunction);
     mutatedElement->setRank(networkElement->getRank());
     mutatedElement->setGeneration(mGeneration);
@@ -336,18 +338,18 @@ void GeneticAlgorithmController::createMixedNetwork(Network* parentNetwork1, Net
     // std::string strEquation = parentNetwork->getNodeDynamicalEquationString(parentNode->getId());
     // childNetwork->setDynamicalEquation(childNode->getId(), strEquation);
 
-    DynamicalEquation* dynamicalEquation = parentNetwork->getNodeDynamicalEquation(parentNode->getId());
-    childNetwork->setDynamicalEquation(childNode->getId(), dynamicalEquation);
+    std::string strDynamicalEquation = parentNetwork->getNodeDynamicalEquationString(parentNode->getId());
+    childNetwork->setDynamicalEquationString(childNode->getId(), strDynamicalEquation);
 
-    DynamicalEquation* nodeEquation = childNetwork->getNodeDynamicalEquation(childNode->getId());
-    std::vector<Node*> nodes = childNetwork->getNodeNeighbors(childNode->getId());
-    nodes.push_back(childNode);
-    std::map<int, Node*> nodesMap;
-    for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
-    {
-      nodesMap[(*itNode)->getId()] = *itNode;
-    }
-    nodeEquation->loadNodesToEquation(nodeEquation->getBaseCalculationNode(), nodesMap);
+    // DynamicalEquation* nodeEquation = childNetwork->getNodeDynamicalEquation(childNode->getId());
+    // std::vector<Node*> nodes = childNetwork->getNodeNeighbors(childNode->getId());
+    // nodes.push_back(childNode);
+    // std::map<int, Node*> nodesMap;
+    // for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
+    // {
+    //   nodesMap[(*itNode)->getId()] = *itNode;
+    // }
+    // nodeEquation->loadNodesToEquation(nodeEquation->getBaseCalculationNode(), nodesMap);
   }
   free(rand_state);
   free(rand_statebufs);
