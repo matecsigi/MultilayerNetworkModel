@@ -162,6 +162,34 @@ void DynamicalEquation::loadNodesToEquation(CalculationNode* calcPtr, std::map<i
   }
 }
 
+void DynamicalEquation::reassignNodeIds(CalculationNode* calcPtr, std::map<int, int> &idMap)
+{
+  if(calcPtr == NULL)
+  {
+    return;
+  }
+  if((calcPtr->left == NULL) && (calcPtr->right == NULL))
+  {
+    if(calcPtr->getType() == ID)
+    {
+      int nodeId = calcPtr->getId();
+      calcPtr->setId(idMap[nodeId]);
+    }
+    return;
+  }
+  else
+  {
+    if(calcPtr->left != NULL)
+    {
+      reassignNodeIds(calcPtr->left, idMap);
+    }
+    if(calcPtr->right != NULL)
+    {
+      reassignNodeIds(calcPtr->right, idMap);
+    }
+  }
+}
+
 std::string DynamicalEquation::toString() const
 {
   std::string strEquation;

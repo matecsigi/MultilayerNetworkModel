@@ -1,6 +1,7 @@
 #include "UtilityFunctions.hh"
 #include "GlobalVariables.hh"
 #include "Node.hh"
+#include "Trace.hh"
 #include <fstream>
 #include <sstream>
 #include <string>
@@ -40,10 +41,18 @@ void setIds(Layer* layer, Network* network)
   network->setId(maxNetworkId+1);
   std::vector<Node*> nodes = network->getNodes();
   int nodeCounter = 1;
+  std::map<int, int> idMap;
   for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
   {
+    idMap[(*itNode)->getId()] = maxNodeId+nodeCounter;
     (*itNode)->setId(maxNodeId+nodeCounter);
     ++nodeCounter;
+  }
+
+  for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
+  {
+    DynamicalEquation *dynamicalEquation = network->getNodeDynamicalEquation((*itNode)->getId());
+    dynamicalEquation->reassignNodeIds(dynamicalEquation->getBaseCalculationNode(), idMap);
   }
 }
 

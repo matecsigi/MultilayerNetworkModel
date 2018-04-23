@@ -225,8 +225,8 @@ void Node::print()
       traceDebug("NetworkAssigned NULL\n");
     }
 
-    traceDetailed("        ");
-    traceDetailed("Equation "+(*itNet)->getNodeDynamicalEquationString(mNodeId)+"\n");
+    traceDebug("        ");
+    traceDebug("Equation "+(*itNet)->getNodeDynamicalEquationString(mNodeId)+"\n");
     traceDetailed("        ");
     traceDetailed("State ");
     for(int i=0; i<bufferSize; ++i)

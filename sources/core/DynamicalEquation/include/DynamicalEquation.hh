@@ -42,6 +42,7 @@ public:
   CalculationNode* copyCalcNode(CalculationNode* calcNode, CalculationNode* left, CalculationNode* right);
   void loadEquationString(std::string strEquation);
   void loadNodesToEquation(CalculationNode* calcPtr, std::map<int, Node*>& nodesMap);
+  void reassignNodeIds(CalculationNode* calcPtr, std::map<int, int> &idMap);
   std::string toString() const;
 private:
   CalculationNode* mBaseCalculationNode;

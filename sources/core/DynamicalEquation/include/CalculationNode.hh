@@ -47,6 +47,7 @@ public:
      -1 for other types of CalculationNodes
    */
   virtual int getId(){return -1;};
+  virtual void setId(int nodeId){};
 
   /**
      Set a node pointer to an ID type CalculationNode.
@@ -120,8 +121,16 @@ public:
       mNode = NULL;
     }
 
-  int getId();
-  
+  int getId()
+  {
+    return id;
+  }
+
+  void setId(int nodeId)
+  {
+    id = nodeId;
+  }
+
   void setNode(Node* node)
   {
     mNode = node;
