@@ -77,10 +77,10 @@ std::vector<IdValuePair> getEnvironmentalDirectionAtState(Network* network, std:
 
   SimulationParameterContainer *parameters = new SimulationParameterContainer;
   parameters->runVectorFieldReconfiguration = false;  
-  insertedNetwork->setState(t, basePointCoordinates);
+  insertedNetwork->setState(basePointCoordinates);
   multilayerNetwork->iterate(2, parameters);
 
-  std::vector<IdValuePair> finalState = insertedNetwork->getState(t);
+  std::vector<IdValuePair> finalState = insertedNetwork->getState();
 
   for(std::vector<IdValuePair>::iterator itState=basePointCoordinates.begin(); itState != basePointCoordinates.end(); ++itState)
    {
