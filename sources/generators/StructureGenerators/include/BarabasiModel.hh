@@ -5,7 +5,7 @@
 #include <vector>
 #include "Network.hh"
 
-Network* generateNetwork(int numberOfNodes, int m=3);
+void generateNetwork(Network* network, int numberOfNodes, int m=3);
 Node* chooseNodePreferential(Node* newNode, Network* network);
 
 #endif

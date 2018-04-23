@@ -5,13 +5,13 @@
 #include "GeneticAlgorithmController.hh"
 #include "GlobalVariables.hh"
 #include "HebbianFitnessFunction.hh"
-#include "GenerateBarabasiNetwork.hh"
 #include "GeneralNetworkGenerator.hh"
 #include "NetworkDynamicsGenerators.hh"
 #include "NetworkInitialConditionGenerators.hh"
 #include "IGeneticObserver.hh"
 #include "GeneticObserver.hh"
 #include "HebbianParameterContainer.hh"
+#include "BarabasiModel.hh"
 
 using namespace std::placeholders;
 
@@ -22,12 +22,11 @@ void executeHebbian(bool cluster, int argc, char*argv[])
   HebbianParameterContainer *hebbianParameters = new HebbianParameterContainer;
   hebbianParameters->cluster = cluster;
 
-  std::function<void(Network*)> binderBarabasiStructure = std::bind(generateBarabasiNetwork, _1, hebbianParameters->higherNetworkSize, 1);
-  // std::function<void(Network*)> binderBarabasiStructure = std::bind(generateBarabasiNetwork, _1, hebbianParameters->higherNetworkSize, 1);
+  std::function<void(Network*)> binderBarabasiStructure = std::bind(generateNetwork, _1, hebbianParameters->higherNetworkSize, 3);
 
   std::function<void(Network*)> binderLinearDynamics = std::bind(linearNetworkDynamicsGenerator, _1);
   std::function<void(Network*)> binderInitialConditions = std::bind(oneNetworkInitialConditions, _1);
-  std::function<void(Network*, int)> binderGeneral = std::bind(generateNetwork, _1, _2, binderBarabasiStructure, binderLinearDynamics, binderInitialConditions);
+  std::function<void(Network*, int)> binderGeneral = std::bind(generateNetworkGeneral, _1, _2, binderBarabasiStructure, binderLinearDynamics, binderInitialConditions);
 
   GeneticAlgorithmParameterContainer *geneticParameters = new GeneticAlgorithmParameterContainer();
   geneticParameters->defaultCall = 1;

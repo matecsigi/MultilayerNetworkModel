@@ -72,7 +72,8 @@ void generateMultilayerNetworkForHebbianFitness(MultilayerNetwork* multilayerNet
   std::vector<Node*> nodesUp = insertedNetworkUp->getNodes();
   for(std::vector<Node*>::iterator itNode=nodesUp.begin(); itNode != nodesUp.end(); ++itNode)
   {
-    Network *networkDown = generateNetwork(hebbianParameters->lowerNetworkSize);
+    Network *networkDown = new Network;
+    generateNetwork(networkDown, hebbianParameters->lowerNetworkSize);
     Network* insertedNetworkDown = layer2->insertNetwork(networkDown);
     linearNetworkDynamicsGenerator(insertedNetworkDown);
     randomNetworkInitialConditions(insertedNetworkDown, hebbianParameters->lowerNetworkInitConditionMin, hebbianParameters->lowerNetworkInitConditionMax);

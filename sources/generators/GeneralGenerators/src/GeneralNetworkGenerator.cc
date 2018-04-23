@@ -1,6 +1,6 @@
 #include "GeneralNetworkGenerator.hh"
 
-void generateNetwork(Network* network, int control, std::function<void(Network*)> structureGenerator, std::function<void(Network*)> dynamicsGenerator, std::function<void(Network*)> initialConditionGenerator)
+void generateNetworkGeneral(Network* network, int control, std::function<void(Network*)> structureGenerator, std::function<void(Network*)> dynamicsGenerator, std::function<void(Network*)> initialConditionGenerator)
 {
   if(structureGenerator != nullptr)
   {

@@ -1,10 +1,8 @@
 #include "BarabasiModel.hh"
 #include "Node.hh"
 
-Network* generateNetwork(int numberOfNodes, int m)
+void generateNetwork(Network* network, int numberOfNodes, int m)
 {
-  Network* network = new Network;
-  
   for(int i=0; i<numberOfNodes; ++i)
   {
     std::vector<Node*> nodes = network->getNodes();
@@ -16,8 +14,6 @@ Network* generateNetwork(int numberOfNodes, int m)
       network->addEdge(node->getId(), newNode->getId());
     }
   }
-
-  return network;
 }
 
 Node* chooseNodePreferential(Node* newNode, Network* network)
