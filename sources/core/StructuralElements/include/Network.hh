@@ -77,6 +77,8 @@ public:
 
   int getNodeDegree(int nodeId);
 
+  void loadNodesToEquations();
+
   void print();
 
   friend bool operator==(const Network& network1, const Network& network2);

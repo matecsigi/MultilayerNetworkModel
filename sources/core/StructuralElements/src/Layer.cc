@@ -35,6 +35,7 @@ Network* Layer::insertNetwork(Network* network)
   Network* newNetwork = new Network;
   copyNetwork(network, newNetwork);
   setIds(this, newNetwork);
+  newNetwork->loadNodesToEquations();
   mNetworksInLayer.push_back(newNetwork);
   return newNetwork;
 }

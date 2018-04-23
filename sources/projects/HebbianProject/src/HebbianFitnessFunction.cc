@@ -79,6 +79,4 @@ void generateMultilayerNetworkForHebbianFitness(MultilayerNetwork* multilayerNet
     randomNetworkInitialConditions(insertedNetworkDown, hebbianParameters->lowerNetworkInitConditionMin, hebbianParameters->lowerNetworkInitConditionMax);
     (*itNode)->setNetworkAssigned(insertedNetworkDown);
   }
-
-  multilayerNetwork->loadNodesToAllEquations();
 }

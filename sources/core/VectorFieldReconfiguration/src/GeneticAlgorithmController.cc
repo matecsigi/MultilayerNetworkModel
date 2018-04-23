@@ -62,7 +62,7 @@ void GeneticAlgorithmController::runGeneticAlgorithm(Network* network, IGeneticO
   if(mCreateInitialNetwork == nullptr)
   {
     mCreateInitialNetwork = std::bind(createInitialNetworkByModification, _1, _2, mNetwork, this);
-  }  
+  }
 
   if(observer != NULL){observer->atStart();}
   createInitialPopulation();

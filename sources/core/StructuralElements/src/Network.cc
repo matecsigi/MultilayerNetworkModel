@@ -116,12 +116,14 @@ void Network::setDynamicalEquation(int nodeId, DynamicalEquation* nodeEquation)
 {
   int localId = getLocalId(nodeId);
   mDynamicalEquations[localId]->loadEquation(nodeEquation);
+  loadNodesToEquations();
 }
 
 void Network::setDynamicalEquationString(int nodeId, std::string strEquation)
 {
   int localId = getLocalId(nodeId);
   mDynamicalEquations[localId]->loadEquationString(strEquation);
+  loadNodesToEquations();
 }
 
 void Network::setId(int id)
@@ -229,6 +231,20 @@ int Network::getNodeDegree(int nodeId)
 {
   std::vector<Node*> neighbors = getNodeNeighbors(nodeId);
   return neighbors.size();
+}
+
+void Network::loadNodesToEquations()
+{
+  std::map<int, Node*> nodesMap;
+  for(std::vector<Node*>::iterator itNode=mNodes.begin(); itNode != mNodes.end(); ++itNode)
+  {
+    nodesMap[(*itNode)->getId()] = (*itNode);
+  }
+  for(std::vector<Node*>::iterator itNode=mNodes.begin(); itNode != mNodes.end(); ++itNode)
+  {
+    DynamicalEquation *dynamicalEquation = getNodeDynamicalEquation((*itNode)->getId());
+    dynamicalEquation->loadNodesToEquation(dynamicalEquation->getBaseCalculationNode(), nodesMap);
+  }
 }
 
 void Network::print()
