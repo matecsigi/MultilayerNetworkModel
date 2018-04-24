@@ -8,6 +8,7 @@ Layer::Layer()
 {
   mLayerUp = NULL;
   mLayerDown = NULL;
+  mMultilayerNetwork = NULL;
 }
 
 Layer::Layer(int id, Layer *layerUp, Layer *layerDown)
@@ -15,6 +16,7 @@ Layer::Layer(int id, Layer *layerUp, Layer *layerDown)
   mLayerId = id;
   mLayerUp = layerUp;
   mLayerDown = layerDown;
+  mMultilayerNetwork = NULL;
 }
 
 Layer::~Layer(void)
@@ -25,9 +27,16 @@ Layer::~Layer(void)
   }
 }
 
+int Layer::getTime()
+{
+  return mMultilayerNetwork->getTime();
+}
+
 void Layer::addNetwork(int networkId)
 {
-  mNetworksInLayer.push_back(new Network(networkId));
+  Network *newNetwork = new Network(networkId);
+  newNetwork->setMultilayerNetwork(mMultilayerNetwork);
+  mNetworksInLayer.push_back(newNetwork);
 }
 
 Network* Layer::insertNetwork(Network* network)
@@ -36,6 +45,7 @@ Network* Layer::insertNetwork(Network* network)
   copyNetwork(network, newNetwork);
   setIds(this, newNetwork);
   newNetwork->loadNodesToEquations();
+  newNetwork->setMultilayerNetwork(mMultilayerNetwork);
   mNetworksInLayer.push_back(newNetwork);
   return newNetwork;
 }
@@ -58,6 +68,11 @@ Layer* Layer::getLayerUp()
 Layer* Layer::getLayerDown()
 {
   return mLayerDown;
+}
+
+void Layer::setMultilayerNetwork(MultilayerNetwork *multilayerNetwork)
+{
+  mMultilayerNetwork = multilayerNetwork;
 }
 
 void Layer::print()

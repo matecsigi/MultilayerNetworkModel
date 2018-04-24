@@ -23,6 +23,7 @@ Node::Node(void)
   mChangeByUpwardInfluence.push_back(0.0);
   mChangeByDownwardInfluence.push_back(0.0);
   mChangeByDownwardInfluence.push_back(0.0);
+  mMultilayerNetwork = NULL;
 }
 
 Node::Node(int id)
@@ -37,6 +38,7 @@ Node::Node(int id)
   mChangeByUpwardInfluence.push_back(0.0);
   mChangeByDownwardInfluence.push_back(0.0);
   mChangeByDownwardInfluence.push_back(0.0);
+  mMultilayerNetwork = NULL;
 }
 
 Node::~Node(void)
@@ -54,6 +56,11 @@ Node::~Node(void)
   {
     delete mVectorFieldReconfiguration;
   }
+}
+
+int Node::getTime()
+{
+  return mMultilayerNetwork->getTime();
 }
 
 int Node::getId(void) const
@@ -97,7 +104,7 @@ void Node::setValues(double* values)
 
 void Node::setCurrentState(double state)
 {
-  mValues[getIndexT(t)] = state;
+  mValues[getIndexT(getTime())] = state;
 }
 
 void Node::getValues(double* values) const
@@ -110,12 +117,12 @@ void Node::getValues(double* values) const
 
 double Node::getCurrentState()
 {
-  return mValues[getIndexT(t)];
+  return mValues[getIndexT(getTime())];
 }
 
 double Node::getPreviousState()
 {
-  return mValues[getIndexTMinusOne(t)];
+  return mValues[getIndexTMinusOne(getTime())];
 }
 
 double Node::getMaxValue()
@@ -206,6 +213,11 @@ void Node::setUpwardInfluence()
 void Node::setDownwardInfluence()
 {
   mDownwardInfluence = new DownwardInfluenceImpl(this);
+}
+
+void Node::setMultilayerNetwork(MultilayerNetwork *multilayerNetwork)
+{
+  mMultilayerNetwork = multilayerNetwork;
 }
 
 void Node::print()

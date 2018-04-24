@@ -3,6 +3,8 @@
 
 void DownwardInfluenceImpl::calculateDownwardInfluence(double downwardMultiplier)
 {
+  int t = mNode->getTime();
+
   // std::cout<<"----DownwardInfluence------"<<std::endl;
   if(t == 0){return;}
 

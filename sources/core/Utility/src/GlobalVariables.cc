@@ -4,24 +4,6 @@ int numberOfCores = 2;
 
 int bufferSize = 100;
 int initialConditionsSize = 2;
-int t = 0;
-
-// //ODE parameters
-// double odeTime = 1;
-// double odeStepSize = 0.1;
-
-// //Genetic algorithm parameters
-// int initialPopulationSize = 10; //250
-// int numberOfGenerations = 5; //50
-// double mutationRatio = 0.15;
-// double crossoverRatio = 0.15;
-// double deathRatio = 0.3;
-
-// /**
-//    The highest rankded elements are not deleted.
-//    This strategy is called elitism.
-//  */
-// double elitRatio = 0.5;
 
 //Network modification parameters
 std::vector<double> vectorReconfModTypeProbabilities

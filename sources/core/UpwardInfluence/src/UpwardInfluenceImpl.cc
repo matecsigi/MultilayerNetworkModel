@@ -3,6 +3,7 @@
 
 void UpwardInfluenceImpl::calculateUpwardInfluence(double upwardMultiplier)
 {
+  int t = mNode->getTime();
   // std::cout<<"---UpwardInfluence---"<<std::endl;
   if(t == 0){return;}
 

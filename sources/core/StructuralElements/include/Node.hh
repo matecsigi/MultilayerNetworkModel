@@ -14,6 +14,8 @@ class IUpwardInfluence;
 class IDownwardInfluence;
 class IVectorFieldReconfiguration;
 
+class MultilayerNetwork;
+
 class Node
 {
 public:
@@ -21,6 +23,8 @@ public:
   Node(int);
   ~Node();
 
+  int getTime();
+  
   int getId(void) const;
   void setId(int id);
 
@@ -99,6 +103,8 @@ public:
   void setUpwardInfluence();
   void setDownwardInfluence();
 
+  void setMultilayerNetwork(MultilayerNetwork *multilayerNetwork);
+
   void print();
 
   friend bool operator==(const Node& node1, const Node& node2);
@@ -127,5 +133,6 @@ private:
      UpwardInfluence function on the node.
    */
   std::vector<double> mChangeByDownwardInfluence;
+  MultilayerNetwork *mMultilayerNetwork;
 };
 #endif

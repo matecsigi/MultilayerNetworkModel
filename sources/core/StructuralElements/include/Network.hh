@@ -5,6 +5,7 @@
 #include "DynamicalEquation.hh"
 
 class Node;
+class MultilayerNetwork;
 
 class Network
 {
@@ -12,6 +13,8 @@ public:
   Network();
   Network(int);
   ~Network();
+
+  int getTime();
 
   Node* addNode();
   void addNodeById(int nodeId);
@@ -79,6 +82,8 @@ public:
 
   void loadNodesToEquations();
 
+  void setMultilayerNetwork(MultilayerNetwork *multilayerNetwork);
+
   void print();
 
   friend bool operator==(const Network& network1, const Network& network2);
@@ -104,6 +109,7 @@ private:
      given node.
    */
   std::vector<DynamicalEquation*> mDynamicalEquations;
+  MultilayerNetwork *mMultilayerNetwork;
 };
 
 #endif

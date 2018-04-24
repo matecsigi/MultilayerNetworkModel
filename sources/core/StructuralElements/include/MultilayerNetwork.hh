@@ -16,6 +16,8 @@ public:
   MultilayerNetwork();
   ~MultilayerNetwork();
 
+  int getTime();
+
   Layer* addLayer();
 
   /**
@@ -91,6 +93,7 @@ public:
 
 private:
   std::vector<Layer*> mLayers;
+  int mTime;
 
 };
 

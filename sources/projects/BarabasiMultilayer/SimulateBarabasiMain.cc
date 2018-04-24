@@ -22,7 +22,7 @@ int main()
   multilayerNetwork->load(filename);
   multilayerNetwork->loadState(filenameInitialCond.c_str());
 
-  for(t=0; t<simulationTime; ++t)
+  for(int t=0; t<simulationTime; ++t)
   {
     std::cout<<"t="<<t<<std::endl;
     multilayerNetwork->step();

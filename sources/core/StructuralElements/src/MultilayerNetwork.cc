@@ -21,6 +21,7 @@ using namespace rapidjson;
 
 MultilayerNetwork::MultilayerNetwork(void)
 {
+  mTime = 0;
 }
 
 MultilayerNetwork::~MultilayerNetwork(void)
@@ -29,6 +30,11 @@ MultilayerNetwork::~MultilayerNetwork(void)
   {
     delete (*it);
   }
+}
+
+int MultilayerNetwork::getTime()
+{
+  return mTime;
 }
 
 Layer* MultilayerNetwork::addLayer()
@@ -44,6 +50,7 @@ Layer* MultilayerNetwork::addLayer()
     }
   }
   Layer* newLayer = new Layer(maximalLayerId+1, layerMaximalId, NULL);
+  newLayer->setMultilayerNetwork(this);
   mLayers.push_back(newLayer);
   return newLayer;
 }
@@ -167,17 +174,17 @@ void MultilayerNetwork::iterate(int steps, SimulationParameterContainer *paramet
   if(parameters->cluster == true){calculateClusterMessageSizes(parameters);}
 
   if(observer != NULL){observer->atStart();}
-  for(t=0; t<steps; ++t)
+  for(mTime=0; mTime<steps; ++mTime)
   {
     if(parameters->printTrace)
     {
-      traceRun("Time "+std::to_string(t)+"\n");
+      traceRun("Time "+std::to_string(mTime)+"\n");
     }
     step(parameters);
 
     if(observer != NULL){observer->atStep();}
 
-    if((t % (bufferSize-2)) == (bufferSize-2-1))
+    if((mTime % (bufferSize-2)) == (bufferSize-2-1))
     {
       save();
       saveState();
@@ -197,7 +204,7 @@ void MultilayerNetwork::save(std::string filename)
   if(filename.empty())
   {
     filename.append("generated/multilayerStructure_");
-    filename.append(std::to_string(t/bufferSize));
+    filename.append(std::to_string(mTime/bufferSize));
     filename.append(".json");
   }
 
@@ -354,7 +361,7 @@ void MultilayerNetwork::saveState(std::string filename)
   if(filename.empty())
   {
     filename.append("generated/nodeStates_");
-    filename.append(std::to_string(t/bufferSize));
+    filename.append(std::to_string(mTime/bufferSize));
     filename.append(".bin");
   }
 

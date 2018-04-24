@@ -9,12 +9,14 @@
 Network::Network(void)
 {
   mNodeAssigned = NULL;
+  mMultilayerNetwork = NULL;
 }
 
 Network::Network(int id)
 {
   mNetworkId = id;
   mNodeAssigned = NULL;
+  mMultilayerNetwork = NULL;
 }
 
 Network::~Network(void)
@@ -29,6 +31,11 @@ Network::~Network(void)
   }
 }
 
+int Network::getTime()
+{
+  return mMultilayerNetwork->getTime();
+}
+
 Node* Network::addNode()
 {
   int maxNodeId = 0;
@@ -40,6 +47,7 @@ Node* Network::addNode()
     }
   }
   Node* newNode = new Node(maxNodeId+1);
+  newNode->setMultilayerNetwork(mMultilayerNetwork);
   mNodes.push_back(newNode);
   newNode->addToNetwork(this);
   std::vector<Node*> newConnectionVector;
@@ -52,6 +60,7 @@ void Network::addNodeById(int nodeId)
 {
   //create new node only if id doesn't exist
   Node* newNode = new Node(nodeId);
+  newNode->setMultilayerNetwork(mMultilayerNetwork);
   mNodes.push_back(newNode);
   newNode->addToNetwork(this);
   std::vector<Node*> newConnectionVector;
@@ -243,6 +252,11 @@ void Network::loadNodesToEquations()
     DynamicalEquation *dynamicalEquation = getNodeDynamicalEquation((*itNode)->getId());
     dynamicalEquation->loadNodesToEquation(dynamicalEquation->getBaseCalculationNode(), nodesMap);
   }
+}
+
+void Network::setMultilayerNetwork(MultilayerNetwork *multilayerNetwork)
+{
+  mMultilayerNetwork = multilayerNetwork;
 }
 
 void Network::print()
