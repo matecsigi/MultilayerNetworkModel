@@ -97,48 +97,6 @@ std::vector<IdValuePair> getEnvironmentalDirectionAtState(Network* network, std:
   return directions;
 }
 
-std::vector<IdValuePair> calculateLowerNetworkDirection(Node *node)
-{
-  Network* networkAssigned = node->getNetworkAssigned();
-  std::vector<IdValuePair> currentState = networkAssigned->getState();
-  return  getIsolatedDirectionAtState(networkAssigned, currentState);
-}
-
-std::vector<IdValuePair> calculateHigherNetworksDirection(Node *node)
-{
-  // std::cout<<std::endl;
-  // std::cout<<"====HigherDirections==="<<std::endl;
-  std::vector<std::vector<IdValuePair>> directionsInAllHigherNetworks;
-  std::vector<Network*> networks = node->getNetworks();
-  for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
-  {
-    std::vector<IdValuePair> currentState = (*itNet)->getState();
-    // std::cout<<"higherNetworkDirection"<<std::endl;
-    // printDirection(getIsolatedDirectionAtState((*itNet), currentState));
-    directionsInAllHigherNetworks.push_back(getIsolatedDirectionAtState((*itNet), currentState));
-  }
-
-  std::vector<IdValuePair> referenceHigherDirection = directionsInAllHigherNetworks[0];
-  // std::cout<<"referenceHigherDirection"<<std::endl;
-  // printDirection(referenceHigherDirection);
-
-  std::vector<IdValuePair> sumDirectionInHigherNetworks;
-  for(std::vector<IdValuePair>::iterator itDir=referenceHigherDirection.begin(); itDir != referenceHigherDirection.end(); ++itDir)
-  {
-    int key = itDir->mId;
-    double sumDir = 0;
-    for(std::vector<std::vector<IdValuePair>>::iterator itNetD=directionsInAllHigherNetworks.begin(); itNetD != directionsInAllHigherNetworks.end(); ++itNetD)
-    {
-      // std::cout<<">>"<<key<<" -> "<<getValueForId((*itNetD), key)<<std::endl;
-      sumDir += getValueForId((*itNetD), key);
-    }
-    setValueForId(sumDirectionInHigherNetworks, key, sumDir);
-  }
-  // printDirection(sumDirectionInHigherNetworks);
-  // std::cout<<"======================"<<std::endl;
-  return sumDirectionInHigherNetworks;
-}
-
 Network* createEnvironmentalMultilayerNetwork(MultilayerNetwork* multilayerNetwork, Network* network)
 {
   multilayerNetwork->setTime(network->getTime());

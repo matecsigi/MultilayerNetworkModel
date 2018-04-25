@@ -19,9 +19,6 @@ void copyNetwork(Network* oldNetwork, Network* newNetwork);
    */
 std::vector<IdValuePair> getIsolatedDirectionAtState(Network* network, std::vector<IdValuePair> &basePointCoordinates);
 std::vector<IdValuePair> getEnvironmentalDirectionAtState(Network* network, std::vector<IdValuePair> &basePointCoordinates);
-std::vector<IdValuePair> calculateLowerNetworkDirection(Node *node);
-std::vector<IdValuePair> calculateHigherNetworksDirection(Node *node);
-
 Network* createEnvironmentalMultilayerNetwork(MultilayerNetwork* multilayerNetwork, Network* network);
 
 #endif
