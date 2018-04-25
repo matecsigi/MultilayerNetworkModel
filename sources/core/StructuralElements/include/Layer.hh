@@ -13,6 +13,10 @@ public:
   Layer(int);
   ~Layer();
 
+  //------------------------------------
+  //-----Basic--------------------------
+  //------------------------------------
+
   int getTime();
 
   void addNetwork(int networkId);
@@ -23,6 +27,10 @@ public:
 
   void setMultilayerNetwork(MultilayerNetwork *multilayerNetwork);
   MultilayerNetwork* getMultilayerNetwork();
+
+  //------------------------------------
+  //-----Utility------------------------
+  //------------------------------------
 
   void print();
 

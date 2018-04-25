@@ -23,16 +23,15 @@ public:
   Node(int);
   ~Node();
 
+  //------------------------------------
+  //-----Basic--------------------------
+  //------------------------------------
+
   int getTime();
   
   int getId(void) const;
   void setId(int id);
 
-  /**
-     Returns a vector containing pointers to all 
-     the networks the node is part of.
-     @return vector of networks a node is part of
-   */
   std::vector<Network*> getNetworks(void) const;
 
   Network* getNetworkAssigned(void) const;
@@ -45,32 +44,21 @@ public:
    */
   void addToNetwork(Network* network);
 
-  //State
-
-  /**
-     Sets the contents of the whole buffer and not just single values.
-     @param[in] values: these values are set to the buffer
-   */
+  void getValues(double* values) const;
   void setValues(double* values);
+
+  double getCurrentState();
   void setCurrentState(double state);
   
-  /**
-     Stored the content of the whole buffer in the values
-     variable.
-     @param[out] values: all the states oof the buffer are stored here
-   */
-  void getValues(double* values) const;
-  double getCurrentState();
   double getPreviousState();
 
-  double getMaxValue();
-  double getMinValue();
-
+  double getChangeByUpwardInfluence(int index);
   void setChangeByUpwardInfluence(int index, double value);
+
+  double getChangeByDownwardInfluence(int index);
   void setChangeByDownwardInfluence(int index, double value);
 
-  double getChangeByUpwardInfluence(int index);
-  double getChangeByDownwardInfluence(int index);
+  void setMultilayerNetwork(MultilayerNetwork *multilayerNetwork);
 
   //Simulation
   /**
@@ -100,10 +88,12 @@ public:
    */
   void stepODE(DynamicalEquation* dynamicalEquation, SimulationParameterContainer *parameters);
 
-  void setUpwardInfluence();
-  void setDownwardInfluence();
+  //------------------------------------
+  //-----Utility------------------------
+  //------------------------------------
 
-  void setMultilayerNetwork(MultilayerNetwork *multilayerNetwork);
+  double getMaxValue();
+  double getMinValue();
 
   void print();
 

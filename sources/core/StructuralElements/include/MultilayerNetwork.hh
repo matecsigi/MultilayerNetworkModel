@@ -16,16 +16,16 @@ public:
   MultilayerNetwork();
   ~MultilayerNetwork();
 
+  //------------------------------------
+  //-----Basic------------------
+  //------------------------------------  
+
   int getTime();
   void setTime(int time);
 
   Layer* addLayer();
-
-  /**
-     Adds a layer to the multilayer network.
-     @param layerId: the ID of the newly added layer
-  */
   void addLayerById(int layerId);
+
   std::vector<Layer*> getLayers(void) const;
 
   /**
@@ -33,20 +33,24 @@ public:
      the multilayer network.
    */
   void step(SimulationParameterContainer *parameters = NULL);
-
   /**
      Iterates the system for a given number of steps.
    */
   void iterate(int steps, SimulationParameterContainer *parameters = NULL, IObserver *observer = NULL);
 
-  //Save and load
+  //------------------------------------
+  //-----Save and load------------------
+  //------------------------------------
+
   void save(std::string filename = "");
   void load(const char* filename);
   
   void saveState(std::string filename = "");
   void loadState(const char* filename);
 
-  //Helper functions
+  //------------------------------------
+  //-----Utility------------------------
+  //------------------------------------
 
   void updateNodesMap();
 

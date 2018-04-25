@@ -91,7 +91,7 @@ Network* Node::getNetworkAssigned(void) const
 void Node::setNetworkAssigned(Network* network)
 {
   mNetworkAssigned = network;
-  network->assignToNode(this);
+  network->setNodeAssigned(this);
 }
 
 void Node::addToNetwork(Network* network)
@@ -208,16 +208,6 @@ void Node::stepOdeAtState(DynamicalEquation* dynamicalEquation, std::vector<IdVa
   OdeWrapperAtState wrapper(dynamicalEquation, &startingState);
   integrate(wrapper, x, 0.0, 1.0, 0.1);
   setValueForId(finalState, getId(), x[0]);
-}
-
-void Node::setUpwardInfluence()
-{
-  mUpwardInfluence = new UpwardInfluenceImpl(this);
-}
-
-void Node::setDownwardInfluence()
-{
-  mDownwardInfluence = new DownwardInfluenceImpl(this);
 }
 
 void Node::setMultilayerNetwork(MultilayerNetwork *multilayerNetwork)

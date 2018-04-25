@@ -127,7 +127,7 @@ void Network::setEdgeWeight(int sourceId, int targetId, double weight)
   dynamicalEquation->setEdgeWeight(sourceId, weight);
 }
 
-void Network::assignToNode(Node* node)
+void Network::setNodeAssigned(Node* node)
 {
   mNodeAssigned = node;
 }
