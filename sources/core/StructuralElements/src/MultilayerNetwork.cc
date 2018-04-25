@@ -355,7 +355,6 @@ void MultilayerNetwork::load(const char* filename)
     }
   }
 
-  loadNodesToAllEquations();
   updateNodesMap();
 
   StringBuffer buffer;
@@ -460,31 +459,6 @@ void MultilayerNetwork::loadState(const char* filename)
     delete [] buffer[i];
   }
   delete [] buffer;
-}
-
-
-void MultilayerNetwork::loadNodesToAllEquations(void)
-{
-  std::vector<Layer*> layers = this->getLayers();
-  for(std::vector<Layer*>::iterator itLay=layers.begin(); itLay != layers.end(); ++itLay)
-  {
-    std::vector<Network*> networks = (*itLay)->getNetworks();
-    for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
-    {
-      Network* currentNetwork = (*itNet);
-      std::vector<Node*> nodes = currentNetwork->getNodes();
-      std::map<int, Node*> nodesMap;
-      for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode<nodes.end(); ++itNode)
-      {
-	nodesMap[(*itNode)->getId()] = (*itNode);
-      }
-      for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode<nodes.end(); ++itNode)
-      {
-	DynamicalEquation* dynamicalEquation = currentNetwork->getNodeDynamicalEquation((*itNode)->getId());
-	dynamicalEquation->loadNodesToEquation(dynamicalEquation->getBaseCalculationNode(), nodesMap);
-      }
-    }
-  }
 }
 
 void MultilayerNetwork::updateNodesMap()

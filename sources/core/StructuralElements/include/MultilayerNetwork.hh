@@ -48,13 +48,6 @@ public:
 
   //Helper functions
 
-  /**
-     CalculationNodes with type ID need to contain the 
-     pointer to the Node they represent. This function loads 
-     all Node objects to their representing CalculationNodes.
-   */
-  void loadNodesToAllEquations(void);
-
   void updateNodesMap();
 
   /**

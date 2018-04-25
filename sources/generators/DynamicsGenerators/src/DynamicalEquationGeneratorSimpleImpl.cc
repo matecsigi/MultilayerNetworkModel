@@ -14,5 +14,4 @@ void DynamicalEquationGeneratorSimpleImpl::generateDynamicalEquations()
       linearNetworkDynamicsGenerator(currentNetwork);
     }
   }
-  mMultilayerNetwork->loadNodesToAllEquations();
 }
