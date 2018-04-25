@@ -15,6 +15,7 @@ public:
   ~Network();
 
   int getTime();
+  void setTime(int time);
 
   Node* addNode();
   void addNodeById(int nodeId);
@@ -110,6 +111,8 @@ private:
    */
   std::vector<DynamicalEquation*> mDynamicalEquations;
   MultilayerNetwork *mMultilayerNetwork;
+
+  int mTime;
 };
 
 #endif

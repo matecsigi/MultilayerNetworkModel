@@ -10,6 +10,7 @@ Network::Network(void)
 {
   mNodeAssigned = NULL;
   mMultilayerNetwork = NULL;
+  mTime = 0;
 }
 
 Network::Network(int id)
@@ -17,6 +18,7 @@ Network::Network(int id)
   mNetworkId = id;
   mNodeAssigned = NULL;
   mMultilayerNetwork = NULL;
+  mTime = 0;
 }
 
 Network::~Network(void)
@@ -33,7 +35,16 @@ Network::~Network(void)
 
 int Network::getTime()
 {
-  return mMultilayerNetwork->getTime();
+  if(mMultilayerNetwork != NULL)
+  {
+    return mMultilayerNetwork->getTime();
+  }
+  return mTime;
+}
+
+void Network::setTime(int time)
+{
+  mTime = time;
 }
 
 Node* Network::addNode()
@@ -257,6 +268,10 @@ void Network::loadNodesToEquations()
 void Network::setMultilayerNetwork(MultilayerNetwork *multilayerNetwork)
 {
   mMultilayerNetwork = multilayerNetwork;
+  for(std::vector<Node*>::iterator itNode=mNodes.begin(); itNode != mNodes.end(); ++itNode)
+  {
+    (*itNode)->setMultilayerNetwork(multilayerNetwork);
+  }
 }
 
 void Network::print()

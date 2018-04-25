@@ -73,6 +73,10 @@ Layer* Layer::getLayerDown()
 void Layer::setMultilayerNetwork(MultilayerNetwork *multilayerNetwork)
 {
   mMultilayerNetwork = multilayerNetwork;
+  for(std::vector<Network*>::iterator itNet=mNetworksInLayer.begin(); itNet != mNetworksInLayer.end(); ++itNet)
+  {
+    (*itNet)->setMultilayerNetwork(multilayerNetwork);
+  }
 }
 
 void Layer::print()

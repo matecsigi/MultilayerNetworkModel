@@ -37,6 +37,11 @@ int MultilayerNetwork::getTime()
   return mTime;
 }
 
+void MultilayerNetwork::setTime(int time)
+{
+  mTime = time;
+}
+
 Layer* MultilayerNetwork::addLayer()
 {
   int maximalLayerId = 0;
@@ -67,7 +72,9 @@ void MultilayerNetwork::addLayerById(int layerId)
       layerMaximalId = (*itLay);
     }
   }
-  mLayers.push_back(new Layer(layerId, layerMaximalId, NULL));
+  Layer *newLayer = new Layer(layerId, layerMaximalId, NULL);
+  newLayer->setMultilayerNetwork(this);
+  mLayers.push_back(newLayer);
 }
 
 std::vector<Layer*> MultilayerNetwork::getLayers(void) const
@@ -174,7 +181,7 @@ void MultilayerNetwork::iterate(int steps, SimulationParameterContainer *paramet
   if(parameters->cluster == true){calculateClusterMessageSizes(parameters);}
 
   if(observer != NULL){observer->atStart();}
-  for(mTime=0; mTime<steps; ++mTime)
+  for(mTime=mTime; mTime<(mTime+steps); ++mTime)
   {
     if(parameters->printTrace)
     {

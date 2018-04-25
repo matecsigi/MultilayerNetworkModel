@@ -17,6 +17,7 @@ public:
   ~MultilayerNetwork();
 
   int getTime();
+  void setTime(int time);
 
   Layer* addLayer();
 

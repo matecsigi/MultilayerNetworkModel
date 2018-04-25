@@ -60,7 +60,12 @@ Node::~Node(void)
 
 int Node::getTime()
 {
-  return mMultilayerNetwork->getTime();
+  if(mMultilayerNetwork != NULL)
+  {
+    return mMultilayerNetwork->getTime();
+  }
+  Network *network = mNetworks[0];
+  return network->getTime();
 }
 
 int Node::getId(void) const

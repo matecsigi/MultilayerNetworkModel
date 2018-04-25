@@ -5,6 +5,8 @@ void copyNetwork(Network* oldNetwork, Network* newNetwork)
   newNetwork->removeAllEdges();
   newNetwork->setId(oldNetwork->getId());
 
+  newNetwork->setTime(oldNetwork->getTime());
+
   std::vector<Node*> nodes = oldNetwork->getNodes();
   for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
   {
@@ -139,6 +141,8 @@ std::vector<IdValuePair> calculateHigherNetworksDirection(Node *node)
 
 Network* createEnvironmentalMultilayerNetwork(MultilayerNetwork* multilayerNetwork, Network* network)
 {
+  multilayerNetwork->setTime(network->getTime());
+
   Node* nodeAssigned = network->getNodeAssigned();
   std::vector<Network*> higherNetworks = nodeAssigned->getNetworks();
   Network* higherNetwork = higherNetworks[0];
