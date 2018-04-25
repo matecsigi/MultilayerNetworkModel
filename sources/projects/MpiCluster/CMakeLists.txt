@@ -7,7 +7,6 @@ file(GLOB_RECURSE cluster_src "src/*.cc")
 file(GLOB_RECURSE core_src "../../core/*.cc")
 file(GLOB_RECURSE generators_src "../../generators/*.cc")
 file(GLOB_RECURSE parser_src "../../parser/src/*.cpp")
-file(GLOB_RECURSE project_barabasi_src "sources/projects/BarabasiMultilayer/src/*.cc")
 file(GLOB_RECURSE project_hebbian_src "../../projects/HebbianProject/src/*.cc")
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
@@ -28,10 +27,9 @@ ${CMAKE_SOURCE_DIR}/sources/generators/GeneralGenerators/include
 ${CMAKE_SOURCE_DIR}/sources/parser/include
 ${CMAKE_SOURCE_DIR}/sources/external
 ${CMAKE_SOURCE_DIR}/sources/projects/MainProject/include
-${CMAKE_SOURCE_DIR}/sources/projects/BarabasiMultilayer/include
 ${CMAKE_SOURCE_DIR}/sources/projects/HebbianProject/include)
 
 add_executable(cluster
 ${CMAKE_SOURCE_DIR}/sources/projects/MpiCluster/ClusterMain.cc ${cluster_src} ${core_src}
-${generators_src} ${parser_src} ${project_barabasi_src} ${project_hebbian_src})
+${generators_src} ${parser_src} ${project_hebbian_src})
 

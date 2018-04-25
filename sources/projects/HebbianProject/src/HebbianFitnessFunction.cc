@@ -1,6 +1,5 @@
 #include "HebbianFitnessFunction.hh"
 #include "NetworkInitialConditionGenerators.hh"
-#include "GenerateBarabasiNetwork.hh"
 #include "BarabasiModel.hh"
 #include "NetworkDynamicsGenerators.hh"
 #include "Node.hh"
