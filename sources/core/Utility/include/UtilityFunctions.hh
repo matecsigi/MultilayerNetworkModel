@@ -1,6 +1,7 @@
 #ifndef UTILITYFUNCTIONS_HH
 #define UTILITIFUNCTIONS_HH
 
+#include "MultilayerNetwork.hh"
 #include "Layer.hh"
 #include "Network.hh"
 #include "IdValuePair.hh"
@@ -11,8 +12,8 @@ int getIndexTMinusOne(int t);
 int getIndexTMinusTwo(int t);
 
 void setIds(Layer* layer, Network* network);
-void searchLayersUp(Layer* layer, int &maxNetworkId, int &maxNodeId);
-void searchLayersDown(Layer* layer, int &maxNetworkId, int &maxNodeId);
+int getMaxNetworkId(MultilayerNetwork *multilayerNetwork);
+int getMaxNodeId(MultilayerNetwork *multilayerNetwork);
 
 double getValueForId(std::vector<IdValuePair> &pairVector, int id);
 void setValueForId(std::vector<IdValuePair> &pairVector, int id, double value);

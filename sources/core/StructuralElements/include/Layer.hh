@@ -10,7 +10,7 @@ class Layer
 {
 public:
   Layer();
-  Layer(int, Layer *layerUp, Layer *layerDown);
+  Layer(int);
   ~Layer();
 
   int getTime();
@@ -21,10 +21,8 @@ public:
 
   int getId(void) const;
 
-  Layer* getLayerUp();
-  Layer* getLayerDown();
-
   void setMultilayerNetwork(MultilayerNetwork *multilayerNetwork);
+  MultilayerNetwork* getMultilayerNetwork();
 
   void print();
 
@@ -33,8 +31,6 @@ public:
 private:
   int mLayerId;
   std::vector<Network*> mNetworks;
-  Layer* mLayerDown;
-  Layer* mLayerUp;
   MultilayerNetwork *mMultilayerNetwork;
 };
 #endif

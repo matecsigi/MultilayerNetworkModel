@@ -6,16 +6,12 @@
 
 Layer::Layer()
 {
-  mLayerUp = NULL;
-  mLayerDown = NULL;
   mMultilayerNetwork = NULL;
 }
 
-Layer::Layer(int id, Layer *layerUp, Layer *layerDown)
+Layer::Layer(int id)
 {
   mLayerId = id;
-  mLayerUp = layerUp;
-  mLayerDown = layerDown;
   mMultilayerNetwork = NULL;
 }
 
@@ -60,16 +56,6 @@ int Layer::getId(void) const
   return mLayerId;
 }
 
-Layer* Layer::getLayerUp()
-{
-  return mLayerUp;
-}
-
-Layer* Layer::getLayerDown()
-{
-  return mLayerDown;
-}
-
 void Layer::setMultilayerNetwork(MultilayerNetwork *multilayerNetwork)
 {
   mMultilayerNetwork = multilayerNetwork;
@@ -77,6 +63,11 @@ void Layer::setMultilayerNetwork(MultilayerNetwork *multilayerNetwork)
   {
     (*itNet)->setMultilayerNetwork(multilayerNetwork);
   }
+}
+
+MultilayerNetwork* Layer::getMultilayerNetwork()
+{
+  return mMultilayerNetwork;
 }
 
 void Layer::print()

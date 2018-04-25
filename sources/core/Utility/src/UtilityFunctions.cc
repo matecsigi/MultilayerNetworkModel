@@ -32,11 +32,8 @@ int getIndexTMinusTwo(int t)
 
 void setIds(Layer* layer, Network* network)
 {
-  int maxNetworkId = 0;
-  int maxNodeId = 0;
-
-  searchLayersUp(layer, maxNetworkId, maxNodeId);
-  searchLayersDown(layer, maxNetworkId, maxNodeId);
+  int maxNetworkId = getMaxNetworkId(layer->getMultilayerNetwork());
+  int maxNodeId = getMaxNodeId(layer->getMultilayerNetwork());
 
   network->setId(maxNetworkId+1);
   std::vector<Node*> nodes = network->getNodes();
@@ -56,59 +53,45 @@ void setIds(Layer* layer, Network* network)
   }
 }
 
-void searchLayersUp(Layer* layer, int &maxNetworkId, int &maxNodeId)
+int getMaxNetworkId(MultilayerNetwork *multilayerNetwork)
 {
-  std::vector<Network*> networks = layer->getNetworks();
-  for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
+  int maxNetworkId = 0;
+  std::vector<Layer*> layers = multilayerNetwork->getLayers();
+  for(std::vector<Layer*>::iterator itLay=layers.begin(); itLay != layers.end(); ++itLay)
   {
-    if((*itNet)->getId() > maxNetworkId)
+    std::vector<Network*> networks = (*itLay)->getNetworks();
+    for(std::vector<Network*>::iterator itNet=networks.begin(); itNet !=networks.end(); ++itNet)
     {
-      maxNetworkId = (*itNet)->getId();
-    }
-    std::vector<Node*> nodes = (*itNet)->getNodes();
-    for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
-    {
-      if((*itNode)->getId() > maxNodeId)
+      if((*itNet)->getId() > maxNetworkId)
       {
-	maxNodeId = (*itNode)->getId();
+	maxNetworkId = (*itNet)->getId();
       }
     }
   }
-
-  Layer* layerUp = layer->getLayerUp();
-  if(layerUp != NULL)
-  {
-    searchLayersUp(layerUp, maxNetworkId, maxNodeId);
-  }
+  return maxNetworkId;
 }
 
-
-void searchLayersDown(Layer* layer, int &maxNetworkId, int &maxNodeId)
+int getMaxNodeId(MultilayerNetwork *multilayerNetwork)
 {
-  std::vector<Network*> networks = layer->getNetworks();
-  for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
+  int maxNodeId = 0;
+  std::vector<Layer*> layers = multilayerNetwork->getLayers();
+  for(std::vector<Layer*>::iterator itLay=layers.begin(); itLay != layers.end(); ++itLay)
   {
-    if((*itNet)->getId() > maxNetworkId)
+    std::vector<Network*> networks = (*itLay)->getNetworks();
+    for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
     {
-      maxNetworkId = (*itNet)->getId();
-    }
-    std::vector<Node*> nodes = (*itNet)->getNodes();
-    for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
-    {
-      if((*itNode)->getId() > maxNodeId)
+      std::vector<Node*> nodes = (*itNet)->getNodes();
+      for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
       {
-	maxNodeId = (*itNode)->getId();
+	if((*itNode)->getId() > maxNodeId)
+	{
+	  maxNodeId = (*itNode)->getId();
+	}
       }
     }
   }
-
-  Layer* layerDown = layer->getLayerDown();
-  if(layerDown != NULL)
-  {
-    searchLayersDown(layerDown, maxNetworkId, maxNodeId);
-  }
+  return maxNodeId;
 }
-
 
 double getValueForId(std::vector<IdValuePair> &pairVector, int id)
 {

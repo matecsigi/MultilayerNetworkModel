@@ -45,16 +45,14 @@ void MultilayerNetwork::setTime(int time)
 Layer* MultilayerNetwork::addLayer()
 {
   int maximalLayerId = 0;
-  Layer *layerMaximalId = NULL;
   for(std::vector<Layer*>::iterator itLay=mLayers.begin(); itLay != mLayers.end(); ++itLay)
   {
     if((*itLay)->getId() > maximalLayerId)
     {
       maximalLayerId = (*itLay)->getId();
-      layerMaximalId = (*itLay);
     }
   }
-  Layer* newLayer = new Layer(maximalLayerId+1, layerMaximalId, NULL);
+  Layer* newLayer = new Layer(maximalLayerId+1);
   newLayer->setMultilayerNetwork(this);
   mLayers.push_back(newLayer);
   return newLayer;
@@ -63,16 +61,14 @@ Layer* MultilayerNetwork::addLayer()
 void MultilayerNetwork::addLayerById(int layerId)
 {
   int maximalLayerId = 0;
-  Layer *layerMaximalId = NULL;
   for(std::vector<Layer*>::iterator itLay=mLayers.begin(); itLay != mLayers.end(); ++itLay)
   {
     if((*itLay)->getId() > maximalLayerId)
     {
       maximalLayerId = (*itLay)->getId();
-      layerMaximalId = (*itLay);
     }
   }
-  Layer *newLayer = new Layer(layerId, layerMaximalId, NULL);
+  Layer *newLayer = new Layer(layerId);
   newLayer->setMultilayerNetwork(this);
   mLayers.push_back(newLayer);
 }
