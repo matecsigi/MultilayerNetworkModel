@@ -105,10 +105,9 @@ Network* createEnvironmentalMultilayerNetwork(MultilayerNetwork* multilayerNetwo
   std::vector<Network*> higherNetworks = nodeAssigned->getNetworks();
   Network* higherNetwork = higherNetworks[0];
 
-  multilayerNetwork->addLayerById(1);
-  multilayerNetwork->addLayerById(2);
-  std::vector<Layer*> layers = multilayerNetwork->getLayers();
-  Network* insertedHigherNetwork = layers[0]->insertNetwork(higherNetwork);
+  Layer* layer1 = multilayerNetwork->addLayer();
+  Layer* layer2 = multilayerNetwork->addLayer();
+  Network* insertedHigherNetwork = layer1->insertNetwork(higherNetwork);
 
   Network* returnNetwork = NULL;
   std::vector<Node*> nodes = higherNetwork->getNodes();
@@ -116,7 +115,7 @@ Network* createEnvironmentalMultilayerNetwork(MultilayerNetwork* multilayerNetwo
   {
     Node* node = insertedHigherNetwork->getNodeById((*itNode)->getId());
     Network* lowerNetwork = (*itNode)->getNetworkAssigned();
-    Network* insertedNetwork = layers[1]->insertNetwork(lowerNetwork);
+    Network* insertedNetwork = layer2->insertNetwork(lowerNetwork);
     node->setNetworkAssigned(insertedNetwork);
     if(lowerNetwork->getId() == network->getId())
     {
