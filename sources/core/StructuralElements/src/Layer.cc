@@ -21,7 +21,7 @@ Layer::Layer(int id, Layer *layerUp, Layer *layerDown)
 
 Layer::~Layer(void)
 {
-  for(std::vector<Network*>::iterator it = mNetworksInLayer.begin(); it != mNetworksInLayer.end(); ++it)
+  for(std::vector<Network*>::iterator it = mNetworks.begin(); it != mNetworks.end(); ++it)
   {
     delete (*it);
   }
@@ -36,7 +36,7 @@ void Layer::addNetwork(int networkId)
 {
   Network *newNetwork = new Network(networkId);
   newNetwork->setMultilayerNetwork(mMultilayerNetwork);
-  mNetworksInLayer.push_back(newNetwork);
+  mNetworks.push_back(newNetwork);
 }
 
 Network* Layer::insertNetwork(Network* network)
@@ -46,13 +46,13 @@ Network* Layer::insertNetwork(Network* network)
   setIds(this, newNetwork);
   newNetwork->loadNodesToEquations();
   newNetwork->setMultilayerNetwork(mMultilayerNetwork);
-  mNetworksInLayer.push_back(newNetwork);
+  mNetworks.push_back(newNetwork);
   return newNetwork;
 }
 
 std::vector<Network*> Layer::getNetworks(void) const
 {
-  return mNetworksInLayer;
+  return mNetworks;
 }
 
 int Layer::getId(void) const
@@ -73,7 +73,7 @@ Layer* Layer::getLayerDown()
 void Layer::setMultilayerNetwork(MultilayerNetwork *multilayerNetwork)
 {
   mMultilayerNetwork = multilayerNetwork;
-  for(std::vector<Network*>::iterator itNet=mNetworksInLayer.begin(); itNet != mNetworksInLayer.end(); ++itNet)
+  for(std::vector<Network*>::iterator itNet=mNetworks.begin(); itNet != mNetworks.end(); ++itNet)
   {
     (*itNet)->setMultilayerNetwork(multilayerNetwork);
   }
@@ -82,7 +82,7 @@ void Layer::setMultilayerNetwork(MultilayerNetwork *multilayerNetwork)
 void Layer::print()
 {
   traceDebug("Layer "+std::to_string(mLayerId)+"\n");
-  for(std::vector<Network*>::iterator itNet=mNetworksInLayer.begin(); itNet != mNetworksInLayer.end(); ++itNet)
+  for(std::vector<Network*>::iterator itNet=mNetworks.begin(); itNet != mNetworks.end(); ++itNet)
   {
     traceDebug("    ");
     (*itNet)->print();

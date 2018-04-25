@@ -32,7 +32,7 @@ public:
 
 private:
   int mLayerId;
-  std::vector<Network*> mNetworksInLayer;
+  std::vector<Network*> mNetworks;
   Layer* mLayerDown;
   Layer* mLayerUp;
   MultilayerNetwork *mMultilayerNetwork;
