@@ -24,7 +24,8 @@ ${CMAKE_SOURCE_DIR}/sources/core/DynamicalEquation/include
 ${CMAKE_SOURCE_DIR}/sources/core/UpwardInfluence/include
 ${CMAKE_SOURCE_DIR}/sources/core/DownwardInfluence/include
 ${CMAKE_SOURCE_DIR}/sources/core/VectorFieldReconfiguration/include
-${CMAKE_SOURCE_DIR}/sources/core/Utility/include
+${CMAKE_SOURCE_DIR}/sources/core/Utility/general/include
+${CMAKE_SOURCE_DIR}/sources/core/Utility/class/include
 ${CMAKE_SOURCE_DIR}/sources/generators/StructureGenerators/include
 ${CMAKE_SOURCE_DIR}/sources/generators/DynamicsGenerators/include
 ${CMAKE_SOURCE_DIR}/sources/generators/InitialConditionGenerators/include

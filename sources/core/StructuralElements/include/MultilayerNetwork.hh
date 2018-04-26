@@ -6,6 +6,7 @@
 #include "IObserver.hh"
 #include "GlobalVariables.hh"
 #include "SimulationParameterContainer.hh"
+#include "MultilayerNetworkClassUtility.hh"
 #include <vector>
 #include <iostream>
 #include <map>
@@ -52,35 +53,7 @@ public:
   //-----Utility------------------------
   //------------------------------------
 
-  void updateNodesMap();
-
-  /**
-     When the end of buffers is reached i.e. they are filled 
-     with the previous values of the nodes, the contents of the 
-     current buffers is writen to a file, and the buffers are set 
-     back to all 0 elements, except for the first two values that 
-     contain the end values of the previous buffer.
-   */
-  void shiftBuffers(void);
-
-  /**
-     Find the maximum and minimum values among all the nodes in the multilayer network.
-     There are used to check if the values go to +/- infinity.
-   */
-  double getMaxValue();
-  double getMinValue();
-
-  void collectNodes(std::map<int, Node*>& nodesMap, std::vector<int>& nodeIds) const;
-  void collectNetworks(std::map<int, Network*>& networksMap, std::vector<int>& networkIds) const;
-
-  void calculateClusterMessageSizes(SimulationParameterContainer *parameters);
-
   void print();
-
-  friend bool initialConditionsEqual(const MultilayerNetwork& multilayerNetwork1, const MultilayerNetwork& multilayerNetwork2);
-  friend bool dynamicalEquationsEqual(const MultilayerNetwork& multilayerNetwork1, const MultilayerNetwork& multilayerNetwork2);
-  friend std::ostream& operator<<(std::ostream& os, const MultilayerNetwork& multilayerNetwork);
-  friend bool operator==(const MultilayerNetwork& multilayerNetwork1, const MultilayerNetwork& multilayerNetwork2);
 
   /**
      Contains all the nodes in id, pointer pairs.
@@ -92,7 +65,6 @@ public:
 private:
   std::vector<Layer*> mLayers;
   int mTime;
-
 };
 
 void executeStepsInThread(std::vector<Node*> &nodes, SimulationParameterContainer *parameters);

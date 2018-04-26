@@ -7,6 +7,7 @@
 #include "NetworkUtilityFunctions.hh"
 #include "HebbianObserver.hh"
 #include "SimulationParameterContainer.hh"
+#include "MultilayerNetworkClassUtility.hh"
 #include <iostream>
 #include <random>
 #include "spdlog/spdlog.h"
@@ -38,7 +39,7 @@ double hebbianFitnessFunction(Network* network, HebbianParameterContainer *hebbi
     double sumDistance = observer->getResult();
     double distance = sumDistance/(double)(hebbianParameters->runTime);
     double fitness = (double)100/distance;
-    if((multilayerNetwork->getMaxValue() > 1.0e+30) || (multilayerNetwork->getMinValue() < -1.0e+30))
+    if((getMaxValue(multilayerNetwork) > 1.0e+30) || (getMinValue(multilayerNetwork) < -1.0e+30))
     {
       fitness = 1.0e-50;
     }

@@ -14,6 +14,7 @@
 #include "Network.hh"
 #include "VectorFieldReconfigurationImpl.hh"
 #include "NetworkModifier.hh"
+#include "MultilayerNetworkClassUtility.hh"
 
 int vectorHasDuplicatedElement(std::vector<int>& vectorToCheck)
 {
@@ -244,7 +245,7 @@ BOOST_AUTO_TEST_CASE(generateStructure_SavedStructureEqualsLoaded)
   MultilayerNetwork* multilayerNetwork2 = new MultilayerNetwork();
   multilayerNetwork2->load(filename);
 
-  bool structuresEqual = (*multilayerNetwork == *multilayerNetwork2);
+  bool structuresEqual = multilayerNetworksEqual(*multilayerNetwork, *multilayerNetwork2);
 
   BOOST_CHECK_MESSAGE(structuresEqual == true, "Saved and loaded structures don't match");
 
