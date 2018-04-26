@@ -24,6 +24,11 @@ Layer::~Layer(void)
   }
 }
 
+int Layer::getId(void) const
+{
+  return mLayerId;
+}
+
 int Layer::getTime()
 {
   return mMultilayerNetwork->getTime();
@@ -52,9 +57,9 @@ std::vector<Network*> Layer::getNetworks(void) const
   return mNetworks;
 }
 
-int Layer::getId(void) const
+MultilayerNetwork* Layer::getMultilayerNetwork()
 {
-  return mLayerId;
+  return mMultilayerNetwork;
 }
 
 void Layer::setMultilayerNetwork(MultilayerNetwork *multilayerNetwork)
@@ -64,11 +69,6 @@ void Layer::setMultilayerNetwork(MultilayerNetwork *multilayerNetwork)
   {
     (*itNet)->setMultilayerNetwork(multilayerNetwork);
   }
-}
-
-MultilayerNetwork* Layer::getMultilayerNetwork()
-{
-  return mMultilayerNetwork;
 }
 
 void Layer::print()

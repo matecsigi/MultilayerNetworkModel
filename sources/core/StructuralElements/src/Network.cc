@@ -33,6 +33,30 @@ Network::~Network(void)
   }
 }
 
+int Network::getId(void) const
+{
+  return mNetworkId;
+}
+
+void Network::setId(int id)
+{
+  mNetworkId = id;
+}
+
+int Network::getLocalId(int id) const
+{
+  int counter = 0;
+  for(std::vector<Node*>::const_iterator it=mNodes.begin(); it != mNodes.end(); ++it)
+  {
+    if((*it)->getId() == id)
+    {
+      return counter;
+    }
+    ++counter;
+  }
+  return -1;
+}
+
 int Network::getTime()
 {
   if(mMultilayerNetwork != NULL)
@@ -127,9 +151,24 @@ void Network::setEdgeWeight(int sourceId, int targetId, double weight)
   dynamicalEquation->setEdgeWeight(sourceId, weight);
 }
 
+Node* Network::getNodeAssigned(void) const
+{
+  return mNodeAssigned;
+}
+
 void Network::setNodeAssigned(Node* node)
 {
   mNodeAssigned = node;
+}
+
+DynamicalEquation* Network::getNodeDynamicalEquation(int nodeId) const
+{
+  int localId = getLocalId(nodeId);
+  if(localId != -1)
+  {
+    return mDynamicalEquations[localId];
+  }
+  return NULL;
 }
 
 void Network::setDynamicalEquation(int nodeId, DynamicalEquation* nodeEquation)
@@ -138,39 +177,34 @@ void Network::setDynamicalEquation(int nodeId, DynamicalEquation* nodeEquation)
   mDynamicalEquations[localId]->loadEquation(nodeEquation);
 }
 
+std::string Network::getNodeDynamicalEquationString(int nodeId) const
+{
+  int localId = getLocalId(nodeId);
+  if(localId != -1)
+  {
+    std::string result = mDynamicalEquations[localId]->toString();
+    return result;
+  }
+  return "";
+}
+
 void Network::setDynamicalEquationString(int nodeId, std::string strEquation)
 {
   int localId = getLocalId(nodeId);
   mDynamicalEquations[localId]->loadEquationString(strEquation);
 }
 
-void Network::setId(int id)
+Node* Network::getNodeById(int nodeId)
 {
-  mNetworkId = id;
-}
-
-int Network::getId(void) const
-{
-  return mNetworkId;
-}
-
-int Network::getLocalId(int id) const
-{
-  int counter = 0;
-  for(std::vector<Node*>::const_iterator it=mNodes.begin(); it != mNodes.end(); ++it)
+  for(std::vector<Node*>::iterator itNode=mNodes.begin(); itNode != mNodes.end(); ++itNode)
   {
-    if((*it)->getId() == id)
+    Node* currentNode = (*itNode);
+    if(currentNode->getId() == nodeId)
     {
-      return counter;
+      return currentNode;
     }
-    ++counter;
   }
-  return -1;
-}
-
-Node* Network::getNodeAssigned(void) const
-{
-  return mNodeAssigned;
+  return NULL;
 }
 
 std::vector<Node*> Network::getNodes(void) const
@@ -186,16 +220,6 @@ std::vector<Node*> Network::getNodeNeighbors(int nodeId) const
     return mNodeConnections[localId];
   }
   return {};
-}
-
-DynamicalEquation* Network::getNodeDynamicalEquation(int nodeId) const
-{
-  int localId = getLocalId(nodeId);
-  if(localId != -1)
-  {
-    return mDynamicalEquations[localId];
-  }
-  return NULL;
 }
 
 std::vector<IdValuePair> Network::getState(void) const
@@ -219,30 +243,6 @@ void Network::setState(std::vector<IdValuePair> state)
     double value = getValueForId(state, nodeId);
     (*itNode)->setCurrentState(value);
   }
-}
-
-std::string Network::getNodeDynamicalEquationString(int nodeId) const
-{
-  int localId = getLocalId(nodeId);
-  if(localId != -1)
-  {
-    std::string result = mDynamicalEquations[localId]->toString();
-    return result;
-  }
-  return "";
-}
-
-Node* Network::getNodeById(int nodeId)
-{
-  for(std::vector<Node*>::iterator itNode=mNodes.begin(); itNode != mNodes.end(); ++itNode)
-  {
-    Node* currentNode = (*itNode);
-    if(currentNode->getId() == nodeId)
-    {
-      return currentNode;
-    }
-  }
-  return NULL;
 }
 
 void Network::setMultilayerNetwork(MultilayerNetwork *multilayerNetwork)

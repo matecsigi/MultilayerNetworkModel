@@ -78,16 +78,6 @@ std::vector<Layer*> MultilayerNetwork::getLayers(void) const
   return mLayers;
 }
 
-void MultilayerNetwork::print()
-{
-  traceDebug("Multilayer Network\n");
-  for(std::vector<Layer*>::iterator itLay=mLayers.begin(); itLay != mLayers.end(); ++itLay)
-  {
-    traceDebug("  ");
-    (*itLay)->print();
-  }
-}
-
 void executeStepsInThread(std::vector<Node*> &nodes, SimulationParameterContainer *parameters)
 {
   for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
@@ -424,4 +414,14 @@ void MultilayerNetwork::loadState(const char* filename)
     delete [] buffer[i];
   }
   delete [] buffer;
+}
+
+void MultilayerNetwork::print()
+{
+  traceDebug("Multilayer Network\n");
+  for(std::vector<Layer*>::iterator itLay=mLayers.begin(); itLay != mLayers.end(); ++itLay)
+  {
+    traceDebug("  ");
+    (*itLay)->print();
+  }
 }

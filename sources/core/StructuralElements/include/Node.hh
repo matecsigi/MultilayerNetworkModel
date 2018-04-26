@@ -71,6 +71,14 @@ public:
   void step(SimulationParameterContainer *parameters);
 
   /**
+     Steps the dynamical equation. A node can have multiple dynamical equations,
+     because it can be part of multiple network in the same layer. Only one of these 
+     equations is stepped in this function.
+     @param dynamicalEquation: the dynamical equation to be stepped
+   */
+  void stepODE(DynamicalEquation* dynamicalEquation, SimulationParameterContainer *parameters);
+
+  /**
      Performs one step on the node involving only the ODE.
      The state given is used as the starting state of stepping.
      The dynamical equation is given as a parameter, because 
@@ -81,14 +89,6 @@ public:
      @param[out] finalState: the result of the stepping (final value) is stored here
    */
   void stepOdeAtState(DynamicalEquation* dynamicalEquation, std::vector<IdValuePair> &startingState, std::vector<IdValuePair> &finalState);
-
-  /**
-     Steps the dynamical equation. A node can have multiple dynamical equations,
-     because it can be part of multiple network in the same layer. Only one of these 
-     equations is stepped in this function.
-     @param dynamicalEquation: the dynamical equation to be stepped
-   */
-  void stepODE(DynamicalEquation* dynamicalEquation, SimulationParameterContainer *parameters);
 
   //------------------------------------
   //-----Utility------------------------

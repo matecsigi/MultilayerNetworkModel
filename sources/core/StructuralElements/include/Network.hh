@@ -39,14 +39,14 @@ public:
   double getEdgeWeight(int sourceId, int targetId);
   void setEdgeWeight(int sourceId, int targetId, double weight);
 
+  Node* getNodeAssigned(void) const;
+  void setNodeAssigned(Node *node);
+
   DynamicalEquation* getNodeDynamicalEquation(int nodeId) const;
   void setDynamicalEquation(int nodeId, DynamicalEquation* nodeEquation);
 
   std::string getNodeDynamicalEquationString(int nodeId) const;
   void setDynamicalEquationString(int nodeId, std::string strEquation);
-
-  Node* getNodeAssigned(void) const;
-  void setNodeAssigned(Node *node);
 
   Node* getNodeById(int nodeId);
   std::vector<Node*> getNodes(void) const;

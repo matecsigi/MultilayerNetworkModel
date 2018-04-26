@@ -58,16 +58,6 @@ Node::~Node(void)
   }
 }
 
-int Node::getTime()
-{
-  if(mMultilayerNetwork != NULL)
-  {
-    return mMultilayerNetwork->getTime();
-  }
-  Network *network = mNetworks[0];
-  return network->getTime();
-}
-
 int Node::getId(void) const
 {
   return mNodeId;
@@ -76,6 +66,16 @@ int Node::getId(void) const
 void Node::setId(int id)
 {
   mNodeId = id;
+}
+
+int Node::getTime()
+{
+  if(mMultilayerNetwork != NULL)
+  {
+    return mMultilayerNetwork->getTime();
+  }
+  Network *network = mNetworks[0];
+  return network->getTime();
 }
 
 std::vector<Network*> Node::getNetworks(void) const
@@ -99,19 +99,6 @@ void Node::addToNetwork(Network* network)
   mNetworks.push_back(network);
 }
 
-void Node::setValues(double* values)
-{
-  for(int i=0; i<bufferSize; ++i)
-  {
-    mValues[i] = values[i];
-  }
-}
-
-void Node::setCurrentState(double state)
-{
-  mValues[getIndexT(getTime())] = state;
-}
-
 void Node::getValues(double* values) const
 {
   for(int i=0; i<bufferSize; ++i)
@@ -120,9 +107,22 @@ void Node::getValues(double* values) const
   }
 }
 
+void Node::setValues(double* values)
+{
+  for(int i=0; i<bufferSize; ++i)
+  {
+    mValues[i] = values[i];
+  }
+}
+
 double Node::getCurrentState()
 {
   return mValues[getIndexT(getTime())];
+}
+
+void Node::setCurrentState(double state)
+{
+  mValues[getIndexT(getTime())] = state;
 }
 
 double Node::getPreviousState()
@@ -130,24 +130,24 @@ double Node::getPreviousState()
   return mValues[getIndexTMinusOne(getTime())];
 }
 
-void Node::setChangeByUpwardInfluence(int index, double value)
-{
-  mChangeByUpwardInfluence[index] = value;
-}
-
-void Node::setChangeByDownwardInfluence(int index, double value)
-{
-  mChangeByDownwardInfluence[index] = value;
-}
-
 double Node::getChangeByUpwardInfluence(int index)
 {
   return mChangeByUpwardInfluence[index];
 }
 
+void Node::setChangeByUpwardInfluence(int index, double value)
+{
+  mChangeByUpwardInfluence[index] = value;
+}
+
 double Node::getChangeByDownwardInfluence(int index)
 {
   return mChangeByDownwardInfluence[index];
+}
+
+void Node::setChangeByDownwardInfluence(int index, double value)
+{
+  mChangeByDownwardInfluence[index] = value;
 }
 
 void Node::step(SimulationParameterContainer *parameters)

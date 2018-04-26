@@ -24,8 +24,8 @@ public:
   Network* insertNetwork(Network* network);
   std::vector<Network*> getNetworks(void) const;
 
-  void setMultilayerNetwork(MultilayerNetwork *multilayerNetwork);
   MultilayerNetwork* getMultilayerNetwork();
+  void setMultilayerNetwork(MultilayerNetwork *multilayerNetwork);
 
   //------------------------------------
   //-----Utility------------------------
