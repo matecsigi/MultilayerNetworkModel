@@ -1,5 +1,6 @@
 #include "GeneticAlgorithmController.hh"
 #include "NetworkUtilityFunctions.hh"
+#include "NetworkClassUtility.hh"
 #include <algorithm>
 #include <stdlib.h>
 #include <ctime>
@@ -114,7 +115,7 @@ void GeneticAlgorithmController::mutation()
     NetworkModifier networkModifier(&mGeneticParameters);
     networkModifier.modifyNetwork(mutatedNetwork);
 
-    mutatedNetwork->loadNodesToEquations();
+    loadNodesToEquations(mutatedNetwork);
 
     NetworkPopulationElement* mutatedElement = new NetworkPopulationElement(mutatedNetwork, mTargetVectorField, mFitnessFunction);
     mutatedElement->setRank(networkElement->getRank());
@@ -335,21 +336,8 @@ void GeneticAlgorithmController::createMixedNetwork(Network* parentNetwork1, Net
       childNetwork->addEdge(nodeId1, nodeId2);
     }
 
-    // std::string strEquation = parentNetwork->getNodeDynamicalEquationString(parentNode->getId());
-    // childNetwork->setDynamicalEquation(childNode->getId(), strEquation);
-
     std::string strDynamicalEquation = parentNetwork->getNodeDynamicalEquationString(parentNode->getId());
     childNetwork->setDynamicalEquationString(childNode->getId(), strDynamicalEquation);
-
-    // DynamicalEquation* nodeEquation = childNetwork->getNodeDynamicalEquation(childNode->getId());
-    // std::vector<Node*> nodes = childNetwork->getNodeNeighbors(childNode->getId());
-    // nodes.push_back(childNode);
-    // std::map<int, Node*> nodesMap;
-    // for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
-    // {
-    //   nodesMap[(*itNode)->getId()] = *itNode;
-    // }
-    // nodeEquation->loadNodesToEquation(nodeEquation->getBaseCalculationNode(), nodesMap);
   }
   free(rand_state);
   free(rand_statebufs);
@@ -451,6 +439,7 @@ void GeneticAlgorithmController::printPopulation()
   for(std::vector<NetworkPopulationElement*>::iterator itPop=mPopulation.begin(); itPop != mPopulation.end(); ++itPop)
   {
     std::cout<<"  element fitness="<<(*itPop)->getFitness()<<std::endl;
-    std::cout<<"  network="<<*(*itPop)->getNetwork()<<std::endl;
+    Network *network = (*itPop)->getNetwork();
+    network->print();
   }
 }

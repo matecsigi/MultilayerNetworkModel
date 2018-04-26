@@ -16,14 +16,13 @@ public:
   //------------------------------------
   //-----Basic--------------------------
   //------------------------------------
+  int getId(void) const;
 
   int getTime();
 
   void addNetwork(int networkId);
   Network* insertNetwork(Network* network);
   std::vector<Network*> getNetworks(void) const;
-
-  int getId(void) const;
 
   void setMultilayerNetwork(MultilayerNetwork *multilayerNetwork);
   MultilayerNetwork* getMultilayerNetwork();
@@ -33,8 +32,6 @@ public:
   //------------------------------------
 
   void print();
-
-  friend bool operator==(const Layer& layer1, const Layer& layer2);
 
 private:
   int mLayerId;

@@ -52,8 +52,6 @@ public:
   std::vector<Node*> getNodes(void) const;
   std::vector<Node*> getNodeNeighbors(int nodeId) const;
 
-  void setMultilayerNetwork(MultilayerNetwork *multilayerNetwork);
-
   /**
      Return the actual state of the network i.e. the actual 
      value of all the nodes in the network.
@@ -63,16 +61,13 @@ public:
   std::vector<IdValuePair> getState(void) const;
   void setState(std::vector<IdValuePair> state);
 
+  void setMultilayerNetwork(MultilayerNetwork *multilayerNetwork);
+
   //------------------------------------
   //-----Utility------------------------
   //------------------------------------
 
-  int getNodeDegree(int nodeId);
-  void loadNodesToEquations();
   void print();
-
-  friend bool operator==(const Network& network1, const Network& network2);
-  friend std::ostream& operator<<(std::ostream &os, const Network &network);
 
 private:
   int mNetworkId;
@@ -95,7 +90,6 @@ private:
    */
   std::vector<DynamicalEquation*> mDynamicalEquations;
   MultilayerNetwork *mMultilayerNetwork;
-
   int mTime;
 };
 

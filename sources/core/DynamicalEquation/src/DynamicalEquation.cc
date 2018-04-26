@@ -1,5 +1,6 @@
 #include "DynamicalEquation.hh"
 #include "Network.hh"
+#include "NetworkClassUtility.hh"
 #include "NetworkModifier.hh"
 #include "interpreter.h"
 #include "scanner.h"
@@ -75,13 +76,13 @@ CalculationNode* DynamicalEquation::getBaseCalculationNode(void)
 void DynamicalEquation::setBaseCalculationNode(CalculationNode* baseCalcNode)
 {
   mBaseCalculationNode = baseCalcNode;
-  mNetwork->loadNodesToEquations();
+  loadNodesToEquations(mNetwork);
 }
 
 void DynamicalEquation::loadEquation(DynamicalEquation* dynamicalEquation)
 {
   mBaseCalculationNode = copyEquation(dynamicalEquation->getBaseCalculationNode(), mBaseCalculationNode);
-  mNetwork->loadNodesToEquations();
+  loadNodesToEquations(mNetwork);
 }
 
 CalculationNode* DynamicalEquation::copyEquation(CalculationNode* originalCalcNode, CalculationNode* newCalcNode)
@@ -142,7 +143,7 @@ void DynamicalEquation::loadEquationString(std::string strEquation)
   i.switchInputStream(&myStream);
   i.parse();
   mBaseCalculationNode = i.getBaseCalculationNode();
-  mNetwork->loadNodesToEquations();
+  loadNodesToEquations(mNetwork);
 }
 
 void DynamicalEquation::loadNodesToEquation(CalculationNode* calcPtr, std::map<int, Node*> &nodesMap)

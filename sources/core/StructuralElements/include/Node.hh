@@ -27,11 +27,11 @@ public:
   //-----Basic--------------------------
   //------------------------------------
 
-  int getTime();
-  
   int getId(void) const;
   void setId(int id);
 
+  int getTime();
+  
   std::vector<Network*> getNetworks(void) const;
 
   Network* getNetworkAssigned(void) const;
@@ -60,7 +60,9 @@ public:
 
   void setMultilayerNetwork(MultilayerNetwork *multilayerNetwork);
 
-  //Simulation
+  //------------------------------------
+  //-----Simulation---------------------
+  //------------------------------------
   /**
      Performs one step on the node involving the ODE, 
      UpwardInfluence, DownwardInfluence and VectorFieldReconfiguration.
@@ -92,13 +94,7 @@ public:
   //-----Utility------------------------
   //------------------------------------
 
-  double getMaxValue();
-  double getMinValue();
-
   void print();
-
-  friend bool operator==(const Node& node1, const Node& node2);
-  friend std::ostream& operator<<(std::ostream &os, const Node &node);
   
 private:
   int mNodeId;

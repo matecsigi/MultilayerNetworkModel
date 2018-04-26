@@ -2,6 +2,8 @@
 #include "MultilayerNetwork.hh"
 #include "Network.hh"
 #include "Node.hh"
+#include "LayerClassUtility.hh"
+#include "NodeClassUtility.hh"
 #include <algorithm>
 #include <boost/mpi.hpp>
 
@@ -44,9 +46,9 @@ double getMaxValue(MultilayerNetwork *multilayerNetwork)
   for(std::vector<int>::iterator itId=multilayerNetwork->mNodeIds.begin(); itId != multilayerNetwork->mNodeIds.end(); ++itId)
   {
     Node* node = multilayerNetwork->mNodesMap[*itId];
-    if(node->getMaxValue() > max)
+    if(getMaxValue(node) > max)
     {
-      max = node->getMaxValue();
+      max = getMaxValue(node);
     }
   }
   return max;
@@ -58,9 +60,9 @@ double getMinValue(MultilayerNetwork *multilayerNetwork)
   for(std::vector<int>::iterator itId=multilayerNetwork->mNodeIds.begin(); itId != multilayerNetwork->mNodeIds.end(); ++itId)
   {
     Node* node = multilayerNetwork->mNodesMap[*itId];
-    if(node->getMinValue() < min)
+    if(getMinValue(node) < min)
     {
-      min = node->getMinValue();
+      min = getMinValue(node);
     }
   }
   return min;
@@ -204,7 +206,7 @@ bool multilayerNetworksEqual(MultilayerNetwork& multilayerNetwork1, MultilayerNe
     {
       Layer* currentLayer = (*itLay);
       Layer* correspondingLayer = layerMap[currentLayer->getId()];
-      if(!(*currentLayer == *correspondingLayer))
+      if(!(layersEqual(*currentLayer, *correspondingLayer)))
       {
 	return false;
       }

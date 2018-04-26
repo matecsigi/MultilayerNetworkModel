@@ -130,32 +130,6 @@ double Node::getPreviousState()
   return mValues[getIndexTMinusOne(getTime())];
 }
 
-double Node::getMaxValue()
-{
-  double max = 0;
-  for(int i=0; i<bufferSize; ++i)
-  {
-    if(mValues[i] > max)
-    {
-      max = mValues[i];
-    }
-  }
-  return max;
-}
-
-double Node::getMinValue()
-{
-  double min = 0;
-  for(int i=0; i<bufferSize; ++i)
-  {
-    if(mValues[i] < min)
-    {
-      min = mValues[i];
-    }
-  }
-  return min;
-}
-
 void Node::setChangeByUpwardInfluence(int index, double value)
 {
   mChangeByUpwardInfluence[index] = value;
@@ -246,53 +220,4 @@ void Node::print()
     }
     traceDetailed("\n");
   }
-}
-
-bool operator==(const Node& node1, const Node& node2)
-{
-  Network* networkAssigned1 = node1.getNetworkAssigned();
-  Network* networkAssigned2 = node2.getNetworkAssigned();
-  
-  if((networkAssigned1 == NULL) && (networkAssigned2 == NULL))
-  {
-    return true;
-  }
-  else if((networkAssigned1 != NULL) && (networkAssigned2 == NULL))
-  {
-    return false;
-  }
-  else if((networkAssigned1 == NULL) && (networkAssigned2 != NULL))
-  {
-    return false;
-  }
-  else if(networkAssigned1->getId() != networkAssigned2->getId())
-  {
-    return false;
-  }
-
-  return true;
-}
-
-std::ostream& operator<<(std::ostream &os, const Node &node)
-{
-  os<<"Node "<<node.getId()<<std::endl;
-
-  //printing state
-  // double* tmpBuffer = new double[bufferSize];
-  // node.getValues(tmpBuffer);
-  // for(int i=0; i<bufferSize; ++i)
-  // {
-  //   os<<" "<<tmpBuffer[i];
-  // }
-  // os<<std::endl;
-  // delete [] tmpBuffer;
-
-  //printing equation
-  std::vector<Network*> networks = node.getNetworks();
-  for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
-  {
-    os<<"  "<<(*itNet)->getNodeDynamicalEquationString(node.getId())<<std::endl;
-  }
-
-  return os;
 }

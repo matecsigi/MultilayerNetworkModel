@@ -1,5 +1,6 @@
 #include "BarabasiModel.hh"
 #include "Node.hh"
+#include "NetworkClassUtility.hh"
 
 void generateNetwork(Network* network, int numberOfNodes, int m)
 {
@@ -29,14 +30,14 @@ Node* chooseNodePreferential(Node* newNode, Network* network)
   int sumDegree = 0;
   for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
   {
-    sumDegree += network->getNodeDegree((*itNode)->getId());
+    sumDegree += getNodeDegree(network, (*itNode)->getId());
   }
 
   double random = (rand()/RAND_MAX)*sumDegree;
   double counter = 0;
   for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
   {
-    counter += network->getNodeDegree((*itNode)->getId());
+    counter += getNodeDegree(network, (*itNode)->getId());
     if(counter >= random)
     {
       return (*itNode);
