@@ -38,7 +38,7 @@ ${CMAKE_SOURCE_DIR}/sources/projects/MpiCluster/include
 ${CMAKE_SOURCE_DIR}/sources/projects/Analyzis/include)
 
 add_executable(testing
-${CMAKE_SOURCE_DIR}/sources/test/test_StructureGeneration.cc ${core_src}
+${CMAKE_SOURCE_DIR}/sources/test/UnitTest/TestMain.cc ${core_src}
 ${generators_src} ${parser_src} ${cluster_src})
 add_executable(generate
 ${CMAKE_SOURCE_DIR}/sources/projects/MainProject/GenerateMain.cc ${core_src}
