@@ -13,6 +13,7 @@ file(GLOB_RECURSE parser_src "sources/parser/src/*.cpp")
 file(GLOB_RECURSE project_hebbian_src "sources/projects/HebbianProject/src/*.cc")
 file(GLOB_RECURSE cluster_src "sources/projects/MpiCluster/src/*.cc")
 file(GLOB_RECURSE analyzis_src "sources/projects/Analyzis/src/*.cc")
+file(GLOB_RECURSE test_src "sources/test/UnitTest/*.cc")
 
 add_definitions(-DTRACELEVEL=${TRACE})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
@@ -35,10 +36,12 @@ ${CMAKE_SOURCE_DIR}/sources/external
 ${CMAKE_SOURCE_DIR}/sources/projects/MainProject/include
 ${CMAKE_SOURCE_DIR}/sources/projects/HebbianProject/include
 ${CMAKE_SOURCE_DIR}/sources/projects/MpiCluster/include
-${CMAKE_SOURCE_DIR}/sources/projects/Analyzis/include)
+${CMAKE_SOURCE_DIR}/sources/projects/Analyzis/include
+${CMAKE_SOURCE_DIR}/sources/test/UnitTest)
 
 add_executable(testing
-${CMAKE_SOURCE_DIR}/sources/test/UnitTest/TestMain.cc ${core_src}
+${CMAKE_SOURCE_DIR}/sources/test/UnitTest/TestMain.cc ${test_src}
+${core_src}
 ${generators_src} ${parser_src} ${cluster_src})
 add_executable(generate
 ${CMAKE_SOURCE_DIR}/sources/projects/MainProject/GenerateMain.cc ${core_src}
