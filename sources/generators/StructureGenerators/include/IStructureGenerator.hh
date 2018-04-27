@@ -10,7 +10,7 @@ public:
   IStructureGenerator(MultilayerNetwork* multilayerNetwork){mMultilayerNetwork = multilayerNetwork;};
   virtual ~IStructureGenerator(void){};
 
-  virtual void generateStructure() = 0;
+  virtual void generateStructure(int numberOfNodesPerNetwork, int numberOfLayers) = 0;
 protected:
   MultilayerNetwork* mMultilayerNetwork;
 };

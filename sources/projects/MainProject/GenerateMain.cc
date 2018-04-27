@@ -21,7 +21,7 @@ int main(void)
   MultilayerNetwork* multilayerNetwork = new MultilayerNetwork;
 
   IStructureGenerator* structureGenerator = new StructureGeneratorImpl(multilayerNetwork);
-  structureGenerator->generateStructure();
+  structureGenerator->generateStructure(6, 3);
 
   IDynamicalEquationGenerator* dynamicalEquationGenerator = new DynamicalEquationGeneratorSimpleImpl(multilayerNetwork);
   dynamicalEquationGenerator->generateDynamicalEquations();
