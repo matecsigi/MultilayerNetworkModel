@@ -74,11 +74,18 @@ void Network::setTime(int time)
 Node* Network::addNode()
 {
   int maxNodeId = 0;
-  for(std::vector<Node*>::iterator itNode=mNodes.begin(); itNode != mNodes.end(); ++itNode)
+  if(mMultilayerNetwork != NULL)
   {
-    if((*itNode)->getId() > maxNodeId)
+    maxNodeId = getMaxNodeId(mMultilayerNetwork);
+  }
+  else
+  {
+    for(std::vector<Node*>::iterator itNode=mNodes.begin(); itNode != mNodes.end(); ++itNode)
     {
-      maxNodeId = (*itNode)->getId();
+      if((*itNode)->getId() > maxNodeId)
+      {
+	maxNodeId = (*itNode)->getId();
+      }
     }
   }
   Node* newNode = new Node(maxNodeId+1);

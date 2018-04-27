@@ -34,7 +34,17 @@ int Layer::getTime()
   return mMultilayerNetwork->getTime();
 }
 
-void Layer::addNetwork(int networkId)
+Network* Layer::addNetwork()
+{
+  Network* newNetwork = new Network;
+  setIds(this, newNetwork);
+  loadNodesToEquations(newNetwork);
+  newNetwork->setMultilayerNetwork(mMultilayerNetwork);
+  mNetworks.push_back(newNetwork);
+  return newNetwork;
+}
+
+void Layer::addNetworkById(int networkId)
 {
   Network *newNetwork = new Network(networkId);
   newNetwork->setMultilayerNetwork(mMultilayerNetwork);

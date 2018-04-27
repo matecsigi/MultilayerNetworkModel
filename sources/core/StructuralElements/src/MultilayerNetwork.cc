@@ -263,7 +263,7 @@ void MultilayerNetwork::load(const char* filename)
     for(SizeType ii=0; ii<networkArray.Size(); ++ii)
     {
       Value& networkObject = networkArray[ii];
-      layer->addNetwork(networkObject["id"].GetInt());
+      layer->addNetworkById(networkObject["id"].GetInt());
       std::vector<Network*> networks = layer->getNetworks();
       Network* network = networks[networks.size()-1];
       allNetworks[network->getId()] = network;

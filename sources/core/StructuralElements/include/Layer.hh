@@ -20,7 +20,8 @@ public:
 
   int getTime();
 
-  void addNetwork(int networkId);
+  Network* addNetwork();
+  void addNetworkById(int networkId);
   Network* insertNetwork(Network* network);
   std::vector<Network*> getNetworks(void) const;
 
