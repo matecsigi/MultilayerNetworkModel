@@ -1,4 +1,5 @@
 #include "VectorField.hh"
+#include "VectorFieldClassUtility.hh"
 #include "UtilityFunctions.hh"
 #include <math.h>
 #include <iostream>
@@ -17,7 +18,40 @@ VectorField::~VectorField()
 
 void VectorField::addPoint(std::vector<IdValuePair> &coordinate, std::vector<IdValuePair> &direction)
 {
-  mVectorFieldPoints.push_back(new VectorFieldPoint(coordinate, direction));
+  VectorFieldPoint *point = getPoint(coordinate);
+  if(point != NULL)
+  {
+    point->setDirection(direction);
+  }
+  else
+  {
+    mVectorFieldPoints.push_back(new VectorFieldPoint(coordinate, direction));
+  }
+}
+
+VectorFieldPoint* VectorField::getPoint(std::vector<IdValuePair> &coordinate)
+{
+  for(std::vector<VectorFieldPoint*>::iterator itPoint=mVectorFieldPoints.begin(); itPoint != mVectorFieldPoints.end(); ++itPoint)
+  {
+    bool equal = true;
+    std::vector<IdValuePair> currentCoordinate = (*itPoint)->getCoordinate();
+    for(std::vector<IdValuePair>::iterator itCor=coordinate.begin(); itCor != coordinate.end(); ++itCor)
+    {
+      int key = itCor->mId;
+      double value = itCor->mValue;
+      if(getValueForId(currentCoordinate, key) != value)
+      {
+	equal = false;
+	break;
+      }
+    }
+    if(equal == true)
+    {
+      return (*itPoint);
+    }
+  }
+
+  return NULL;
 }
 
 std::vector<VectorFieldPoint*> VectorField::getVectorFieldPoints()
@@ -38,7 +72,7 @@ double VectorField::getDistanceFrom(VectorField* vectorField)
     VectorFieldPoint* currentPoint = (*itPoint);
     std::vector<IdValuePair> coordinate = currentPoint->getCoordinate();
     std::vector<IdValuePair> direction1 = currentPoint->getDirection();
-    std::vector<IdValuePair> direction2 = vectorField->getDirectionForCoordinate(coordinate);
+    std::vector<IdValuePair> direction2 = (vectorField->getPoint(coordinate))->getDirection();
     double pointDistance = 0;
     for(std::vector<IdValuePair>::iterator itDir=direction1.begin(); itDir != direction1.end(); ++itDir)
     {
@@ -53,31 +87,6 @@ double VectorField::getDistanceFrom(VectorField* vectorField)
   distance = distance/numberOfPoints;
 
   return distance;
-}
-
-std::vector<IdValuePair> VectorField::getDirectionForCoordinate(std::vector<IdValuePair> &coordinate)
-{
-  for(std::vector<VectorFieldPoint*>::iterator itPoint=mVectorFieldPoints.begin(); itPoint != mVectorFieldPoints.end(); ++itPoint)
-  {
-    bool equal = true;
-    std::vector<IdValuePair> currentCoordinate = (*itPoint)->getCoordinate();
-    for(std::vector<IdValuePair>::iterator itCor=coordinate.begin(); itCor != coordinate.end(); ++itCor)
-    {
-      int key = itCor->mId;
-      double value = itCor->mValue;
-      if(getValueForId(currentCoordinate, key) != value)
-      {
-	equal = false;
-	break;
-      }
-    }
-    if(equal == true)
-    {
-      return (*itPoint)->getDirection();
-    }
-  }
-  std::vector<IdValuePair> defaultReturn;
-  return defaultReturn;
 }
 
 std::ostream& operator<<(std::ostream& os, const VectorField &vectorField)

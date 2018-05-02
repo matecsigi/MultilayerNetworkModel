@@ -1,0 +1,6 @@
+#ifndef VECTORFIELDCLASSUTILITY_HH
+#define VECTORFIELDCLASSUTILITY_HH
+
+class VectorField;
+
+#endif

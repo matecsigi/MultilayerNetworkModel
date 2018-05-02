@@ -19,10 +19,25 @@ public:
   {
     return mCoordinate;
   }
+
+  void setCoordinate(std::vector<IdValuePair> &coordinate)
+  {
+    mCoordinate = coordinate;
+  }
   
   std::vector<IdValuePair> getDirection()
   {
     return mDirection;
+  }
+
+  void setDirection(std::vector<IdValuePair> &direction)
+  {
+    mDirection = direction;
+  }
+
+  int getDimension()
+  {
+    return mCoordinate.size();
   }
 
   friend std::ostream& operator<<(std::ostream& os, const VectorFieldPoint &vectorFieldPoint);
