@@ -3,6 +3,7 @@
 #include "UtilityFunctions.hh"
 #include <math.h>
 #include <iostream>
+#include <algorithm>
 
 VectorField::VectorField()
 {
@@ -18,6 +19,28 @@ VectorField::~VectorField()
 
 void VectorField::addPoint(std::vector<IdValuePair> &coordinate, std::vector<IdValuePair> &direction)
 {
+  if(mVectorFieldPoints.size() > 0)
+  {
+    VectorFieldPoint *referencePoint = mVectorFieldPoints[0];
+    std::vector<IdValuePair> referenceCoordinate = referencePoint->getCoordinate();
+    std::vector<int> referenceIds = getIds(referenceCoordinate);
+    std::vector<int> ids = getIds(coordinate);
+
+    if(ids.size() != referenceIds.size())
+    {
+      std::cout<<"Error: VectorFieldPoint dimensions don't match in VectorField."<<std::endl;
+      exit(EXIT_FAILURE);
+    }
+
+    std::sort(referenceIds.begin(), referenceIds.end());
+    std::sort(ids.begin(), ids.end());
+    if(ids != referenceIds)
+    {
+      std::cout<<"Error: VectorFieldPoint coordinate ids don't match in VectorField"<<std::endl;
+      exit(EXIT_FAILURE);
+    }
+  }
+
   VectorFieldPoint *point = getPoint(coordinate);
   if(point != NULL)
   {
@@ -67,6 +90,12 @@ double VectorField::getDistanceFrom(VectorField* vectorField)
   std::vector<VectorFieldPoint*> vectorFieldPoints1 = mVectorFieldPoints;
   std::vector<VectorFieldPoint*> vectorFieldPoints2 = vectorField->getVectorFieldPoints();
 
+  if((vectorFieldPoints1.size() == 0) || (vectorFieldPoints2.size() == 0))
+  {
+    std::cout<<"Error: Distance calculation for VectorField with 0 points."<<std::endl;
+    exit(EXIT_FAILURE);
+  }
+
   for(std::vector<VectorFieldPoint*>::iterator itPoint=vectorFieldPoints1.begin(); itPoint != vectorFieldPoints1.end(); ++itPoint)
   {
     VectorFieldPoint* currentPoint = (*itPoint);
@@ -84,7 +113,7 @@ double VectorField::getDistanceFrom(VectorField* vectorField)
     }
     distance += sqrt(pointDistance);
   }
-  distance = distance/numberOfPoints;
+  distance = distance/(double)numberOfPoints;
 
   return distance;
 }
