@@ -6,6 +6,7 @@ set(CMAKE_CXX_COMPILER "mpic++")
 project(MultilayerModel)
 
 add_subdirectory(sources/projects/MpiCluster)
+add_subdirectory(sources/test/FunctionalityTest)
 
 file(GLOB_RECURSE core_src "sources/core/*.cc")
 file(GLOB_RECURSE generators_src "sources/generators/*.cc")
@@ -13,7 +14,7 @@ file(GLOB_RECURSE parser_src "sources/parser/src/*.cpp")
 file(GLOB_RECURSE project_hebbian_src "sources/projects/HebbianProject/src/*.cc")
 file(GLOB_RECURSE cluster_src "sources/projects/MpiCluster/src/*.cc")
 file(GLOB_RECURSE analyzis_src "sources/projects/Analyzis/src/*.cc")
-file(GLOB_RECURSE test_src "sources/test/UnitTest/*.cc")
+file(GLOB_RECURSE unittest_src "sources/test/UnitTest/*.cc")
 
 add_definitions(-DTRACELEVEL=${TRACE})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
@@ -40,7 +41,7 @@ ${CMAKE_SOURCE_DIR}/sources/projects/Analyzis/include
 ${CMAKE_SOURCE_DIR}/sources/test/UnitTest)
 
 add_executable(testing
-${CMAKE_SOURCE_DIR}/sources/test/UnitTest/TestMain.cc ${test_src}
+${CMAKE_SOURCE_DIR}/sources/test/UnitTest/TestMain.cc ${unittest_src}
 ${core_src}
 ${generators_src} ${parser_src} ${cluster_src})
 add_executable(generate
