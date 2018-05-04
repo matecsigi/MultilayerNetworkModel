@@ -339,6 +339,13 @@ void loadPopulation(Network* network, int control, std::string folderName)
 
 }
 
+void createDirectory(std::string dirName)
+{
+  const char* path = dirName.c_str();
+  boost::filesystem::path dir(path);
+  boost::filesystem::create_directory(dir);
+}
+
 void printDirection(std::vector<IdValuePair> direction)
 {
   std::cout<<"DIRECTION"<<std::endl;

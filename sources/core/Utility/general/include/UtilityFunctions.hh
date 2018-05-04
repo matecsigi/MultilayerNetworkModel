@@ -34,6 +34,8 @@ void saveNetworkToJSON(Network* network, std::string filename);
 
 void loadPopulation(Network* network, int control, std::string folderName);
 
+void createDirectory(std::string dirName);
+
 void printDirection(std::vector<IdValuePair> direction);
 
 #endif

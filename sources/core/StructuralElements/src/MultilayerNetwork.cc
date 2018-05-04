@@ -163,6 +163,8 @@ void MultilayerNetwork::iterate(int steps, SimulationParameterContainer *paramet
 
 void MultilayerNetwork::save(std::string filename)
 {
+  createDirectory("generated");
+
   if(filename.empty())
   {
     filename.append("generated/multilayerStructure_");
@@ -319,6 +321,8 @@ void MultilayerNetwork::load(const char* filename)
 
 void MultilayerNetwork::saveState(std::string filename)
 {
+  createDirectory("generated");
+
   if(filename.empty())
   {
     filename.append("generated/nodeStates_");
