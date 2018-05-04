@@ -2,14 +2,13 @@
 build
 lib/*
 generated/*
-CMakeFiles/*
-CMakeCache.txt
 cmake_install.cmake
 *Makefile
 
 valgrindOut/*
 
-sources/projects/MpiCluster/CMakeFiles/*
+*CMakeFiles/*
+*CMakeCache.txt
 
 sources/projects/BarabasiMultilayer/generated/*
 
