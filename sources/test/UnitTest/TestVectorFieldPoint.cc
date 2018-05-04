@@ -13,11 +13,18 @@ BOOST_AUTO_TEST_CASE(VectorFieldPointIdDuplication)
     direction.push_back(IdValuePair(i, 1/(double)i));
   }
 
-  int dimensionOriginal = coordinate.size();
+  // Duplicating Id - uncommenting yields error
+  // coordinate.push_back(IdValuePair(1, 2));
+  // direction.push_back(IdValuePair(1, 1));
 
-  //Duplicating Id
-  coordinate.push_back(IdValuePair(1, 2));
-  direction.push_back(IdValuePair(1, 1));
+  // Different coordinate and direction dimension - uncommenting yields error
+  // coordinate.push_back(IdValuePair(100, 2));
+
+  // Different coordinate and dimension ids - uncommenting yields error
+  // coordinate.push_back(IdValuePair(100, 2));
+  // direction.push_back(IdValuePair(101, 1));
+
+  int dimensionOriginal = coordinate.size();
 
   VectorFieldPoint *point = new VectorFieldPoint(coordinate, direction);
   int dimensionNew = point->getDimension();

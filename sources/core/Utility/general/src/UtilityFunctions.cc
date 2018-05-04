@@ -118,6 +118,39 @@ void setValueForId(std::vector<IdValuePair> &pairVector, int id, double value)
   pairVector.push_back(IdValuePair(id, value));
 }
 
+bool containsDuplicate(std::vector<int> &vectorToCheck)
+{
+  std::sort(vectorToCheck.begin(), vectorToCheck.end());
+  for(unsigned i=0; i<vectorToCheck.size()-1; ++i)
+  {
+    if(vectorToCheck[i] == vectorToCheck[i+1])
+    {
+      return true;
+    }
+  }
+  return false;
+}
+
+std::vector<int> getIds(std::vector<IdValuePair> &pairVector)
+{
+  std::vector<int> ids;
+  for(std::vector<IdValuePair>::iterator itPair=pairVector.begin(); itPair != pairVector.end(); ++itPair)
+  {
+    ids.push_back(itPair->mId);
+  }
+  return ids;
+}
+
+std::vector<double> getValues(std::vector<IdValuePair> &pairVector)
+{
+  std::vector<double> values;
+  for(std::vector<IdValuePair>::iterator itPair=pairVector.begin(); itPair != pairVector.end(); ++itPair)
+  {
+    values.push_back(itPair->mValue);
+  }
+  return values;
+}
+
 VectorFieldPoint* findCorrespondingPoint(VectorFieldPoint* point, VectorField* vectorField)
 {
   std::vector<IdValuePair> coordinate = point->getCoordinate();

@@ -2,6 +2,38 @@
 #include "UtilityFunctions.hh"
 #include <iostream>
 #include <vector>
+#include <algorithm>
+
+VectorFieldPoint::VectorFieldPoint(std::vector<IdValuePair> &coordinate, std::vector<IdValuePair> &direction)
+{
+  //Check for duplicated id
+  std::vector<int> coordinateIds = getIds(coordinate);
+  std::vector<int> directionIds = getIds(direction); 
+  if(containsDuplicate(coordinateIds) || containsDuplicate(directionIds))
+  {
+    std::cout<<"Error: VectorFieldPoint coordinate or direction contains duplicated id."<<std::endl;
+    exit(EXIT_FAILURE);
+  }
+
+  //Check if coordinate and direction dimensions match
+  if(coordinateIds.size() != directionIds.size())
+  {
+    std::cout<<"Error: VectorFieldPoint coordinate and direction dimensions don't match."<<std::endl;
+    exit(EXIT_FAILURE);
+  }
+
+  //check if coordinate and direction ids match
+  std::sort(coordinateIds.begin(), coordinateIds.end());
+  std::sort(directionIds.begin(), directionIds.end());
+  if(coordinateIds != directionIds)
+  {
+    std::cout<<"Error: VectorFieldPoint coordinate and direction ids don't match."<<std::endl;
+    exit(EXIT_FAILURE);
+  }
+  
+  mCoordinate = coordinate;
+  mDirection = direction;
+}
 
 std::ostream& operator<<(std::ostream& os, const VectorFieldPoint &vectorFieldPoint)
 {

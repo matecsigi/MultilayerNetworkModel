@@ -8,11 +8,7 @@
 class VectorFieldPoint
 {
 public:
-  VectorFieldPoint(std::vector<IdValuePair> &coordinate, std::vector<IdValuePair> &direction)
-  {
-    mCoordinate = coordinate;
-    mDirection = direction;
-  }
+  VectorFieldPoint(std::vector<IdValuePair> &coordinate, std::vector<IdValuePair> &direction);
   ~VectorFieldPoint(){};
 
   std::vector<IdValuePair> getCoordinate()
