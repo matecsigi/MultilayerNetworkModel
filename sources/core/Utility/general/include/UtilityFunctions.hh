@@ -1,5 +1,5 @@
 #ifndef UTILITYFUNCTIONS_HH
-#define UTILITIFUNCTIONS_HH
+#define UTILITYFUNCTIONS_HH
 
 #include "MultilayerNetwork.hh"
 #include "Layer.hh"
@@ -13,7 +13,7 @@ int getIndexTMinusTwo(int t);
 
 //Structure building
 
-void setIds(Layer* layer, Network* network);
+void setIds(Layer* layer, Network* network, std::map<int,int>* idMap = NULL);
 int getMaxNetworkId(MultilayerNetwork *multilayerNetwork);
 int getMaxNodeId(MultilayerNetwork *multilayerNetwork);
 

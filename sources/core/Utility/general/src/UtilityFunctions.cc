@@ -30,18 +30,24 @@ int getIndexTMinusTwo(int t)
   return t%(bufferSize-2);
 }
 
-void setIds(Layer* layer, Network* network)
+void setIds(Layer* layer, Network* network, std::map<int,int>* idMap)
 {
   int maxNetworkId = getMaxNetworkId(layer->getMultilayerNetwork());
   int maxNodeId = getMaxNodeId(layer->getMultilayerNetwork());
 
+  bool deletionNeeded = false;
+  if(idMap == NULL)
+  {
+    idMap = new std::map<int,int>;
+    deletionNeeded = true;
+  }
+
   network->setId(maxNetworkId+1);
   std::vector<Node*> nodes = network->getNodes();
   int nodeCounter = 1;
-  std::map<int, int> idMap;
   for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
   {
-    idMap[(*itNode)->getId()] = maxNodeId+nodeCounter;
+    (*idMap)[(*itNode)->getId()] = maxNodeId+nodeCounter;
     (*itNode)->setId(maxNodeId+nodeCounter);
     ++nodeCounter;
   }
@@ -49,8 +55,10 @@ void setIds(Layer* layer, Network* network)
   for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
   {
     DynamicalEquation *dynamicalEquation = network->getNodeDynamicalEquation((*itNode)->getId());
-    dynamicalEquation->reassignNodeIds(dynamicalEquation->getBaseCalculationNode(), idMap);
+    dynamicalEquation->reassignNodeIds(dynamicalEquation->getBaseCalculationNode(), *idMap);
   }
+
+  if(deletionNeeded){delete idMap;}
 }
 
 int getMaxNetworkId(MultilayerNetwork *multilayerNetwork)

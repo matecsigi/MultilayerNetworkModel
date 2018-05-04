@@ -1,5 +1,6 @@
 #include "CalculationNode.hh"
 #include "Node.hh"
+#include "UtilityFunctions.hh"
 
 double CNId::evaluate() const
 {

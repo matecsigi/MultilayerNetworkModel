@@ -12,6 +12,7 @@
 #include "GeneticObserver.hh"
 #include "HebbianParameterContainer.hh"
 #include "BarabasiModel.hh"
+#include "UtilityFunctions.hh"
 
 using namespace std::placeholders;
 

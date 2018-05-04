@@ -3,6 +3,7 @@
 #include "Node.hh"
 #include "TestUtility.hh"
 #include "BarabasiModel.hh"
+#include "UtilityFunctions.hh"
 
 BOOST_AUTO_TEST_SUITE(TestSuiteStructureBuilding)
 

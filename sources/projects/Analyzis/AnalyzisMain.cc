@@ -1,5 +1,6 @@
 #include <iostream>
 #include "HebbianFitnessFunction.hh"
+#include "UtilityFunctions.hh"
 
 int main()
 {

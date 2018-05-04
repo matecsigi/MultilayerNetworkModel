@@ -1,4 +1,5 @@
 #include "NetworkUtilityFunctions.hh"
+#include "UtilityFunctions.hh"
 
 void copyNetwork(Network* oldNetwork, Network* newNetwork)
 {
@@ -105,15 +106,16 @@ Network* createEnvironmentalMultilayerNetwork(MultilayerNetwork* multilayerNetwo
   std::vector<Network*> higherNetworks = nodeAssigned->getNetworks();
   Network* higherNetwork = higherNetworks[0];
 
+  std::map<int,int> *idMap = new std::map<int,int>;
   Layer* layer1 = multilayerNetwork->addLayer();
   Layer* layer2 = multilayerNetwork->addLayer();
-  Network* insertedHigherNetwork = layer1->insertNetwork(higherNetwork);
+  Network* insertedHigherNetwork = layer1->insertNetwork(higherNetwork, idMap);
 
   Network* returnNetwork = NULL;
   std::vector<Node*> nodes = higherNetwork->getNodes();
   for(std::vector<Node*>::iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
   {
-    Node* node = insertedHigherNetwork->getNodeById((*itNode)->getId());
+    Node* node = insertedHigherNetwork->getNodeById((*idMap)[(*itNode)->getId()]);
     Network* lowerNetwork = (*itNode)->getNetworkAssigned();
     Network* insertedNetwork = layer2->insertNetwork(lowerNetwork);
     node->setNetworkAssigned(insertedNetwork);
@@ -122,6 +124,7 @@ Network* createEnvironmentalMultilayerNetwork(MultilayerNetwork* multilayerNetwo
       returnNetwork = insertedNetwork;
     }
   }
-  
+  delete idMap;
+
   return returnNetwork;
 }

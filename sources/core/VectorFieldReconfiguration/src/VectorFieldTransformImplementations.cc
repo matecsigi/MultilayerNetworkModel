@@ -1,6 +1,7 @@
 #include "VectorFieldTransformImplementations.hh"
 #include "VectorFieldSchemes.hh"
 #include "NetworkUtilityFunctions.hh"
+#include "UtilityFunctions.hh"
 
 void calculateTargetVectorField(VectorField* targetVectorField, VectorField* currentVectorField, Node* node, SimulationParameterContainer *parameters)
 {

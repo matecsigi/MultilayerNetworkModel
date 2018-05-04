@@ -1,5 +1,6 @@
 #include <iostream>
 #include "DownwardInfluenceImpl.hh"
+#include "UtilityFunctions.hh"
 
 void DownwardInfluenceImpl::calculateDownwardInfluence(double downwardMultiplier)
 {

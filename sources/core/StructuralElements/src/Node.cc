@@ -5,6 +5,7 @@
 #include "VectorFieldReconfigurationImpl.hh"
 #include "OdeWrapper.hh"
 #include "OdeWrapperAtState.hh"
+#include "UtilityFunctions.hh"
 #include "Trace.hh"
 #include <boost/numeric/odeint.hpp>
 #include <iomanip>

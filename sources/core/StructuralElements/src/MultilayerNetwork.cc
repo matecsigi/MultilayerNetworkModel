@@ -1,5 +1,6 @@
 #include "MultilayerNetwork.hh"
 #include "MultilayerNetworkServer.hh"
+#include "UtilityFunctions.hh"
 #include "Trace.hh"
 #include <iostream>
 #include <fstream>

@@ -1,5 +1,6 @@
-#include "Node.hh"
 #include "Network.hh"
+#include "Node.hh"
+#include "UtilityFunctions.hh"
 #include "Trace.hh"
 #include <iostream>
 #include <algorithm>

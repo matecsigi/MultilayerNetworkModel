@@ -1,5 +1,6 @@
 #include <iostream>
 #include "UpwardInfluenceImpl.hh"
+#include "UtilityFunctions.hh"
 
 void UpwardInfluenceImpl::calculateUpwardInfluence(double upwardMultiplier)
 {

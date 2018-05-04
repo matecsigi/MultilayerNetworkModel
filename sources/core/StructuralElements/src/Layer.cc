@@ -2,6 +2,7 @@
 #include "NetworkUtilityFunctions.hh"
 #include "NetworkClassUtility.hh"
 #include "Trace.hh"
+#include "UtilityFunctions.hh"
 #include <iostream>
 #include <map>
 
@@ -51,11 +52,11 @@ void Layer::addNetworkById(int networkId)
   mNetworks.push_back(newNetwork);
 }
 
-Network* Layer::insertNetwork(Network* network)
+Network* Layer::insertNetwork(Network* network, std::map<int,int>* idMap)
 {
   Network* newNetwork = new Network;
   copyNetwork(network, newNetwork);
-  setIds(this, newNetwork);
+  setIds(this, newNetwork, idMap);
   loadNodesToEquations(newNetwork);
   newNetwork->setMultilayerNetwork(mMultilayerNetwork);
   mNetworks.push_back(newNetwork);

@@ -22,7 +22,7 @@ public:
 
   Network* addNetwork();
   void addNetworkById(int networkId);
-  Network* insertNetwork(Network* network);
+  Network* insertNetwork(Network* network, std::map<int,int>* idMap = NULL);
   std::vector<Network*> getNetworks(void) const;
 
   MultilayerNetwork* getMultilayerNetwork();
