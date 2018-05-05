@@ -71,13 +71,13 @@ void GeneticAlgorithmController::runGeneticAlgorithm(Network* network, IGeneticO
   createInitialPopulation();
   for(mGeneration=1; mGeneration<mNumberOfGenerations+1; ++mGeneration)
   {
-    std::cout<<"generation="<<mGeneration<<std::endl;
+    // std::cout<<"generation="<<mGeneration<<std::endl;
     mutation();
     crossover();
     death();
     chooseBestNetwork();
     if(observer != NULL){observer->atStep();}
-     std::cout<<"   avg="<<calculateAverageFitness()<<std::endl;
+     // std::cout<<"   avg="<<calculateAverageFitness()<<std::endl;
   }
 
   if(network != NULL)

@@ -165,33 +165,21 @@ std::vector<double> getValues(std::vector<IdValuePair> &pairVector)
   return values;
 }
 
-VectorFieldPoint* findCorrespondingPoint(VectorFieldPoint* point, VectorField* vectorField)
+double coordinateDistance(std::vector<IdValuePair>& coordinate1, std::vector<IdValuePair>& coordinate2)
 {
-  std::vector<IdValuePair> coordinate = point->getCoordinate();
-
-  std::vector<VectorFieldPoint*> points = vectorField->getVectorFieldPoints();
-  for(std::vector<VectorFieldPoint*>::iterator itPoint=points.begin(); itPoint != points.end(); ++itPoint)
+  double distance = 0;
+  for(std::vector<IdValuePair>::iterator itCor=coordinate1.begin(); itCor != coordinate1.end(); ++itCor)
   {
-    std::vector<IdValuePair> currentCoordinate = (*itPoint)->getCoordinate();
-    bool matchingPoint = true;
-    for(std::vector<IdValuePair>::iterator itCord=coordinate.begin(); itCord != coordinate.end(); ++itCord)
-    {
-      int id = itCord->mId;
-      double value = itCord->mValue;
-      double currentValue = getValueForId(currentCoordinate, id);
-      if(value != currentValue)
-      {
-	matchingPoint = false;
-      }
-    }
-    if(matchingPoint)
-    {
-      return (*itPoint);
-    }
+    int id = itCor->mId;
+    double value1 = itCor->mValue;
+    double value2 = getValueForId(coordinate2, id);
+    double difference = value1-value2;
+    distance += difference*difference;
   }
-
-  return NULL;
+  distance = sqrt(distance);
+  return distance;
 }
+
 
 void loadNetworkFromJSON(Network* network, std::string filename, int& nodeIdCounter)
 {

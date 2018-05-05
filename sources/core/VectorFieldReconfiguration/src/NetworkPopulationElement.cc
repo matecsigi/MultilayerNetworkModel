@@ -11,9 +11,6 @@ double vectorReconfFitnessFunction(Network* network, VectorField* targetVectorFi
   std::vector<IdValuePair> currentState = network->getState();
   gridAroundPointScheme2(currentVectorField, network, currentState);
   double distance = targetVectorField->getDistanceFrom(currentVectorField);
-
-  std::cout<<"fitnessDistance="<<distance<<std::endl;
-
   double fitness = 100.0/distance;
   delete currentVectorField;
 

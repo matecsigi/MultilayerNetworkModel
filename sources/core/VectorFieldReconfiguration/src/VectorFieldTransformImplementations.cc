@@ -19,26 +19,25 @@ void calculateTargetVectorField(VectorField* targetVectorField, VectorField* cur
   Network* tmpNetwork = createEnvironmentalMultilayerNetwork(multilayerNetwork, network);
 
   gridAroundPointScheme2(environmentalVectorField, tmpNetwork, currentState, getEnvironmentalDirectionAtState);
-
-  adjustVectorField(targetVectorField, isolatedVectorField, environmentalVectorField, parameters);
-
-  std::cout<<"distance="<<isolatedVectorField->getDistanceFrom(environmentalVectorField)<<std::endl;
+  adjustVectorField(targetVectorField, isolatedVectorField, environmentalVectorField, parameters, currentState);
 
   delete multilayerNetwork;
   delete environmentalVectorField;
 }
 
-void adjustVectorField(VectorField* adjustedVectorField, VectorField* beginVectorField, VectorField* endVectorField, SimulationParameterContainer *parameters)
+void adjustVectorField(VectorField* adjustedVectorField, VectorField* beginVectorField, VectorField* endVectorField, SimulationParameterContainer *parameters, std::vector<IdValuePair> &baseCoordinate)
 {
-  double distance = 0;
-
   std::vector<VectorFieldPoint*> vectorFieldPoints = beginVectorField->getVectorFieldPoints();
   for(std::vector<VectorFieldPoint*>::iterator itPoint=vectorFieldPoints.begin(); itPoint != vectorFieldPoints.end(); ++itPoint)
   {
     VectorFieldPoint* currentBeginPoint = *itPoint;
-    VectorFieldPoint* currentEndPoint = findCorrespondingPoint(currentBeginPoint, endVectorField);
     std::vector<IdValuePair> currentCoordinate = currentBeginPoint->getCoordinate();
     std::vector<IdValuePair> beginDirection = currentBeginPoint->getDirection();
+
+    double distance = coordinateDistance(baseCoordinate, currentCoordinate);
+
+    // VectorFieldPoint* currentEndPoint = findCorrespondingPoint(currentBeginPoint, endVectorField);
+    VectorFieldPoint* currentEndPoint = endVectorField->getPoint(currentCoordinate);
     std::vector<IdValuePair> endDirection = currentEndPoint->getDirection();
     std::vector<IdValuePair> adjustedDirection;
     for(std::vector<IdValuePair>::iterator itDir=beginDirection.begin(); itDir != beginDirection.end(); ++itDir)
@@ -47,7 +46,8 @@ void adjustVectorField(VectorField* adjustedVectorField, VectorField* beginVecto
       double beginDirectionValue = itDir->mValue;
       double endDirectionValue = getValueForId(endDirection, id);
       double directionDifference = endDirectionValue-beginDirectionValue;
-      double adjustedDirectionValue = beginDirectionValue+parameters->adjustmentDistanceFunction(parameters->adjustmentFactor, distance)*directionDifference;
+      double adjustmentMultiplier = parameters->adjustmentDistanceFunction(parameters->adjustmentFactor, distance);
+      double adjustedDirectionValue = beginDirectionValue+adjustmentMultiplier*directionDifference;
       adjustedDirection.push_back(IdValuePair(id, adjustedDirectionValue));
     }
     adjustedVectorField->addPoint(currentCoordinate, adjustedDirection);

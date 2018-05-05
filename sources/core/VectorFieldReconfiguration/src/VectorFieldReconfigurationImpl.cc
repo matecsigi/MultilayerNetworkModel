@@ -27,14 +27,8 @@ void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration(Simulat
   VectorField* targetVectorField = new VectorField();
   calculateTargetVectorField(targetVectorField, currentVectorField, mNode, parameters);
 
-  // std::cout<<"--------Current---------"<<std::endl;;
-  // std::cout<<*currentVectorField;
-  // std::cout<<"--------Target----------"<<std::endl;
-  // std::cout<<*targetVectorField;
-
   if(geneticParameters->cluster == true)
   {
-    // std::cout<<"impl "<<mNode->getId()<<std::endl;
     int argc;
     char **argv = NULL;
     boost::mpi::environment env{argc, argv};

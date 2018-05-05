@@ -31,7 +31,7 @@ void setValueForId(std::vector<IdValuePair> &pairVector, int id, double value);
 std::vector<int> getIds(std::vector<IdValuePair> &pairVector);
 std::vector<double> getValues(std::vector<IdValuePair> &pairVector);
 
-VectorFieldPoint* findCorrespondingPoint(VectorFieldPoint* point, VectorField* vectorField);
+double coordinateDistance(std::vector<IdValuePair>& coordinate1, std::vector<IdValuePair>& coordinate2);
 
 void loadNetworkFromJSON(Network* network, std::string filename, int& nodeIdCounter);
 void saveNetworkToJSON(Network* network, std::string filename);

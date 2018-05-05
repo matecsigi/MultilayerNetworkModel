@@ -2,6 +2,7 @@
 #define SIMULATIONPARAMETERCONTAINER_HH
 
 #include "GeneticAlgorithmParameterContainer.hh"
+#include <algorithm>
 
 class SimulationParameterContainer
 {
@@ -22,7 +23,7 @@ public:
   bool runVectorFieldReconfiguration = true;
 
   double adjustmentFactor = 0.3;
-  std::function<double (double, double)> adjustmentDistanceFunction = [](double factor, double distance){return factor/distance;};
+  std::function<double (double, double)> adjustmentDistanceFunction = [](double factor, double distance){return std::min(1.0,factor/distance);};
 
   GeneticAlgorithmParameterContainer *geneticParameters;
 };
