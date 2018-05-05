@@ -1,7 +1,7 @@
 #ifndef ISTRUCTUREGENERATOR_HH
 #define ISTRUCTUREGENERATOR_HH
 
-#include "MultilayerNetwork.hh"
+class MultilayerNetwork;
 
 class IStructureGenerator
 {

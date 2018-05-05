@@ -1,5 +1,6 @@
 #include "MultilayerNetworkClassUtility.hh"
 #include "MultilayerNetwork.hh"
+#include "Layer.hh"
 #include "Network.hh"
 #include "Node.hh"
 #include "LayerClassUtility.hh"

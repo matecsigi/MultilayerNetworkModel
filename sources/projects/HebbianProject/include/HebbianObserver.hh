@@ -2,9 +2,10 @@
 #define HEBBIANOBSERVER_HH
 
 #include "IObserver.hh"
-#include "Network.hh"
-#include "MultilayerNetwork.hh"
 #include <vector>
+
+class MultilayerNetwork;
+class Network;
 
 class HebbianObserver: public IObserver
 {

@@ -3,6 +3,9 @@
 
 #include "IStructureGenerator.hh"
 
+class MultilayerNetwork;
+class Node;
+
 class StructureGeneratorImpl: public IStructureGenerator
 {
 public:

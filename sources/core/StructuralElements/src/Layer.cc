@@ -1,4 +1,6 @@
 #include "Layer.hh"
+#include "Network.hh"
+#include "MultilayerNetwork.hh"
 #include "NetworkUtilityFunctions.hh"
 #include "NetworkClassUtility.hh"
 #include "Trace.hh"

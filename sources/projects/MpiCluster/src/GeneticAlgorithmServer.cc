@@ -1,4 +1,5 @@
 #include <boost/mpi.hpp>
+#include "MultilayerNetwork.hh"
 #include "GeneticAlgorithmServer.hh"
 #include "GeneticAlgorithmController.hh"
 #include "GeneticAlgorithmParameterContainer.hh"

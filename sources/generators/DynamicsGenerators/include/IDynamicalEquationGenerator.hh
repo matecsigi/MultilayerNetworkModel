@@ -1,7 +1,7 @@
 #ifndef IDYNAMICALEQUATIONGENERATOR_HH
 #define IDYNAMICALEQUATIONGENERATOR_HH
 
-#include "MultilayerNetwork.hh"
+class MultilayerNetwork;
 
 class IDynamicalEquationGenerator
 {

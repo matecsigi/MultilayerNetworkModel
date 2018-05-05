@@ -3,6 +3,8 @@
 
 #include "IDownwardInfluence.hh"
 
+class MultilayerNetwork;
+
 class DownwardInfluenceImpl: public IDownwardInfluence
 {
 public:

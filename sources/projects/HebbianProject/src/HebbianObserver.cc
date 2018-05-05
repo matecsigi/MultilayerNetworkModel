@@ -1,4 +1,9 @@
 #include "HebbianObserver.hh"
+#include "Node.hh"
+#include "Network.hh"
+#include "Layer.hh"
+#include "MultilayerNetwork.hh"
+#include "VectorField.hh"
 #include "VectorFieldSchemes.hh"
 #include "NetworkUtilityFunctions.hh"
 #include <iostream>

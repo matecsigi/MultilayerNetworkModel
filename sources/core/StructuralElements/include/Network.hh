@@ -2,10 +2,12 @@
 #define NETWORK_HH
 
 #include <vector>
-#include "DynamicalEquation.hh"
+#include <string>
 
 class Node;
 class MultilayerNetwork;
+class DynamicalEquation;
+class IdValuePair;
 
 class Network
 {

@@ -1,4 +1,5 @@
 #include "GeneticObserver.hh"
+#include "Network.hh"
 #include "UtilityFunctions.hh"
 #include "GeneticAlgorithmController.hh"
 #include <iostream>

@@ -1,4 +1,8 @@
 #include "VectorFieldTransformImplementations.hh"
+#include "Node.hh"
+#include "Network.hh"
+#include "MultilayerNetwork.hh"
+#include "VectorField.hh"
 #include "VectorFieldSchemes.hh"
 #include "NetworkUtilityFunctions.hh"
 #include "UtilityFunctions.hh"
@@ -17,6 +21,8 @@ void calculateTargetVectorField(VectorField* targetVectorField, VectorField* cur
   gridAroundPointScheme2(environmentalVectorField, tmpNetwork, currentState, getEnvironmentalDirectionAtState);
 
   adjustVectorField(targetVectorField, isolatedVectorField, environmentalVectorField, parameters);
+
+  std::cout<<"distance="<<isolatedVectorField->getDistanceFrom(environmentalVectorField)<<std::endl;
 
   delete multilayerNetwork;
   delete environmentalVectorField;

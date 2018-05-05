@@ -1,4 +1,6 @@
 #include "GeneticAlgorithmController.hh"
+#include "Network.hh"
+#include "Node.hh"
 #include "NetworkUtilityFunctions.hh"
 #include "NetworkClassUtility.hh"
 #include <algorithm>
@@ -69,13 +71,13 @@ void GeneticAlgorithmController::runGeneticAlgorithm(Network* network, IGeneticO
   createInitialPopulation();
   for(mGeneration=1; mGeneration<mNumberOfGenerations+1; ++mGeneration)
   {
-    // std::cout<<"generation="<<mGeneration<<std::endl;
+    std::cout<<"generation="<<mGeneration<<std::endl;
     mutation();
     crossover();
     death();
     chooseBestNetwork();
     if(observer != NULL){observer->atStep();}
-    // std::cout<<"  -avg="<<calculateAverageFitness()<<std::endl;
+     std::cout<<"   avg="<<calculateAverageFitness()<<std::endl;
   }
 
   if(network != NULL)
@@ -354,7 +356,7 @@ NetworkPopulationElement* GeneticAlgorithmController::chooseBestNetwork()
       bestPopulationElement = currentElement;
     }
   }
-  // std::cout<<"  -best="<<bestPopulationElement->getFitness()<<std::endl;
+  // std::cout<<"   best="<<bestPopulationElement->getFitness()<<std::endl;
   return bestPopulationElement;
 }
 

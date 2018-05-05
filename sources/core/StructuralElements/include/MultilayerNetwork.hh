@@ -1,15 +1,13 @@
 #ifndef MULTILAYERNETWORK_HH
 #define MULTILAYERNETWORK_HH
 
-#include "Node.hh"
-#include "Layer.hh"
 #include "IObserver.hh"
-#include "GlobalVariables.hh"
 #include "SimulationParameterContainer.hh"
-#include "MultilayerNetworkClassUtility.hh"
 #include <vector>
-#include <iostream>
 #include <map>
+
+class Node;
+class Layer;
 
 class MultilayerNetwork
 {

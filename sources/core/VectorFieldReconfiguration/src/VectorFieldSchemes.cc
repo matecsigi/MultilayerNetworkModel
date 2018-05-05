@@ -1,4 +1,7 @@
 #include "VectorFieldSchemes.hh"
+#include "VectorField.hh"
+#include "Network.hh"
+#include "NetworkUtilityFunctions.hh"
 #include "IdValuePair.hh"
 #include "UtilityFunctions.hh"
 #include "NetworkUtilityFunctions.hh"

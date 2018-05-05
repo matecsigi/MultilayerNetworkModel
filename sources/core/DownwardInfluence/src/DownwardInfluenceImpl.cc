@@ -1,6 +1,13 @@
-#include <iostream>
 #include "DownwardInfluenceImpl.hh"
+#include <boost/numeric/odeint.hpp>
+#include "Node.hh"
+#include "Network.hh"
+#include "MultilayerNetwork.hh"
 #include "UtilityFunctions.hh"
+#include <iostream>
+#include "OdeWrapper.hh"
+
+using namespace boost::numeric::odeint;
 
 void DownwardInfluenceImpl::calculateDownwardInfluence(double downwardMultiplier)
 {

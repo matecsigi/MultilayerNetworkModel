@@ -1,5 +1,6 @@
 #include "NetworkInitialConditionGenerators.hh"
 #include "GlobalVariables.hh"
+#include "Network.hh"
 #include "Node.hh"
 
 void oneNetworkInitialConditions(Network* network)

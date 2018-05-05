@@ -1,5 +1,6 @@
 #include "NodeClassUtility.hh"
 #include "Node.hh"
+#include "Network.hh"
 
 double getMaxValue(Node *node)
 {

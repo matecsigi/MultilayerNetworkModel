@@ -1,4 +1,8 @@
 #include "NetworkModifier.hh"
+#include "Node.hh"
+#include "Network.hh"
+#include "DynamicalEquation.hh"
+#include "VectorField.hh"
 #include <iostream>
 #include <algorithm>
 #include <stdlib.h>

@@ -1,4 +1,6 @@
 #include "InitialConditionGeneratorImpl.hh"
+#include "MultilayerNetwork.hh"
+#include "Layer.hh"
 #include "NetworkInitialConditionGenerators.hh"
 
 void InitialConditionGeneratorImpl::generateInitialCondition()

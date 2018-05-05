@@ -1,7 +1,6 @@
 #ifndef DYNAMICALEQUATION_HH
 #define DYNAMICALEQUATION_HH
 
-#include <iostream>
 #include <string>
 #include <map>
 #include <vector>

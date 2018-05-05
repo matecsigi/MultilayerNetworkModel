@@ -1,5 +1,12 @@
+#include "Node.hh"
+#include "Network.hh"
+#include "Layer.hh"
+#include "MultilayerNetwork.hh"
+#include "VectorField.hh"
+#include "DynamicalEquation.hh"
 #include "NetworkUtilityFunctions.hh"
 #include "UtilityFunctions.hh"
+#include "IdValuePair.hh"
 
 void copyNetwork(Network* oldNetwork, Network* newNetwork)
 {

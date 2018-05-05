@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Network.hh"
 #include "HebbianFitnessFunction.hh"
 #include "UtilityFunctions.hh"
 

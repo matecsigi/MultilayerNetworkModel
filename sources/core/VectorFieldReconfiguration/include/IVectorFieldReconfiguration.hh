@@ -1,9 +1,11 @@
 #ifndef IVECTORFIELDRECONFIGURATION_HH
 #define IVECTORFIELDRECONFIGURATION_HH
 
-#include "MultilayerNetwork.hh"
 #include "GlobalVariables.hh"
 #include "SimulationParameterContainer.hh"
+
+class MultilayerNetwork;
+class Node;
 
 class IVectorFieldReconfiguration
 {

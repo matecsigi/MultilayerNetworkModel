@@ -4,6 +4,8 @@
 #include "IInitialConditionGenerator.hh"
 #include "GlobalVariables.hh"
 
+class MultilayerNetwork;
+
 class InitialConditionGeneratorImpl: public IInitialConditionGenerator
 {
 public:

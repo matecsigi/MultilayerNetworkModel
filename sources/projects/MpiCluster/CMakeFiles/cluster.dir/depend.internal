@@ -3,8 +3,6 @@
 
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/ClusterMain.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/projects/MpiCluster/ClusterMain.cc
- sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
  sources/core/StructuralElements/include/Network.hh
  sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/VectorField.hh
@@ -14,29 +12,16 @@ sources/projects/MpiCluster/CMakeFiles/cluster.dir/ClusterMain.cc.o
  sources/projects/MpiCluster/include/SerializedClasses.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/HebbianProject/src/ExecuteHebbian.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/projects/HebbianProject/src/ExecuteHebbian.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
  sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
- sources/core/StructuralElements/include/Layer.hh
- sources/core/StructuralElements/include/MultilayerNetwork.hh
- sources/core/StructuralElements/include/Network.hh
- sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GeneticObserver.hh
  sources/core/Utility/general/include/GlobalVariables.hh
  sources/core/Utility/general/include/IGeneticObserver.hh
- sources/core/Utility/general/include/IObserver.hh
- sources/core/Utility/general/include/SimulationParameterContainer.hh
  sources/core/Utility/general/include/UtilityFunctions.hh
  sources/core/VectorFieldReconfiguration/include/GeneticAlgorithmController.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
  sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkModifier.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
- sources/core/VectorFieldReconfiguration/include/VectorField.hh
- sources/core/VectorFieldReconfiguration/include/VectorFieldPoint.hh
  sources/generators/DynamicsGenerators/include/NetworkDynamicsGenerators.hh
  sources/generators/GeneralGenerators/include/GeneralNetworkGenerator.hh
  sources/generators/InitialConditionGenerators/include/NetworkInitialConditionGenerators.hh
@@ -46,25 +31,17 @@ sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/HebbianProject/src/Execute
  sources/projects/HebbianProject/include/HebbianParameterContainer.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/HebbianProject/src/HebbianFitnessFunction.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/projects/HebbianProject/src/HebbianFitnessFunction.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
- sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
  sources/core/StructuralElements/include/Layer.hh
  sources/core/StructuralElements/include/MultilayerNetwork.hh
  sources/core/StructuralElements/include/Network.hh
  sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
  sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GlobalVariables.hh
  sources/core/Utility/general/include/IObserver.hh
  sources/core/Utility/general/include/NetworkUtilityFunctions.hh
  sources/core/Utility/general/include/SimulationParameterContainer.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
- sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
- sources/core/VectorFieldReconfiguration/include/VectorField.hh
- sources/core/VectorFieldReconfiguration/include/VectorFieldPoint.hh
  sources/external/spdlog/async_logger.h
  sources/external/spdlog/common.h
  sources/external/spdlog/details/async_log_helper.h
@@ -105,21 +82,15 @@ sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/HebbianProject/src/Hebbian
  sources/projects/HebbianProject/include/HebbianParameterContainer.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/HebbianProject/src/HebbianObserver.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/projects/HebbianProject/src/HebbianObserver.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
- sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
  sources/core/StructuralElements/include/Layer.hh
  sources/core/StructuralElements/include/MultilayerNetwork.hh
  sources/core/StructuralElements/include/Network.hh
  sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GlobalVariables.hh
  sources/core/Utility/general/include/IObserver.hh
  sources/core/Utility/general/include/NetworkUtilityFunctions.hh
  sources/core/Utility/general/include/SimulationParameterContainer.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
  sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
  sources/core/VectorFieldReconfiguration/include/VectorField.hh
@@ -135,65 +106,38 @@ sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/DownwardInfluence/
  sources/core/DownwardInfluence/include/IDownwardInfluence.hh
  sources/core/DynamicalEquation/include/CalculationNode.hh
  sources/core/DynamicalEquation/include/DynamicalEquation.hh
- sources/core/StructuralElements/include/Layer.hh
+ sources/core/DynamicalEquation/include/OdeWrapper.hh
  sources/core/StructuralElements/include/MultilayerNetwork.hh
  sources/core/StructuralElements/include/Network.hh
  sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GlobalVariables.hh
  sources/core/Utility/general/include/IObserver.hh
  sources/core/Utility/general/include/SimulationParameterContainer.hh
  sources/core/Utility/general/include/UtilityFunctions.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
  sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
- sources/core/VectorFieldReconfiguration/include/VectorField.hh
- sources/core/VectorFieldReconfiguration/include/VectorFieldPoint.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/DynamicalEquation/src/CalculationNode.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/DynamicalEquation/src/CalculationNode.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
  sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
- sources/core/StructuralElements/include/Layer.hh
- sources/core/StructuralElements/include/MultilayerNetwork.hh
- sources/core/StructuralElements/include/Network.hh
  sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GlobalVariables.hh
- sources/core/Utility/general/include/IObserver.hh
  sources/core/Utility/general/include/SimulationParameterContainer.hh
  sources/core/Utility/general/include/UtilityFunctions.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
  sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
- sources/core/VectorFieldReconfiguration/include/VectorField.hh
- sources/core/VectorFieldReconfiguration/include/VectorFieldPoint.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/DynamicalEquation/src/DynamicalEquation.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/DynamicalEquation/src/DynamicalEquation.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
  sources/core/DynamicalEquation/include/CalculationNode.hh
  sources/core/DynamicalEquation/include/DynamicalEquation.hh
- sources/core/StructuralElements/include/Layer.hh
- sources/core/StructuralElements/include/MultilayerNetwork.hh
  sources/core/StructuralElements/include/Network.hh
- sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/class/include/NetworkClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GlobalVariables.hh
- sources/core/Utility/general/include/IObserver.hh
- sources/core/Utility/general/include/SimulationParameterContainer.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
  sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkModifier.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
- sources/core/VectorFieldReconfiguration/include/VectorField.hh
- sources/core/VectorFieldReconfiguration/include/VectorFieldPoint.hh
  sources/parser/include/interpreter.h
  sources/parser/include/location.hh
  sources/parser/include/parser.hpp
@@ -202,15 +146,9 @@ sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/DynamicalEquation/
  sources/parser/include/stack.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/StructuralElements/src/Layer.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/Layer.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
- sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
  sources/core/StructuralElements/include/Layer.hh
  sources/core/StructuralElements/include/MultilayerNetwork.hh
  sources/core/StructuralElements/include/Network.hh
- sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/class/include/NetworkClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GlobalVariables.hh
@@ -219,21 +157,14 @@ sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/StructuralElements
  sources/core/Utility/general/include/SimulationParameterContainer.hh
  sources/core/Utility/general/include/Trace.hh
  sources/core/Utility/general/include/UtilityFunctions.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
  sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
- sources/core/VectorFieldReconfiguration/include/VectorField.hh
- sources/core/VectorFieldReconfiguration/include/VectorFieldPoint.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/StructuralElements/src/MultilayerNetwork.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/MultilayerNetwork.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
- sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
  sources/core/StructuralElements/include/Layer.hh
  sources/core/StructuralElements/include/MultilayerNetwork.hh
  sources/core/StructuralElements/include/Network.hh
  sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
  sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GlobalVariables.hh
@@ -241,7 +172,6 @@ sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/StructuralElements
  sources/core/Utility/general/include/SimulationParameterContainer.hh
  sources/core/Utility/general/include/Trace.hh
  sources/core/Utility/general/include/UtilityFunctions.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
  sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
  sources/core/VectorFieldReconfiguration/include/VectorField.hh
@@ -275,26 +205,19 @@ sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/StructuralElements
  sources/projects/MpiCluster/include/SerializedClasses.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/StructuralElements/src/Network.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/Network.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
  sources/core/DynamicalEquation/include/CalculationNode.hh
  sources/core/DynamicalEquation/include/DynamicalEquation.hh
- sources/core/StructuralElements/include/Layer.hh
  sources/core/StructuralElements/include/MultilayerNetwork.hh
  sources/core/StructuralElements/include/Network.hh
  sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GlobalVariables.hh
  sources/core/Utility/general/include/IObserver.hh
  sources/core/Utility/general/include/SimulationParameterContainer.hh
  sources/core/Utility/general/include/Trace.hh
  sources/core/Utility/general/include/UtilityFunctions.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
  sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
- sources/core/VectorFieldReconfiguration/include/VectorField.hh
- sources/core/VectorFieldReconfiguration/include/VectorFieldPoint.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/StructuralElements/src/Node.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/Node.cc
  sources/core/DownwardInfluence/include/DownwardInfluenceImpl.hh
@@ -303,13 +226,11 @@ sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/StructuralElements
  sources/core/DynamicalEquation/include/DynamicalEquation.hh
  sources/core/DynamicalEquation/include/OdeWrapper.hh
  sources/core/DynamicalEquation/include/OdeWrapperAtState.hh
- sources/core/StructuralElements/include/Layer.hh
  sources/core/StructuralElements/include/MultilayerNetwork.hh
  sources/core/StructuralElements/include/Network.hh
  sources/core/StructuralElements/include/Node.hh
  sources/core/UpwardInfluence/include/IUpwardInfluence.hh
  sources/core/UpwardInfluence/include/UpwardInfluenceImpl.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GlobalVariables.hh
  sources/core/Utility/general/include/IObserver.hh
@@ -319,50 +240,36 @@ sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/StructuralElements
  sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
  sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
- sources/core/VectorFieldReconfiguration/include/VectorField.hh
- sources/core/VectorFieldReconfiguration/include/VectorFieldPoint.hh
  sources/core/VectorFieldReconfiguration/include/VectorFieldReconfigurationImpl.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/UpwardInfluence/src/UpwardInfluenceImpl.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/UpwardInfluence/src/UpwardInfluenceImpl.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
  sources/core/DynamicalEquation/include/CalculationNode.hh
  sources/core/DynamicalEquation/include/DynamicalEquation.hh
- sources/core/StructuralElements/include/Layer.hh
+ sources/core/DynamicalEquation/include/OdeWrapper.hh
  sources/core/StructuralElements/include/MultilayerNetwork.hh
  sources/core/StructuralElements/include/Network.hh
  sources/core/StructuralElements/include/Node.hh
  sources/core/UpwardInfluence/include/IUpwardInfluence.hh
  sources/core/UpwardInfluence/include/UpwardInfluenceImpl.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GlobalVariables.hh
  sources/core/Utility/general/include/IObserver.hh
  sources/core/Utility/general/include/SimulationParameterContainer.hh
  sources/core/Utility/general/include/UtilityFunctions.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
  sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
- sources/core/VectorFieldReconfiguration/include/VectorField.hh
- sources/core/VectorFieldReconfiguration/include/VectorFieldPoint.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/Utility/class/src/LayerClassUtility.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/class/src/LayerClassUtility.cc
- sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
  sources/core/StructuralElements/include/Layer.hh
  sources/core/StructuralElements/include/Network.hh
  sources/core/Utility/class/include/LayerClassUtility.hh
  sources/core/Utility/class/include/NetworkClassUtility.hh
- sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/Utility/class/src/MultilayerNetworkClassUtility.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/class/src/MultilayerNetworkClassUtility.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
- sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
  sources/core/StructuralElements/include/Layer.hh
  sources/core/StructuralElements/include/MultilayerNetwork.hh
  sources/core/StructuralElements/include/Network.hh
  sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
  sources/core/Utility/class/include/LayerClassUtility.hh
  sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/class/include/NodeClassUtility.hh
@@ -370,90 +277,47 @@ sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/Utility/class/src/
  sources/core/Utility/general/include/GlobalVariables.hh
  sources/core/Utility/general/include/IObserver.hh
  sources/core/Utility/general/include/SimulationParameterContainer.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
- sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
- sources/core/VectorFieldReconfiguration/include/VectorField.hh
- sources/core/VectorFieldReconfiguration/include/VectorFieldPoint.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/Utility/class/src/NetworkClassUtility.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/class/src/NetworkClassUtility.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
  sources/core/DynamicalEquation/include/CalculationNode.hh
  sources/core/DynamicalEquation/include/DynamicalEquation.hh
- sources/core/StructuralElements/include/Layer.hh
- sources/core/StructuralElements/include/MultilayerNetwork.hh
  sources/core/StructuralElements/include/Network.hh
  sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/class/include/NetworkClassUtility.hh
  sources/core/Utility/class/include/NodeClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GlobalVariables.hh
- sources/core/Utility/general/include/IObserver.hh
  sources/core/Utility/general/include/SimulationParameterContainer.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
  sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
- sources/core/VectorFieldReconfiguration/include/VectorField.hh
- sources/core/VectorFieldReconfiguration/include/VectorFieldPoint.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/Utility/class/src/NodeClassUtility.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/class/src/NodeClassUtility.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
- sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
- sources/core/StructuralElements/include/Layer.hh
- sources/core/StructuralElements/include/MultilayerNetwork.hh
  sources/core/StructuralElements/include/Network.hh
  sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/class/include/NodeClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GlobalVariables.hh
- sources/core/Utility/general/include/IObserver.hh
  sources/core/Utility/general/include/SimulationParameterContainer.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
- sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
- sources/core/VectorFieldReconfiguration/include/VectorField.hh
- sources/core/VectorFieldReconfiguration/include/VectorFieldPoint.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/Utility/general/src/GeneticAlgorithmParameterContainer.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/GeneticAlgorithmParameterContainer.cc
- sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
- sources/core/StructuralElements/include/Network.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GlobalVariables.hh
- sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
- sources/core/VectorFieldReconfiguration/include/VectorField.hh
- sources/core/VectorFieldReconfiguration/include/VectorFieldPoint.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/Utility/general/src/GeneticObserver.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/GeneticObserver.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
  sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
- sources/core/StructuralElements/include/Layer.hh
- sources/core/StructuralElements/include/MultilayerNetwork.hh
  sources/core/StructuralElements/include/Network.hh
- sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GeneticObserver.hh
  sources/core/Utility/general/include/GlobalVariables.hh
  sources/core/Utility/general/include/IGeneticObserver.hh
- sources/core/Utility/general/include/IObserver.hh
- sources/core/Utility/general/include/SimulationParameterContainer.hh
  sources/core/Utility/general/include/UtilityFunctions.hh
  sources/core/VectorFieldReconfiguration/include/GeneticAlgorithmController.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
  sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkModifier.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
- sources/core/VectorFieldReconfiguration/include/VectorField.hh
- sources/core/VectorFieldReconfiguration/include/VectorFieldPoint.hh
  sources/external/spdlog/async_logger.h
  sources/external/spdlog/common.h
  sources/external/spdlog/details/async_log_helper.h
@@ -491,44 +355,36 @@ sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/Utility/general/sr
  sources/core/Utility/general/include/GlobalVariables.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/Utility/general/src/NetworkUtilityFunctions.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/NetworkUtilityFunctions.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
  sources/core/DynamicalEquation/include/CalculationNode.hh
  sources/core/DynamicalEquation/include/DynamicalEquation.hh
  sources/core/StructuralElements/include/Layer.hh
  sources/core/StructuralElements/include/MultilayerNetwork.hh
  sources/core/StructuralElements/include/Network.hh
  sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GlobalVariables.hh
  sources/core/Utility/general/include/IObserver.hh
  sources/core/Utility/general/include/NetworkUtilityFunctions.hh
  sources/core/Utility/general/include/SimulationParameterContainer.hh
  sources/core/Utility/general/include/UtilityFunctions.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
  sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
  sources/core/VectorFieldReconfiguration/include/VectorField.hh
  sources/core/VectorFieldReconfiguration/include/VectorFieldPoint.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/Utility/general/src/UtilityFunctions.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/UtilityFunctions.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
  sources/core/DynamicalEquation/include/CalculationNode.hh
  sources/core/DynamicalEquation/include/DynamicalEquation.hh
  sources/core/StructuralElements/include/Layer.hh
  sources/core/StructuralElements/include/MultilayerNetwork.hh
  sources/core/StructuralElements/include/Network.hh
  sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GlobalVariables.hh
  sources/core/Utility/general/include/IObserver.hh
  sources/core/Utility/general/include/SimulationParameterContainer.hh
  sources/core/Utility/general/include/Trace.hh
  sources/core/Utility/general/include/UtilityFunctions.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
  sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
  sources/core/VectorFieldReconfiguration/include/VectorField.hh
@@ -560,29 +416,19 @@ sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/Utility/general/sr
  sources/external/rapidjson/writer.h
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
  sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
- sources/core/StructuralElements/include/Layer.hh
- sources/core/StructuralElements/include/MultilayerNetwork.hh
  sources/core/StructuralElements/include/Network.hh
  sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/class/include/NetworkClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GlobalVariables.hh
  sources/core/Utility/general/include/IGeneticObserver.hh
- sources/core/Utility/general/include/IObserver.hh
  sources/core/Utility/general/include/NetworkUtilityFunctions.hh
  sources/core/Utility/general/include/SimulationParameterContainer.hh
  sources/core/VectorFieldReconfiguration/include/GeneticAlgorithmController.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
  sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkModifier.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
- sources/core/VectorFieldReconfiguration/include/VectorField.hh
- sources/core/VectorFieldReconfiguration/include/VectorFieldPoint.hh
  sources/external/spdlog/async_logger.h
  sources/external/spdlog/common.h
  sources/external/spdlog/details/async_log_helper.h
@@ -617,20 +463,13 @@ sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/VectorFieldReconfi
  sources/external/spdlog/tweakme.h
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/VectorFieldReconfiguration/src/NetworkModifier.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/NetworkModifier.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
  sources/core/DynamicalEquation/include/CalculationNode.hh
  sources/core/DynamicalEquation/include/DynamicalEquation.hh
- sources/core/StructuralElements/include/Layer.hh
- sources/core/StructuralElements/include/MultilayerNetwork.hh
  sources/core/StructuralElements/include/Network.hh
  sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GlobalVariables.hh
- sources/core/Utility/general/include/IObserver.hh
  sources/core/Utility/general/include/SimulationParameterContainer.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
  sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkModifier.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
@@ -670,21 +509,8 @@ sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/VectorFieldReconfi
  sources/external/spdlog/tweakme.h
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/VectorFieldReconfiguration/src/NetworkPopulationElement.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
- sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
- sources/core/StructuralElements/include/Layer.hh
- sources/core/StructuralElements/include/MultilayerNetwork.hh
  sources/core/StructuralElements/include/Network.hh
- sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
- sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
- sources/core/Utility/general/include/GlobalVariables.hh
- sources/core/Utility/general/include/IObserver.hh
  sources/core/Utility/general/include/NetworkUtilityFunctions.hh
- sources/core/Utility/general/include/SimulationParameterContainer.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
  sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
  sources/core/VectorFieldReconfiguration/include/VectorField.hh
@@ -692,58 +518,22 @@ sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/VectorFieldReconfi
  sources/core/VectorFieldReconfiguration/include/VectorFieldSchemes.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/VectorFieldReconfiguration/src/VectorField.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/VectorField.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
- sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
- sources/core/StructuralElements/include/Layer.hh
- sources/core/StructuralElements/include/MultilayerNetwork.hh
- sources/core/StructuralElements/include/Network.hh
- sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/class/include/VectorFieldClassUtility.hh
- sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
- sources/core/Utility/general/include/GlobalVariables.hh
- sources/core/Utility/general/include/IObserver.hh
- sources/core/Utility/general/include/SimulationParameterContainer.hh
  sources/core/Utility/general/include/UtilityFunctions.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
  sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
- sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
  sources/core/VectorFieldReconfiguration/include/VectorField.hh
  sources/core/VectorFieldReconfiguration/include/VectorFieldPoint.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/VectorFieldReconfiguration/src/VectorFieldPoint.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/VectorFieldPoint.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
- sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
- sources/core/StructuralElements/include/Layer.hh
- sources/core/StructuralElements/include/MultilayerNetwork.hh
- sources/core/StructuralElements/include/Network.hh
- sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
- sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
- sources/core/Utility/general/include/GlobalVariables.hh
- sources/core/Utility/general/include/IObserver.hh
- sources/core/Utility/general/include/SimulationParameterContainer.hh
  sources/core/Utility/general/include/UtilityFunctions.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
  sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
- sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
- sources/core/VectorFieldReconfiguration/include/VectorField.hh
  sources/core/VectorFieldReconfiguration/include/VectorFieldPoint.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/VectorFieldReconfigurationImpl.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
  sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
- sources/core/StructuralElements/include/Layer.hh
  sources/core/StructuralElements/include/MultilayerNetwork.hh
  sources/core/StructuralElements/include/Network.hh
  sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GlobalVariables.hh
  sources/core/Utility/general/include/IGeneticObserver.hh
@@ -764,45 +554,24 @@ sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/VectorFieldReconfi
  sources/projects/MpiCluster/include/SerializedClasses.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/VectorFieldReconfiguration/src/VectorFieldSchemes.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
- sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
- sources/core/StructuralElements/include/Layer.hh
- sources/core/StructuralElements/include/MultilayerNetwork.hh
  sources/core/StructuralElements/include/Network.hh
- sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
- sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
- sources/core/Utility/general/include/GlobalVariables.hh
- sources/core/Utility/general/include/IObserver.hh
  sources/core/Utility/general/include/NetworkUtilityFunctions.hh
- sources/core/Utility/general/include/SimulationParameterContainer.hh
  sources/core/Utility/general/include/UtilityFunctions.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
  sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
- sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
  sources/core/VectorFieldReconfiguration/include/VectorField.hh
  sources/core/VectorFieldReconfiguration/include/VectorFieldPoint.hh
  sources/core/VectorFieldReconfiguration/include/VectorFieldSchemes.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
- sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
- sources/core/StructuralElements/include/Layer.hh
  sources/core/StructuralElements/include/MultilayerNetwork.hh
  sources/core/StructuralElements/include/Network.hh
  sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GlobalVariables.hh
  sources/core/Utility/general/include/IObserver.hh
  sources/core/Utility/general/include/NetworkUtilityFunctions.hh
  sources/core/Utility/general/include/SimulationParameterContainer.hh
  sources/core/Utility/general/include/UtilityFunctions.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
  sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
  sources/core/VectorFieldReconfiguration/include/VectorField.hh
@@ -811,141 +580,71 @@ sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/core/VectorFieldReconfi
  sources/core/VectorFieldReconfiguration/include/VectorFieldTransformImplementations.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
- sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
  sources/core/StructuralElements/include/Layer.hh
  sources/core/StructuralElements/include/MultilayerNetwork.hh
- sources/core/StructuralElements/include/Network.hh
- sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GlobalVariables.hh
  sources/core/Utility/general/include/IObserver.hh
  sources/core/Utility/general/include/SimulationParameterContainer.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
- sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
- sources/core/VectorFieldReconfiguration/include/VectorField.hh
- sources/core/VectorFieldReconfiguration/include/VectorFieldPoint.hh
  sources/generators/DynamicsGenerators/include/DynamicalEquationGeneratorSimpleImpl.hh
  sources/generators/DynamicsGenerators/include/IDynamicalEquationGenerator.hh
  sources/generators/DynamicsGenerators/include/NetworkDynamicsGenerators.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
- sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
- sources/core/StructuralElements/include/Layer.hh
- sources/core/StructuralElements/include/MultilayerNetwork.hh
  sources/core/StructuralElements/include/Network.hh
  sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GlobalVariables.hh
- sources/core/Utility/general/include/IObserver.hh
  sources/core/Utility/general/include/SimulationParameterContainer.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
- sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
- sources/core/VectorFieldReconfiguration/include/VectorField.hh
- sources/core/VectorFieldReconfiguration/include/VectorFieldPoint.hh
  sources/generators/DynamicsGenerators/include/NetworkDynamicsGenerators.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc
- sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
  sources/core/StructuralElements/include/Network.hh
- sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/generators/GeneralGenerators/include/GeneralNetworkGenerator.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
- sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
  sources/core/StructuralElements/include/Layer.hh
  sources/core/StructuralElements/include/MultilayerNetwork.hh
- sources/core/StructuralElements/include/Network.hh
- sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GlobalVariables.hh
  sources/core/Utility/general/include/IObserver.hh
  sources/core/Utility/general/include/SimulationParameterContainer.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
- sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
- sources/core/VectorFieldReconfiguration/include/VectorField.hh
- sources/core/VectorFieldReconfiguration/include/VectorFieldPoint.hh
  sources/generators/InitialConditionGenerators/include/IInitialConditionGenerator.hh
  sources/generators/InitialConditionGenerators/include/InitialConditionGeneratorImpl.hh
  sources/generators/InitialConditionGenerators/include/NetworkInitialConditionGenerators.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
- sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
- sources/core/StructuralElements/include/Layer.hh
- sources/core/StructuralElements/include/MultilayerNetwork.hh
  sources/core/StructuralElements/include/Network.hh
  sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GlobalVariables.hh
- sources/core/Utility/general/include/IObserver.hh
  sources/core/Utility/general/include/SimulationParameterContainer.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
- sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
- sources/core/VectorFieldReconfiguration/include/VectorField.hh
- sources/core/VectorFieldReconfiguration/include/VectorFieldPoint.hh
  sources/generators/InitialConditionGenerators/include/NetworkInitialConditionGenerators.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/generators/StructureGenerators/src/BarabasiModel.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/StructureGenerators/src/BarabasiModel.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
- sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
- sources/core/StructuralElements/include/Layer.hh
- sources/core/StructuralElements/include/MultilayerNetwork.hh
  sources/core/StructuralElements/include/Network.hh
  sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/class/include/NetworkClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GlobalVariables.hh
- sources/core/Utility/general/include/IObserver.hh
  sources/core/Utility/general/include/SimulationParameterContainer.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
- sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
- sources/core/VectorFieldReconfiguration/include/VectorField.hh
- sources/core/VectorFieldReconfiguration/include/VectorFieldPoint.hh
  sources/generators/StructureGenerators/include/BarabasiModel.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/generators/StructureGenerators/src/StructureGeneratorImpl.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
- sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
  sources/core/StructuralElements/include/Layer.hh
  sources/core/StructuralElements/include/MultilayerNetwork.hh
  sources/core/StructuralElements/include/Network.hh
  sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GlobalVariables.hh
  sources/core/Utility/general/include/IObserver.hh
  sources/core/Utility/general/include/SimulationParameterContainer.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
- sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
- sources/core/VectorFieldReconfiguration/include/VectorField.hh
- sources/core/VectorFieldReconfiguration/include/VectorFieldPoint.hh
  sources/generators/StructureGenerators/include/BarabasiModel.hh
  sources/generators/StructureGenerators/include/IStructureGenerator.hh
  sources/generators/StructureGenerators/include/StructureGeneratorImpl.hh
@@ -981,22 +680,15 @@ sources/projects/MpiCluster/CMakeFiles/cluster.dir/__/__/parser/src/scanner.cpp.
  sources/parser/include/stack.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/src/GeneticAlgorithmServer.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/projects/MpiCluster/src/GeneticAlgorithmServer.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
  sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
- sources/core/StructuralElements/include/Layer.hh
  sources/core/StructuralElements/include/MultilayerNetwork.hh
  sources/core/StructuralElements/include/Network.hh
- sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GlobalVariables.hh
  sources/core/Utility/general/include/IGeneticObserver.hh
  sources/core/Utility/general/include/IObserver.hh
  sources/core/Utility/general/include/SimulationParameterContainer.hh
  sources/core/VectorFieldReconfiguration/include/GeneticAlgorithmController.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
  sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkModifier.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
@@ -1009,21 +701,14 @@ sources/projects/MpiCluster/CMakeFiles/cluster.dir/src/MpiUtility.cc.o
  sources/projects/MpiCluster/include/MpiUtility.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/src/MultilayerNetworkServer.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/projects/MpiCluster/src/MultilayerNetworkServer.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
- sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
- sources/core/StructuralElements/include/Layer.hh
  sources/core/StructuralElements/include/MultilayerNetwork.hh
  sources/core/StructuralElements/include/Network.hh
  sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GlobalVariables.hh
  sources/core/Utility/general/include/IObserver.hh
  sources/core/Utility/general/include/NetworkUtilityFunctions.hh
  sources/core/Utility/general/include/SimulationParameterContainer.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
  sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
  sources/core/VectorFieldReconfiguration/include/VectorField.hh
@@ -1032,20 +717,11 @@ sources/projects/MpiCluster/CMakeFiles/cluster.dir/src/MultilayerNetworkServer.c
  sources/projects/MpiCluster/include/SerializedClasses.hh
 sources/projects/MpiCluster/CMakeFiles/cluster.dir/src/SerializedClasses.cc.o
  /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/projects/MpiCluster/src/SerializedClasses.cc
- sources/core/DownwardInfluence/include/IDownwardInfluence.hh
- sources/core/DynamicalEquation/include/CalculationNode.hh
- sources/core/DynamicalEquation/include/DynamicalEquation.hh
- sources/core/StructuralElements/include/Layer.hh
- sources/core/StructuralElements/include/MultilayerNetwork.hh
  sources/core/StructuralElements/include/Network.hh
  sources/core/StructuralElements/include/Node.hh
- sources/core/UpwardInfluence/include/IUpwardInfluence.hh
- sources/core/Utility/class/include/MultilayerNetworkClassUtility.hh
  sources/core/Utility/general/include/GeneticAlgorithmParameterContainer.hh
  sources/core/Utility/general/include/GlobalVariables.hh
- sources/core/Utility/general/include/IObserver.hh
  sources/core/Utility/general/include/SimulationParameterContainer.hh
- sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
  sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
  sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
  sources/core/VectorFieldReconfiguration/include/VectorField.hh

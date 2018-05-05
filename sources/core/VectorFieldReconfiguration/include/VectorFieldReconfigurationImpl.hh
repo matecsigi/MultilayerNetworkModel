@@ -2,8 +2,9 @@
 #define VECTORFIELDRECONFIGURATIONIMPL_HH
 
 #include "IVectorFieldReconfiguration.hh"
-#include "VectorField.hh"
 #include "GlobalVariables.hh"
+
+class VectorField;
 
 class VectorFieldReconfigurationImpl: public IVectorFieldReconfiguration
 {

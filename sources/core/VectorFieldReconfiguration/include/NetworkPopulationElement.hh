@@ -1,9 +1,10 @@
 #ifndef NETWORKPOPULATIONELEMENT_HH
 #define NETWORKPOPULATIONELEMENT_HH
 
-#include "Network.hh"
-#include "VectorField.hh"
 #include <functional>
+
+class Network;
+class VectorField;
 
 class NetworkPopulationElement
 {

@@ -1,4 +1,5 @@
 #include "NetworkDynamicsGenerators.hh"
+#include "Network.hh"
 #include "Node.hh"
 
 void linearNetworkDynamicsGenerator(Network* network)

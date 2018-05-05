@@ -1,10 +1,11 @@
 #ifndef LAYER_HH
 #define LAYER_HH
 
-#include "Network.hh"
 #include <vector>
+#include <map>
 
 class MultilayerNetwork;
+class Network;
 
 class Layer
 {

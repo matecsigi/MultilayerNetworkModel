@@ -3,6 +3,8 @@
 
 #include "IDynamicalEquationGenerator.hh"
 
+class MultilayerNetwork;
+
 class DynamicalEquationGeneratorSimpleImpl: public IDynamicalEquationGenerator
 {
 public:

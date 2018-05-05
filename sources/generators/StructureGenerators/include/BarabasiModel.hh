@@ -3,7 +3,9 @@
 
 #include <algorithm>
 #include <vector>
-#include "Network.hh"
+
+class Network;
+class Node;
 
 void generateNetwork(Network* network, int numberOfNodes, int m=3);
 Node* chooseNodePreferential(Node* newNode, Network* network);

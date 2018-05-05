@@ -1,6 +1,13 @@
-#include <iostream>
 #include "UpwardInfluenceImpl.hh"
+#include "Node.hh"
+#include "Network.hh"
+#include "MultilayerNetwork.hh"
 #include "UtilityFunctions.hh"
+#include "OdeWrapper.hh"
+#include <boost/numeric/odeint.hpp>
+#include <iostream>
+
+using namespace boost::numeric::odeint;
 
 void UpwardInfluenceImpl::calculateUpwardInfluence(double upwardMultiplier)
 {

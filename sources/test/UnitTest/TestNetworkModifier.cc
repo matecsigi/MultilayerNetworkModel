@@ -1,5 +1,9 @@
 #include <boost/test/unit_test.hpp>
 #include "MultilayerNetwork.hh"
+#include "Layer.hh"
+#include "Network.hh"
+#include "Node.hh"
+#include "DynamicalEquation.hh"
 #include "NetworkModifier.hh"
 #include "IStructureGenerator.hh"
 #include "StructureGeneratorImpl.hh"

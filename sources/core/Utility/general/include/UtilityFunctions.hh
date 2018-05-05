@@ -1,11 +1,15 @@
 #ifndef UTILITYFUNCTIONS_HH
 #define UTILITYFUNCTIONS_HH
 
-#include "MultilayerNetwork.hh"
-#include "Layer.hh"
-#include "Network.hh"
 #include "IdValuePair.hh"
-#include "VectorField.hh"
+#include <vector>
+#include <map>
+
+class MultilayerNetwork;
+class Layer;
+class Network;
+class VectorField;
+class VectorFieldPoint;
 
 int getIndexT(int t);
 int getIndexTMinusOne(int t);

@@ -1,7 +1,7 @@
 #ifndef IINITIALCONDITIONGENERATOR_HH
 #define IINITIALCONDITIONGENERATOR_HH
 
-#include "MultilayerNetwork.hh"
+class MultilayerNetwork;
 
 class IInitialConditionGenerator
 {

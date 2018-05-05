@@ -1,5 +1,6 @@
 #include "LayerClassUtility.hh"
 #include "Layer.hh"
+#include "Network.hh"
 #include "NetworkClassUtility.hh"
 
 bool layersEqual(const Layer& layer1, const Layer& layer2)

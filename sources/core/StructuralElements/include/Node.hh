@@ -1,10 +1,6 @@
 #ifndef NODE_HH
 #define NODE_HH
 
-#include "Network.hh"
-#include "IUpwardInfluence.hh"
-#include "IDownwardInfluence.hh"
-#include "IVectorFieldReconfiguration.hh"
 #include "GlobalVariables.hh"
 #include "SimulationParameterContainer.hh"
 #include <vector>
@@ -14,6 +10,10 @@ class IDownwardInfluence;
 class IVectorFieldReconfiguration;
 
 class MultilayerNetwork;
+class Network;
+class DynamicalEquation;
+
+class IdValuePair;
 
 class Node
 {

@@ -7,12 +7,22 @@
 #IncludeRegexTransform: 
 
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/DownwardInfluence/src/DownwardInfluenceImpl.cc
-iostream
--
 DownwardInfluenceImpl.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/DownwardInfluence/src/DownwardInfluenceImpl.hh
+boost/numeric/odeint.hpp
+-
+Node.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/DownwardInfluence/src/Node.hh
+Network.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/DownwardInfluence/src/Network.hh
+MultilayerNetwork.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/DownwardInfluence/src/MultilayerNetwork.hh
 UtilityFunctions.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/DownwardInfluence/src/UtilityFunctions.hh
+iostream
+-
+OdeWrapper.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/DownwardInfluence/src/OdeWrapper.hh
 
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/DynamicalEquation/src/CalculationNode.cc
 CalculationNode.hh
@@ -45,6 +55,10 @@ sstream
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/Layer.cc
 Layer.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/Layer.hh
+Network.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/Network.hh
+MultilayerNetwork.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/MultilayerNetwork.hh
 NetworkUtilityFunctions.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/NetworkUtilityFunctions.hh
 NetworkClassUtility.hh
@@ -61,10 +75,18 @@ map
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/MultilayerNetwork.cc
 MultilayerNetwork.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/MultilayerNetwork.hh
+Node.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/Node.hh
+Layer.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/Layer.hh
 MultilayerNetworkServer.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/MultilayerNetworkServer.hh
+MultilayerNetworkClassUtility.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/MultilayerNetworkClassUtility.hh
 UtilityFunctions.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/UtilityFunctions.hh
+GlobalVariables.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/GlobalVariables.hh
 Trace.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/Trace.hh
 iostream
@@ -95,8 +117,14 @@ Network.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/Network.hh
 Node.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/Node.hh
+MultilayerNetwork.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/MultilayerNetwork.hh
+DynamicalEquation.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/DynamicalEquation.hh
 UtilityFunctions.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/UtilityFunctions.hh
+IdValuePair.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/IdValuePair.hh
 Trace.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/Trace.hh
 iostream
@@ -111,8 +139,16 @@ map
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/Node.cc
 Node.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/Node.hh
-iostream
--
+MultilayerNetwork.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/MultilayerNetwork.hh
+Network.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/Network.hh
+IUpwardInfluence.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/IUpwardInfluence.hh
+IDownwardInfluence.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/IDownwardInfluence.hh
+IVectorFieldReconfiguration.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/IVectorFieldReconfiguration.hh
 UpwardInfluenceImpl.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/StructuralElements/src/UpwardInfluenceImpl.hh
 DownwardInfluenceImpl.hh
@@ -133,20 +169,34 @@ iomanip
 -
 sstream
 -
-
-/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/UpwardInfluence/src/UpwardInfluenceImpl.cc
 iostream
 -
+
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/UpwardInfluence/src/UpwardInfluenceImpl.cc
 UpwardInfluenceImpl.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/UpwardInfluence/src/UpwardInfluenceImpl.hh
+Node.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/UpwardInfluence/src/Node.hh
+Network.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/UpwardInfluence/src/Network.hh
+MultilayerNetwork.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/UpwardInfluence/src/MultilayerNetwork.hh
 UtilityFunctions.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/UpwardInfluence/src/UtilityFunctions.hh
+OdeWrapper.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/UpwardInfluence/src/OdeWrapper.hh
+boost/numeric/odeint.hpp
+-
+iostream
+-
 
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/class/src/LayerClassUtility.cc
 LayerClassUtility.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/class/src/LayerClassUtility.hh
 Layer.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/class/src/Layer.hh
+Network.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/class/src/Network.hh
 NetworkClassUtility.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/class/src/NetworkClassUtility.hh
 
@@ -155,6 +205,8 @@ MultilayerNetworkClassUtility.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/class/src/MultilayerNetworkClassUtility.hh
 MultilayerNetwork.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/class/src/MultilayerNetwork.hh
+Layer.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/class/src/Layer.hh
 Network.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/class/src/Network.hh
 Node.hh
@@ -177,12 +229,18 @@ Network.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/class/src/Network.hh
 Node.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/class/src/Node.hh
+DynamicalEquation.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/class/src/DynamicalEquation.hh
+map
+-
 
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/class/src/NodeClassUtility.cc
 NodeClassUtility.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/class/src/NodeClassUtility.hh
 Node.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/class/src/Node.hh
+Network.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/class/src/Network.hh
 
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/GeneticAlgorithmParameterContainer.cc
 GeneticAlgorithmParameterContainer.hh
@@ -191,6 +249,8 @@ GeneticAlgorithmParameterContainer.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/GeneticObserver.cc
 GeneticObserver.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/GeneticObserver.hh
+Network.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/Network.hh
 UtilityFunctions.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/UtilityFunctions.hh
 GeneticAlgorithmController.hh
@@ -207,10 +267,24 @@ GlobalVariables.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/GlobalVariables.hh
 
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/NetworkUtilityFunctions.cc
+Node.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/Node.hh
+Network.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/Network.hh
+Layer.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/Layer.hh
+MultilayerNetwork.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/MultilayerNetwork.hh
+VectorField.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/VectorField.hh
+DynamicalEquation.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/DynamicalEquation.hh
 NetworkUtilityFunctions.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/NetworkUtilityFunctions.hh
 UtilityFunctions.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/UtilityFunctions.hh
+IdValuePair.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/IdValuePair.hh
 
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/UtilityFunctions.cc
 UtilityFunctions.hh
@@ -219,6 +293,18 @@ GlobalVariables.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/GlobalVariables.hh
 Node.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/Node.hh
+MultilayerNetwork.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/MultilayerNetwork.hh
+Layer.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/Layer.hh
+Network.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/Network.hh
+DynamicalEquation.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/DynamicalEquation.hh
+IdValuePair.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/IdValuePair.hh
+VectorField.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/VectorField.hh
 Trace.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/Utility/general/src/Trace.hh
 fstream
@@ -243,6 +329,10 @@ boost/filesystem.hpp
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.cc
 GeneticAlgorithmController.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.hh
+Network.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/Network.hh
+Node.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/Node.hh
 NetworkUtilityFunctions.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/NetworkUtilityFunctions.hh
 NetworkClassUtility.hh
@@ -261,6 +351,14 @@ spdlog/spdlog.h
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/NetworkModifier.cc
 NetworkModifier.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/NetworkModifier.hh
+Node.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/Node.hh
+Network.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/Network.hh
+DynamicalEquation.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/DynamicalEquation.hh
+VectorField.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/VectorField.hh
 iostream
 -
 algorithm
@@ -273,6 +371,10 @@ spdlog/spdlog.h
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.cc
 NetworkPopulationElement.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/NetworkPopulationElement.hh
+Network.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/Network.hh
+VectorField.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/VectorField.hh
 VectorFieldSchemes.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.hh
 
@@ -311,6 +413,12 @@ VectorFieldSchemes.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.hh
 VectorFieldTransformImplementations.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.hh
+MultilayerNetwork.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/MultilayerNetwork.hh
+Node.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/Node.hh
+VectorField.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/VectorField.hh
 GeneticAlgorithmController.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/GeneticAlgorithmController.hh
 MpiUtility.hh
@@ -323,6 +431,12 @@ boost/mpi.hpp
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.cc
 VectorFieldSchemes.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.hh
+VectorField.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/VectorField.hh
+Network.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/Network.hh
+NetworkUtilityFunctions.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/NetworkUtilityFunctions.hh
 IdValuePair.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/IdValuePair.hh
 UtilityFunctions.hh
@@ -333,6 +447,14 @@ NetworkUtilityFunctions.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.cc
 VectorFieldTransformImplementations.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/VectorFieldTransformImplementations.hh
+Node.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/Node.hh
+Network.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/Network.hh
+MultilayerNetwork.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/MultilayerNetwork.hh
+VectorField.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/VectorField.hh
 VectorFieldSchemes.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/core/VectorFieldReconfiguration/src/VectorFieldSchemes.hh
 NetworkUtilityFunctions.hh
@@ -343,22 +465,34 @@ UtilityFunctions.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.cc
 DynamicalEquationGeneratorSimpleImpl.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/DynamicsGenerators/src/DynamicalEquationGeneratorSimpleImpl.hh
+MultilayerNetwork.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/DynamicsGenerators/src/MultilayerNetwork.hh
+Layer.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/DynamicsGenerators/src/Layer.hh
 NetworkDynamicsGenerators.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.hh
 
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.cc
 NetworkDynamicsGenerators.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/DynamicsGenerators/src/NetworkDynamicsGenerators.hh
+Network.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/DynamicsGenerators/src/Network.hh
 Node.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/DynamicsGenerators/src/Node.hh
 
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.cc
 GeneralNetworkGenerator.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/GeneralGenerators/src/GeneralNetworkGenerator.hh
+Network.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/GeneralGenerators/src/Network.hh
 
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.cc
 InitialConditionGeneratorImpl.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/InitialConditionGenerators/src/InitialConditionGeneratorImpl.hh
+MultilayerNetwork.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/InitialConditionGenerators/src/MultilayerNetwork.hh
+Layer.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/InitialConditionGenerators/src/Layer.hh
 NetworkInitialConditionGenerators.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.hh
 
@@ -367,12 +501,16 @@ NetworkInitialConditionGenerators.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/InitialConditionGenerators/src/NetworkInitialConditionGenerators.hh
 GlobalVariables.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/InitialConditionGenerators/src/GlobalVariables.hh
+Network.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/InitialConditionGenerators/src/Network.hh
 Node.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/InitialConditionGenerators/src/Node.hh
 
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/StructureGenerators/src/BarabasiModel.cc
 BarabasiModel.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/StructureGenerators/src/BarabasiModel.hh
+Network.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/StructureGenerators/src/Network.hh
 Node.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/StructureGenerators/src/Node.hh
 NetworkClassUtility.hh
@@ -381,6 +519,14 @@ NetworkClassUtility.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/StructureGenerators/src/StructureGeneratorImpl.cc
 StructureGeneratorImpl.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/StructureGenerators/src/StructureGeneratorImpl.hh
+MultilayerNetwork.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/StructureGenerators/src/MultilayerNetwork.hh
+Layer.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/StructureGenerators/src/Layer.hh
+Network.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/StructureGenerators/src/Network.hh
+Node.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/StructureGenerators/src/Node.hh
 BarabasiModel.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/generators/StructureGenerators/src/BarabasiModel.hh
 iostream
@@ -447,6 +593,8 @@ unistd.h
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/projects/MpiCluster/src/GeneticAlgorithmServer.cc
 boost/mpi.hpp
 -
+MultilayerNetwork.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/projects/MpiCluster/src/MultilayerNetwork.hh
 GeneticAlgorithmServer.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/projects/MpiCluster/src/GeneticAlgorithmServer.hh
 GeneticAlgorithmController.hh
@@ -465,16 +613,20 @@ MpiUtility.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/projects/MpiCluster/src/MpiUtility.hh
 
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/projects/MpiCluster/src/MultilayerNetworkServer.cc
+MultilayerNetworkServer.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/projects/MpiCluster/src/MultilayerNetworkServer.hh
+MultilayerNetwork.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/projects/MpiCluster/src/MultilayerNetwork.hh
+Node.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/projects/MpiCluster/src/Node.hh
+NetworkUtilityFunctions.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/projects/MpiCluster/src/NetworkUtilityFunctions.hh
 boost/mpi.hpp
 -
 thread
 -
 mutex
 -
-MultilayerNetworkServer.hh
-/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/projects/MpiCluster/src/MultilayerNetworkServer.hh
-NetworkUtilityFunctions.hh
-/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/projects/MpiCluster/src/NetworkUtilityFunctions.hh
 
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/projects/MpiCluster/src/SerializedClasses.cc
 SerializedClasses.hh
@@ -487,6 +639,22 @@ IdValuePair.hh
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/projects/MpiCluster/src/IdValuePair.hh
 
 /home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/test/FunctionalityTest/TestGeneticAlgorithm.cc
+MultilayerNetwork.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/test/FunctionalityTest/MultilayerNetwork.hh
+IStructureGenerator.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/test/FunctionalityTest/IStructureGenerator.hh
+StructureGeneratorImpl.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/test/FunctionalityTest/StructureGeneratorImpl.hh
+IDynamicalEquationGenerator.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/test/FunctionalityTest/IDynamicalEquationGenerator.hh
+DynamicalEquationGeneratorSimpleImpl.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/test/FunctionalityTest/DynamicalEquationGeneratorSimpleImpl.hh
+IInitialConditionGenerator.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/test/FunctionalityTest/IInitialConditionGenerator.hh
+InitialConditionGeneratorImpl.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/test/FunctionalityTest/InitialConditionGeneratorImpl.hh
+Trace.hh
+/home/mate/Documents/Programming/Research/MultilayerNetworkModel/MultilayerNetworkModel/sources/test/FunctionalityTest/Trace.hh
 iostream
 -
 
@@ -495,8 +663,6 @@ IDownwardInfluence.hh
 sources/core/DownwardInfluence/include/IDownwardInfluence.hh
 
 sources/core/DownwardInfluence/include/IDownwardInfluence.hh
-MultilayerNetwork.hh
-sources/core/DownwardInfluence/include/MultilayerNetwork.hh
 
 sources/core/DynamicalEquation/include/CalculationNode.hh
 cmath
@@ -509,8 +675,6 @@ vector
 -
 
 sources/core/DynamicalEquation/include/DynamicalEquation.hh
-iostream
--
 string
 -
 map
@@ -529,27 +693,17 @@ DynamicalEquation.hh
 sources/core/DynamicalEquation/include/DynamicalEquation.hh
 
 sources/core/StructuralElements/include/Layer.hh
-Network.hh
-sources/core/StructuralElements/include/Network.hh
 vector
+-
+map
 -
 
 sources/core/StructuralElements/include/MultilayerNetwork.hh
-Node.hh
-sources/core/StructuralElements/include/Node.hh
-Layer.hh
-sources/core/StructuralElements/include/Layer.hh
 IObserver.hh
 sources/core/StructuralElements/include/IObserver.hh
-GlobalVariables.hh
-sources/core/StructuralElements/include/GlobalVariables.hh
 SimulationParameterContainer.hh
 sources/core/StructuralElements/include/SimulationParameterContainer.hh
-MultilayerNetworkClassUtility.hh
-sources/core/StructuralElements/include/MultilayerNetworkClassUtility.hh
 vector
--
-iostream
 -
 map
 -
@@ -557,18 +711,10 @@ map
 sources/core/StructuralElements/include/Network.hh
 vector
 -
-DynamicalEquation.hh
-sources/core/StructuralElements/include/DynamicalEquation.hh
+string
+-
 
 sources/core/StructuralElements/include/Node.hh
-Network.hh
-sources/core/StructuralElements/include/Network.hh
-IUpwardInfluence.hh
-sources/core/StructuralElements/include/IUpwardInfluence.hh
-IDownwardInfluence.hh
-sources/core/StructuralElements/include/IDownwardInfluence.hh
-IVectorFieldReconfiguration.hh
-sources/core/StructuralElements/include/IVectorFieldReconfiguration.hh
 GlobalVariables.hh
 sources/core/StructuralElements/include/GlobalVariables.hh
 SimulationParameterContainer.hh
@@ -577,8 +723,6 @@ vector
 -
 
 sources/core/UpwardInfluence/include/IUpwardInfluence.hh
-MultilayerNetwork.hh
-sources/core/UpwardInfluence/include/MultilayerNetwork.hh
 
 sources/core/UpwardInfluence/include/UpwardInfluenceImpl.hh
 IUpwardInfluence.hh
@@ -623,12 +767,8 @@ sources/core/Utility/general/include/IGeneticObserver.hh
 sources/core/Utility/general/include/IObserver.hh
 
 sources/core/Utility/general/include/NetworkUtilityFunctions.hh
-Node.hh
-sources/core/Utility/general/include/Node.hh
-Network.hh
-sources/core/Utility/general/include/Network.hh
-VectorField.hh
-sources/core/Utility/general/include/VectorField.hh
+vector
+-
 
 sources/core/Utility/general/include/SimulationParameterContainer.hh
 GeneticAlgorithmParameterContainer.hh
@@ -639,16 +779,12 @@ iostream
 -
 
 sources/core/Utility/general/include/UtilityFunctions.hh
-MultilayerNetwork.hh
-sources/core/Utility/general/include/MultilayerNetwork.hh
-Layer.hh
-sources/core/Utility/general/include/Layer.hh
-Network.hh
-sources/core/Utility/general/include/Network.hh
 IdValuePair.hh
 sources/core/Utility/general/include/IdValuePair.hh
-VectorField.hh
-sources/core/Utility/general/include/VectorField.hh
+vector
+-
+map
+-
 
 sources/core/VectorFieldReconfiguration/include/GeneticAlgorithmController.hh
 NetworkModifier.hh
@@ -663,8 +799,6 @@ functional
 -
 
 sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
-MultilayerNetwork.hh
-sources/core/VectorFieldReconfiguration/include/MultilayerNetwork.hh
 GlobalVariables.hh
 sources/core/VectorFieldReconfiguration/include/GlobalVariables.hh
 SimulationParameterContainer.hh
@@ -673,20 +807,12 @@ sources/core/VectorFieldReconfiguration/include/SimulationParameterContainer.hh
 sources/core/VectorFieldReconfiguration/include/IdValuePair.hh
 
 sources/core/VectorFieldReconfiguration/include/NetworkModifier.hh
-Node.hh
-sources/core/VectorFieldReconfiguration/include/Node.hh
-Network.hh
-sources/core/VectorFieldReconfiguration/include/Network.hh
-VectorField.hh
-sources/core/VectorFieldReconfiguration/include/VectorField.hh
 GeneticAlgorithmParameterContainer.hh
 sources/core/VectorFieldReconfiguration/include/GeneticAlgorithmParameterContainer.hh
+CalculationNode.hh
+sources/core/VectorFieldReconfiguration/include/CalculationNode.hh
 
 sources/core/VectorFieldReconfiguration/include/NetworkPopulationElement.hh
-Network.hh
-sources/core/VectorFieldReconfiguration/include/Network.hh
-VectorField.hh
-sources/core/VectorFieldReconfiguration/include/VectorField.hh
 functional
 -
 
@@ -707,26 +833,18 @@ vector
 sources/core/VectorFieldReconfiguration/include/VectorFieldReconfigurationImpl.hh
 IVectorFieldReconfiguration.hh
 sources/core/VectorFieldReconfiguration/include/IVectorFieldReconfiguration.hh
-VectorField.hh
-sources/core/VectorFieldReconfiguration/include/VectorField.hh
 GlobalVariables.hh
 sources/core/VectorFieldReconfiguration/include/GlobalVariables.hh
 
 sources/core/VectorFieldReconfiguration/include/VectorFieldSchemes.hh
-VectorField.hh
-sources/core/VectorFieldReconfiguration/include/VectorField.hh
-Network.hh
-sources/core/VectorFieldReconfiguration/include/Network.hh
-NetworkUtilityFunctions.hh
-sources/core/VectorFieldReconfiguration/include/NetworkUtilityFunctions.hh
 functional
 -
+NetworkUtilityFunctions.hh
+sources/core/VectorFieldReconfiguration/include/NetworkUtilityFunctions.hh
 
 sources/core/VectorFieldReconfiguration/include/VectorFieldTransformImplementations.hh
-Node.hh
-sources/core/VectorFieldReconfiguration/include/Node.hh
-VectorField.hh
-sources/core/VectorFieldReconfiguration/include/VectorField.hh
+SimulationParameterContainer.hh
+sources/core/VectorFieldReconfiguration/include/SimulationParameterContainer.hh
 
 sources/external/rapidjson/allocators.h
 rapidjson.h
@@ -1461,22 +1579,14 @@ IDynamicalEquationGenerator.hh
 sources/generators/DynamicsGenerators/include/IDynamicalEquationGenerator.hh
 
 sources/generators/DynamicsGenerators/include/IDynamicalEquationGenerator.hh
-MultilayerNetwork.hh
-sources/generators/DynamicsGenerators/include/MultilayerNetwork.hh
 
 sources/generators/DynamicsGenerators/include/NetworkDynamicsGenerators.hh
-Network.hh
-sources/generators/DynamicsGenerators/include/Network.hh
 
 sources/generators/GeneralGenerators/include/GeneralNetworkGenerator.hh
 functional
 -
-Network.hh
-sources/generators/GeneralGenerators/include/Network.hh
 
 sources/generators/InitialConditionGenerators/include/IInitialConditionGenerator.hh
-MultilayerNetwork.hh
-sources/generators/InitialConditionGenerators/include/MultilayerNetwork.hh
 
 sources/generators/InitialConditionGenerators/include/InitialConditionGeneratorImpl.hh
 IInitialConditionGenerator.hh
@@ -1485,20 +1595,14 @@ GlobalVariables.hh
 sources/generators/InitialConditionGenerators/include/GlobalVariables.hh
 
 sources/generators/InitialConditionGenerators/include/NetworkInitialConditionGenerators.hh
-Network.hh
-sources/generators/InitialConditionGenerators/include/Network.hh
 
 sources/generators/StructureGenerators/include/BarabasiModel.hh
 algorithm
 -
 vector
 -
-Network.hh
-sources/generators/StructureGenerators/include/Network.hh
 
 sources/generators/StructureGenerators/include/IStructureGenerator.hh
-MultilayerNetwork.hh
-sources/generators/StructureGenerators/include/MultilayerNetwork.hh
 
 sources/generators/StructureGenerators/include/StructureGeneratorImpl.hh
 IStructureGenerator.hh
@@ -1577,8 +1681,6 @@ sources/projects/MpiCluster/include/SerializedClasses.hh
 sources/projects/MpiCluster/include/MpiUtility.hh
 
 sources/projects/MpiCluster/include/MultilayerNetworkServer.hh
-MultilayerNetwork.hh
-sources/projects/MpiCluster/include/MultilayerNetwork.hh
 SerializedClasses.hh
 sources/projects/MpiCluster/include/SerializedClasses.hh
 queue

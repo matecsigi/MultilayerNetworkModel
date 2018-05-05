@@ -1,9 +1,13 @@
 #ifndef NETWORKUTILITYFUNCTIONS_HH
 #define NETWORKUTILITYFUNCTIONS_HH
 
-#include "Node.hh"
-#include "Network.hh"
-#include "VectorField.hh"
+#include <vector>
+
+class MultilayerNetwork;
+class Network;
+class Node;
+class VectorField;
+class IdValuePair;
 
 void copyNetwork(Network* oldNetwork, Network* newNetwork);
   /**

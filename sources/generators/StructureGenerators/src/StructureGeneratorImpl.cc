@@ -1,4 +1,8 @@
 #include "StructureGeneratorImpl.hh"
+#include "MultilayerNetwork.hh"
+#include "Layer.hh"
+#include "Network.hh"
+#include "Node.hh"
 #include "BarabasiModel.hh"
 #include <iostream>
 #include <algorithm>

@@ -1,4 +1,5 @@
 #include "GeneralNetworkGenerator.hh"
+#include "Network.hh"
 
 void generateNetworkGeneral(Network* network, int control, std::function<void(Network*)> structureGenerator, std::function<void(Network*)> dynamicsGenerator, std::function<void(Network*)> initialConditionGenerator)
 {

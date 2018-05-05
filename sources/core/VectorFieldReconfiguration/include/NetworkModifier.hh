@@ -1,10 +1,12 @@
 #ifndef NETWORKMODIFIER_HH
 #define NETWORKMODIFIER_HH
 
-#include "Node.hh"
-#include "Network.hh"
-#include "VectorField.hh"
 #include "GeneticAlgorithmParameterContainer.hh"
+#include "CalculationNode.hh"
+
+class Network;
+class Node;
+class VectorField;
 
 enum ModificationType
 {

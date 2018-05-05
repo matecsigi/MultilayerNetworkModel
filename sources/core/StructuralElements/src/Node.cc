@@ -1,5 +1,9 @@
 #include "Node.hh"
-#include <iostream>
+#include "MultilayerNetwork.hh"
+#include "Network.hh"
+#include "IUpwardInfluence.hh"
+#include "IDownwardInfluence.hh"
+#include "IVectorFieldReconfiguration.hh"
 #include "UpwardInfluenceImpl.hh"
 #include "DownwardInfluenceImpl.hh"
 #include "VectorFieldReconfigurationImpl.hh"
@@ -10,6 +14,7 @@
 #include <boost/numeric/odeint.hpp>
 #include <iomanip>
 #include <sstream>
+#include <iostream>
 
 using namespace boost::numeric::odeint;
 

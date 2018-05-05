@@ -1,4 +1,6 @@
 #include "DynamicalEquationGeneratorSimpleImpl.hh"
+#include "MultilayerNetwork.hh"
+#include "Layer.hh"
 #include "NetworkDynamicsGenerators.hh"
 
 void DynamicalEquationGeneratorSimpleImpl::generateDynamicalEquations()

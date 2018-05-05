@@ -1,4 +1,5 @@
 #include "BarabasiModel.hh"
+#include "Network.hh"
 #include "Node.hh"
 #include "NetworkClassUtility.hh"
 

@@ -1,6 +1,12 @@
 #include "UtilityFunctions.hh"
 #include "GlobalVariables.hh"
 #include "Node.hh"
+#include "MultilayerNetwork.hh"
+#include "Layer.hh"
+#include "Network.hh"
+#include "DynamicalEquation.hh"
+#include "IdValuePair.hh"
+#include "VectorField.hh"
 #include "Trace.hh"
 #include <fstream>
 #include <sstream>

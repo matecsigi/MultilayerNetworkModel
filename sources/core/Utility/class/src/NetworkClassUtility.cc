@@ -2,6 +2,8 @@
 #include "NodeClassUtility.hh"
 #include "Network.hh"
 #include "Node.hh"
+#include "DynamicalEquation.hh"
+#include <map>
 
 void loadNodesToEquations(Network *network)
 {

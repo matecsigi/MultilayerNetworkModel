@@ -1,7 +1,8 @@
 #ifndef IDOWNWARDINFLUENCE_HH
 #define IDOWNWARDINFLUENCE_HH
 
-#include "MultilayerNetwork.hh"
+class MultilayerNetwork;
+class Node;
 
 class IDownwardInfluence
 {

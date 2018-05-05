@@ -1,6 +1,9 @@
 #include "Network.hh"
 #include "Node.hh"
+#include "MultilayerNetwork.hh"
+#include "DynamicalEquation.hh"
 #include "UtilityFunctions.hh"
+#include "IdValuePair.hh"
 #include "Trace.hh"
 #include <iostream>
 #include <algorithm>

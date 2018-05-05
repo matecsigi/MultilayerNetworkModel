@@ -1,7 +1,7 @@
 #ifndef NETWORKDYNAMICSGENERATORS_HH
 #define NETWORKDYNAMICSGENERATORS_HH
 
-#include "Network.hh"
+class Network;
 
 void linearNetworkDynamicsGenerator(Network* network);
 

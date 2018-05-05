@@ -1,7 +1,8 @@
 #ifndef IUPWARDINFLUENCE_HH
 #define IUPWARDINFLUENCE_HH
 
-#include "MultilayerNetwork.hh"
+class MultilayerNetwork;
+class Node;
 
 class IUpwardInfluence
 {

@@ -1,6 +1,10 @@
 #include "MultilayerNetwork.hh"
+#include "Node.hh"
+#include "Layer.hh"
 #include "MultilayerNetworkServer.hh"
+#include "MultilayerNetworkClassUtility.hh"
 #include "UtilityFunctions.hh"
+#include "GlobalVariables.hh"
 #include "Trace.hh"
 #include <iostream>
 #include <fstream>
@@ -108,15 +112,20 @@ void MultilayerNetwork::step(SimulationParameterContainer *parameters)
     nodeThreadPartition[index].push_back(mNodesMap[id]);
   }
 
-  std::thread stepThreads[numberOfCores];
-  for(int i=0; i < numberOfCores; ++i)
-  {
-    stepThreads[i] = std::thread(executeStepsInThread, std::ref(nodeThreadPartition[i]), parameters);
-  }
+  // std::thread stepThreads[numberOfCores];
+  // for(int i=0; i < numberOfCores; ++i)
+  // {
+  //   stepThreads[i] = std::thread(executeStepsInThread, std::ref(nodeThreadPartition[i]), parameters);
+  // }
 
-  for(int i=0; i < numberOfCores; ++i)
+  // for(int i=0; i < numberOfCores; ++i)
+  // {
+  //   stepThreads[i].join();
+  // }
+
+  for(int i=0; i<numberOfCores; ++i)
   {
-    stepThreads[i].join();
+    executeStepsInThread(nodeThreadPartition[i], parameters);
   }
 
   if(parameters->cluster == true)
@@ -137,7 +146,8 @@ void MultilayerNetwork::iterate(int steps, SimulationParameterContainer *paramet
   if(parameters->cluster == true){calculateClusterMessageSizes(this, parameters);}
 
   if(observer != NULL){observer->atStart();}
-  for(mTime=mTime; mTime<(mTime+steps); ++mTime)
+  int timeOriginal = mTime;
+  for(mTime=timeOriginal; mTime<(timeOriginal+steps); ++mTime)
   {
     if(parameters->printTrace)
     {

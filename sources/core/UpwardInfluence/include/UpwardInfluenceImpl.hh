@@ -3,6 +3,8 @@
 
 #include "IUpwardInfluence.hh"
 
+class MultilayerNetwork;
+
 class UpwardInfluenceImpl: public IUpwardInfluence
 {
 public:

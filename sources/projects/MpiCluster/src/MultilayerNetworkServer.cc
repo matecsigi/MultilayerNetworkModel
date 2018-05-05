@@ -1,8 +1,10 @@
+#include "MultilayerNetworkServer.hh"
+#include "MultilayerNetwork.hh"
+#include "Node.hh"
+#include "NetworkUtilityFunctions.hh"
 #include <boost/mpi.hpp>
 #include <thread>
 #include <mutex>
-#include "MultilayerNetworkServer.hh"
-#include "NetworkUtilityFunctions.hh"
 
 std::mutex m2;
 
