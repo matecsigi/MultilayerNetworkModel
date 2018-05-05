@@ -77,7 +77,7 @@ void GeneticAlgorithmController::runGeneticAlgorithm(Network* network, IGeneticO
     death();
     chooseBestNetwork();
     if(observer != NULL){observer->atStep();}
-     // std::cout<<"   avg="<<calculateAverageFitness()<<std::endl;
+    // std::cout<<"   avg="<<calculateAverageFitness()<<std::endl;
   }
 
   if(network != NULL)

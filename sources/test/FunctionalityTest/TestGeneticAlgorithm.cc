@@ -24,7 +24,8 @@ int main()
 
   SimulationParameterContainer *parameters = new SimulationParameterContainer;
   parameters->printTrace = true;
-  parameters->geneticParameters->numberOfGenerations = 1000;
+  parameters->geneticParameters->numberOfGenerations = 150;
+  parameters->geneticParameters->initialPopulationSize = 100;
 
   multilayerNetwork->iterate(2, parameters);
 
