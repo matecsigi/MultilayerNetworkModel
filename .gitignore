@@ -7,10 +7,12 @@ cmake_install.cmake
 
 valgrindOut/*
 
-*CMakeFiles/*
-*CMakeCache.txt
-
-sources/projects/BarabasiMultilayer/generated/*
+CMakeFiles/*
+CMakeCache.txt
+sources/projects/MpiCluster/CMakeFiles/*
+sources/projects/MpiCluster/CMakecache.txt
+sources/test/FunctionalityTest/CMakeFiles/*
+sources/test/FunctionalityTest/CMakecache.txt
 
 *.json
 
