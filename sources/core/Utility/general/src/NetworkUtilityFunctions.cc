@@ -56,7 +56,8 @@ void copyNetwork(Network* oldNetwork, Network* newNetwork)
   delete [] tmpBuffer; 
 }
 
-std::vector<IdValuePair> getIsolatedDirectionAtState(Network* network, std::vector<IdValuePair> &basePointCoordinates)
+std::vector<IdValuePair> getIsolatedDirectionAtState(Network* network, std::vector<IdValuePair> &basePointCoordinate
+s)
 {
   std::vector<IdValuePair> directions;
   std::vector<IdValuePair> finalState;
