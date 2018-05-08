@@ -56,11 +56,11 @@ void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration(Simulat
     geneticController.fitToVectorField(networkAssigned, targetVectorField);
   }
 
-  std::cout<<"----original distance="<<currentVectorField->getDistanceFrom(targetVectorField)<<std::endl;
-  VectorField *newVectorField = new VectorField();
-  gridAroundPointScheme2(newVectorField, networkAssigned, currentState);
-  std::cout<<"----new distance="<<newVectorField->getDistanceFrom(targetVectorField)<<std::endl;  
-  delete newVectorField;
+  // std::cout<<"----original distance="<<currentVectorField->getDistanceFrom(targetVectorField)<<std::endl;
+  // VectorField *newVectorField = new VectorField();
+  // gridAroundPointScheme2(newVectorField, networkAssigned, currentState);
+  // std::cout<<"----new distance="<<newVectorField->getDistanceFrom(targetVectorField)<<std::endl;  
+  // delete newVectorField;
 
   delete currentVectorField;
   delete targetVectorField;
