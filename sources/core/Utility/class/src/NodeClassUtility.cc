@@ -5,7 +5,7 @@
 double getMaxValue(Node *node)
 {
   double max = 0;
-  double *values = NULL;
+  double *values = new double[bufferSize];
   node->getValues(values);
   for(int i=0; i<bufferSize; ++i)
   {
@@ -14,13 +14,14 @@ double getMaxValue(Node *node)
       max = values[i];
     }
   }
+  delete [] values;
   return max;
 }
 
 double getMinValue(Node *node)
 {
   double min = 0;
-  double *values = NULL;
+  double *values = new double[bufferSize];
   node->getValues(values);
   for(int i=0; i<bufferSize; ++i)
   {
@@ -29,6 +30,7 @@ double getMinValue(Node *node)
       min = values[i];
     }
   }
+  delete [] values;
   return min;
 }
 

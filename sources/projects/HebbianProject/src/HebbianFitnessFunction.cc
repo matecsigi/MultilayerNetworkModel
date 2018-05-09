@@ -18,8 +18,6 @@
 
 double hebbianFitnessFunction(Network* network, HebbianParameterContainer *hebbianParameters)
 {
-  // std::cout<<"======Hebbian fitness======="<<std::endl;
-
   double sumFitness = 0;
 
   for(int i=0; i < hebbianParameters->numberOfIterations; ++i)
@@ -34,8 +32,6 @@ double hebbianFitnessFunction(Network* network, HebbianParameterContainer *hebbi
     parameters->geneticParameters->initialPopulationSize = 30;
 
     IObserver *observer = new HebbianObserver(multilayerNetwork);
-
-    // std::cout<<*multilayerNetwork<<std::endl;
 
     multilayerNetwork->iterate(hebbianParameters->transientTime, parameters);
     multilayerNetwork->iterate(hebbianParameters->runTime, parameters, observer);

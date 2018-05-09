@@ -15,7 +15,6 @@ void GeneticObserver::atStart()
   createDirectory("bin/generated");
   createDirectory("bin/generated/hebbianNetworks");
 
-  std::cout<<"at start"<<std::endl;
   auto logger = spdlog::basic_logger_mt("hebbian_logger", "bin/generated/log.txt");
   logger->info("Genetic algorithm started");
   spdlog::drop_all();
