@@ -15,7 +15,7 @@ int main(void)
 
   std::chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
 
-  int simulationTime = 5;
+  int simulationTime = 10;
 
   const char *filename="generated/multilayerStructureInit.json";
   std::string filenameInitialCond = "generated/InitialCondition-1.bin";
@@ -29,8 +29,6 @@ int main(void)
 
   multilayerNetwork->print();
   multilayerNetwork->iterate(simulationTime, parameters);
-
-  // std::cout<<*multilayerNetwork<<std::endl;
 
   delete multilayerNetwork;
 

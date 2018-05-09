@@ -1,10 +1,11 @@
+#include "NetworkUtilityFunctions.hh"
 #include "Node.hh"
 #include "Network.hh"
 #include "Layer.hh"
 #include "MultilayerNetwork.hh"
 #include "VectorField.hh"
 #include "DynamicalEquation.hh"
-#include "NetworkUtilityFunctions.hh"
+#include "NetworkClassUtility.hh"
 #include "UtilityFunctions.hh"
 #include "IdValuePair.hh"
 
@@ -58,13 +59,13 @@ void copyNetwork(Network* oldNetwork, Network* newNetwork)
 
 std::vector<IdValuePair> getIsolatedDirectionAtState(Network* network, std::vector<IdValuePair> &basePointCoordinates)
 {
+  loadNodesToEquations(network);
   std::vector<IdValuePair> directions;
   std::vector<IdValuePair> finalState;
   std::vector<Node*> nodes = network->getNodes();
   for(std::vector<Node*>::const_iterator itNode=nodes.begin(); itNode != nodes.end(); ++itNode)
   {
     DynamicalEquation* nodeEquation = network->getNodeDynamicalEquation((*itNode)->getId());
-    // std::cout<<nodeEquation->toString()<<std::endl;
     (*itNode)->stepOdeAtState(nodeEquation, basePointCoordinates, finalState);
   }
   

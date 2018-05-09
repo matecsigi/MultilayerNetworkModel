@@ -11,6 +11,7 @@
 #include "OdeWrapperAtState.hh"
 #include "UtilityFunctions.hh"
 #include "Trace.hh"
+#include "NetworkClassUtility.hh"
 #include <boost/numeric/odeint.hpp>
 #include <iomanip>
 #include <sstream>
@@ -161,6 +162,7 @@ void Node::step(SimulationParameterContainer *parameters)
   std::vector<Network*> networks = getNetworks();
   for(std::vector<Network*>::iterator itNet=networks.begin(); itNet != networks.end(); ++itNet)
   {
+    loadNodesToEquations(*itNet);
     DynamicalEquation* dynamicalEquation = (*itNet)->getNodeDynamicalEquation(this->getId());
     stepODE(dynamicalEquation, parameters);
   }

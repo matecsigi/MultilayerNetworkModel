@@ -164,7 +164,6 @@ void MultilayerNetwork::iterate(int steps, SimulationParameterContainer *paramet
       shiftBuffers(this);
     }
   }
-  if(parameters->printTrace){this->print();}
 
   save();
   saveState();
