@@ -80,10 +80,14 @@ void GeneticAlgorithmController::runGeneticAlgorithm(Network* network, IGeneticO
     // std::cout<<"   avg="<<calculateAverageFitness()<<std::endl;
   }
 
+  int id = network->getId();
+  MultilayerNetwork *multilayerNetwork = network->getMultilayerNetwork();
   if(network != NULL)
   {
     NetworkPopulationElement* bestNetwork = chooseBestNetwork();
     copyNetwork(bestNetwork->getNetwork(), network);
+    network->setId(id);
+    network->setMultilayerNetwork(multilayerNetwork);
   }
 
   if(observer != NULL){observer->atFinish();}
@@ -287,6 +291,8 @@ NetworkPopulationElement* GeneticAlgorithmController::chooseForDeath_helper()
 
 void GeneticAlgorithmController::createMixedNetwork(Network* parentNetwork1, Network* parentNetwork2, Network* childNetwork)
 {
+  childNetwork->setTime(parentNetwork1->getTime());
+
   std::vector<Node*> nodes = parentNetwork1->getNodes();
   double* tmpBuffer = new double[bufferSize];
 

@@ -96,26 +96,21 @@ double VectorField::getDistanceFrom(VectorField* vectorField)
     exit(EXIT_FAILURE);
   }
 
-  std::cout<<"===VectorField1==="<<std::endl<<*this;
-  std::cout<<"===VectorField2==="<<std::endl<<*vectorField;
-
   for(std::vector<VectorFieldPoint*>::iterator itPoint=vectorFieldPoints1.begin(); itPoint != vectorFieldPoints1.end(); ++itPoint)
   {
     VectorFieldPoint* currentPoint = (*itPoint);
     std::vector<IdValuePair> coordinate = currentPoint->getCoordinate();
     std::vector<IdValuePair> direction1 = currentPoint->getDirection();
 
-    // std::cout<<"check 1"<<std::endl;
     VectorFieldPoint *currentPoint2 = vectorField->getPoint(coordinate);
 
     if(currentPoint2 == NULL)
     {
-      std::cout<<"Error: VectorFieldPoints don't have matching coordinates in VectorField::distanceFrom"<<std::endl;
+      std::cout<<"Error: VectorFieldPoints don't have matching coordinates in VectorField::distanceFrom()"<<std::endl;
       exit(EXIT_FAILURE);
     }
-    // std::cout<<"check2, currentPoint2="<<currentPoint2<<std::endl;
+
     std::vector<IdValuePair> direction2 = currentPoint2->getDirection();
-    // std::cout<<"check 3"<<std::endl;
 
     double pointDistance = 0;
     for(std::vector<IdValuePair>::iterator itDir=direction1.begin(); itDir != direction1.end(); ++itDir)

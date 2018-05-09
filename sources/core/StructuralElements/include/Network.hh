@@ -63,6 +63,7 @@ public:
   std::vector<IdValuePair> getState(void) const;
   void setState(std::vector<IdValuePair> state);
 
+  MultilayerNetwork* getMultilayerNetwork();
   void setMultilayerNetwork(MultilayerNetwork *multilayerNetwork);
 
   //------------------------------------

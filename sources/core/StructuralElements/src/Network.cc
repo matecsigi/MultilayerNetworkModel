@@ -256,6 +256,11 @@ void Network::setState(std::vector<IdValuePair> state)
   }
 }
 
+MultilayerNetwork* Network::getMultilayerNetwork()
+{
+  return mMultilayerNetwork;
+}
+
 void Network::setMultilayerNetwork(MultilayerNetwork *multilayerNetwork)
 {
   mMultilayerNetwork = multilayerNetwork;
