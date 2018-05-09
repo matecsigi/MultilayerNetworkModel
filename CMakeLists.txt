@@ -16,7 +16,16 @@ file(GLOB_RECURSE cluster_src "sources/projects/MpiCluster/src/*.cc")
 file(GLOB_RECURSE analyzis_src "sources/projects/Analyzis/src/*.cc")
 file(GLOB_RECURSE unittest_src "sources/test/UnitTest/*.cc")
 
+set(CLUSTER 0 CACHE STRING "Using clusters")
+if(${CLUSTER} EQUAL 1)
+   add_definitions(-DCLUSTER)
+   message("Cluster build")
+else()
+   message("Not a cluster build")
+endif()
+
 add_definitions(-DTRACELEVEL=${TRACE})
+
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set (CMAKE_CXX_FLAGS "-O3 -g -Wall -std=c++11 -lboost_mpi-mt -lboost_unit_test_framework -lboost_mpi-mt -lboost_serialization -lboost_system -lboost_filesystem")
 
