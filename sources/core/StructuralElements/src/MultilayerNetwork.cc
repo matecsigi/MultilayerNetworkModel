@@ -96,11 +96,13 @@ void MultilayerNetwork::step(SimulationParameterContainer *parameters)
   bool deletionNeeded = false;
   if(parameters == NULL){parameters = new SimulationParameterContainer; deletionNeeded = true;};
 
+#ifdef CLUSTER
   MultilayerNetworkServer server;
-  if(parameters->cluster == true)
-  {
-    server.start();
-  }
+  // if(parameters->cluster == true)
+  // {
+  server.start();
+    // }
+#endif
 
   std::vector<std::vector<Node*>> nodeThreadPartition(numberOfCores);
 
@@ -128,10 +130,12 @@ void MultilayerNetwork::step(SimulationParameterContainer *parameters)
     executeStepsInThread(nodeThreadPartition[i], parameters);
   }
 
-  if(parameters->cluster == true)
-  {
+#ifdef CLUSTER
+  // if(parameters->cluster == true)
+  // {
     server.processQueue(this);
-  }
+  // }
+#endif
 
   if(deletionNeeded == true){delete parameters;}
 }
@@ -143,7 +147,12 @@ void MultilayerNetwork::iterate(int steps, SimulationParameterContainer *paramet
 
   updateNodesMap(this);
 
-  if(parameters->cluster == true){calculateClusterMessageSizes(this, parameters);}
+#ifdef CLUSTER
+  // if(parameters->cluster == true)
+  // {
+    calculateClusterMessageSizes(this, parameters);
+  // }
+#endif
 
   if(observer != NULL){observer->atStart();}
   int timeOriginal = mTime;

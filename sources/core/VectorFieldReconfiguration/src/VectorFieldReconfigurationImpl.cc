@@ -27,34 +27,38 @@ void VectorFieldReconfigurationImpl::calculateVectorFieldReconfiguration(Simulat
   VectorField* targetVectorField = new VectorField();
   calculateTargetVectorField(targetVectorField, currentVectorField, mNode, parameters);
 
-  if(geneticParameters->cluster == true)
-  {
-    int argc;
-    char **argv = NULL;
-    boost::mpi::environment env{argc, argv};
-    boost::mpi::communicator world;
+  // if(geneticParameters->cluster == true)
+  // {
+#ifdef CLUSTER
+  int argc;
+  char **argv = NULL;
+  boost::mpi::environment env{argc, argv};
+  boost::mpi::communicator world;
 
-    SerializedNetwork serializedNetwork;
-    serializeNetwork(networkAssigned, &serializedNetwork);
-    SerializedVectorField serializedVectorField;
-    serializeVectorField(targetVectorField, &serializedVectorField);
+  SerializedNetwork serializedNetwork;
+  serializeNetwork(networkAssigned, &serializedNetwork);
+  SerializedVectorField serializedVectorField;
+  serializeVectorField(targetVectorField, &serializedVectorField);
 
-    GeneticAlgorithmMessage message(mNode->getId());
-    int rankToProcess = (mNode->getId()%(world.size()-1))+1;
-    message.mNumberOfRequests = geneticParameters->clusterMessageSizes[rankToProcess];
-    // std::cout<<"nrOfReq="<<message.mNumberOfRequests<<std::endl;
-    message.mNetwork = serializedNetwork;
-    message.mVectorField = serializedVectorField;
-    world.send(rankToProcess, 0, message);
+  GeneticAlgorithmMessage message(mNode->getId());
+  int rankToProcess = (mNode->getId()%(world.size()-1))+1;
+  message.mNumberOfRequests = geneticParameters->clusterMessageSizes[rankToProcess];
+  // std::cout<<"nrOfReq="<<message.mNumberOfRequests<<std::endl;
+  message.mNetwork = serializedNetwork;
+  message.mVectorField = serializedVectorField;
+  world.send(rankToProcess, 0, message);
     
-    // std::cout<<"impl sent "<<mNode->getId()<<std::endl;
-    // mpiSend(1, 0, mNode->getId());
-  }
-  else
-  {
-    GeneticAlgorithmController geneticController(geneticParameters);
-    geneticController.fitToVectorField(networkAssigned, targetVectorField);
-  }
+  // std::cout<<"impl sent "<<mNode->getId()<<std::endl;
+  // mpiSend(1, 0, mNode->getId());
+  // }
+  // else
+  // {
+
+#else
+  GeneticAlgorithmController geneticController(geneticParameters);
+  geneticController.fitToVectorField(networkAssigned, targetVectorField);
+  // }
+#endif
 
   delete currentVectorField;
   delete targetVectorField;
