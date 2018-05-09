@@ -112,16 +112,16 @@ void MultilayerNetwork::step(SimulationParameterContainer *parameters)
     nodeThreadPartition[index].push_back(mNodesMap[id]);
   }
 
-  // std::thread stepThreads[numberOfCores];
-  // for(int i=0; i < numberOfCores; ++i)
-  // {
-  //   stepThreads[i] = std::thread(executeStepsInThread, std::ref(nodeThreadPartition[i]), parameters);
-  // }
+  std::thread stepThreads[numberOfCores];
+  for(int i=0; i < numberOfCores; ++i)
+  {
+    stepThreads[i] = std::thread(executeStepsInThread, std::ref(nodeThreadPartition[i]), parameters);
+  }
 
-  // for(int i=0; i < numberOfCores; ++i)
-  // {
-  //   stepThreads[i].join();
-  // }
+  for(int i=0; i < numberOfCores; ++i)
+  {
+    stepThreads[i].join();
+  }
 
   for(int i=0; i<numberOfCores; ++i)
   {
