@@ -12,8 +12,9 @@ public:
   GeneticAlgorithmParameterContainer(){};
   ~GeneticAlgorithmParameterContainer(){};
 
+  bool trace = false;
+  
   bool cluster = false;
-
   int defaultCall = 0;
 
   int initialPopulationSize = 30; //250
@@ -26,7 +27,6 @@ public:
      This strategy is called elitism.
   */
   double elitRatio = 0.2;
-
   double maxConstantChange = 0.01;
 
   std::vector<double> modificationTypeProbabilities = vectorReconfModTypeProbabilities;

@@ -24,6 +24,7 @@ int main()
 
   SimulationParameterContainer *parameters = new SimulationParameterContainer;
   parameters->printTrace = true;
+  parameters->geneticParameters->trace = true;
   parameters->geneticParameters->numberOfGenerations = 150;
   parameters->geneticParameters->initialPopulationSize = 50;
 

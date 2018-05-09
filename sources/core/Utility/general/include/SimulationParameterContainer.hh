@@ -2,12 +2,13 @@
 #define SIMULATIONPARAMETERCONTAINER_HH
 
 #include "GeneticAlgorithmParameterContainer.hh"
+#include "TraceParameterContainer.hh"
 #include <algorithm>
 
 class SimulationParameterContainer
 {
 public:
-  SimulationParameterContainer(){geneticParameters = new GeneticAlgorithmParameterContainer;};
+  SimulationParameterContainer(){geneticParameters = new GeneticAlgorithmParameterContainer; traceParameters = new TraceParameterContainer;};
   ~SimulationParameterContainer(){delete geneticParameters;};
 
   bool printTrace = false;
@@ -26,6 +27,7 @@ public:
   std::function<double (double, double)> adjustmentDistanceFunction = [](double factor, double distance){return std::min(1.0,factor/distance);};
 
   GeneticAlgorithmParameterContainer *geneticParameters;
+  TraceParameterContainer *traceParameters;
 };
 
 #endif
