@@ -16,6 +16,7 @@ private:
   {
     ar & mId;
     ar & mDynamicalEquation;
+    ar & mValues;
   }
 
 public:
@@ -23,8 +24,12 @@ public:
   SerializedNode(int id, std::string dynamicalEquation):mId(id), mDynamicalEquation(dynamicalEquation){};
   ~SerializedNode(){};
 
+  friend void serializeNode(Node *node, SerializedNode *serializedNode);
+  friend void deserializeNode(SerializedNode *serializedNode, Node *node);
+
   int mId;
   std::string mDynamicalEquation;
+  std::vector<double> mValues;
 };
 
 class SerializedEdge
@@ -56,10 +61,12 @@ private:
   {
     ar & mNodes;
     ar & mEdges;
+    ar & mTime;
   }
 
   std::vector<SerializedNode> mNodes;
   std::vector<SerializedEdge> mEdges;
+  int mTime;
 public:
   SerializedNetwork(){};
   ~SerializedNetwork(){};

@@ -95,7 +95,11 @@ void MultilayerNetworkServer::processQueue(MultilayerNetwork *multilayerNetwork)
 
       Node* node = multilayerNetwork->mNodesMap[nodeId];
       Network* networkAssigned = node->getNetworkAssigned();
+      int id = networkAssigned->getId();
       copyNetwork(network, networkAssigned);
+
+      networkAssigned->setId(id);
+      networkAssigned->setMultilayerNetwork(multilayerNetwork);
 
       delete network;
 

@@ -3,6 +3,31 @@
 #include "VectorFieldPoint.hh"
 #include "IdValuePair.hh"
 
+void serializeNode(Node *node, SerializedNode *serializedNode)
+{
+  double *values = new double[bufferSize];
+  node->getValues(values);
+  for(int i=0; i<bufferSize; ++i)
+  {
+    serializedNode->mValues.push_back(values[i]);
+  }
+
+  delete values;
+}
+
+void deserializeNode(SerializedNode *serializedNode, Node *node)
+{
+  double *values = new double[bufferSize];
+  int counter = 0;
+  for(std::vector<double>::iterator itValue=serializedNode->mValues.begin(); itValue != serializedNode->mValues.end(); ++itValue)
+  {
+    values[counter] = *itValue;
+    ++counter;
+  }
+  node->setValues(values);
+  delete values;
+}
+
 void serializeNetwork(Network *network, SerializedNetwork *serializedNetwork)
 {
   std::vector<Node*> nodes = network->getNodes();
@@ -11,7 +36,9 @@ void serializeNetwork(Network *network, SerializedNetwork *serializedNetwork)
     Node* currentNode = (*itNode);
     int id = currentNode->getId();
     std::string dynamicalEquation = network->getNodeDynamicalEquationString(id);
-    serializedNetwork->mNodes.push_back(SerializedNode(id, dynamicalEquation));
+    SerializedNode serializedNode(id, dynamicalEquation);
+    serializeNode(currentNode, &serializedNode);
+    serializedNetwork->mNodes.push_back(serializedNode);
     
     std::vector<Node*> neighbors = network->getNodeNeighbors(id);
     for(std::vector<Node*>::iterator itNei=neighbors.begin(); itNei != neighbors.end(); ++itNei)
@@ -20,6 +47,8 @@ void serializeNetwork(Network *network, SerializedNetwork *serializedNetwork)
       serializedNetwork->mEdges.push_back(SerializedEdge(id, neighborId));
     }
   }
+
+  serializedNetwork->mTime = network->getTime();
 }
 
 void deserializeNetwork(SerializedNetwork* serializedNetwork, Network* network)
@@ -32,6 +61,8 @@ void deserializeNetwork(SerializedNetwork* serializedNetwork, Network* network)
     std::string dynamicalEquation = currentNode.mDynamicalEquation;
     network->addNodeById(id);
     network->setDynamicalEquationString(id, dynamicalEquation);
+    Node *node = network->getNodeById(id);
+    deserializeNode(&currentNode, node);
   }
 
   std::vector<SerializedEdge> serializedEdges = serializedNetwork->mEdges;
@@ -42,6 +73,8 @@ void deserializeNetwork(SerializedNetwork* serializedNetwork, Network* network)
     int target = currentEdge.mTargetId;
     network->addEdge(source, target);
   }
+
+  network->setTime(serializedNetwork->mTime);
 }
 
 void serializeVectorField(VectorField *vectorField, SerializedVectorField *serializedVectorField)
