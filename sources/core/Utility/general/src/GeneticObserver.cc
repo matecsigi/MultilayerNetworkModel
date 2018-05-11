@@ -3,6 +3,7 @@
 #include "UtilityFunctions.hh"
 #include "GeneticAlgorithmController.hh"
 #include <iostream>
+#include <sstream>
 #include <spdlog/spdlog.h>
 #include <sys/stat.h>
 
@@ -22,16 +23,6 @@ void GeneticObserver::atStart()
 
 void GeneticObserver::atStep()
 {
-  // NetworkPopulationElement* bestNetwork = mGeneticAlgorithmController->chooseBestNetwork();
-  // std::string filename = "bin/generated/hebbianNetworks/geneticNetwork_gen";
-  // int generation = mGeneticAlgorithmController->getGeneration();
-  // filename.append(std::to_string(generation));
-  // filename.append("_fitness");
-  // filename.append(std::to_string(bestNetwork->getFitness()));
-  // filename.append(".json");
-
-  //saveNetworkToJSON(bestNetwork->getNetwork(), filename);
-
   NetworkPopulationElement* bestNetwork = mGeneticAlgorithmController->chooseBestNetwork();
 
   auto logger = spdlog::basic_logger_mt("hebbian_logger", "bin/generated/log.txt");
@@ -53,7 +44,9 @@ void GeneticObserver::atStep()
     fileName.append("/network-");
     fileName.append(std::to_string(currentElement->getNetwork()->getId()));
     fileName.append("-fitness-");
-    fileName.append(std::to_string(currentElement->getFitness()));
+    std::ostringstream streamObj;
+    streamObj<<currentElement->getFitness();
+    fileName.append(streamObj.str());
     fileName.append(".json");
 
     saveNetworkToJSON(currentElement->getNetwork(), fileName);
